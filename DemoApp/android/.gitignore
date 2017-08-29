@@ -1,0 +1,21 @@
+# Non-project-specific build files:
+build.xml
+local.properties
+# Ant builds
+ant-build
+ant-gen
+# Eclipse builds
+gen
+out
+# Gradle builds
+/build
+*.iml
+.gradle
+/local.properties
+/.idea/workspace.xml
+/.idea/libraries
+.DS_Store
+build/
+/captures
+.externalNativeBuild
+/.idea

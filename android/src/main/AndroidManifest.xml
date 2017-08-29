@@ -1,0 +1,47 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.jumio.react">
+    
+    <uses-sdk
+    android:minSdkVersion="16"
+    android:targetSdkVersion="22" />
+    
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-feature android:name="android.hardware.camera" android:required="false"/>
+    
+    <application>
+        <meta-data
+            android:name="com.google.android.gms.vision.DEPENDENCIES"
+            android:value="barcode, face"
+            tools:replace="android:value"/>
+        <activity
+            android:name="com.jumio.nv.NetverifyActivity"
+            android:windowSoftInputMode="adjustResize"
+            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
+            android:hardwareAccelerated="true"
+            android:theme="@style/Theme.Netverify"/>
+        <activity
+            android:name="com.jumio.bam.BamActivity"
+            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
+            android:hardwareAccelerated="true"
+            android:theme="@style/Theme.Bam"/>
+        <activity
+            android:name="com.jumio.dv.DocumentVerificationActivity"
+            android:windowSoftInputMode="adjustResize"
+            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
+            android:hardwareAccelerated="true"
+            android:theme="@style/Theme.DocumentVerification"/>
+            
+        -keep class net.sf.scuba.smartcards.IsoDepCardService {*;}
+        -keep class org.jmrtd.** { *; }
+        -keep class net.sf.scuba.** {*;}
+        -keep class org.spongycastle.** {*;}
+        -keep class org.ejbca.** {*;}
+        
+        -dontwarn java.nio.**
+        -dontwarn org.codehaus.**
+        -dontwarn org.ejbca.**
+        -dontwarn org.spongycastle.**
+    </application>
+    
+</manifest>

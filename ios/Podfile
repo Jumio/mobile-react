@@ -1,0 +1,11 @@
+# Uncomment this line to define a global platform for your project
+platform :ios, '8.0'
+
+source 'https://github.com/CocoaPods/Specs.git'
+source 'http://mobile-sdk.jumio.com/distribution.git'
+
+use_frameworks!
+
+target "YOUR_TARGET_NAME" do
+    pod 'JumioMobileSDK-FAT', '2.8.0'
+end
