@@ -7,5 +7,5 @@ source 'http://mobile-sdk.jumio.com/distribution.git'
 use_frameworks!
 
 target "DemoApp" do
-    pod 'JumioMobileSDK-FAT', '2.7.0'
+    pod 'JumioMobileSDK-FAT', '2.8.0'
 end
