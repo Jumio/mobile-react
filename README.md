@@ -10,7 +10,7 @@ With every release, we only ensure compatibility with the latest version of Reac
 
 Create React Native project and add the Jumio Mobile SDK module to it.
 ```
-react-native init MyProject 
+react-native init MyProject
 cd MyProject
 npm install --save https://github.com/Jumio/mobile-react.git#v2.8.0
 react-native link react-native-jumio-mobilesdk
@@ -64,6 +64,8 @@ repositories {
 
 5. Change the extend of your MainActivity to JumioActivity
 ```javascript
+import com.jumio.react.JumioActivity;
+
 public class MainActivity extends JumioActivity {
 ```
 
@@ -129,7 +131,7 @@ JumioMobileSDK.startBAM();
 6. First add **NativeEventEmitter** for iOS and **DeviceEventEmitter** for android to the import from 'react-native' and listen to the events.
 
 **iOS**
-```javascript 
+```javascript
 import {
     ...
     NativeEventEmitter
@@ -147,7 +149,7 @@ emitter.addListener(
 ```
 
 **Android**
-```javascript 
+```javascript
 import {
     ...
     DeviceEventEmitter
@@ -186,7 +188,3 @@ To get information about callbacks, please see the [callback chapter](https://gi
 # Copyright
 
 © Jumio Corp. 268 Lambert Avenue, Palo Alto, CA 94306
-
-
-
-
