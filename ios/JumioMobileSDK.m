@@ -43,7 +43,7 @@ RCT_EXPORT_METHOD(initBAMWithCustomization:(NSString *)apiToken apiSecret:(NSStr
         [self sendError: @"Missing required parameters apiToken, apiSecret or dataCenter"];
         return;
     }
-    
+
     // Initialization
     _bamConfiguration = [BAMCheckoutConfiguration new];
     _bamConfiguration.delegate = self;
@@ -51,7 +51,7 @@ RCT_EXPORT_METHOD(initBAMWithCustomization:(NSString *)apiToken apiSecret:(NSStr
     _bamConfiguration.merchantApiSecret = apiSecret;
     NSString *dataCenterLowercase = [dataCenter lowercaseString];
     _bamConfiguration.dataCenter = ([dataCenterLowercase isEqualToString: @"eu"]) ? JumioDataCenterEU : JumioDataCenterUS;
-    
+
     // Configuration
     if (![options isEqual: [NSNull null]]) {
         for (NSString *key in options) {
@@ -84,11 +84,11 @@ RCT_EXPORT_METHOD(initBAMWithCustomization:(NSString *)apiToken apiSecret:(NSStr
             } else if ([key isEqualToString: @"cardTypes"]) {
                 NSMutableArray *jsonTypes = [options objectForKey: key];
                 BAMCheckoutCreditCardTypes cardTypes = 0;
-                
+
                 int i;
                 for (i = 0; i < [jsonTypes count]; i++) {
                     id type = [jsonTypes objectAtIndex: i];
-                    
+
                     if ([[type lowercaseString] isEqualToString: @"visa"]) {
                         cardTypes = cardTypes | BAMCheckoutCreditCardTypeVisa;
                     } else if ([[type lowercaseString] isEqualToString: @"master_card"]) {
@@ -107,12 +107,12 @@ RCT_EXPORT_METHOD(initBAMWithCustomization:(NSString *)apiToken apiSecret:(NSStr
                         cardTypes = cardTypes | BAMCheckoutCreditCardTypeStarbucks;
                     }
                 }
-                
+
                 _bamConfiguration.supportedCreditCardTypes = cardTypes;
             }
         }
     }
-    
+
     // Customization
     if (![customization isEqual:[NSNull null]]) {
         for (NSString *key in customization) {
@@ -120,7 +120,7 @@ RCT_EXPORT_METHOD(initBAMWithCustomization:(NSString *)apiToken apiSecret:(NSStr
                 [[BAMCheckoutBaseView bamCheckoutAppearance] setDisableBlur: @YES];
             } else {
                 UIColor *color = [self colorWithHexString: [customization objectForKey: key]];
-                
+
                 if ([key isEqualToString: @"backgroundColor"]) {
                     [[BAMCheckoutBaseView bamCheckoutAppearance] setBackgroundColor: color];
                 } else if ([key isEqualToString: @"tintColor"]) {
@@ -151,7 +151,7 @@ RCT_EXPORT_METHOD(initBAMWithCustomization:(NSString *)apiToken apiSecret:(NSStr
             }
         }
     }
-    
+
     _bamViewController = [[BAMCheckoutViewController alloc]initWithConfiguration: _bamConfiguration];
 }
 
@@ -160,9 +160,11 @@ RCT_EXPORT_METHOD(startBAM) {
         NSLog(@"The BAMCheckout SDK is not initialized yet. Call initBAM() first.");
         return;
     }
-    
+
     AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    [delegate.window.rootViewController presentViewController: _bamViewController animated: YES completion: nil];
+    dispatch_sync(dispatch_get_main_queue(), ^{
+        [delegate.window.rootViewController presentViewController: _bamViewController animated: YES completion: nil];
+    });
 }
 
 #pragma mark - Netverify
@@ -180,7 +182,7 @@ RCT_EXPORT_METHOD(initNetverifyWithCustomization:(NSString *)apiToken apiSecret:
         [self sendError: @"Missing required parameters apiToken, apiSecret or dataCenter"];
         return;
     }
-    
+
     // Initialization
     _netverifyConfiguration = [NetverifyConfiguration new];
     _netverifyConfiguration.delegate = self;
@@ -188,7 +190,7 @@ RCT_EXPORT_METHOD(initNetverifyWithCustomization:(NSString *)apiToken apiSecret:
     _netverifyConfiguration.merchantApiSecret = apiSecret;
     NSString *dataCenterLowercase = [dataCenter lowercaseString];
     _netverifyConfiguration.dataCenter = ([dataCenterLowercase isEqualToString: @"eu"]) ? JumioDataCenterEU : JumioDataCenterUS;
-    
+
     // Configuration
     if (![options isEqual:[NSNull null]]) {
         for (NSString *key in options) {
@@ -223,11 +225,11 @@ RCT_EXPORT_METHOD(initNetverifyWithCustomization:(NSString *)apiToken apiSecret:
             } else if ([key isEqualToString: @"documentTypes"]) {
                 NSMutableArray *jsonTypes = [options objectForKey: key];
                 NetverifyDocumentType documentTypes = 0;
-                
+
                 int i;
                 for (i = 0; i < [jsonTypes count]; i++) {
                     id type = [jsonTypes objectAtIndex: i];
-                    
+
                     if ([[type lowercaseString] isEqualToString: @"passport"]) {
                         documentTypes = documentTypes | NetverifyDocumentTypePassport;
                     } else if ([[type lowercaseString] isEqualToString: @"driver_license"]) {
@@ -238,12 +240,12 @@ RCT_EXPORT_METHOD(initNetverifyWithCustomization:(NSString *)apiToken apiSecret:
                         documentTypes = documentTypes | NetverifyDocumentTypeVisa;
                     }
                 }
-                
+
                 _netverifyConfiguration.preselectedDocumentTypes = documentTypes;
             }
         }
     }
-    
+
     // Customization
     if (![customization isEqual:[NSNull null]]) {
         for (NSString *key in customization) {
@@ -251,7 +253,7 @@ RCT_EXPORT_METHOD(initNetverifyWithCustomization:(NSString *)apiToken apiSecret:
                 [[NetverifyBaseView netverifyAppearance] setDisableBlur: @YES];
             } else {
                 UIColor *color = [self colorWithHexString: [customization objectForKey: key]];
-                
+
                 if ([key isEqualToString: @"backgroundColor"]) {
                     [[NetverifyBaseView netverifyAppearance] setBackgroundColor: color];
                 } else if ([key isEqualToString: @"tintColor"]) {
@@ -292,7 +294,7 @@ RCT_EXPORT_METHOD(initNetverifyWithCustomization:(NSString *)apiToken apiSecret:
             }
         }
     }
-    
+
     _netverifyViewController = [[NetverifyViewController alloc] initWithConfiguration: _netverifyConfiguration];
 }
 
@@ -301,9 +303,11 @@ RCT_EXPORT_METHOD(startNetverify) {
         NSLog(@"The Netverify SDK is not initialized yet. Call initNetverify() first.");
         return;
     }
-    
+
     AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    [delegate.window.rootViewController presentViewController: _netverifyViewController animated:YES completion: nil];
+    dispatch_sync(dispatch_get_main_queue(), ^{
+        [delegate.window.rootViewController presentViewController: _netverifyViewController animated:YES completion: nil];
+    });
 }
 
 #pragma mark - Document Verification
@@ -321,7 +325,7 @@ RCT_EXPORT_METHOD(initDocumentVerificationWithCustomization:(NSString *)apiToken
         [self sendError: @"Missing required parameters apiToken, apiSecret or dataCenter"];
         return;
     }
-    
+
     // Initialization
     _documentVerifcationConfiguration = [DocumentVerificationConfiguration new];
     _documentVerifcationConfiguration.delegate = self;
@@ -329,7 +333,7 @@ RCT_EXPORT_METHOD(initDocumentVerificationWithCustomization:(NSString *)apiToken
     _documentVerifcationConfiguration.merchantApiSecret = apiSecret;
     NSString *dataCenterLowercase = [dataCenter lowercaseString];
     _documentVerifcationConfiguration.dataCenter = ([dataCenterLowercase isEqualToString: @"eu"]) ? JumioDataCenterEU : JumioDataCenterUS;
-    
+
     // Configuration
     if (![options isEqual:[NSNull null]]) {
         for (NSString *key in options) {
@@ -358,7 +362,7 @@ RCT_EXPORT_METHOD(initDocumentVerificationWithCustomization:(NSString *)apiToken
             }
         }
     }
-    
+
     // Customization
     if (![customization isEqual:[NSNull null]]) {
         for (NSString *key in customization) {
@@ -366,7 +370,7 @@ RCT_EXPORT_METHOD(initDocumentVerificationWithCustomization:(NSString *)apiToken
                 [[NetverifyBaseView netverifyAppearance] setDisableBlur: @YES];
             } else {
                 UIColor *color = [self colorWithHexString: [customization objectForKey: key]];
-                
+
                 if ([key isEqualToString: @"backgroundColor"]) {
                     [[NetverifyBaseView netverifyAppearance] setBackgroundColor: color];
                 } else if ([key isEqualToString: @"tintColor"]) {
@@ -407,7 +411,7 @@ RCT_EXPORT_METHOD(initDocumentVerificationWithCustomization:(NSString *)apiToken
             }
         }
     }
-    
+
     _documentVerificationViewController = [[DocumentVerificationViewController alloc]initWithConfiguration: _documentVerifcationConfiguration];
 }
 
@@ -416,16 +420,18 @@ RCT_EXPORT_METHOD(startDocumentVerification) {
         NSLog(@"The Document Verification SDK is not initialized yet. Call initDocumentVerification() first.");
         return;
     }
-    
+
     AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    [delegate.window.rootViewController presentViewController: _documentVerificationViewController animated: YES completion: nil];
+    dispatch_sync(dispatch_get_main_queue(), ^{
+        [delegate.window.rootViewController presentViewController: _documentVerificationViewController animated: YES completion: nil];
+    });
 }
 
 #pragma mark - BAMCheckout Delegates
 
 - (void)bamCheckoutViewController:(BAMCheckoutViewController *)controller didFinishScanWithCardInformation:(BAMCheckoutCardInformation *)cardInformation scanReference:(NSString *)scanReference {
     NSMutableDictionary *result = [[NSMutableDictionary alloc] init];
-    
+
     if (cardInformation.cardType == BAMCheckoutCreditCardTypeVisa) {
         [result setValue: @"VISA" forKey: @"cardType"];
     } else if (cardInformation.cardType == BAMCheckoutCreditCardTypeMasterCard) {
@@ -443,7 +449,7 @@ RCT_EXPORT_METHOD(startDocumentVerification) {
     } else if (cardInformation.cardType == BAMCheckoutCreditCardTypeStarbucks) {
         [result setValue: @"STARBUCKS" forKey: @"cardType"];
     }
-    
+
     [result setValue: [cardInformation.cardNumber copy] forKey: @"cardNumber"];
     [result setValue: [cardInformation.cardNumberGrouped copy] forKey: @"cardNumberGrouped"];
     [result setValue: [cardInformation.cardNumberMasked copy] forKey: @"cardNumberMasked"];
@@ -456,7 +462,7 @@ RCT_EXPORT_METHOD(startDocumentVerification) {
     [result setValue: [cardInformation.cardAccountNumber copy] forKey: @"cardAccountNumber"];
     [result setValue: [NSNumber numberWithBool: cardInformation.cardSortCodeValid] forKey: @"cardSortCodeValid"];
     [result setValue: [NSNumber numberWithBool: cardInformation.cardAccountNumberValid] forKey: @"cardAccountNumberValid"];
-    
+
     AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     [delegate.window.rootViewController dismissViewControllerAnimated: YES completion: ^{
         [self sendEventWithName: @"EventCardInformation" body: result];
@@ -477,7 +483,7 @@ RCT_EXPORT_METHOD(startDocumentVerification) {
     NSMutableDictionary *result = [[NSMutableDictionary alloc] init];
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat: @"yyyy-MM-dd'T'HH:mm:ss.SSS"];
-    
+
     [result setValue: documentData.selectedCountry forKey: @"selectedCountry"];
     if (documentData.selectedDocumentType == NetverifyDocumentTypePassport) {
         [result setValue: @"PASSPORT" forKey: @"selectedDocumentType"];
@@ -520,7 +526,7 @@ RCT_EXPORT_METHOD(startDocumentVerification) {
     } else if (documentData.extractionMethod == NetverifyExtractionMethodNone) {
         [result setValue: @"NONE" forKey: @"extractionMethod"];
     }
-    
+
     // MRZ data if available
     if (documentData.mrzData != nil) {
         NSMutableDictionary *mrzData = [[NSMutableDictionary alloc] init];
@@ -539,7 +545,7 @@ RCT_EXPORT_METHOD(startDocumentVerification) {
         } else if (documentData.mrzData.format == NetverifyMRZFormatUnknown) {
             [mrzData setValue: @"UNKNOWN" forKey: @"format"];
         }
-        
+
         [mrzData setValue: documentData.mrzData.line1 forKey: @"line1"];
         [mrzData setValue: documentData.mrzData.line2 forKey: @"line2"];
         [mrzData setValue: documentData.mrzData.line3 forKey: @"line3"];
@@ -550,7 +556,7 @@ RCT_EXPORT_METHOD(startDocumentVerification) {
         [mrzData setValue: [NSNumber numberWithBool: documentData.mrzData.compositeValid] forKey: @"compositeValid"];
         [result setValue: mrzData forKey: @"mrzData"];
     }
-    
+
     AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     [delegate.window.rootViewController dismissViewControllerAnimated: YES completion: ^{
         [self sendEventWithName: @"EventDocumentData" body: result];
