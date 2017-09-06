@@ -1,8 +1,9 @@
 package com.demoapp;
 
-import com.jumio.react.JumioActivity;
+import com.facebook.react.ReactActivity;
+import com.jumio.react.JumioPackage;
 
-public class MainActivity extends JumioActivity {
+public class MainActivity extends ReactActivity {
 
     /**
      * Returns the name of the main component registered from JavaScript.
@@ -11,5 +12,11 @@ public class MainActivity extends JumioActivity {
     @Override
     protected String getMainComponentName() {
         return "DemoApp";
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        JumioPackage.onRequestPermissionsResult(getReactInstanceManager().getCurrentReactContext(), requestCode, permissions, grantResults);
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
 }
