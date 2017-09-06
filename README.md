@@ -45,7 +45,7 @@ android {
 ```
 
 3. Enable MultiDex
-```javascript
+```java
 android {
     ...
     defaultConfig {
@@ -56,15 +56,27 @@ android {
 ```
 
 4. Add the Jumio Mobile SDK repository
-```javascript
+```java
 repositories {  
     maven { url 'http://mobile-sdk.jumio.com' }
 }
 ```
 
-5. Change the extend of your MainActivity to JumioActivity
-```javascript
-public class MainActivity extends JumioActivity {
+5. Call JumioPackage's onRequestPermissionsResult method in MainActivity
+```java
+public class MainActivity extends ReactActivity {
+
+  ......
+
+  @Override
+  public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+      JumioPackage.onRequestPermissionsResult(getReactInstanceManager().getCurrentReactContext(), requestCode, permissions, grantResults);
+      super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+  }
+
+  ......
+
+}
 ```
 
 ## Usage
