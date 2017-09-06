@@ -50,6 +50,7 @@ public class JumioModule extends ReactContextBaseJavaModule implements ActivityE
     
     public JumioModule(ReactApplicationContext reactContext) {
         super(reactContext);
+        reactContext.addActivityEventListener(this);
     }
     
     @Override
@@ -80,10 +81,10 @@ public class JumioModule extends ReactContextBaseJavaModule implements ActivityE
     }
 
     @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+    public void onActivityResult(Activity activity, int requestCode, int resultCode, Intent intent) {
         if (requestCode == BamSDK.REQUEST_CODE) {
             if (resultCode == Activity.RESULT_OK) {
-                BamCardInformation cardInformation = data.getParcelableExtra(BamSDK.EXTRA_CARD_INFORMATION);
+                BamCardInformation cardInformation = intent.getParcelableExtra(BamSDK.EXTRA_CARD_INFORMATION);
                 JSONObject result = new JSONObject();
                 try {
                     result.put("cardType", cardInformation.getCardType());
@@ -106,12 +107,12 @@ public class JumioModule extends ReactContextBaseJavaModule implements ActivityE
                     showErrorMessage("Result could not be sent. Try again.");
                 }
             } else if (resultCode == Activity.RESULT_CANCELED) {
-                String errorMessage = data.getStringExtra(BamSDK.EXTRA_ERROR_MESSAGE);
+                String errorMessage = intent.getStringExtra(BamSDK.EXTRA_ERROR_MESSAGE);
                 showErrorMessage(errorMessage);
             }
         } else if (requestCode == NetverifySDK.REQUEST_CODE) {
             if (resultCode == Activity.RESULT_OK) {
-                NetverifyDocumentData documentData = (NetverifyDocumentData) data.getParcelableExtra(NetverifySDK.EXTRA_SCAN_DATA);
+                NetverifyDocumentData documentData = (NetverifyDocumentData) intent.getParcelableExtra(NetverifySDK.EXTRA_SCAN_DATA);
                 JSONObject result = new JSONObject();
                 try {
                     result.put("selectedCountry", documentData.getSelectedCountry());
@@ -161,17 +162,22 @@ public class JumioModule extends ReactContextBaseJavaModule implements ActivityE
                     showErrorMessage("Result could not be sent. Try again.");
                 }
             } else if (resultCode == Activity.RESULT_CANCELED) {
-                String errorMessage = data.getStringExtra(NetverifySDK.EXTRA_ERROR_MESSAGE);
+                String errorMessage = intent.getStringExtra(NetverifySDK.EXTRA_ERROR_MESSAGE);
                 showErrorMessage(errorMessage);
             }
         } else if (requestCode == DocumentVerificationSDK.REQUEST_CODE) {
             if (resultCode == Activity.RESULT_OK) {
                 sendEvent("EventDocumentVerification", "Document-Verification finished successfully.");
             } else if (resultCode == Activity.RESULT_CANCELED) {
-                String errorMessage = data.getStringExtra(DocumentVerificationSDK.EXTRA_ERROR_MESSAGE);
+                String errorMessage = intent.getStringExtra(DocumentVerificationSDK.EXTRA_ERROR_MESSAGE);
                 showErrorMessage(errorMessage);
             }
         }
+    }
+
+    @Override
+    public void onNewIntent(Intent intent) {
+
     }
 
     // Netverify
