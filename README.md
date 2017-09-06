@@ -64,6 +64,8 @@ repositories {
 
 5. Call JumioPackage's onRequestPermissionsResult method in MainActivity
 ```java
+import com.jumio.react.JumioPackage;
+
 public class MainActivity extends ReactActivity {
 
   ......
