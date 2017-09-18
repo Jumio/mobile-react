@@ -183,6 +183,15 @@ You can find all the different customization options by following the [customiza
 
 To get information about callbacks, please see the [callback chapter](https://github.com/Jumio/mobile-cordova/blob/master/README.md#callback) of our Cordova plugin.
 
+## Issues
+The events are sent differently on ios and android.
+Currently on ios the `NativeEventEmitter`is being used while on android the `DeviceEventEmitter`. Please pick one and unify the api.
+Find further information here:
+https://github.com/facebook/react-native/issues/7341#issuecomment-219415369
+https://stackoverflow.com/questions/36692416/deviceeventemitter-vs-nativeappeventemitter#comment61466559_36944518
+
+Also please re-enable github issues.
+
 # Copyright
 
 © Jumio Corp. 268 Lambert Avenue, Palo Alto, CA 94306
