@@ -107,7 +107,7 @@ offlineToken: "TOKEN",
 ### Android Netverify eMRTD
 
 Use `enableEMRTD` to read the NFC chip of an eMRTD.
-```javascriot
+```javascript
 JumioMobileSDK.enableEMRTD();
 ```
 
@@ -129,7 +129,7 @@ JumioMobileSDK.startBAM();
 6. First add **NativeEventEmitter** for iOS and **DeviceEventEmitter** for android to the import from 'react-native' and listen to the events.
 
 **iOS**
-```javascript 
+```javascript
 import {
     ...
     NativeEventEmitter
@@ -147,7 +147,7 @@ emitter.addListener(
 ```
 
 **Android**
-```javascript 
+```javascript
 import {
     ...
     DeviceEventEmitter
@@ -177,15 +177,22 @@ JumioMobileSDK.initDocumentVerificationWithCustomization(<API_TOKEN>, <API_SECRE
 JumioMobileSDK.initBAMWithCustomization(<API_TOKEN>, <API_SECRET>, <DATACENTER>, {configuration}, {customization});
 ```
 
-You can find all the different customization options by following the [customization chapter](https://github.com/Jumio/mobile-cordova-pilot/blob/master/README.md#ios-1) of our Cordova plugin.
+You can find all the different customization options by following the [customization chapter](https://github.com/Jumio/mobile-cordova/blob/master/README.md#ios-1) of our Cordova plugin.
 
 ## Callbacks
 
 To get information about callbacks, please see the [callback chapter](https://github.com/Jumio/mobile-cordova/blob/master/README.md#callback) of our Cordova plugin.
 
-# Copyright
 
-© Jumio Corp. 268 Lambert Avenue, Palo Alto, CA 94306
+# Support
+
+## Contact
+
+If you have any questions regarding our implementation guide please contact Jumio Customer Service at support@jumio.com or https://support.jumio.com. The Jumio online helpdesk contains a wealth of information regarding our service including demo videos, product descriptions, FAQs and other things that may help to get you started with Jumio. Check it out at: https://support.jumio.com.
+
+## Copyright
+
+&copy; Jumio Corp. 268 Lambert Avenue, Palo Alto, CA 94306
 
 
 
