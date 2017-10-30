@@ -152,7 +152,7 @@ RCT_EXPORT_METHOD(initBAMWithCustomization:(NSString *)apiToken apiSecret:(NSStr
         }
     }
     
-    _bamViewController = [[BAMCheckoutViewController alloc]initWithConfiguration: _bamConfiguration];
+    _bamViewController = [[BAMCheckoutViewController alloc] initWithConfiguration: _bamConfiguration];
 }
 
 RCT_EXPORT_METHOD(startBAM) {
@@ -162,7 +162,9 @@ RCT_EXPORT_METHOD(startBAM) {
     }
     
     AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    [delegate.window.rootViewController presentViewController: _bamViewController animated: YES completion: nil];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [delegate.window.rootViewController presentViewController: _bamViewController animated: YES completion: nil];
+    });
 }
 
 #pragma mark - Netverify
@@ -303,7 +305,9 @@ RCT_EXPORT_METHOD(startNetverify) {
     }
     
     AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    [delegate.window.rootViewController presentViewController: _netverifyViewController animated:YES completion: nil];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [delegate.window.rootViewController presentViewController: _netverifyViewController animated:YES completion: nil];
+    });
 }
 
 #pragma mark - Document Verification
@@ -418,7 +422,9 @@ RCT_EXPORT_METHOD(startDocumentVerification) {
     }
     
     AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    [delegate.window.rootViewController presentViewController: _documentVerificationViewController animated: YES completion: nil];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [delegate.window.rootViewController presentViewController: _documentVerificationViewController animated: YES completion: nil];
+    });
 }
 
 #pragma mark - BAMCheckout Delegates
@@ -458,9 +464,11 @@ RCT_EXPORT_METHOD(startDocumentVerification) {
     [result setValue: [NSNumber numberWithBool: cardInformation.cardAccountNumberValid] forKey: @"cardAccountNumberValid"];
     
     AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    [delegate.window.rootViewController dismissViewControllerAnimated: YES completion: ^{
-        [self sendEventWithName: @"EventCardInformation" body: result];
-    }];
+    dispatch_async(dispatch_get_main_queue(), ^{
+       [delegate.window.rootViewController dismissViewControllerAnimated: YES completion: ^{
+           [self sendEventWithName: @"EventCardInformation" body: result];
+       }];
+    });
 }
 
 - (void)bamCheckoutViewController:(BAMCheckoutViewController *)controller didCancelWithError:(NSError *)error scanReference:(NSString *)scanReference {
@@ -552,9 +560,11 @@ RCT_EXPORT_METHOD(startDocumentVerification) {
     }
     
     AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    [delegate.window.rootViewController dismissViewControllerAnimated: YES completion: ^{
-        [self sendEventWithName: @"EventDocumentData" body: result];
-    }];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [delegate.window.rootViewController dismissViewControllerAnimated: YES completion: ^{
+            [self sendEventWithName: @"EventDocumentData" body: result];
+        }];
+    });
 }
 
 - (void) netverifyViewController:(NetverifyViewController *)netverifyViewController didCancelWithError:(NSError *)error scanReference:(NSString *)scanReference {
@@ -571,9 +581,11 @@ RCT_EXPORT_METHOD(startDocumentVerification) {
 
 - (void)documentVerificationViewController:(DocumentVerificationViewController *)documentVerificationViewController didFinishWithScanReference:(NSString *)scanReference {
     AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    [delegate.window.rootViewController dismissViewControllerAnimated: YES completion: ^{
-        [self sendEventWithName: @"EventDocumentVerification" body: @"Document Verification finished successfully."];
-    }];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [delegate.window.rootViewController dismissViewControllerAnimated: YES completion: ^{
+            [self sendEventWithName: @"EventDocumentVerification" body: @"Document Verification finished successfully."];
+        }];
+    });
 }
 
 - (void) documentVerificationViewController:(DocumentVerificationViewController *)documentVerificationViewController didFinishWithError:(NSError *)error {
@@ -584,9 +596,11 @@ RCT_EXPORT_METHOD(startDocumentVerification) {
 
 - (void) sendError:(NSString *)error {
     AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    [delegate.window.rootViewController dismissViewControllerAnimated: YES completion: ^{
-        [self sendEventWithName: @"EventError" body: error];
-    }];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [delegate.window.rootViewController dismissViewControllerAnimated: YES completion: ^{
+            [self sendEventWithName: @"EventError" body: error];
+        }];
+    });
 }
 
 - (NSString *) getErrorMessage:(NSError *)error {
