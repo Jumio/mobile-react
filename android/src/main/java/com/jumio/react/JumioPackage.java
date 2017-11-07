@@ -29,3 +29,4 @@ public class JumioPackage implements ReactPackage {
         return modules;
     }
 }
+

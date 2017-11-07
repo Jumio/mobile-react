@@ -2,7 +2,7 @@
 
 ## Usage
 
-Adjust your credentials in **index.ios.js** and **index.android.js** and run the following commands
+Adjust your credentials in **index.js** and run the following commands
 
 ```
 npm install

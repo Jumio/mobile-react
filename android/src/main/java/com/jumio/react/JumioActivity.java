@@ -12,20 +12,23 @@ import android.support.annotation.NonNull;
 import android.util.Log;
 import android.widget.Toast;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import com.facebook.react.ReactActivity;
+import com.facebook.react.bridge.Arguments;
 import com.facebook.react.bridge.ReactContext;
+import com.facebook.react.bridge.WritableMap;
 import com.facebook.react.modules.core.DeviceEventManagerModule;
 import com.jumio.MobileSDK;
 import com.jumio.bam.BamCardInformation;
 import com.jumio.bam.BamSDK;
+import com.jumio.bam.enums.CreditCardType;
 import com.jumio.core.exceptions.MissingPermissionException;
 import com.jumio.dv.DocumentVerificationSDK;
 import com.jumio.nv.NetverifyDocumentData;
 import com.jumio.nv.NetverifySDK;
-import com.jumio.nv.enums.EMRTDStatus;
+import com.jumio.nv.data.document.NVDocumentType;
+import com.jumio.nv.data.document.NVMRZFormat;
+import com.jumio.nv.enums.NVExtractionMethod;
+import com.jumio.nv.enums.NVGender;
 
 public class JumioActivity extends ReactActivity {
     
@@ -58,27 +61,40 @@ public class JumioActivity extends ReactActivity {
         if (requestCode == BamSDK.REQUEST_CODE) {
             if (resultCode == Activity.RESULT_OK) {
                 BamCardInformation cardInformation = data.getParcelableExtra(BamSDK.EXTRA_CARD_INFORMATION);
-                JSONObject result = new JSONObject();
-                try {
-                    result.put("cardType", cardInformation.getCardType());
-                    result.put("cardNumber", String.valueOf(cardInformation.getCardNumber()));
-                    result.put("cardNumberGrouped", String.valueOf(cardInformation.getCardNumberGrouped()));
-                    result.put("cardNumberMasked", String.valueOf(cardInformation.getCardNumberMasked()));
-                    result.put("cardExpiryMonth", String.valueOf(cardInformation.getCardExpiryDateMonth()));
-                    result.put("cardExpiryYear", String.valueOf(cardInformation.getCardExpiryDateYear()));
-                    result.put("cardExpiryDate", String.valueOf(cardInformation.getCardExpiryDateYear()));
-                    result.put("cardCVV", String.valueOf(cardInformation.getCardCvvCode()));
-                    result.put("cardHolderName", String.valueOf(cardInformation.getCardHolderName()));
-                    result.put("cardSortCode", String.valueOf(cardInformation.getCardSortCode()));
-                    result.put("cardAccountNumber", String.valueOf(cardInformation.getCardAccountNumber()));
-                    result.put("cardSortCodeValid", cardInformation.isCardSortCodeValid());
-                    result.put("cardAccountNumberValid", cardInformation.isCardAccountNumberValid());
-                    
-                    sendEvent(this.getReactInstanceManager().getCurrentReactContext(), "EventCardInformation", result);
-                    cardInformation.clear();
-                } catch (JSONException e) {
-                    showErrorMessage("Result could not be sent. Try again.");
+                
+                WritableMap result = Arguments.createMap();
+                if (cardInformation.getCardType() == CreditCardType.VISA) {
+                    result.putString("cardType", "VISA");
+                } else if (cardInformation.getCardType() == CreditCardType.MASTER_CARD) {
+                    result.putString("cardType", "MASTER_CARD");
+                } else if (cardInformation.getCardType() == CreditCardType.AMERICAN_EXPRESS) {
+                    result.putString("cardType", "AMERICAN_EXPRESS");
+                } else if (cardInformation.getCardType() == CreditCardType.CHINA_UNIONPAY) {
+                    result.putString("cardType", "CHINA_UNIONPAY");
+                } else if (cardInformation.getCardType() == CreditCardType.DINERS_CLUB) {
+                    result.putString("cardType", "DINERS_CLUB");
+                } else if (cardInformation.getCardType() == CreditCardType.DISCOVER) {
+                    result.putString("cardType", "DISCOVER");
+                } else if (cardInformation.getCardType() == CreditCardType.JCB) {
+                    result.putString("cardType", "JCB");
+                } else if (cardInformation.getCardType() == CreditCardType.STARBUCKS) {
+                    result.putString("cardType", "STARBUCKS");
                 }
+                result.putString("cardNumber", String.valueOf(cardInformation.getCardNumber()));
+                result.putString("cardNumberGrouped", String.valueOf(cardInformation.getCardNumberGrouped()));
+                result.putString("cardNumberMasked", String.valueOf(cardInformation.getCardNumberMasked()));
+                result.putString("cardExpiryMonth", String.valueOf(cardInformation.getCardExpiryDateMonth()));
+                result.putString("cardExpiryYear", String.valueOf(cardInformation.getCardExpiryDateYear()));
+                result.putString("cardExpiryDate", String.valueOf(cardInformation.getCardExpiryDate()));
+                result.putString("cardCVV", String.valueOf(cardInformation.getCardCvvCode()));
+                result.putString("cardHolderName", String.valueOf(cardInformation.getCardHolderName()));
+                result.putString("cardSortCode", String.valueOf(cardInformation.getCardSortCode()));
+                result.putString("cardAccountNumber", String.valueOf(cardInformation.getCardAccountNumber()));
+                result.putBoolean("cardSortCodeValid", cardInformation.isCardSortCodeValid());
+                result.putBoolean("cardAccountNumberValid", cardInformation.isCardAccountNumberValid());
+                
+                sendEvent(this.getReactInstanceManager().getCurrentReactContext(), "EventCardInformation", result);
+                cardInformation.clear();
             } else if (resultCode == Activity.RESULT_CANCELED) {
                 String errorMessage = data.getStringExtra(BamSDK.EXTRA_ERROR_MESSAGE);
                 showErrorMessage(errorMessage);
@@ -86,54 +102,87 @@ public class JumioActivity extends ReactActivity {
         } else if (requestCode == NetverifySDK.REQUEST_CODE) {
             if (resultCode == Activity.RESULT_OK) {
                 NetverifyDocumentData documentData = (NetverifyDocumentData) data.getParcelableExtra(NetverifySDK.EXTRA_SCAN_DATA);
-                JSONObject result = new JSONObject();
-                try {
-                    result.put("selectedCountry", documentData.getSelectedCountry());
-                    result.put("selectedDocumentType", documentData.getSelectedDocumentType());
-                    result.put("idNumber", documentData.getIdNumber());
-                    result.put("personalNumber", documentData.getPersonalNumber());
-                    result.put("issuingDate", documentData.getIssuingDate());
-                    result.put("expiryDate", documentData.getExpiryDate());
-                    result.put("issuingCountry", documentData.getIssuingCountry());
-                    result.put("lastName", documentData.getLastName());
-                    result.put("firstName", documentData.getFirstName());
-                    result.put("middleName", documentData.getMiddleName());
-                    result.put("dob", documentData.getDob());
-                    result.put("gender", documentData.getGender());
-                    result.put("originatingCountry", documentData.getOriginatingCountry());
-                    result.put("addressLine", documentData.getAddressLine());
-                    result.put("city", documentData.getCity());
-                    result.put("subdivision", documentData.getSubdivision());
-                    result.put("postCode", documentData.getPostCode());
-                    result.put("optionalData1", documentData.getOptionalData1());
-                    result.put("optionalData2", documentData.getOptionalData2());
-                    result.put("placeOfBirth", documentData.getPlaceOfBirth());
-                    result.put("extractionMethod", documentData.getExtractionMethod());
-                    
-                    // MRZ data if available
-                    if (documentData.getMrzData() != null) {
-                        JSONObject mrzData = new JSONObject();
-                        mrzData.put("format", documentData.getMrzData().getFormat());
-                        mrzData.put("line1", documentData.getMrzData().getMrzLine1());
-                        mrzData.put("line2", documentData.getMrzData().getMrzLine2());
-                        mrzData.put("line3", documentData.getMrzData().getMrzLine3());
-                        mrzData.put("idNumberValid", documentData.getMrzData().idNumberValid());
-                        mrzData.put("dobValid", documentData.getMrzData().dobValid());
-                        mrzData.put("expiryDateValid", documentData.getMrzData().expiryDateValid());
-                        mrzData.put("personalNumberValid", documentData.getMrzData().personalNumberValid());
-                        mrzData.put("compositeValid", documentData.getMrzData().compositeValid());
-                        result.put("mrzData", mrzData);
-                    }
-                    
-                    // EMRTD data if available
-                    if (documentData.getEMRTDStatus() != null) {
-                        result.put("emrtdStatus", documentData.getEMRTDStatus());
-                    }
-                    
-                    sendEvent(this.getReactInstanceManager().getCurrentReactContext(), "EventDocumentData", result);
-                } catch (JSONException e) {
-                    showErrorMessage("Result could not be sent. Try again.");
+                
+                WritableMap result = Arguments.createMap();
+                result.putString("selectedCountry", documentData.getSelectedCountry());
+                if (documentData.getSelectedDocumentType() == NVDocumentType.PASSPORT) {
+                    result.putString("selectedDocumentType", "PASSPORT");
+                } else if (documentData.getSelectedDocumentType() == NVDocumentType.DRIVER_LICENSE) {
+                    result.putString("selectedDocumentType", "DRIVER_LICENSE");
+                } else if (documentData.getSelectedDocumentType() == NVDocumentType.IDENTITY_CARD) {
+                    result.putString("selectedDocumentType", "IDENTITY_CARD");
+                } else if (documentData.getSelectedDocumentType() == NVDocumentType.VISA) {
+                    result.putString("selectedDocumentType", "VISA");
                 }
+                result.putString("idNumber", documentData.getIdNumber());
+                result.putString("personalNumber", documentData.getPersonalNumber());
+                result.putString("issuingDate", documentData.getIssuingDate().toString());
+                result.putString("expiryDate", documentData.getExpiryDate().toString());
+                result.putString("issuingCountry", documentData.getIssuingCountry());
+                result.putString("lastName", documentData.getLastName());
+                result.putString("firstName", documentData.getFirstName());
+                result.putString("middleName", documentData.getMiddleName());
+                result.putString("dob", documentData.getDob().toString()); // test format
+                if (documentData.getGender() == NVGender.M) {
+                    result.putString("gender", "m");
+                } else if (documentData.getGender() == NVGender.F) {
+                    result.putString("gender", "f");
+                }
+                result.putString("originatingCountry", documentData.getOriginatingCountry());
+                result.putString("addressLine", documentData.getAddressLine());
+                result.putString("city", documentData.getCity());
+                result.putString("subdivision", documentData.getSubdivision());
+                result.putString("postCode", documentData.getPostCode());
+                result.putString("optionalData1", documentData.getOptionalData1());
+                result.putString("optionalData2", documentData.getOptionalData2());
+                result.putString("placeOfBirth", documentData.getPlaceOfBirth());
+                if (documentData.getExtractionMethod() == NVExtractionMethod.MRZ) {
+                    result.putString("extractionMethod", "MRZ");
+                } else if (documentData.getExtractionMethod() == NVExtractionMethod.OCR) {
+                    result.putString("extractionMethod", "OCR");
+                } else if (documentData.getExtractionMethod() == NVExtractionMethod.BARCODE) {
+                    result.putString("extractionMethod", "BARCODE");
+                } else if (documentData.getExtractionMethod() == NVExtractionMethod.BARCODE_OCR) {
+                    result.putString("extractionMethod", "BARCODE_OCR");
+                } else if (documentData.getExtractionMethod() == NVExtractionMethod.NONE) {
+                    result.putString("extractionMethod", "NONE");
+                }
+                
+                //MRZ data if available
+                if (documentData.getMrzData() != null) {
+                    WritableMap mrzData = Arguments.createMap();
+                    if (documentData.getMrzData().getFormat() == NVMRZFormat.MRP) {
+                        mrzData.putString("format", "MRP");
+                    } else if (documentData.getMrzData().getFormat() == NVMRZFormat.TD1) {
+                        mrzData.putString("format", "TD1");
+                    } else if (documentData.getMrzData().getFormat() == NVMRZFormat.TD2) {
+                        mrzData.putString("format", "TD2");
+                    } else if (documentData.getMrzData().getFormat() == NVMRZFormat.CNIS) {
+                        mrzData.putString("format", "CNIS");
+                    } else if (documentData.getMrzData().getFormat() == NVMRZFormat.MRV_A) {
+                        mrzData.putString("format", "MRVA");
+                    } else if (documentData.getMrzData().getFormat() == NVMRZFormat.MRV_B) {
+                        mrzData.putString("format", "MRVB");
+                    } else if (documentData.getMrzData().getFormat() == NVMRZFormat.Unknown) {
+                        mrzData.putString("format", "UNKNOWN");
+                    }
+                    mrzData.putString("line1", documentData.getMrzData().getMrzLine1());
+                    mrzData.putString("line2", documentData.getMrzData().getMrzLine2());
+                    mrzData.putString("line3", documentData.getMrzData().getMrzLine3());
+                    mrzData.putBoolean("idNumberValid", documentData.getMrzData().idNumberValid());
+                    mrzData.putBoolean("dobValid", documentData.getMrzData().dobValid());
+                    mrzData.putBoolean("expiryDateValid", documentData.getMrzData().expiryDateValid());
+                    mrzData.putBoolean("personalNumberValid", documentData.getMrzData().personalNumberValid());
+                    mrzData.putBoolean("compositeValid", documentData.getMrzData().compositeValid());
+                    result.putMap("mrzData", mrzData);
+                }
+                
+                // EMRTD data if available
+                if (documentData.getEMRTDStatus() != null) {
+                    result.putString("emrtdStatus", String.valueOf(documentData.getEMRTDStatus()));
+                }
+                
+                sendEvent(this.getReactInstanceManager().getCurrentReactContext(), "EventDocumentData", result);
             } else if (resultCode == Activity.RESULT_CANCELED) {
                 String errorMessage = data.getStringExtra(NetverifySDK.EXTRA_ERROR_MESSAGE);
                 showErrorMessage(errorMessage);
@@ -150,9 +199,9 @@ public class JumioActivity extends ReactActivity {
     
     // Helper methods
     
-    private void sendEvent(ReactContext reactContext, String eventName, JSONObject params) {
+    private void sendEvent(ReactContext reactContext, String eventName, WritableMap params) {
         reactContext.getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class)
-        .emit(eventName, params.toString());
+        .emit(eventName, params);
     }
     
     public void startSdk(MobileSDK sdk) {
@@ -168,3 +217,4 @@ public class JumioActivity extends ReactActivity {
         getReactInstanceManager().getCurrentReactContext().getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class).emit("EventError", msg);
     }
 }
+

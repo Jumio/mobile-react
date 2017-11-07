@@ -72,6 +72,11 @@ import com.android.build.OutputFile
  * ]
  */
 
+project.ext.react = [
+    // the entry file for bundle generation
+    entryFile: "index.js"
+]
+
 apply from: "../../node_modules/react-native/react.gradle"
 
 /**
@@ -90,13 +95,13 @@ def enableSeparateBuildPerCPUArchitecture = false
 def enableProguardInReleaseBuilds = false
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.3"
+    compileSdkVersion 26
+    buildToolsVersion "26.0.2"
 
     defaultConfig {
         applicationId "com.demoapp"
         minSdkVersion 16
-        targetSdkVersion 25
+        targetSdkVersion 26
         versionCode 1
         versionName "1.0"
         ndk {
@@ -118,6 +123,13 @@ android {
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
         }
     }
+	
+	dexOptions {
+		javaMaxHeapSize "4g"
+		incremental true
+		preDexLibraries true
+	}
+	
     // applicationVariants are e.g. debug, release
     applicationVariants.all { variant ->
         variant.outputs.each { output ->
@@ -134,13 +146,14 @@ android {
 }
 
 repositories {
+    jcenter()
+    maven { url 'https://maven.google.com/' }
     maven { url 'http://mobile-sdk.jumio.com' }
 }
 
 dependencies {
     compile project(':react-native-jumio-mobilesdk')
     compile fileTree(dir: "libs", include: ["*.jar"])
-    compile "com.android.support:appcompat-v7:25.0.3"
     compile "com.facebook.react:react-native:+"  // From node_modules
 }
 

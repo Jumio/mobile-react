@@ -4,15 +4,15 @@ Official Jumio Mobile SDK plugin for React Native
 
 ## Compatibility
 
-With every release, we only ensure compatibility with the latest version of React Native.
+We only ensure compatibility with a minimum React Native version of 0.47.1.
 
 ## Setup
 
 Create React Native project and add the Jumio Mobile SDK module to it.
 ```
-react-native init MyProject 
+react-native init MyProject
 cd MyProject
-npm install --save https://github.com/Jumio/mobile-react.git#v2.8.0
+npm install --save https://github.com/Jumio/mobile-react.git#v2.9.0
 react-native link react-native-jumio-mobilesdk
 ```
 
@@ -20,7 +20,7 @@ react-native link react-native-jumio-mobilesdk
 
 ### iOS
 
-1. Add the Jumio Mobile SDK to your React Native iOS project. Manual integration or dependency management via cocoapods possible, please see [the official documentation of the Jumio Mobile SDK for iOS](https://github.com/Jumio/mobile-sdk-ios/tree/v2.8.0#basic-setup)
+1. Add the Jumio Mobile SDK to your React Native iOS project. Manual integration or dependency management via cocoapods possible, please see [the official documentation of the Jumio Mobile SDK for iOS](https://github.com/Jumio/mobile-sdk-ios/tree/v2.9.0#basic-setup)
 2. Now open the workspace and copy the iOS module (**node_modules/react-native-jumio-mobilesdk/ios/JumioMobileSDK**) into the project.
 3. Add the "**NSCameraUsageDescription**"-key to your Info.plist file.
 
@@ -38,13 +38,15 @@ react-native link react-native-jumio-mobilesdk
 2. Make sure your compileSdkVersion and buildToolsVersion are high enough.
 ```javascript
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.3"
+    compileSdkVersion 27
+    buildToolsVersion "26.0.2"
     ...
 }
 ```
 
 3. Enable MultiDex
+Follow the Android developers guide: https://developer.android.com/studio/build/multidex.html
+
 ```javascript
 android {
     ...
@@ -64,6 +66,8 @@ repositories {
 
 5. Change the extend of your MainActivity to JumioActivity
 ```javascript
+import com.jumio.react.JumioActivity;
+
 public class MainActivity extends JumioActivity {
 ```
 
@@ -104,10 +108,14 @@ Pass your offline token to your configuration object of BAM Checkout.
 offlineToken: "TOKEN",
 ```
 
+**Android**
+
+Offline scanning not supported yet.
+
 ### Android Netverify eMRTD
 
 Use `enableEMRTD` to read the NFC chip of an eMRTD.
-```javascript
+```javascriot
 JumioMobileSDK.enableEMRTD();
 ```
 
@@ -126,9 +134,8 @@ JumioMobileSDK.startBAM();
 * **EventDocumentVerification** for Document Verification results.
 * **EventError** for every error.
 
-6. First add **NativeEventEmitter** for iOS and **DeviceEventEmitter** for android to the import from 'react-native' and listen to the events.
+6. First add **NativeEventEmitter** to the import from 'react-native' and listen to the events.
 
-**iOS**
 ```javascript
 import {
     ...
@@ -146,27 +153,11 @@ emitter.addListener(
 );
 ```
 
-**Android**
-```javascript
-import {
-    ...
-    DeviceEventEmitter
-} from 'react-native';
-```
-
-The event receives a json string with all the data.
-
-```javascript
-DeviceEventEmitter.addListener('EventDocumentData|EventCardInformation|EventDocumentVerification|EventError', function(e: Event) {
-    alert(e)
-});
-```
-
 ## Customization
 
 ### Android
 
-The Netverify SDK can be customized to the respective needs by following this [customization chapter](https://github.com/Jumio/mobile-sdk-android/blob/v2.8.0/docs/integration_netverify-fastfill.md#customization).
+The Netverify SDK can be customized to the respective needs by following this [customization chapter](https://github.com/Jumio/mobile-sdk-android/blob/v2.9.0/docs/integration_netverify-fastfill.md#customization).
 
 ### iOS
 
@@ -177,12 +168,11 @@ JumioMobileSDK.initDocumentVerificationWithCustomization(<API_TOKEN>, <API_SECRE
 JumioMobileSDK.initBAMWithCustomization(<API_TOKEN>, <API_SECRET>, <DATACENTER>, {configuration}, {customization});
 ```
 
-You can find all the different customization options by following the [customization chapter](https://github.com/Jumio/mobile-cordova/blob/master/README.md#ios-1) of our Cordova plugin.
+You can find all the different customization options by following the [customization chapter](https://github.com/Jumio/mobile-cordova#ios-1) of our Cordova plugin.
 
 ## Callbacks
 
 To get information about callbacks, please see the [callback chapter](https://github.com/Jumio/mobile-cordova/blob/master/README.md#callback) of our Cordova plugin.
-
 
 # Support
 
@@ -190,10 +180,6 @@ To get information about callbacks, please see the [callback chapter](https://gi
 
 If you have any questions regarding our implementation guide please contact Jumio Customer Service at support@jumio.com or https://support.jumio.com. The Jumio online helpdesk contains a wealth of information regarding our service including demo videos, product descriptions, FAQs and other things that may help to get you started with Jumio. Check it out at: https://support.jumio.com.
 
-## Copyright
+# Copyright
 
-&copy; Jumio Corp. 268 Lambert Avenue, Palo Alto, CA 94306
-
-
-
-
+© Jumio Corp. 268 Lambert Avenue, Palo Alto, CA 94306

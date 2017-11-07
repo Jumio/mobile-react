@@ -10,10 +10,10 @@ import {
   StyleSheet,
   Text,
   View,
-  Button,
   NativeModules,
   NativeEventEmitter
 } from 'react-native';
+import Button from 'react-native-button';
 
 const { JumioMobileSDK } = NativeModules;
 
@@ -35,6 +35,10 @@ const startNetverify = () => {
 	  //preselectedDocumentVariant: "plastic",
 	  //documentTypes: ["PASSPORT", "DRIVER_LICENSE", "IDENTITY_CARD", "VISA"]
   });
+  
+  // Android only
+  //JumioMobileSDK.enableEMRTD();
+  
   JumioMobileSDK.startNetverify();
 };
 
@@ -101,15 +105,21 @@ export default class DemoApp extends Component {
   render() {
     return (
   	  <View style={styles.container}>
-  		<Button
-    		onPress={startNetverify}
-    		title="Start Netverify" />
-  		<Button
-    		onPress={startBAM}
-    		title="Start BAM Checkout" />
-  		<Button
-    		onPress={startDocumentVerification}
-    		title="Start Document Verification" />
+		<Button
+			onPress={startNetverify}
+			style={styles.buttonStyle}>
+			Start Netverify
+		</Button>
+		<Button
+			onPress={startDocumentVerification}
+			style={styles.buttonStyle}>
+			Start Document Verification
+		</Button>
+		<Button
+			onPress={startBAM}
+			style={styles.buttonStyle}>
+			Start BAM Checkout
+		</Button>
   	  </View>
     );
   }
@@ -132,6 +142,9 @@ const styles = StyleSheet.create({
     color: '#333333',
     marginBottom: 5,
   },
+  buttonStyle: {
+	  marginBottom: 20
+  }
 });
 
 AppRegistry.registerComponent('DemoApp', () => DemoApp);

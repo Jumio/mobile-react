@@ -162,7 +162,9 @@ RCT_EXPORT_METHOD(startBAM) {
     }
     
     AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    [delegate.window.rootViewController presentViewController: _bamViewController animated: YES completion: nil];
+    dispatch_sync(dispatch_get_main_queue(), ^{
+        [delegate.window.rootViewController presentViewController: _bamViewController animated: YES completion: nil];
+    });
 }
 
 #pragma mark - Netverify
@@ -173,6 +175,11 @@ RCT_EXPORT_METHOD(initNetverify:(NSString *)apiToken apiSecret:(NSString *)apiSe
 
 RCT_EXPORT_METHOD(initNetverifyWithCustomization:(NSString *)apiToken apiSecret:(NSString *)apiSecret dataCenter:(NSString *)dataCenter configuration:(NSDictionary *)options customization:(NSDictionary *)customization) {
     [self initNetverifyHelper:apiToken apiSecret:apiSecret dataCenter:dataCenter configuration:options customization:customization];
+}
+
+RCT_EXPORT_METHOD(enableEMRTD) {
+    // only working on android
+    // method does nothing!
 }
 
 - (void)initNetverifyHelper:(NSString *)apiToken apiSecret:(NSString *)apiSecret dataCenter:(NSString *)dataCenter configuration:(NSDictionary *)options customization:(NSDictionary *)customization {
@@ -262,14 +269,18 @@ RCT_EXPORT_METHOD(initNetverifyWithCustomization:(NSString *)apiToken apiSecret:
                     [[UINavigationBar netverifyAppearance] setTitleTextAttributes: @{NSForegroundColorAttributeName: color}];
                 } else if ([key isEqualToString: @"foregroundColor"]) {
                     [[NetverifyBaseView netverifyAppearance] setForegroundColor: color];
-                } else if ([key isEqualToString: @"defaultButtonBackgroundColor"]) {
-                    [[NetverifyScanOptionButton netverifyAppearance] setBackgroundColor: color forState:UIControlStateNormal];
-                } else if ([key isEqualToString: @"defaultButtonTitleColor"]) {
-                    [[NetverifyScanOptionButton netverifyAppearance] setTitleColor: color forState:UIControlStateNormal];
-                } else if ([key isEqualToString: @"activeButtonBackgroundColor"]) {
-                    [[NetverifyScanOptionButton netverifyAppearance] setBackgroundColor: color forState:UIControlStateHighlighted];
-                } else if ([key isEqualToString: @"activeButtonTitleColor"]) {
-                    [[NetverifyScanOptionButton netverifyAppearance] setTitleColor: color forState:UIControlStateHighlighted];
+                } else if ([key isEqualToString: @"documentSelectionHeaderBackgroundColor"]) {
+                  	[[NetverifyDocumentSelectionHeaderView netverifyAppearance] setBackgroundColor: color];
+               	} else if ([key isEqualToString: @"documentSelectionHeaderTitleColor"]) {
+                   	[[NetverifyDocumentSelectionHeaderView netverifyAppearance] setTitleColor: color];
+            	} else if ([key isEqualToString: @"documentSelectionHeaderIconColor"]) {
+                    [[NetverifyDocumentSelectionHeaderView netverifyAppearance] setIconColor: color];
+                } else if ([key isEqualToString: @"documentSelectionButtonBackgroundColor"]) {
+                    [[NetverifyDocumentSelectionButton netverifyAppearance] setBackgroundColor: color forState: UIControlStateNormal];
+                } else if ([key isEqualToString: @"documentSelectionButtonTitleColor"]) {
+                    [[NetverifyDocumentSelectionButton netverifyAppearance] setTitleColor: color forState: UIControlStateNormal];
+                } else if ([key isEqualToString: @"documentSelectionButtonIconColor"]) {
+                    [[NetverifyDocumentSelectionButton netverifyAppearance] setIconColor: color forState: UIControlStateNormal];
                 } else if ([key isEqualToString: @"fallbackButtonBackgroundColor"]) {
                     [[NetverifyFallbackButton netverifyAppearance] setBackgroundColor: color forState:UIControlStateNormal];
                 } else if ([key isEqualToString: @"fallbackButtonBorderColor"]) {
@@ -303,7 +314,9 @@ RCT_EXPORT_METHOD(startNetverify) {
     }
     
     AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    [delegate.window.rootViewController presentViewController: _netverifyViewController animated:YES completion: nil];
+    dispatch_sync(dispatch_get_main_queue(), ^{
+        [delegate.window.rootViewController presentViewController: _netverifyViewController animated:YES completion: nil];
+    });
 }
 
 #pragma mark - Document Verification
@@ -377,20 +390,6 @@ RCT_EXPORT_METHOD(initDocumentVerificationWithCustomization:(NSString *)apiToken
                     [[UINavigationBar netverifyAppearance] setTitleTextAttributes: @{NSForegroundColorAttributeName: color}];
                 } else if ([key isEqualToString: @"foregroundColor"]) {
                     [[NetverifyBaseView netverifyAppearance] setForegroundColor: color];
-                } else if ([key isEqualToString: @"defaultButtonBackgroundColor"]) {
-                    [[NetverifyScanOptionButton netverifyAppearance] setBackgroundColor: color forState:UIControlStateNormal];
-                } else if ([key isEqualToString: @"defaultButtonTitleColor"]) {
-                    [[NetverifyScanOptionButton netverifyAppearance] setTitleColor: color forState:UIControlStateNormal];
-                } else if ([key isEqualToString: @"activeButtonBackgroundColor"]) {
-                    [[NetverifyScanOptionButton netverifyAppearance] setBackgroundColor: color forState:UIControlStateHighlighted];
-                } else if ([key isEqualToString: @"activeButtonTitleColor"]) {
-                    [[NetverifyScanOptionButton netverifyAppearance] setTitleColor: color forState:UIControlStateHighlighted];
-                } else if ([key isEqualToString: @"fallbackButtonBackgroundColor"]) {
-                    [[NetverifyFallbackButton netverifyAppearance] setBackgroundColor: color forState:UIControlStateNormal];
-                } else if ([key isEqualToString: @"fallbackButtonBorderColor"]) {
-                    [[NetverifyFallbackButton netverifyAppearance] setBorderColor: color];
-                } else if ([key isEqualToString: @"fallbackButtonTitleColor"]) {
-                    [[NetverifyFallbackButton netverifyAppearance] setTitleColor: color forState:UIControlStateNormal];
                 } else if ([key isEqualToString: @"positiveButtonBackgroundColor"]) {
                     [[NetverifyPositiveButton netverifyAppearance] setBackgroundColor: color forState:UIControlStateNormal];
                 } else if ([key isEqualToString: @"positiveButtonBorderColor"]) {
@@ -418,7 +417,9 @@ RCT_EXPORT_METHOD(startDocumentVerification) {
     }
     
     AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    [delegate.window.rootViewController presentViewController: _documentVerificationViewController animated: YES completion: nil];
+    dispatch_sync(dispatch_get_main_queue(), ^{
+        [delegate.window.rootViewController presentViewController: _documentVerificationViewController animated: YES completion: nil];
+    });
 }
 
 #pragma mark - BAMCheckout Delegates
@@ -609,3 +610,5 @@ RCT_EXPORT_METHOD(startDocumentVerification) {
 }
 
 @end
+
+
