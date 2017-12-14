@@ -221,7 +221,7 @@ public class JumioModule extends ReactContextBaseJavaModule implements ActivityE
                 netverifySDK.setMerchantScanReference(options.getString(key));
             } else if (key.equals("merchantReportingCriteria")) {
                 netverifySDK.setMerchantReportingCriteria(options.getString(key));
-            } else if (key.equals("customerID")) {
+            } else if (key.equals("customerId")) {
                 netverifySDK.setCustomerId(options.getString(key));
             } else if (key.equals("additionalInformation")) {
                 netverifySDK.setAdditionalInformation(options.getString(key));
