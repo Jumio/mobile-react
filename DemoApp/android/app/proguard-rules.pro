@@ -47,6 +47,11 @@
 -keepclassmembers class *  { @com.facebook.react.uimanager.UIProp <fields>; }
 -keepclassmembers class *  { @com.facebook.react.uimanager.annotations.ReactProp <methods>; }
 -keepclassmembers class *  { @com.facebook.react.uimanager.annotations.ReactPropGroup <methods>; }
+-keep class com.facebook.soloader.** { *; }
+-keepclassmembers class com.facebook.soloader.SoLoader {
+     static <fields>;
+}
+
 
 -dontwarn com.facebook.react.**
 
@@ -68,3 +73,5 @@
 -dontwarn java.nio.file.*
 -dontwarn org.codehaus.mojo.animal_sniffer.IgnoreJRERequirement
 -dontwarn okio.**
+
+

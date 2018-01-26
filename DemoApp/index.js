@@ -15,17 +15,19 @@ import {
 } from 'react-native';
 import Button from 'react-native-button';
 
-const { JumioMobileSDK } = NativeModules;
+const { JumioMobileSDKNetverify } = NativeModules;
+const { JumioMobileSDKBamCheckout } = NativeModules;
+const { JumioMobileSDKDocumentVerification } = NativeModules;
 
 // Netverify
 
 const startNetverify = () => {
-  JumioMobileSDK.initNetverify('API_TOKEN', 'API_SECRET', 'DATACENTER', {
+  JumioMobileSDKNetverify.initNetverify('API_TOKEN', 'API_SECRET', 'DATACENTER', {
 	  requireVerification: true,
 	  //callbackUrl: "URL",
 	  //requireFaceMatch: true,
-	  //preselectedCountry: "AUT",
-	  //merchantScanReference: "ScanRef",
+	  //preselectedCountry: "USA",
+	  //merchantScanReference: "123456789",
 	  //merchantReportingCriteria: "Criteria",
 	  //customerId: "ID",
 	  //additionalInformation: "Information",
@@ -37,15 +39,15 @@ const startNetverify = () => {
   });
   
   // Android only
-  //JumioMobileSDK.enableEMRTD();
+  //JumioMobileSDKNetverify.enableEMRTD();
   
-  JumioMobileSDK.startNetverify();
+  JumioMobileSDKNetverify.startNetverify();
 };
 
 // Document Verification
 
 const startDocumentVerification = () => {
-  JumioMobileSDK.initDocumentVerification('API_TOKEN', 'API_SECRET', 'DATACENTER', {
+  JumioMobileSDKDocumentVerification.initDocumentVerification('API_TOKEN', 'API_SECRET', 'DATACENTER', {
 	  type: "BS",
 	  customerId: "123456789",
 	  country: "USA",
@@ -57,13 +59,13 @@ const startDocumentVerification = () => {
 	  //customDocumentCode: "Custom",
 	  //cameraPosition: "back"
   });
-  JumioMobileSDK.startDocumentVerification();
+  JumioMobileSDKDocumentVerification.startDocumentVerification();
 };
 
 // BAM Checkout
 
 const startBAM = () => {
-  JumioMobileSDK.initBAM('API_TOKEN', 'API_SECRET', 'DATACENTER', {
+  JumioMobileSDKBamCheckout.initBAM('API_TOKEN', 'API_SECRET', 'DATACENTER', {
 	//cardHolderNameRequired: true,
 	//sortCodeAndAccountNumberRequired: false,
 	//expiryRequired: true,
@@ -76,29 +78,40 @@ const startBAM = () => {
 	//cardNumberMaskingEnabled: false,
 	//offlineToken: "TOKEN",
 	//cameraPosition: "back",
-	//cardTypes: ["VISA", "MASTER_CARD", "AMERICAN_EXPRESS", "CHINA_UNIONPAY", "DINERS_CLUB", "DISCOVER", "JCB", "STARBUCKS"]
+	//cardTypes: ["VISA", "MASTER_CARD", "AMERICAN_EXPRESS", "CHINA_UNIONPAY", "DINERS_CLUB", "DISCOVER", "JCB"]
   });
-  JumioMobileSDK.startBAM();
+  JumioMobileSDKBamCheckout.startBAM();
 };
 
-// Callbacks
-
-const emitter = new NativeEventEmitter(JumioMobileSDK);
-emitter.addListener(
+// Callbacks - (Data is displayed as a warning for demo purposes)
+const emitterNetverify = new NativeEventEmitter(JumioMobileSDKNetverify);
+emitterNetverify.addListener(
     'EventDocumentData',
-    (reminder) => alert(JSON.stringify(reminder))
+	(EventDocumentData) => console.warn("EventDocumentData: " + JSON.stringify(EventDocumentData))
 );
-emitter.addListener(
-    'EventDocumentVerification',
-    (reminder) => alert(JSON.stringify(reminder))
-);
-emitter.addListener(
-    'EventCardInformation',
-    (reminder) => alert(JSON.stringify(reminder))
-);
-emitter.addListener(
+emitterNetverify.addListener(
     'EventError',
-    (reminder) => alert(JSON.stringify(reminder))
+    (EventError) => console.warn("EventError: " + JSON.stringify(EventError))
+);
+
+const emitterDocumentVerification = new NativeEventEmitter(JumioMobileSDKDocumentVerification)
+emitterDocumentVerification.addListener(
+    'EventDocumentVerification',
+    (EventDocumentVerification) => console.warn("EventDocumentVerification: " + JSON.stringify(EventDocumentVerification))
+);
+emitterDocumentVerification.addListener(
+    'EventError',
+    (EventError) => console.warn("EventError: " + JSON.stringify(EventError))
+);
+
+const emitterBamCheckout = new NativeEventEmitter(JumioMobileSDKBamCheckout)
+emitterBamCheckout.addListener(
+    'EventCardInformation',
+    (EventCardInformation) => console.warn("EventCardInformation: " + JSON.stringify(EventCardInformation))
+);
+emitterBamCheckout.addListener(
+    'EventError',
+    (EventError) => console.warn("EventError: " + JSON.stringify(EventError))
 );
 
 export default class DemoApp extends Component {

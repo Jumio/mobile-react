@@ -15,10 +15,6 @@ import java.util.List;
 public class MainApplication extends Application implements ReactApplication {
 
   private final ReactNativeHost mReactNativeHost = new ReactNativeHost(this) {
-    @Override
-    protected String getJSMainModuleName() {
-        return "index";
-    }
 
     @Override
     public boolean getUseDeveloperSupport() {
@@ -31,6 +27,11 @@ public class MainApplication extends Application implements ReactApplication {
           new MainReactPackage(),
             new JumioPackage()
       );
+    }
+
+    @Override
+    protected String getJSMainModuleName() {
+      return "index";
     }
   };
 
