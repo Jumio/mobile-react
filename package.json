@@ -15,7 +15,8 @@
     "test": "jest"
   },
   "peerDependencies": {
-    "react-native": ">=0.47.1"
+    "react-native": ">=0.47.1",
+    "react-native-fbsdk": "git+https://github.com/QuartermasterInc/react-native-fbsdk.git#d2be3df7adc4147209f9f766de313b96bc0d07e4"
   },
   "author": "Jumio Corporation",
   "license": "ISC",

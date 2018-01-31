@@ -33,8 +33,20 @@ import com.jumio.nv.enums.NVExtractionMethod;
 import com.jumio.nv.enums.NVGender;
 
 import java.util.ArrayList;
+import java.util.Locale;
+import com.facebook.CallbackManager;
 
 public class JumioActivity extends ReactActivity {
+
+  private static CallbackManager mCallbackManager = null;
+
+	protected static CallbackManager setCallbackManager(CallbackManager callbackManager) {
+		mCallbackManager = mCallbackManager;
+	}
+
+  protected static CallbackManager getCallbackManager() {
+    return mCallbackManager;
+  }
 
 	@Override
 	public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
@@ -245,6 +257,8 @@ public class JumioActivity extends ReactActivity {
 				String errorMessage = data.getStringExtra(DocumentVerificationSDK.EXTRA_ERROR_MESSAGE);
 				String errorCode = data.getStringExtra(DocumentVerificationSDK.EXTRA_ERROR_CODE);
 				sendErrorObject(errorCode, errorMessage, scanReference);
+			}	else {
+	      this.getReactInstanceManager().onActivityResult(this, requestCode, resultCode, data);
 			}
 			if(JumioModuleDocumentVerification.documentVerificationSDK != null){
 				JumioModuleDocumentVerification.documentVerificationSDK.destroy();
@@ -252,6 +266,7 @@ public class JumioActivity extends ReactActivity {
 		} else {
 			this.getReactInstanceManager().onActivityResult(this, requestCode, resultCode, data);
 		}
+		if (mCallbackManager !== null) mCallbackManager.onActivityResult(requestCode, resultCode, data);
 	}
 
 	// Helper methods
