@@ -61,7 +61,8 @@ android {
 4. Add the Jumio Mobile SDK repository
 ```
 repositories {  
-    maven { url 'http://mobile-sdk.jumio.com' }
+    maven { url 'https://mobile-sdk.jumio.com' }
+    maven { url 'https://maven.google.com/' }
 }
 ```
 
