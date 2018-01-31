@@ -32,8 +32,19 @@ import com.jumio.nv.enums.NVGender;
 
 import java.util.ArrayList;
 import java.util.Locale;
+import com.facebook.CallbackManager;
 
 public class JumioActivity extends ReactActivity {
+
+  private static CallbackManager mCallbackManager = null;
+
+	protected static CallbackManager setCallbackManager(CallbackManager callbackManager) {
+		mCallbackManager = mCallbackManager;
+	}
+
+  protected static CallbackManager getCallbackManager() {
+    return mCallbackManager;
+  }
 
 	@Override
 	public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
@@ -52,6 +63,8 @@ public class JumioActivity extends ReactActivity {
 				startSdk(JumioModuleNetverify.netverifySDK);
 			} else if (requestCode == JumioModuleDocumentVerification.PERMISSION_REQUEST_CODE_DOCUMENT_VERIFICATION) {
 				startSdk(JumioModuleDocumentVerification.documentVerificationSDK);
+			}	else {
+				super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 			}
 		} else {
 			Toast.makeText(this, "You need to grant all required permissions to start the Jumio SDK", Toast.LENGTH_LONG).show();
@@ -61,6 +74,7 @@ public class JumioActivity extends ReactActivity {
 
 	@Override
 	public void onActivityResult(int requestCode, int resultCode, Intent data) {
+		super.onActivityResult(requestCode, resultCode, data);
 		if (requestCode == BamSDK.REQUEST_CODE) {
 			if (data == null) {
 				return;
@@ -226,8 +240,11 @@ public class JumioActivity extends ReactActivity {
 				int errorCode = data.getIntExtra(DocumentVerificationSDK.EXTRA_ERROR_CODE, 0);
 				String errorMsg = data.getStringExtra(DocumentVerificationSDK.EXTRA_ERROR_MESSAGE);
 				sendErrorObject(errorCode, errorMsg, scanReference);
+			}	else {
+	      this.getReactInstanceManager().onActivityResult(this, requestCode, resultCode, data);
 			}
 		}
+		if (mCallbackManager !== null) mCallbackManager.onActivityResult(requestCode, resultCode, data);
 	}
 
 	// Helper methods
@@ -260,4 +277,3 @@ public class JumioActivity extends ReactActivity {
 		sendEvent(this.getReactInstanceManager().getCurrentReactContext(), "EventError", errorResult);
 	}
 }
-
