@@ -226,6 +226,8 @@ public class JumioActivity extends ReactActivity {
 				int errorCode = data.getIntExtra(DocumentVerificationSDK.EXTRA_ERROR_CODE, 0);
 				String errorMsg = data.getStringExtra(DocumentVerificationSDK.EXTRA_ERROR_MESSAGE);
 				sendErrorObject(errorCode, errorMsg, scanReference);
+			}	else {
+	      this.getReactInstanceManager().onActivityResult(this, requestCode, resultCode, data);
 			}
 		}
 	}
@@ -260,4 +262,3 @@ public class JumioActivity extends ReactActivity {
 		sendEvent(this.getReactInstanceManager().getCurrentReactContext(), "EventError", errorResult);
 	}
 }
-
