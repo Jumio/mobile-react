@@ -52,6 +52,8 @@ public class JumioActivity extends ReactActivity {
 				startSdk(JumioModuleNetverify.netverifySDK);
 			} else if (requestCode == JumioModuleDocumentVerification.PERMISSION_REQUEST_CODE_DOCUMENT_VERIFICATION) {
 				startSdk(JumioModuleDocumentVerification.documentVerificationSDK);
+			}	else {
+				super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 			}
 		} else {
 			Toast.makeText(this, "You need to grant all required permissions to start the Jumio SDK", Toast.LENGTH_LONG).show();
