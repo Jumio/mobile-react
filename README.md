@@ -69,11 +69,22 @@ repositories {
 }
 ```
 
-5. Change the extend of your MainActivity to JumioActivity
+5. Change the extend of your MainActivity to JumioActivity. Also add `jumioOnActivityResult` to your `onActivityResult` method
 ```
 import com.jumio.react.JumioActivity;
 
 public class MainActivity extends JumioActivity {
+  /* other code */
+
+	@Override
+	public void onActivityResult(int requestCode, int resultCode, Intent data) {
+		super.onActivityResult(requestCode, resultCode, data);
+    jumioOnActivityResult(requestCode, resultCode, data);
+    /* other onActivityResult code */
+  }
+
+  /* other code */
+}
 ```
 
 ## Usage
