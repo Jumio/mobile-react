@@ -27,16 +27,16 @@ repositories {
 }
 
 dependencies {
-    implementation "com.jumio.android:core:${SDK_VERSION}@aar"
-    implementation "com.jumio.android:bam:${SDK_VERSION}@aar"
-    implementation "com.jumio.android:nv:${SDK_VERSION}@aar"
-    implementation "com.jumio.android:nv-mrz:${SDK_VERSION}@aar"
-    implementation "com.jumio.android:nv-nfc:${SDK_VERSION}@aar"
-    implementation "com.jumio.android:nv-ocr:${SDK_VERSION}@aar"
-    implementation "com.jumio.android:nv-barcode:${SDK_VERSION}@aar"
-    implementation "com.jumio.android:nv-barcode-vision:${SDK_VERSION}@aar"
-    implementation "com.jumio.android:nv-liveness:${SDK_VERSION}@aar"
-    implementation "com.jumio.android:dv:${SDK_VERSION}@aar"
+    compile "com.jumio.android:core:${SDK_VERSION}@aar"
+    compile "com.jumio.android:bam:${SDK_VERSION}@aar"
+    compile "com.jumio.android:nv:${SDK_VERSION}@aar"
+    compile "com.jumio.android:nv-mrz:${SDK_VERSION}@aar"
+    compile "com.jumio.android:nv-nfc:${SDK_VERSION}@aar"
+    compile "com.jumio.android:nv-ocr:${SDK_VERSION}@aar"
+    compile "com.jumio.android:nv-barcode:${SDK_VERSION}@aar"
+    compile "com.jumio.android:nv-barcode-vision:${SDK_VERSION}@aar"
+    compile "com.jumio.android:nv-liveness:${SDK_VERSION}@aar"
+    compile "com.jumio.android:dv:${SDK_VERSION}@aar"
 
 //for core:
     implementation "androidx.appcompat:appcompat:1.0.0"
@@ -51,6 +51,9 @@ dependencies {
     //only for nv-nfc
     implementation "com.madgag.spongycastle:prov:1.58.0.0"
     implementation "net.sf.scuba:scuba-sc-android:0.0.16"
+    
+    //only for nv-barcode-vision
+    implementation "com.google.android.gms:play-services-vision:12.0.0"
 
-    implementation 'com.facebook.react:react-native:+'
+    compile 'com.facebook.react:react-native:+'
 }
