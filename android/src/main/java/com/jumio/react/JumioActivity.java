@@ -52,6 +52,8 @@ public class JumioActivity extends ReactActivity {
 				startSdk(JumioModuleNetverify.netverifySDK);
 			} else if (requestCode == JumioModuleDocumentVerification.PERMISSION_REQUEST_CODE_DOCUMENT_VERIFICATION) {
 				startSdk(JumioModuleDocumentVerification.documentVerificationSDK);
+			}	else {
+				super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 			}
 		} else {
 			Toast.makeText(this, "You need to grant all required permissions to start the Jumio SDK", Toast.LENGTH_LONG).show();
@@ -59,8 +61,7 @@ public class JumioActivity extends ReactActivity {
 		}
 	}
 
-	@Override
-	public void onActivityResult(int requestCode, int resultCode, Intent data) {
+	protected void jumioOnActivityResult(int requestCode, int resultCode, Intent data) {
 		if (requestCode == BamSDK.REQUEST_CODE) {
 			if (data == null) {
 				return;
@@ -226,6 +227,8 @@ public class JumioActivity extends ReactActivity {
 				int errorCode = data.getIntExtra(DocumentVerificationSDK.EXTRA_ERROR_CODE, 0);
 				String errorMsg = data.getStringExtra(DocumentVerificationSDK.EXTRA_ERROR_MESSAGE);
 				sendErrorObject(errorCode, errorMsg, scanReference);
+			}	else {
+	      this.getReactInstanceManager().onActivityResult(this, requestCode, resultCode, data);
 			}
 		}
 	}
@@ -260,4 +263,3 @@ public class JumioActivity extends ReactActivity {
 		sendEvent(this.getReactInstanceManager().getCurrentReactContext(), "EventError", errorResult);
 	}
 }
-
