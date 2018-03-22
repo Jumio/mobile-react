@@ -4,7 +4,7 @@
 //
 
 #import "JumioMobileSDK.h"
-#import "AppDelegate.h"
+#import <Foundation/Foundation.h>
 @import Netverify;
 @import BAMCheckout;
 
@@ -161,7 +161,7 @@ RCT_EXPORT_METHOD(startBAM) {
         return;
     }
     
-    AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    id<UIApplicationDelegate> delegate = [[UIApplication sharedApplication] delegate];
     dispatch_async(dispatch_get_main_queue(), ^{
         [delegate.window.rootViewController presentViewController: _bamViewController animated: YES completion: nil];
     });
@@ -308,7 +308,7 @@ RCT_EXPORT_METHOD(startNetverify) {
         return;
     }
     
-    AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    id<UIApplicationDelegate> delegate = [[UIApplication sharedApplication] delegate];
     dispatch_async(dispatch_get_main_queue(), ^{
         [delegate.window.rootViewController presentViewController: _netverifyViewController animated:YES completion: nil];
     });
@@ -411,7 +411,7 @@ RCT_EXPORT_METHOD(startDocumentVerification) {
         return;
     }
     
-    AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    id<UIApplicationDelegate> delegate = [[UIApplication sharedApplication] delegate];
     dispatch_async(dispatch_get_main_queue(), ^{
         [delegate.window.rootViewController presentViewController: _documentVerificationViewController animated: YES completion: nil];
     });
@@ -453,7 +453,7 @@ RCT_EXPORT_METHOD(startDocumentVerification) {
     [result setValue: [NSNumber numberWithBool: cardInformation.cardSortCodeValid] forKey: @"cardSortCodeValid"];
     [result setValue: [NSNumber numberWithBool: cardInformation.cardAccountNumberValid] forKey: @"cardAccountNumberValid"];
     
-    AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    id<UIApplicationDelegate> delegate = [[UIApplication sharedApplication] delegate];
     dispatch_async(dispatch_get_main_queue(), ^{
        [delegate.window.rootViewController dismissViewControllerAnimated: YES completion: ^{
            [self sendEventWithName: @"EventCardInformation" body: result];
@@ -549,7 +549,7 @@ RCT_EXPORT_METHOD(startDocumentVerification) {
         [result setValue: mrzData forKey: @"mrzData"];
     }
     
-    AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    id<UIApplicationDelegate> delegate = [[UIApplication sharedApplication] delegate];
     dispatch_async(dispatch_get_main_queue(), ^{
         [delegate.window.rootViewController dismissViewControllerAnimated: YES completion: ^{
             [self sendEventWithName: @"EventDocumentData" body: result];
@@ -570,7 +570,7 @@ RCT_EXPORT_METHOD(startDocumentVerification) {
 #pragma mark - Document Verification Delegates
 
 - (void)documentVerificationViewController:(DocumentVerificationViewController *)documentVerificationViewController didFinishWithScanReference:(NSString *)scanReference {
-    AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    id<UIApplicationDelegate> delegate = [[UIApplication sharedApplication] delegate];
     dispatch_async(dispatch_get_main_queue(), ^{
         [delegate.window.rootViewController dismissViewControllerAnimated: YES completion: ^{
             [self sendEventWithName: @"EventDocumentVerification" body: @"Document Verification finished successfully."];
@@ -585,7 +585,7 @@ RCT_EXPORT_METHOD(startDocumentVerification) {
 # pragma mark - Helper methods
 
 - (void) sendError:(NSString *)error {
-    AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    id<UIApplicationDelegate> delegate = [[UIApplication sharedApplication] delegate];
     dispatch_async(dispatch_get_main_queue(), ^{
         [delegate.window.rootViewController dismissViewControllerAnimated: YES completion: ^{
             [self sendEventWithName: @"EventError" body: error];
