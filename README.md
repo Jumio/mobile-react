@@ -212,6 +212,30 @@ To get information about callbacks, please see the [callback chapter](https://gi
 
 # Support
 
+## Frequently Asked Questions
+
+- On iOS, the heading text on the NetVerify modal may be cut off at the top. This is a result of how the StatusBar is being handled by your application. As follows is a suggested fix:
+
+```
+import {
+  ...
+  StatusBar
+} from "react-native";
+
+...
+
+render() {
+  <View>
+    <StatusBar hidden />
+    ...
+  </View>
+}
+```
+
+Alternatively, logic can be used to only hide the status bar when the NetVerify modal is `visible`
+
+`<StatusBar hidden={this.state.netVerifyIsVisible} />`
+
 ## Contact
 
 If you have any questions regarding our implementation guide please contact Jumio Customer Service at support@jumio.com or https://support.jumio.com. The Jumio online helpdesk contains a wealth of information regarding our service including demo videos, product descriptions, FAQs and other things that may help to get you started with Jumio. Check it out at: https://support.jumio.com.
