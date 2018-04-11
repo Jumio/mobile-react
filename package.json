@@ -1,6 +1,6 @@
 {
   "name": "react-native-jumio-mobilesdk",
-  "version": "2.10.0",
+  "version": "2.11.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/Jumio/mobile-react"
@@ -18,5 +18,8 @@
     "react-native": ">=0.47.1"
   },
   "author": "Jumio Corporation",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "react-native": "^0.55.2"
+  }
 }

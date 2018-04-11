@@ -52,6 +52,8 @@ public class JumioActivity extends ReactActivity {
 				startSdk(JumioModuleNetverify.netverifySDK);
 			} else if (requestCode == JumioModuleDocumentVerification.PERMISSION_REQUEST_CODE_DOCUMENT_VERIFICATION) {
 				startSdk(JumioModuleDocumentVerification.documentVerificationSDK);
+			} else {
+				super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 			}
 		} else {
 			Toast.makeText(this, "You need to grant all required permissions to start the Jumio SDK", Toast.LENGTH_LONG).show();
@@ -61,6 +63,7 @@ public class JumioActivity extends ReactActivity {
 
 	@Override
 	public void onActivityResult(int requestCode, int resultCode, Intent data) {
+		super.onActivityResult(requestCode, resultCode, data);
 		if (requestCode == BamSDK.REQUEST_CODE) {
 			if (data == null) {
 				return;
@@ -109,9 +112,14 @@ public class JumioActivity extends ReactActivity {
 				sendEvent(this.getReactInstanceManager().getCurrentReactContext(), "EventCardInformation", result);
 				cardInformation.clear();
 			} else if (resultCode == Activity.RESULT_CANCELED) {
-				int errorCode = data.getIntExtra(BamSDK.EXTRA_ERROR_CODE, 0);
-				String errorMsg = data.getStringExtra(BamSDK.EXTRA_ERROR_MESSAGE);
-				sendErrorObject(errorCode, errorMsg, "");
+				String errorMessage = data.getStringExtra(BamSDK.EXTRA_ERROR_MESSAGE);
+				String errorCode = data.getStringExtra(BamSDK.EXTRA_ERROR_CODE);
+				ArrayList<String> scanReferenceList = data.getStringArrayListExtra(BamSDK.EXTRA_SCAN_ATTEMPTS);
+				String scanRef = null;
+				if (scanReferenceList != null && scanReferenceList.size() > 0) {
+					scanRef = scanReferenceList.get(0);
+				}
+				sendErrorObject(errorCode, errorMessage, scanRef != null ? scanRef : "");
 			}
 		} else if (requestCode == NetverifySDK.REQUEST_CODE) {
 			if (data == null) {
@@ -146,6 +154,8 @@ public class JumioActivity extends ReactActivity {
 					result.putString("gender", "m");
 				} else if (documentData.getGender() == NVGender.F) {
 					result.putString("gender", "f");
+				} else if (documentData.getGender() == NVGender.X) {
+					result.putString("gender", "x");
 				}
 				result.putString("originatingCountry", documentData.getOriginatingCountry());
 				result.putString("addressLine", documentData.getAddressLine());
@@ -205,9 +215,9 @@ public class JumioActivity extends ReactActivity {
 
 				sendEvent(this.getReactInstanceManager().getCurrentReactContext(), "EventDocumentData", result);
 			} else if (resultCode == Activity.RESULT_CANCELED) {
-				int errorCode = data.getIntExtra(DocumentVerificationSDK.EXTRA_ERROR_CODE, 0);
-				String errorMsg = data.getStringExtra(DocumentVerificationSDK.EXTRA_ERROR_MESSAGE);
-				sendErrorObject(errorCode, errorMsg, scanReference);
+				String errorMessage = data.getStringExtra(NetverifySDK.EXTRA_ERROR_MESSAGE);
+				String errorCode = data.getStringExtra(NetverifySDK.EXTRA_ERROR_CODE);
+				sendErrorObject(errorCode, errorMessage, scanReference);
 			}
 		} else if (requestCode == DocumentVerificationSDK.REQUEST_CODE) {
 			if (data == null) {
@@ -223,10 +233,12 @@ public class JumioActivity extends ReactActivity {
 				sendEvent(this.getReactInstanceManager().getCurrentReactContext(), "EventDocumentVerification", result);
 
 			} else if (resultCode == Activity.RESULT_CANCELED) {
-				int errorCode = data.getIntExtra(DocumentVerificationSDK.EXTRA_ERROR_CODE, 0);
-				String errorMsg = data.getStringExtra(DocumentVerificationSDK.EXTRA_ERROR_MESSAGE);
-				sendErrorObject(errorCode, errorMsg, scanReference);
+				String errorMessage = data.getStringExtra(DocumentVerificationSDK.EXTRA_ERROR_MESSAGE);
+				String errorCode = data.getStringExtra(DocumentVerificationSDK.EXTRA_ERROR_CODE);
+				sendErrorObject(errorCode, errorMessage, scanReference);
 			}
+		} else {
+			this.getReactInstanceManager().onActivityResult(this, requestCode, resultCode, data);
 		}
 	}
 
@@ -234,7 +246,7 @@ public class JumioActivity extends ReactActivity {
 
 	private void sendEvent(ReactContext reactContext, String eventName, WritableMap params) {
 		reactContext.getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class)
-				.emit(eventName, params);
+			.emit(eventName, params);
 	}
 
 	public void startSdk(MobileSDK sdk) {
@@ -245,9 +257,9 @@ public class JumioActivity extends ReactActivity {
 		}
 	}
 
-	private void sendErrorObject(int errorCode, String errorMsg, String scanReference) {
+	private void sendErrorObject(String errorCode, String errorMsg, String scanReference) {
 		WritableMap errorResult = Arguments.createMap();
-		errorResult.putString("errorCode", String.valueOf(errorCode));
+		errorResult.putString("errorCode", errorCode != null ? errorCode : "");
 		errorResult.putString("errorMessage", errorMsg != null ? errorMsg : "");
 		errorResult.putString("scanReference", scanReference != null ? scanReference : "");
 		sendEvent(this.getReactInstanceManager().getCurrentReactContext(), "EventError", errorResult);

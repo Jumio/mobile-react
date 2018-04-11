@@ -200,6 +200,8 @@ RCT_EXPORT_METHOD(startNetverify) {
         [result setValue: @"m" forKey: @"gender"];
     } else if (documentData.gender == NetverifyGenderF) {
         [result setValue: @"f" forKey: @"gender"];
+    } else if (documentData.gender == NetverifyGenderX) {
+        [result setValue: @"x" forKey: @"gender"];
     }
     [result setValue: documentData.originatingCountry forKey: @"originatingCountry"];
     [result setValue: documentData.addressLine forKey: @"addressLine"];
@@ -258,22 +260,22 @@ RCT_EXPORT_METHOD(startNetverify) {
     }];
 }
 
-- (void) netverifyViewController:(NetverifyViewController *)netverifyViewController didCancelWithError:(NSError *)error scanReference:(NSString *)scanReference {
-  [self sendError: error scanReference: scanReference];
+- (void) netverifyViewController:(NetverifyViewController *)netverifyViewController didCancelWithError:(NetverifyError *)error scanReference:(NSString *)scanReference {
+  [self sendNetverifyError: error scanReference: scanReference];
 }
 
-- (void) netverifyViewController:(NetverifyViewController *)netverifyViewController didFinishInitializingWithError:(NSError *)error {
+- (void) netverifyViewController:(NetverifyViewController *)netverifyViewController didFinishInitializingWithError:(NetverifyError *)error {
   if (error != nil) {
-    [self sendError: error scanReference: nil];
+    [self sendNetverifyError: error scanReference: nil];
   }
 }
 
 # pragma mark - Helper methods
 
-- (void) sendError:(NSError *)error scanReference:(NSString *)scanReference {
+- (void) sendNetverifyError:(NetverifyError *)error scanReference:(NSString *)scanReference {
 	NSMutableDictionary *result = [[NSMutableDictionary alloc] init];
-	[result setValue: [NSNumber numberWithInteger: error.code] forKey: @"errorCode"];
-	[result setValue: error.localizedDescription forKey: @"errorMessage"];
+	[result setValue: error.code forKey: @"errorCode"];
+	[result setValue: error.message forKey: @"errorMessage"];
 	if (scanReference) {
 		[result setValue: scanReference forKey: @"scanReference"];
 	}

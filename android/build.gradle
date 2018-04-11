@@ -2,16 +2,16 @@ apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion 27
-    buildToolsVersion '27.0.2'
+    buildToolsVersion '27.0.3'
 }
 
 ext {
-    SDK_VERSION = "2.10.0"
+    SDK_VERSION = "2.11.0"
 }
 
 repositories {
     jcenter()
-    maven { url 'https://maven.google.com/' }
+    google()
     maven { url 'https://mobile-sdk.jumio.com' }
 }
 
@@ -30,19 +30,19 @@ dependencies {
     implementation "com.jumio.android:dv:${SDK_VERSION}@aar"
 
     //for core:
-    implementation "com.android.support:support-v4:27.0.2"
-    api "com.android.support:appcompat-v7:27.0.2"
+    implementation "com.android.support:support-v4:27.1.0"
+    api "com.android.support:appcompat-v7:27.1.0"
 
     //for nv:
-    implementation "com.android.support:design:27.0.2"
-    implementation "com.android.support:cardview-v7:27.0.2"
+    implementation "com.android.support:design:27.1.0"
+    implementation "com.android.support:cardview-v7:27.1.0"
 
     //only for nv-nfc
     implementation "com.madgag.spongycastle:prov:1.58.0.0"
     implementation "net.sf.scuba:scuba-sc-android:0.0.13"
 
     //only for nv-barcode-vision
-    implementation "com.google.android.gms:play-services-vision:11.8.0"
+    implementation "com.google.android.gms:play-services-vision:12.0.0"
 
     implementation 'com.facebook.react:react-native:+'
 }

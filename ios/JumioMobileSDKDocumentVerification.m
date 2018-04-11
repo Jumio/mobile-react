@@ -133,19 +133,16 @@ RCT_EXPORT_METHOD(startDocumentVerification) {
     }];
 }
 
-- (void) documentVerificationViewController:(DocumentVerificationViewController *)documentVerificationViewController didFinishWithError:(NSError *)error {
-    [self sendError: error scanReference: nil];
+- (void) documentVerificationViewController:(DocumentVerificationViewController *)documentVerificationViewController didFinishWithError:(DocumentVerificationError *)error {
+    [self sendDocumentVerificationError: error];
 }
 
 # pragma mark - Helper methods
 
-- (void) sendError:(NSError *)error scanReference:(NSString *)scanReference {
+- (void) sendDocumentVerificationError:(DocumentVerificationError *)error {
 	NSMutableDictionary *result = [[NSMutableDictionary alloc] init];
-	[result setValue: [NSNumber numberWithInteger: error.code] forKey: @"errorCode"];
-	[result setValue: error.localizedDescription forKey: @"errorMessage"];
-	if (scanReference) {
-		[result setValue: scanReference forKey: @"scanReference"];
-	}
+	[result setValue: error.code forKey: @"errorCode"];
+	[result setValue: error.message forKey: @"errorMessage"];
 
 	AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
 	[delegate.window.rootViewController dismissViewControllerAnimated: YES completion: ^{
