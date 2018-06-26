@@ -82,8 +82,6 @@ public class JumioModuleNetverify extends ReactContextBaseJavaModule {
                 netverifySDK.setMerchantReportingCriteria(options.getString(key));
             } else if (key.equalsIgnoreCase("customerID")) {
                 netverifySDK.setCustomerId(options.getString(key));
-            } else if (key.equalsIgnoreCase("additionalInformation")) {
-                netverifySDK.setAdditionalInformation(options.getString(key));
             } else if (key.equalsIgnoreCase("enableEpassport")) {
                 netverifySDK.setEnableEMRTD(options.getBoolean(key));
             } else if (key.equalsIgnoreCase("sendDebugInfoToJumio")) {

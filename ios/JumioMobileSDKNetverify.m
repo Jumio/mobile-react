@@ -64,8 +64,6 @@ RCT_EXPORT_METHOD(enableEMRTD) {
                 _netverifyConfiguration.merchantReportingCriteria = [options objectForKey: key];
             } else if ([key isEqualToString: @"customerId"]) {
                 _netverifyConfiguration.customerId = [options objectForKey: key];
-            } else if ([key isEqualToString: @"additionalInformation"]) {
-                _netverifyConfiguration.additionalInformation = [options objectForKey: key];
             } else if ([key isEqualToString: @"sendDebugInfoToJumio"]) {
                 _netverifyConfiguration.sendDebugInfoToJumio = [self getBoolValue: [options objectForKey: key]];
             } else if ([key isEqualToString: @"dataExtractionOnMobileOnly"]) {

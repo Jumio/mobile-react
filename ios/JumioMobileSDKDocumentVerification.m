@@ -56,14 +56,14 @@ RCT_EXPORT_METHOD(initDocumentVerificationWithCustomization:(NSString *)apiToken
                 _documentVerifcationConfiguration.merchantReportingCriteria = [options objectForKey: key];
             } else if ([key isEqualToString: @"callbackUrl"]) {
                 _documentVerifcationConfiguration.callbackUrl = [options objectForKey: key];
-            } else if ([key isEqualToString: @"additionalInformation"]) {
-                _documentVerifcationConfiguration.additionalInformation = [options objectForKey: key];
             } else if ([key isEqualToString: @"merchantScanReference"]) {
                 _documentVerifcationConfiguration.merchantScanReference = [options objectForKey: key];
             } else if ([key isEqualToString: @"customerId"]) {
                 _documentVerifcationConfiguration.customerId = [options objectForKey: key];
             } else if ([key isEqualToString: @"documentName"]) {
                 _documentVerifcationConfiguration.documentName = [options objectForKey: key];
+            } else if ([key isEqualToString: @"enableExtraction"]) {
+                _documentVerifcationConfiguration.enableExtraction = [options objectForKey: key];
             } else if ([key isEqualToString: @"cameraPosition"]) {
                 NSString *cameraString = [[options objectForKey: key] lowercaseString];
                 JumioCameraPosition cameraPosition = ([cameraString isEqualToString: @"front"]) ? JumioCameraPositionFront : JumioCameraPositionBack;

@@ -30,7 +30,6 @@ const startNetverify = () => {
 	  //merchantScanReference: "123456789",
 	  //merchantReportingCriteria: "Criteria",
 	  //customerId: "ID",
-	  //additionalInformation: "Information",
 	  //sendDebugInfoToJumio: true,
 	  //dataExtractionOnMobileOnly: false,
 	  //cameraPosition: "back",
@@ -54,10 +53,10 @@ const startDocumentVerification = () => {
 	  merchantScanReference: "123456789",
 	  //merchantScanReportingCriteria: "Criteria",
 	  //callbackUrl: "URL",
-	  //additionalInformation: "Information",
 	  //documentName: "Name",
 	  //customDocumentCode: "Custom",
-	  //cameraPosition: "back"
+    //cameraPosition: "back",
+    //enableExtraction: true
   });
   JumioMobileSDKDocumentVerification.startDocumentVerification();
 };
