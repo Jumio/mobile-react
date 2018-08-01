@@ -6,7 +6,7 @@ android {
 }
 
 ext {
-    SDK_VERSION = "2.12.0"
+    SDK_VERSION = "2.12.1"
 }
 
 repositories {
