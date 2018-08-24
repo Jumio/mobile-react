@@ -64,7 +64,7 @@ public class JumioModuleBamCheckout extends ReactContextBaseJavaModule {
             bamSDK = BamSDK.create(getCurrentActivity(), apiToken, apiSecret, center);
 
             this.configureBAM(options);
-        } catch (PlatformNotSupportedException e) {
+        } catch (Exception e) {
             showErrorMessage("Error initializing the BAM SDK: " + e.getLocalizedMessage());
         }
     }

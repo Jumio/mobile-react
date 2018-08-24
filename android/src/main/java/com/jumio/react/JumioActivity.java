@@ -15,7 +15,9 @@ import android.widget.Toast;
 import com.facebook.react.ReactActivity;
 import com.facebook.react.bridge.Arguments;
 import com.facebook.react.bridge.ReactContext;
+import com.facebook.react.bridge.WritableArray;
 import com.facebook.react.bridge.WritableMap;
+import com.facebook.react.bridge.WritableNativeArray;
 import com.facebook.react.modules.core.DeviceEventManagerModule;
 import com.jumio.MobileSDK;
 import com.jumio.bam.BamCardInformation;
@@ -31,7 +33,6 @@ import com.jumio.nv.enums.NVExtractionMethod;
 import com.jumio.nv.enums.NVGender;
 
 import java.util.ArrayList;
-import java.util.Locale;
 
 public class JumioActivity extends ReactActivity {
 
@@ -100,26 +101,32 @@ public class JumioActivity extends ReactActivity {
 				result.putBoolean("cardSortCodeValid", cardInformation.isCardSortCodeValid());
 				result.putBoolean("cardAccountNumberValid", cardInformation.isCardAccountNumberValid());
 
+				WritableArray writableArray = new WritableNativeArray();
 				ArrayList<String> scanReferenceList = data.getStringArrayListExtra(BamSDK.EXTRA_SCAN_ATTEMPTS);
-				if (scanReferenceList != null && scanReferenceList.size() > 0) {
-					for (int i = scanReferenceList.size() - 1; i >= 0; i--) {
-						result.putString(String.format(Locale.getDefault(), "Scan reference %d", i), scanReferenceList.get(i));
+				if (scanReferenceList != null && scanReferenceList.size() > 0){
+					for (int i = scanReferenceList.size() - 1; i >= 0; i--){
+						writableArray.pushString(scanReferenceList.get(i));
 					}
-				} else {
-					result.putString("Scan reference 0", "N/A");
 				}
+				result.putArray("scanReferences", writableArray);
 
 				sendEvent(this.getReactInstanceManager().getCurrentReactContext(), "EventCardInformation", result);
 				cardInformation.clear();
 			} else if (resultCode == Activity.RESULT_CANCELED) {
 				String errorMessage = data.getStringExtra(BamSDK.EXTRA_ERROR_MESSAGE);
 				String errorCode = data.getStringExtra(BamSDK.EXTRA_ERROR_CODE);
+
+				WritableArray writableArray = new WritableNativeArray();
 				ArrayList<String> scanReferenceList = data.getStringArrayListExtra(BamSDK.EXTRA_SCAN_ATTEMPTS);
-				String scanRef = null;
-				if (scanReferenceList != null && scanReferenceList.size() > 0) {
-					scanRef = scanReferenceList.get(0);
+				if (scanReferenceList != null && scanReferenceList.size() > 0){
+					for (int i = scanReferenceList.size() - 1; i >= 0; i--){
+						writableArray.pushString(scanReferenceList.get(i));
+					}
 				}
-				sendErrorObject(errorCode, errorMessage, scanRef != null ? scanRef : "");
+				sendErrorObjectWithArray(errorCode, errorMessage, writableArray);
+			}
+			if(JumioModuleBamCheckout.bamSDK != null){
+				JumioModuleBamCheckout.bamSDK.destroy();
 			}
 		} else if (requestCode == NetverifySDK.REQUEST_CODE) {
 			if (data == null) {
@@ -148,7 +155,6 @@ public class JumioActivity extends ReactActivity {
 				result.putString("issuingCountry", documentData.getIssuingCountry());
 				result.putString("lastName", documentData.getLastName());
 				result.putString("firstName", documentData.getFirstName());
-				result.putString("middleName", documentData.getMiddleName());
 				result.putString("dob", documentData.getDob() != null ? documentData.getDob().toString() : ""); // test format
 				if (documentData.getGender() == NVGender.M) {
 					result.putString("gender", "m");
@@ -219,6 +225,9 @@ public class JumioActivity extends ReactActivity {
 				String errorCode = data.getStringExtra(NetverifySDK.EXTRA_ERROR_CODE);
 				sendErrorObject(errorCode, errorMessage, scanReference);
 			}
+			if(JumioModuleNetverify.netverifySDK != null){
+				JumioModuleNetverify.netverifySDK.destroy();
+			}
 		} else if (requestCode == DocumentVerificationSDK.REQUEST_CODE) {
 			if (data == null) {
 				return;
@@ -236,6 +245,9 @@ public class JumioActivity extends ReactActivity {
 				String errorMessage = data.getStringExtra(DocumentVerificationSDK.EXTRA_ERROR_MESSAGE);
 				String errorCode = data.getStringExtra(DocumentVerificationSDK.EXTRA_ERROR_CODE);
 				sendErrorObject(errorCode, errorMessage, scanReference);
+			}
+			if(JumioModuleDocumentVerification.documentVerificationSDK != null){
+				JumioModuleDocumentVerification.documentVerificationSDK.destroy();
 			}
 		} else {
 			this.getReactInstanceManager().onActivityResult(this, requestCode, resultCode, data);
@@ -262,6 +274,18 @@ public class JumioActivity extends ReactActivity {
 		errorResult.putString("errorCode", errorCode != null ? errorCode : "");
 		errorResult.putString("errorMessage", errorMsg != null ? errorMsg : "");
 		errorResult.putString("scanReference", scanReference != null ? scanReference : "");
+		sendEvent(this.getReactInstanceManager().getCurrentReactContext(), "EventError", errorResult);
+	}
+
+	private void sendErrorObjectWithArray(String errorCode, String errorMsg, WritableArray array) {
+		WritableMap errorResult = Arguments.createMap();
+		errorResult.putString("errorCode", errorCode != null ? errorCode : "");
+		errorResult.putString("errorMessage", errorMsg != null ? errorMsg : "");
+		if (array != null){
+			errorResult.putArray("scanReferences", array);
+		} else {
+			errorResult.putString("scanReferences", "");
+		}
 		sendEvent(this.getReactInstanceManager().getCurrentReactContext(), "EventError", errorResult);
 	}
 

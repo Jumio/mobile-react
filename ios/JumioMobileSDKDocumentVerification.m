@@ -116,8 +116,8 @@ RCT_EXPORT_METHOD(startDocumentVerification) {
         return;
     }
     
-    AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     dispatch_sync(dispatch_get_main_queue(), ^{
+        AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
         [delegate.window.rootViewController presentViewController: _documentVerificationViewController animated: YES completion: nil];
     });
 }

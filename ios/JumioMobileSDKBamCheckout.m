@@ -12,6 +12,7 @@
 
 @property (nonatomic, strong) BAMCheckoutViewController *bamViewController;
 @property (strong) BAMCheckoutConfiguration* bamConfiguration;
+@property (strong) NSMutableArray* scanReferences;
 
 @end
 
@@ -41,7 +42,8 @@ RCT_EXPORT_METHOD(initBAMWithCustomization:(NSString *)apiToken apiSecret:(NSStr
     _bamConfiguration.merchantApiSecret = apiSecret;
     NSString *dataCenterLowercase = [dataCenter lowercaseString];
     _bamConfiguration.dataCenter = ([dataCenterLowercase isEqualToString: @"eu"]) ? JumioDataCenterEU : JumioDataCenterUS;
-    
+  
+    self.scanReferences = [[NSMutableArray alloc] init];
     // Configuration
     if (![options isEqual: [NSNull null]]) {
         for (NSString *key in options) {
@@ -93,8 +95,6 @@ RCT_EXPORT_METHOD(initBAMWithCustomization:(NSString *)apiToken apiSecret:(NSStr
                         cardTypes = cardTypes | BAMCheckoutCreditCardTypeDiscover;
                     } else if ([[type lowercaseString] isEqualToString: @"jcb"]) {
                         cardTypes = cardTypes | BAMCheckoutCreditCardTypeJCB;
-                    } else if ([[type lowercaseString] isEqualToString: @"starbucks"]) {
-                        cardTypes = cardTypes | BAMCheckoutCreditCardTypeStarbucks;
                     }
                 }
                 
@@ -176,8 +176,6 @@ RCT_EXPORT_METHOD(startBAM) {
         [result setValue: @"DISCOVER" forKey: @"cardType"];
     } else if (cardInformation.cardType == BAMCheckoutCreditCardTypeJCB) {
         [result setValue: @"JCB" forKey: @"cardType"];
-    } else if (cardInformation.cardType == BAMCheckoutCreditCardTypeStarbucks) {
-        [result setValue: @"STARBUCKS" forKey: @"cardType"];
     }
     
     [result setValue: [cardInformation.cardNumber copy] forKey: @"cardNumber"];
@@ -192,31 +190,51 @@ RCT_EXPORT_METHOD(startBAM) {
     [result setValue: [cardInformation.cardAccountNumber copy] forKey: @"cardAccountNumber"];
     [result setValue: [NSNumber numberWithBool: cardInformation.cardSortCodeValid] forKey: @"cardSortCodeValid"];
     [result setValue: [NSNumber numberWithBool: cardInformation.cardAccountNumberValid] forKey: @"cardAccountNumberValid"];
+  
+    if (scanReference) {
+      if (![self.scanReferences containsObject:scanReference]) {
+        [self.scanReferences addObject:scanReference];
+      }
+    }
 	
-	[result setValue: scanReference forKey: @"scanReference"];
+    [result setValue: self.scanReferences forKey: @"scanReferences"];
     
     AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     [delegate.window.rootViewController dismissViewControllerAnimated: YES completion: ^{
         [self sendEventWithName: @"EventCardInformation" body: result];
+        [self.scanReferences removeAllObjects];
     }];
 }
 
 - (void)bamCheckoutViewController:(BAMCheckoutViewController *)controller didCancelWithError:(NSError *)error scanReference:(NSString *)scanReference {
-    [self sendError: error scanReference: scanReference];
+    if (scanReference) {
+      if (![self.scanReferences containsObject:scanReference]) {
+        [self.scanReferences addObject:scanReference];
+      }
+    }
+  
+    [self sendError: error scanReference: self.scanReferences.copy];
+    [self.scanReferences removeAllObjects];
 }
 
 - (void)bamCheckoutViewController:(BAMCheckoutViewController *)controller didStartScanAttemptWithScanReference:(NSString *)scanReference {
+    if (scanReference) {
+      if (![self.scanReferences containsObject:scanReference]) {
+        [self.scanReferences addObject:scanReference];
+      }
+    }
+
     NSLog(@"BAMCheckoutViewController did start scan attempt with request reference: %@", scanReference);
 }
 
 # pragma mark - Helper methods
 
-- (void) sendError:(NSError *)error scanReference:(NSString *)scanReference {
+- (void) sendError:(NSError *)error scanReference:(NSArray *)scanReferences {
 	NSMutableDictionary *result = [[NSMutableDictionary alloc] init];
 	[result setValue: [NSNumber numberWithInteger: error.code] forKey: @"errorCode"];
 	[result setValue: error.localizedDescription forKey: @"errorMessage"];
-	if (scanReference) {
-		[result setValue: scanReference forKey: @"scanReference"];
+	if (scanReferences) {
+		[result setValue: scanReferences forKey: @"scanReferences"];
 	}
 
 	AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];

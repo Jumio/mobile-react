@@ -6,7 +6,7 @@ android {
 }
 
 ext {
-    SDK_VERSION = "2.12.1"
+    SDK_VERSION = "2.13.0"
 }
 
 repositories {
@@ -14,8 +14,6 @@ repositories {
     google()
     maven { url 'https://mobile-sdk.jumio.com' }
 }
-
-
 
 dependencies {
     implementation "com.jumio.android:core:${SDK_VERSION}@aar"

@@ -39,6 +39,10 @@ RCT_EXPORT_METHOD(enableEMRTD) {
 
 - (void)initNetverifyHelper:(NSString *)apiToken apiSecret:(NSString *)apiSecret dataCenter:(NSString *)dataCenter configuration:(NSDictionary *)options customization:(NSDictionary *)customization {
     
+    if (self.netverifyViewController) {
+        [self.netverifyViewController destroy];
+    }
+    
     // Initialization
     _netverifyConfiguration = [NetverifyConfiguration new];
     _netverifyConfiguration.delegate = self;
@@ -162,8 +166,8 @@ RCT_EXPORT_METHOD(startNetverify) {
         return;
     }
     
-    AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     dispatch_sync(dispatch_get_main_queue(), ^{
+        AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
         [delegate.window.rootViewController presentViewController: _netverifyViewController animated:YES completion: nil];
     });
 }
@@ -192,7 +196,6 @@ RCT_EXPORT_METHOD(startNetverify) {
     [result setValue: documentData.issuingCountry forKey: @"issuingCountry"];
     [result setValue: documentData.lastName forKey: @"lastName"];
     [result setValue: documentData.firstName forKey: @"firstName"];
-    [result setValue: documentData.middleName forKey: @"middleName"];
     [result setValue: [formatter stringFromDate: documentData.dob] forKey: @"dob"];
     if (documentData.gender == NetverifyGenderM) {
         [result setValue: @"m" forKey: @"gender"];

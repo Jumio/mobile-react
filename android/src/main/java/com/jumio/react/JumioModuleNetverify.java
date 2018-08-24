@@ -8,14 +8,22 @@ package com.jumio.react;
 import android.support.v4.app.ActivityCompat;
 import android.util.Log;
 
-import com.facebook.react.bridge.*;
+import com.facebook.react.bridge.Arguments;
+import com.facebook.react.bridge.ReactApplicationContext;
+import com.facebook.react.bridge.ReactContextBaseJavaModule;
+import com.facebook.react.bridge.ReactMethod;
+import com.facebook.react.bridge.ReadableArray;
+import com.facebook.react.bridge.ReadableMap;
+import com.facebook.react.bridge.ReadableMapKeySetIterator;
+import com.facebook.react.bridge.WritableMap;
 import com.facebook.react.modules.core.DeviceEventManagerModule;
 import com.jumio.MobileSDK;
-import com.jumio.core.enums.*;
+import com.jumio.core.enums.JumioCameraPosition;
+import com.jumio.core.enums.JumioDataCenter;
 import com.jumio.core.exceptions.MissingPermissionException;
-import com.jumio.core.exceptions.PlatformNotSupportedException;
 import com.jumio.nv.NetverifySDK;
-import com.jumio.nv.data.document.*;
+import com.jumio.nv.data.document.NVDocumentType;
+import com.jumio.nv.data.document.NVDocumentVariant;
 
 import java.util.ArrayList;
 
@@ -58,7 +66,7 @@ public class JumioModuleNetverify extends ReactContextBaseJavaModule {
             netverifySDK = NetverifySDK.create(getCurrentActivity(), apiToken, apiSecret, center);
 
             this.configureNetverify(options);
-        } catch (PlatformNotSupportedException e) {
+        } catch (Exception e) {
             showErrorMessage("Error initializing the Netverify SDK: " + e.getLocalizedMessage());
         }
     }
