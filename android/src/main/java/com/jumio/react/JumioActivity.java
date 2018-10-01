@@ -296,4 +296,3 @@ public class JumioActivity extends ReactActivity {
 		sendEvent(this.getReactInstanceManager().getCurrentReactContext(), "EventError", errorResult);
 	}
 }
-
