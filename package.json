@@ -20,6 +20,6 @@
   "author": "Jumio Corporation",
   "license": "ISC",
   "dependencies": {
-    "react-native": "0.57.1"
+    "react-native": "^0.57.2"
   }
 }
