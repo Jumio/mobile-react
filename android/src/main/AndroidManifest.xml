@@ -2,14 +2,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.jumio.react">
     
-    <uses-sdk
-    android:minSdkVersion="19"
-    android:targetSdkVersion="27" />
-    
     <uses-permission android:name="android.permission.VIBRATE"/>
     <uses-feature android:name="android.hardware.camera" android:required="false"/>
     
     <application>
+		<meta-data
+			android:name="com.google.android.gms.version"
+			android:value="@integer/google_play_services_version" />
+	
         <meta-data
             android:name="com.google.android.gms.vision.DEPENDENCIES"
             android:value="barcode, face"

@@ -5,7 +5,7 @@
 
 package com.jumio.react;
 
-import android.support.v4.app.ActivityCompat;
+import androidx.core.app.ActivityCompat;
 import android.util.Log;
 
 import com.facebook.react.bridge.*;
