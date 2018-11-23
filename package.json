@@ -12,7 +12,8 @@
   ],
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "test": "jest"
+    "test": "jest",
+    "publish:lib": "yarn pack && curl -F package=@react-native-jumio-mobilesdk-v$npm_package_version.tgz https://$PRIVATE_REGISTRY_TOKEN@push.fury.io/wave/"
   },
   "peerDependencies": {
     "react-native": ">=0.47.1"
