@@ -1,0 +1,58 @@
+version: 2
+
+references:
+  container_config_node: &container_config_node
+    docker:
+      - image: circleci/node:8
+
+  restore_all_cache: &restore_all_cache
+    restore_cache:
+      key: cache-all-{{ checksum "package.json" }}
+
+  restore_node_modules: &restore_node_modules
+    restore_cache:
+      key: cache-node-modules-{{ checksum "package.json" }}
+
+jobs:
+
+  install:
+    resource_class: small
+    <<: *container_config_node
+    steps:
+      - checkout
+      - *restore_all_cache
+      - run:
+          name: Install dependencies
+          command: yarn install --prefer-offline --frozen-lockfile
+      - save_cache:
+          key: cache-all-{{ checksum "package.json" }}
+          paths:
+            - ~/.cache/yarn
+            - node_modules
+      - save_cache:
+          key: cache-node-modules-{{ checksum "package.json" }}
+          paths:
+            - node_modules
+
+  deploy:
+    <<: *container_config_node
+    steps:
+      - checkout
+      - *restore_node_modules
+      - run:
+          name: Deploy library to Gemfury
+          command: yarn publish:lib
+
+workflows:
+  version: 2
+  deploy:
+    jobs:
+      - install:
+          context: org-global
+      - deploy:
+          context: org-global
+          requires:
+            - install
+          filters:
+            branches: 
+              only: master 
