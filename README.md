@@ -6,13 +6,17 @@ Official Jumio Mobile SDK plugin for React Native
 
 We only ensure compatibility with a minimum React Native version of 0.55.4
 
+#### Attention
+There is a potential security vulnerability present in React native 0.55.4, caused by a dependency named "randomatic" that is included in react-native-meteor-oauth. Although the Jumio Mobile SDK is not using the affected functionality, we intend to upgrade to a fixed version of React native as soon as possible.
+For more information please visit https://nvd.nist.gov/vuln/detail/CVE-2017-16028
+
 ## Setup
 
 Create React Native project and add the Jumio Mobile SDK module to it.
 ```
 react-native init MyProject
 cd MyProject
-npm install --save https://github.com/Jumio/mobile-react.git#v2.13.0
+npm install --save https://github.com/Jumio/mobile-react.git#v2.14.0
 react-native link react-native-jumio-mobilesdk
 ```
 
@@ -20,7 +24,7 @@ react-native link react-native-jumio-mobilesdk
 
 ### iOS
 
-1. Add the Jumio Mobile SDK to your React Native iOS project by either doing manual integration or using dependency management via cocoapods , please see [the official documentation of the Jumio Mobile SDK for iOS](https://github.com/Jumio/mobile-sdk-ios/tree/v2.13.0#basic-setup)
+1. Add the Jumio Mobile SDK to your React Native iOS project by either doing manual integration or using dependency management via cocoapods , please see [the official documentation of the Jumio Mobile SDK for iOS](https://github.com/Jumio/mobile-sdk-ios/tree/v2.14.0#basic-setup)
 2. Open the Xcode workspace (/YourApp/ios/YourApp.xcworkspace) and add the module files according to your desired product (see /YourApp/node_modules/react-native-jumio-mobilesdk/ios/) into the app project.
   * Example: For Fastfill/Netverify add `JumioMobileSDKNetverify.h` and `JumioMobileSDKNetverify.m` to the project
 3. Add the "**NSCameraUsageDescription**"-key to your Info.plist file.
@@ -405,13 +409,13 @@ emitterBamCheckout.addListener(
 ### Android
 
 #### Netverify
-The Netverify SDK can be customized to the respective needs by following this [customization chapter](https://github.com/Jumio/mobile-sdk-android/blob/v2.13.0/docs/integration_netverify-fastfill.md#customization).
+The Netverify SDK can be customized to the respective needs by following this [customization chapter](https://github.com/Jumio/mobile-sdk-android/blob/v2.14.0/docs/integration_netverify-fastfill.md#customization).
 
 #### BAM Checkout
-The Netverify SDK can be customized to the respective needs by following this [customization chapter](https://github.com/Jumio/mobile-sdk-android/blob/v2.13.0/docs/integration_bam-checkout.md#customization).
+The Netverify SDK can be customized to the respective needs by following this [customization chapter](https://github.com/Jumio/mobile-sdk-android/blob/v2.14.0/docs/integration_bam-checkout.md#customization).
 
 #### Document Verification
-The Netverify SDK can be customized to the respective needs by following this [customization chapter](https://github.com/Jumio/mobile-sdk-android/blob/v2.13.0/docs/integration_document-verification.md#customization).
+The Netverify SDK can be customized to the respective needs by following this [customization chapter](https://github.com/Jumio/mobile-sdk-android/blob/v2.14.0/docs/integration_document-verification.md#customization).
 
 
 ### iOS

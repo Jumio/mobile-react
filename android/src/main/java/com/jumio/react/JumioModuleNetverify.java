@@ -5,7 +5,6 @@
 
 package com.jumio.react;
 
-import android.support.v4.app.ActivityCompat;
 import android.util.Log;
 
 import com.facebook.react.bridge.Arguments;
@@ -26,6 +25,8 @@ import com.jumio.nv.data.document.NVDocumentType;
 import com.jumio.nv.data.document.NVDocumentVariant;
 
 import java.util.ArrayList;
+
+import androidx.core.app.ActivityCompat;
 
 public class JumioModuleNetverify extends ReactContextBaseJavaModule {
 

@@ -5,7 +5,6 @@
 
 package com.jumio.react;
 
-import android.support.v4.app.ActivityCompat;
 import android.util.Log;
 
 import com.facebook.react.bridge.Arguments;
@@ -21,6 +20,8 @@ import com.jumio.core.enums.JumioCameraPosition;
 import com.jumio.core.enums.JumioDataCenter;
 import com.jumio.core.exceptions.MissingPermissionException;
 import com.jumio.dv.DocumentVerificationSDK;
+
+import androidx.core.app.ActivityCompat;
 
 public class JumioModuleDocumentVerification extends ReactContextBaseJavaModule {
 

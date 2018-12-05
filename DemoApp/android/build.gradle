@@ -7,7 +7,7 @@ buildscript {
 		google()
 	}
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.1.4'
+        classpath 'com.android.tools.build:gradle:3.2.1'
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -21,6 +21,16 @@ allprojects {
         maven {
             // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
             url "$rootDir/../node_modules/react-native/android"
+        }
+    }
+
+
+    configurations.all {
+        resolutionStrategy.eachDependency {DependencyResolveDetails  details ->
+            if (details.requested.group.contains('androidx') && details.requested.version == '1.0.0-rc01') {
+                details.useVersion "1.0.0"
+                details.because 'Final version should be used'
+            }
         }
     }
 }
