@@ -174,17 +174,23 @@ netverifySDK.setEnableEMRTD(true);
 As soon as the sdk is initialized, the sdk is started by the following call.
 
 ```javascript
-Jumio.startNetverify(successCallback, errorCallback);
+JumioMobileSDKNetverify.startNetverify();
 ```
 
-Example
+The results are communicated from the native environment (iOS/Android) to javascript using event emitters.
+
+Example for logging result and error information (as in the demo app):
 
 ```javascript
-Jumio.startNetverify(function(documentData) {
-    // YOUR CODE
-}, function(error) {
-    // YOUR CODE
-});
+const emitterNetverify = new NativeEventEmitter(JumioMobileSDKNetverify);
+emitterNetverify.addListener(
+    'EventDocumentData',
+	(EventDocumentData) => console.warn("EventDocumentData: " + JSON.stringify(EventDocumentData))
+);
+emitterNetverify.addListener(
+    'EventError',
+    (EventError) => console.warn("EventError: " + JSON.stringify(EventError))
+);
 ```
 
 ### Document Verification
@@ -255,17 +261,21 @@ Jumio.initDocumentVerification("API_TOKEN", "API_SECRET", "US", {
 As soon as the SDK is initialized, the SDK is started by the following call.
 
 ```javascript
-Jumio.startDocumentVerification(successCallback, errorCallback);
+JumioMobileSDKDocumentVerification.startDocumentVerification();
 ```
 
-Example
+Example for logging result and error information:
 
 ```javascript
-Jumio.startDocumentVerification(function(documentData) {
-    // YOUR CODE
-}, function(error) {
-    // YOUR CODE
-});
+const emitterDocumentVerification = new NativeEventEmitter(JumioMobileSDKDocumentVerification)
+emitterDocumentVerification.addListener(
+    'EventDocumentVerification',
+    (EventDocumentVerification) => console.warn("EventDocumentVerification: " + JSON.stringify(EventDocumentVerification))
+);
+emitterDocumentVerification.addListener(
+    'EventError',
+    (EventError) => console.warn("EventError: " + JSON.stringify(EventError))
+);
 ```
 
 ### BAM Checkout
@@ -310,17 +320,21 @@ Jumio.initBAM("API_TOKEN", "API_SECRET", "US", {
 As soon as the sdk is initialized, the sdk is started by the following call.
 
 ```javascript
-Jumio.startBAM(successCallback, errorCallback);
+JumioMobileSDKBamCheckout.startBAM();
 ```
 
-Example
+Example for logging result and error information:
 
 ```javascript
-Jumio.startBAM(function(cardInformation) {
-    // YOUR CODE
-}, function(error) {
-    // YOUR CODE
-});
+const emitterBamCheckout = new NativeEventEmitter(JumioMobileSDKBamCheckout)
+emitterBamCheckout.addListener(
+    'EventCardInformation',
+    (EventCardInformation) => console.warn("EventCardInformation: " + JSON.stringify(EventCardInformation))
+);
+emitterBamCheckout.addListener(
+    'EventError',
+    (EventError) => console.warn("EventError: " + JSON.stringify(EventError))
+);
 ```
 
 ### Offline scanning
