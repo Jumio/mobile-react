@@ -2,10 +2,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.jumio.react">
     
-    <uses-sdk
-    android:minSdkVersion="16"
-    android:targetSdkVersion="22" />
-    
     <uses-permission android:name="android.permission.VIBRATE"/>
     <uses-feature android:name="android.hardware.camera" android:required="false"/>
     
