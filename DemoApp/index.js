@@ -16,6 +16,7 @@ import {
 import Button from 'react-native-button';
 
 const { JumioMobileSDKNetverify } = NativeModules;
+const { JumioMobileSDKAuthentication } = NativeModules;
 const { JumioMobileSDKBamCheckout } = NativeModules;
 const { JumioMobileSDKDocumentVerification } = NativeModules;
 
@@ -23,13 +24,13 @@ const { JumioMobileSDKDocumentVerification } = NativeModules;
 
 const startNetverify = () => {
   JumioMobileSDKNetverify.initNetverify('API_TOKEN', 'API_SECRET', 'DATACENTER', {
-	  requireVerification: true,
+	  enableVerification: true,
 	  //callbackUrl: "URL",
-	  //requireFaceMatch: true,
+	  //enableIdentityVerification: true,
 	  //preselectedCountry: "USA",
-	  //merchantScanReference: "123456789",
-	  //merchantReportingCriteria: "Criteria",
-	  //customerId: "ID",
+	  //customerInternalReference: "123456789",
+	  //reportingCriteria: "Criteria",
+	  //userReference: "ID",
 	  //sendDebugInfoToJumio: true,
 	  //dataExtractionOnMobileOnly: false,
 	  //cameraPosition: "back",
@@ -43,15 +44,25 @@ const startNetverify = () => {
   JumioMobileSDKNetverify.startNetverify();
 };
 
+// Authentication
+
+const startAuthentication = () => {
+  JumioMobileSDKAuthentication.initAuthentication('API_TOKEN', 'API_SECRET', 'DATACENTER', {
+	  enrollmentTransactionReference: "EnrollmentTransactionReference",
+	  //userReference: "UserReference",
+	  //callbackUrl: "URL"
+  });  
+};
+
 // Document Verification
 
 const startDocumentVerification = () => {
   JumioMobileSDKDocumentVerification.initDocumentVerification('API_TOKEN', 'API_SECRET', 'DATACENTER', {
 	  type: "BS",
-	  customerId: "123456789",
+	  userReference: "123456789",
 	  country: "USA",
-	  merchantScanReference: "123456789",
-	  //merchantScanReportingCriteria: "Criteria",
+	  customerInternalReference: "123456789",
+	  //reportingCriteria: "Criteria",
 	  //callbackUrl: "URL",
 	  //documentName: "Name",
 	  //customDocumentCode: "Custom",
@@ -71,7 +82,7 @@ const startBAM = () => {
 	//cvvRequired: true,
 	//expiryEditable: false,
 	//cardHolderNameEditable: false,
-	//merchantReportingCriteria: "Criteria",
+	//reportingCriteria: "Criteria",
 	//vibrationEffectEnabled: true,
 	//enableFlashOnScanStart: false,
 	//cardNumberMaskingEnabled: false,
@@ -91,6 +102,20 @@ emitterNetverify.addListener(
 emitterNetverify.addListener(
     'EventError',
     (EventError) => console.warn("EventError: " + JSON.stringify(EventError))
+);
+
+const emitterAuthentication = new NativeEventEmitter(JumioMobileSDKAuthentication);
+emitterAuthentication.addListener(
+    'EventAuthentication',
+	(EventAuthentication) => console.warn("EventAuthentication: " + JSON.stringify(EventAuthentication))
+);
+emitterAuthentication.addListener(
+    'EventError',
+    (EventError) => console.warn("EventError: " + JSON.stringify(EventError))
+);
+emitterAuthentication.addListener(
+    'EventInitiateSuccess',
+    (EventInitiateSuccess) => JumioMobileSDKAuthentication.startAuthentication()
 );
 
 const emitterDocumentVerification = new NativeEventEmitter(JumioMobileSDKDocumentVerification)
@@ -121,6 +146,11 @@ export default class DemoApp extends Component {
 			onPress={startNetverify}
 			style={styles.buttonStyle}>
 			Start Netverify
+		</Button>
+		<Button
+			onPress={startAuthentication}
+			style={styles.buttonStyle}>
+			Start Authentication
 		</Button>
 		<Button
 			onPress={startDocumentVerification}

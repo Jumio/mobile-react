@@ -25,13 +25,9 @@
 		5416DA4120775C6C0059290D /* JumioMobileSDKDocumentVerification.m in Sources */ = {isa = PBXBuildFile; fileRef = 5416DA3C20775C6B0059290D /* JumioMobileSDKDocumentVerification.m */; };
 		5416DA4220775C6C0059290D /* JumioMobileSDKNetverify.m in Sources */ = {isa = PBXBuildFile; fileRef = 5416DA3E20775C6B0059290D /* JumioMobileSDKNetverify.m */; };
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
-		77AD1B3820DD3D280013A92C /* nl.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 77AD1B0D20DD3D270013A92C /* nl.lproj */; };
-		77AD1B3920DD3D280013A92C /* zh-Hans.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 77AD1B3320DD3D270013A92C /* zh-Hans.lproj */; };
-		77AD1B3A20DD3D280013A92C /* en.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 77AD1B3420DD3D270013A92C /* en.lproj */; };
-		77AD1B3B20DD3D280013A92C /* fr.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 77AD1B3520DD3D270013A92C /* fr.lproj */; };
-		77AD1B3C20DD3D280013A92C /* de.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 77AD1B3620DD3D280013A92C /* de.lproj */; };
-		77AD1B3D20DD3D280013A92C /* es.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 77AD1B3720DD3D280013A92C /* es.lproj */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
+		96673C9922662D4200EE3C95 /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96673C6B22662D4200EE3C95 /* JavaScriptCore.framework */; };
+		9676A038225E3FFD00763306 /* JumioMobileSDKAuthentication.m in Sources */ = {isa = PBXBuildFile; fileRef = 9676A037225E3FFD00763306 /* JumioMobileSDKAuthentication.m */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
 /* End PBXBuildFile section */
 
@@ -169,20 +165,6 @@
 			remoteGlobalIDString = 3D3CD9321DE5FBEE00167DC4;
 			remoteInfo = "cxxreact-tvOS";
 		};
-		3DAD3EAC1DF850E9000B6D8A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 146833FF1AC3E56700842450 /* React.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 3D3CD90B1DE5FBD600167DC4;
-			remoteInfo = jschelpers;
-		};
-		3DAD3EAE1DF850E9000B6D8A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 146833FF1AC3E56700842450 /* React.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 3D3CD9181DE5FBD800167DC4;
-			remoteInfo = "jschelpers-tvOS";
-		};
 		5416DA3720775C6B0059290D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 146833FF1AC3E56700842450 /* React.xcodeproj */;
@@ -224,20 +206,6 @@
 			proxyType = 2;
 			remoteGlobalIDString = 3D383D621EBD27B9005632C8;
 			remoteInfo = "double-conversion-tvOS";
-		};
-		54A93AF4204D3C2800CF3A0C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 146833FF1AC3E56700842450 /* React.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 9936F3131F5F2E4B0010BF04;
-			remoteInfo = privatedata;
-		};
-		54A93AF6204D3C2800CF3A0C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 146833FF1AC3E56700842450 /* React.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 9936F32F1F5F2E5B0010BF04;
-			remoteInfo = "privatedata-tvOS";
 		};
 		54B07383203DC7CC00E7C643 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -288,6 +256,34 @@
 			remoteGlobalIDString = 58B5119B1A9E6C1200147676;
 			remoteInfo = RCTText;
 		};
+		96673C9122662D4200EE3C95 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 146833FF1AC3E56700842450 /* React.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EDEBC6D6214B3E7000DD5AC8;
+			remoteInfo = jsi;
+		};
+		96673C9322662D4200EE3C95 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 146833FF1AC3E56700842450 /* React.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EDEBC73B214B45A300DD5AC8;
+			remoteInfo = jsiexecutor;
+		};
+		96673C9522662D4200EE3C95 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 146833FF1AC3E56700842450 /* React.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = ED296FB6214C9A0900B7C4FE;
+			remoteInfo = "jsi-tvOS";
+		};
+		96673C9722662D4200EE3C95 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 146833FF1AC3E56700842450 /* React.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = ED296FEE214C9CF800B7C4FE;
+			remoteInfo = "jsiexecutor-tvOS";
+		};
 		ADBDB9261DFEBF0700ED6528 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */;
@@ -321,14 +317,11 @@
 		5416DA3E20775C6B0059290D /* JumioMobileSDKNetverify.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JumioMobileSDKNetverify.m; path = "../node_modules/react-native-jumio-mobilesdk/ios/JumioMobileSDKNetverify.m"; sourceTree = "<group>"; };
 		5416DA3F20775C6B0059290D /* JumioMobileSDKDocumentVerification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JumioMobileSDKDocumentVerification.h; path = "../node_modules/react-native-jumio-mobilesdk/ios/JumioMobileSDKDocumentVerification.h"; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
-		77AD1B0D20DD3D270013A92C /* nl.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; name = nl.lproj; path = Pods/JumioMobileSDK/frameworks/nl.lproj; sourceTree = "<group>"; };
-		77AD1B3320DD3D270013A92C /* zh-Hans.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "zh-Hans.lproj"; path = "Pods/JumioMobileSDK/frameworks/zh-Hans.lproj"; sourceTree = "<group>"; };
-		77AD1B3420DD3D270013A92C /* en.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; name = en.lproj; path = Pods/JumioMobileSDK/frameworks/en.lproj; sourceTree = "<group>"; };
-		77AD1B3520DD3D270013A92C /* fr.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; name = fr.lproj; path = Pods/JumioMobileSDK/frameworks/fr.lproj; sourceTree = "<group>"; };
-		77AD1B3620DD3D280013A92C /* de.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; name = de.lproj; path = Pods/JumioMobileSDK/frameworks/de.lproj; sourceTree = "<group>"; };
-		77AD1B3720DD3D280013A92C /* es.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; name = es.lproj; path = Pods/JumioMobileSDK/frameworks/es.lproj; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
+		96673C6B22662D4200EE3C95 /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		9676A011225E3FFD00763306 /* JumioMobileSDKAuthentication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JumioMobileSDKAuthentication.h; path = "../node_modules/react-native-jumio-mobilesdk/ios/JumioMobileSDKAuthentication.h"; sourceTree = "<group>"; };
+		9676A037225E3FFD00763306 /* JumioMobileSDKAuthentication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JumioMobileSDKAuthentication.m; path = "../node_modules/react-native-jumio-mobilesdk/ios/JumioMobileSDKAuthentication.m"; sourceTree = "<group>"; };
 		A43960EE14DD9E429B124B93 /* Pods_DemoApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DemoApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAA0AFEE17514565D7769F8E /* Pods-DemoApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DemoApp/Pods-DemoApp.debug.xcconfig"; sourceTree = "<group>"; };
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
@@ -340,6 +333,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96673C9922662D4200EE3C95 /* JavaScriptCore.framework in Frameworks */,
 				ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */,
 				5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
@@ -405,6 +399,7 @@
 		0976E2600E74B5C26861E76B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				96673C6B22662D4200EE3C95 /* JavaScriptCore.framework */,
 				A43960EE14DD9E429B124B93 /* Pods_DemoApp.framework */,
 			);
 			name = Frameworks;
@@ -433,7 +428,6 @@
 		13B07FAE1A68108700A75B9A /* DemoApp */ = {
 			isa = PBXGroup;
 			children = (
-				77AD1B3E20DD3D570013A92C /* Localization */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -447,6 +441,8 @@
 				5416DA3C20775C6B0059290D /* JumioMobileSDKDocumentVerification.m */,
 				5416DA3D20775C6B0059290D /* JumioMobileSDKNetverify.h */,
 				5416DA3E20775C6B0059290D /* JumioMobileSDKNetverify.m */,
+				9676A011225E3FFD00763306 /* JumioMobileSDKAuthentication.h */,
+				9676A037225E3FFD00763306 /* JumioMobileSDKAuthentication.m */,
 			);
 			name = DemoApp;
 			sourceTree = "<group>";
@@ -460,16 +456,16 @@
 				3DAD3EA71DF850E9000B6D8A /* libyoga.a */,
 				3DAD3EA91DF850E9000B6D8A /* libcxxreact.a */,
 				3DAD3EAB1DF850E9000B6D8A /* libcxxreact.a */,
-				3DAD3EAD1DF850E9000B6D8A /* libjschelpers.a */,
-				3DAD3EAF1DF850E9000B6D8A /* libjschelpers.a */,
 				5416DA3820775C6B0059290D /* libjsinspector.a */,
 				5416DA3A20775C6B0059290D /* libjsinspector-tvOS.a */,
 				54A93AED204D3C2800CF3A0C /* libthird-party.a */,
 				54A93AEF204D3C2800CF3A0C /* libthird-party.a */,
 				54A93AF1204D3C2800CF3A0C /* libdouble-conversion.a */,
 				54A93AF3204D3C2800CF3A0C /* libdouble-conversion.a */,
-				54A93AF5204D3C2800CF3A0C /* libprivatedata.a */,
-				54A93AF7204D3C2800CF3A0C /* libprivatedata-tvOS.a */,
+				96673C9222662D4200EE3C95 /* libjsi.a */,
+				96673C9422662D4200EE3C95 /* libjsiexecutor.a */,
+				96673C9622662D4200EE3C95 /* libjsi-tvOS.a */,
+				96673C9822662D4200EE3C95 /* libjsiexecutor-tvOS.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -481,19 +477,6 @@
 				5E9157351DD0AC6500FF2AA8 /* libRCTAnimation.a */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		77AD1B3E20DD3D570013A92C /* Localization */ = {
-			isa = PBXGroup;
-			children = (
-				77AD1B3620DD3D280013A92C /* de.lproj */,
-				77AD1B3420DD3D270013A92C /* en.lproj */,
-				77AD1B3720DD3D280013A92C /* es.lproj */,
-				77AD1B3520DD3D270013A92C /* fr.lproj */,
-				77AD1B0D20DD3D270013A92C /* nl.lproj */,
-				77AD1B3320DD3D270013A92C /* zh-Hans.lproj */,
-			);
-			name = Localization;
 			sourceTree = "<group>";
 		};
 		78C398B11ACF4ADC00677621 /* Products */ = {
@@ -586,7 +569,6 @@
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				023F63DA8EE58FFB99AB1A2B /* [CP] Embed Pods Frameworks */,
-				264BC31CD56CE3213036CE19 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -814,20 +796,6 @@
 			remoteRef = 3DAD3EAA1DF850E9000B6D8A /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		3DAD3EAD1DF850E9000B6D8A /* libjschelpers.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libjschelpers.a;
-			remoteRef = 3DAD3EAC1DF850E9000B6D8A /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		3DAD3EAF1DF850E9000B6D8A /* libjschelpers.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libjschelpers.a;
-			remoteRef = 3DAD3EAE1DF850E9000B6D8A /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		5416DA3820775C6B0059290D /* libjsinspector.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -868,20 +836,6 @@
 			fileType = archive.ar;
 			path = "libdouble-conversion.a";
 			remoteRef = 54A93AF2204D3C2800CF3A0C /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		54A93AF5204D3C2800CF3A0C /* libprivatedata.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libprivatedata.a;
-			remoteRef = 54A93AF4204D3C2800CF3A0C /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		54A93AF7204D3C2800CF3A0C /* libprivatedata-tvOS.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = "libprivatedata-tvOS.a";
-			remoteRef = 54A93AF6204D3C2800CF3A0C /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		54B07384203DC7CC00E7C643 /* libRCTBlob-tvOS.a */ = {
@@ -933,6 +887,34 @@
 			remoteRef = 832341B41AAA6A8300B99B32 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		96673C9222662D4200EE3C95 /* libjsi.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libjsi.a;
+			remoteRef = 96673C9122662D4200EE3C95 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		96673C9422662D4200EE3C95 /* libjsiexecutor.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libjsiexecutor.a;
+			remoteRef = 96673C9322662D4200EE3C95 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		96673C9622662D4200EE3C95 /* libjsi-tvOS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libjsi-tvOS.a";
+			remoteRef = 96673C9522662D4200EE3C95 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		96673C9822662D4200EE3C95 /* libjsiexecutor-tvOS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libjsiexecutor-tvOS.a";
+			remoteRef = 96673C9722662D4200EE3C95 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -947,14 +929,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				77AD1B3C20DD3D280013A92C /* de.lproj in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
-				77AD1B3B20DD3D280013A92C /* fr.lproj in Resources */,
-				77AD1B3820DD3D280013A92C /* nl.lproj in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
-				77AD1B3D20DD3D280013A92C /* es.lproj in Resources */,
-				77AD1B3A20DD3D280013A92C /* en.lproj in Resources */,
-				77AD1B3920DD3D280013A92C /* zh-Hans.lproj in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -982,38 +958,27 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-DemoApp/Pods-DemoApp-frameworks.sh",
-				"${PODS_ROOT}/JumioMobileSDK/frameworks/JumioCore.framework",
-				"${PODS_ROOT}/JumioMobileSDK/frameworks/BAMCheckout.framework",
-				"${PODS_ROOT}/JumioMobileSDK/frameworks/Netverify.framework",
-				"${PODS_ROOT}/JumioMobileSDK/frameworks/MicroBlink.framework",
-				"${PODS_ROOT}/JumioMobileSDK/frameworks/Umoove.framework",
+				"${PODS_ROOT}/JumioMobileSDK/JumioMobileSDK-3.1.0/JumioCore.framework",
+				"${PODS_ROOT}/JumioMobileSDK/JumioMobileSDK-3.1.0/BAMCheckout.framework",
+				"${PODS_ROOT}/JumioMobileSDK/JumioMobileSDK-3.1.0/Netverify.framework",
+				"${PODS_ROOT}/JumioMobileSDK/JumioMobileSDK-3.1.0/NetverifyBarcode.framework",
+				"${PODS_ROOT}/JumioMobileSDK/JumioMobileSDK-3.1.0/MicroBlink.framework",
+				"${PODS_ROOT}/JumioMobileSDK/JumioMobileSDK-3.1.0/NetverifyFace.framework",
+				"${PODS_ROOT}/JumioMobileSDK/JumioMobileSDK-3.1.0/ZoomAuthenticationHybrid.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JumioCore.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BAMCheckout.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Netverify.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NetverifyBarcode.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MicroBlink.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Umoove.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NetverifyFace.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ZoomAuthenticationHybrid.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DemoApp/Pods-DemoApp-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		264BC31CD56CE3213036CE19 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DemoApp/Pods-DemoApp-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		B74DA3C783A9348EEF2F21F1 /* [CP] Check Pods Manifest.lock */ = {
@@ -1044,6 +1009,7 @@
 				5416DA4020775C6C0059290D /* JumioMobileSDKBamCheckout.m in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				9676A038225E3FFD00763306 /* JumioMobileSDKAuthentication.m in Sources */,
 				5416DA4120775C6C0059290D /* JumioMobileSDKDocumentVerification.m in Sources */,
 				5416DA4220775C6C0059290D /* JumioMobileSDKNetverify.m in Sources */,
 			);

@@ -1,21 +1,22 @@
 {
   "name": "DemoApp",
-  "version": "2.14.0",
+  "version": "3.1.0",
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
+    "android-windows": "react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res && react-native run-android",
     "test": "jest"
   },
   "dependencies": {
-    "react": "^16.4.1",
-    "react-native": "^0.55.4",
+    "react": "^16.8.3",
+    "react-native": "^0.59.4",
     "react-native-button": "^2.1.0",
-    "react-native-jumio-mobilesdk": "git+https://github.com/Jumio/mobile-react.git"
+    "react-native-jumio-mobilesdk": "file:../"
   },
   "devDependencies": {
-    "babel-jest": "23.0.1",
-    "babel-preset-react-native": "4.0.0",
-    "jest": "20.0.4",
+    "babel-jest": "24.7.1",
+    "metro-react-native-babel-preset": "^0.53.0",
+    "jest": "24.7.1",
     "react-test-renderer": "16.4.1"
   },
   "jest": {

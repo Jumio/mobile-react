@@ -86,7 +86,7 @@ public class JumioModuleBamCheckout extends ReactContextBaseJavaModule {
                 bamSDK.setExpiryEditable(options.getBoolean(key));
             } else if (key.equalsIgnoreCase("cardHolderNameEditable")) {
                 bamSDK.setCardHolderNameEditable(options.getBoolean(key));
-            } else if (key.equalsIgnoreCase("merchantReportingCriteria")) {
+            } else if (key.equalsIgnoreCase("reportingCriteria")) {
                 bamSDK.setMerchantReportingCriteria(options.getString(key));
             } else if (key.equalsIgnoreCase("vibrationEffectEnabled")) {
                 bamSDK.setVibrationEffectEnabled(options.getBoolean(key));

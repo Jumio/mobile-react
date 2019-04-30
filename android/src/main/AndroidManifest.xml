@@ -31,6 +31,12 @@
             android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
             android:hardwareAccelerated="true"
             android:theme="@style/Theme.DocumentVerification"/>
+        <activity
+            android:name="com.jumio.auth.AuthenticationActivity"
+            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
+            android:hardwareAccelerated="true"
+            android:theme="@style/Theme.Authentication"
+            android:windowSoftInputMode="adjustResize"/>
             
         -keep class net.sf.scuba.smartcards.IsoDepCardService {*;}
         -keep class org.jmrtd.** { *; }

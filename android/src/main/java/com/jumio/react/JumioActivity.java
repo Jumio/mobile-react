@@ -8,7 +8,6 @@ package com.jumio.react;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import androidx.annotation.NonNull;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -20,6 +19,8 @@ import com.facebook.react.bridge.WritableMap;
 import com.facebook.react.bridge.WritableNativeArray;
 import com.facebook.react.modules.core.DeviceEventManagerModule;
 import com.jumio.MobileSDK;
+import com.jumio.auth.AuthenticationResult;
+import com.jumio.auth.AuthenticationSDK;
 import com.jumio.bam.BamCardInformation;
 import com.jumio.bam.BamSDK;
 import com.jumio.bam.enums.CreditCardType;
@@ -33,6 +34,8 @@ import com.jumio.nv.enums.NVExtractionMethod;
 import com.jumio.nv.enums.NVGender;
 
 import java.util.ArrayList;
+
+import androidx.annotation.NonNull;
 
 public class JumioActivity extends ReactActivity {
 
@@ -57,7 +60,7 @@ public class JumioActivity extends ReactActivity {
 				super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 			}
 		} else {
-			Toast.makeText(this, "You need to grant all required permissions to start the Jumio SDK", Toast.LENGTH_LONG).show();
+			Toast.makeText(this, "Not all required permissions have been granted", Toast.LENGTH_LONG).show();
 			super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 		}
 	}
@@ -249,7 +252,29 @@ public class JumioActivity extends ReactActivity {
 			if(JumioModuleDocumentVerification.documentVerificationSDK != null){
 				JumioModuleDocumentVerification.documentVerificationSDK.destroy();
 			}
-		} else {
+		} else if (requestCode == AuthenticationSDK.REQUEST_CODE) {
+			if(data == null) {
+				return;
+			}
+			String transactionReference = data.getStringExtra(AuthenticationSDK.EXTRA_TRANSACTION_REFERENCE) != null ? data.getStringExtra(AuthenticationSDK.EXTRA_TRANSACTION_REFERENCE) : "";
+			if (resultCode == Activity.RESULT_OK) {
+				AuthenticationResult authenticationResult = (AuthenticationResult) data.getSerializableExtra(AuthenticationSDK.EXTRA_SCAN_DATA);
+				WritableMap result = Arguments.createMap();
+				result.putString("authenticationResult", authenticationResult.toString());
+				result.putString("transactionReference", transactionReference);
+
+				sendEvent(this.getReactInstanceManager().getCurrentReactContext(), "EventAuthentication", result);
+			} else if (resultCode == Activity.RESULT_CANCELED) {
+				String errorMessage = data.getStringExtra(AuthenticationSDK.EXTRA_ERROR_MESSAGE);
+				String errorCode = data.getStringExtra(AuthenticationSDK.EXTRA_ERROR_CODE);
+				sendErrorObject(errorCode, errorMessage, transactionReference);
+			}
+			if(JumioModuleAuthentication.authenticationSDK!= null){
+				JumioModuleAuthentication.authenticationSDK.destroy();
+			}
+		}
+
+		else {
 			this.getReactInstanceManager().onActivityResult(this, requestCode, resultCode, data);
 		}
 	}

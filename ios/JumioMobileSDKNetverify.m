@@ -1,11 +1,12 @@
 //
 //  JumioMobileSDKNetverify.m
 //
-//  Copyright © 2018 Jumio Corporation All rights reserved.
+//  Copyright © 2019 Jumio Corporation All rights reserved.
 //
 
 #import "JumioMobileSDKNetverify.h"
 #import "AppDelegate.h"
+@import JumioCore;
 @import Netverify;
 
 @interface JumioMobileSDKNetverify() <NetverifyViewControllerDelegate>
@@ -46,28 +47,28 @@ RCT_EXPORT_METHOD(enableEMRTD) {
     // Initialization
     _netverifyConfiguration = [NetverifyConfiguration new];
     _netverifyConfiguration.delegate = self;
-    _netverifyConfiguration.merchantApiToken = apiToken;
-    _netverifyConfiguration.merchantApiSecret = apiSecret;
+    _netverifyConfiguration.apiToken = apiToken;
+    _netverifyConfiguration.apiSecret = apiSecret;
     NSString *dataCenterLowercase = [dataCenter lowercaseString];
     _netverifyConfiguration.dataCenter = ([dataCenterLowercase isEqualToString: @"eu"]) ? JumioDataCenterEU : JumioDataCenterUS;
     
     // Configuration
     if (![options isEqual:[NSNull null]]) {
         for (NSString *key in options) {
-            if ([key isEqualToString: @"requireVerification"]) {
-                _netverifyConfiguration.requireVerification = [self getBoolValue: [options objectForKey: key]];
+            if ([key isEqualToString: @"enableVerification"]) {
+                _netverifyConfiguration.enableVerification = [self getBoolValue: [options objectForKey: key]];
             } else if ([key isEqualToString: @"callbackUrl"]) {
                 _netverifyConfiguration.callbackUrl = [options objectForKey: key];
-            } else if ([key isEqualToString: @"requireFaceMatch"]) {
-                _netverifyConfiguration.requireFaceMatch = [self getBoolValue: [options objectForKey: key]];
+            } else if ([key isEqualToString: @"enableIdentityVerification"]) {
+                _netverifyConfiguration.enableIdentityVerification = [self getBoolValue: [options objectForKey: key]];
             } else if ([key isEqualToString: @"preselectedCountry"]) {
                 _netverifyConfiguration.preselectedCountry = [options objectForKey: key];
-            } else if ([key isEqualToString: @"merchantScanReference"]) {
-                _netverifyConfiguration.merchantScanReference = [options objectForKey: key];
-            } else if ([key isEqualToString: @"merchantReportingCriteria"]) {
-                _netverifyConfiguration.merchantReportingCriteria = [options objectForKey: key];
-            } else if ([key isEqualToString: @"customerId"]) {
-                _netverifyConfiguration.customerId = [options objectForKey: key];
+            } else if ([key isEqualToString: @"userReference"]) {
+                _netverifyConfiguration.userReference = [options objectForKey: key];
+            } else if ([key isEqualToString: @"reportingCriteria"]) {
+                _netverifyConfiguration.reportingCriteria = [options objectForKey: key];
+            } else if ([key isEqualToString: @"customerInternalReference"]) {
+                _netverifyConfiguration.customerInternalReference = [options objectForKey: key];
             } else if ([key isEqualToString: @"sendDebugInfoToJumio"]) {
                 _netverifyConfiguration.sendDebugInfoToJumio = [self getBoolValue: [options objectForKey: key]];
             } else if ([key isEqualToString: @"dataExtractionOnMobileOnly"]) {
@@ -108,50 +109,50 @@ RCT_EXPORT_METHOD(enableEMRTD) {
     if (![customization isEqual:[NSNull null]]) {
         for (NSString *key in customization) {
             if ([key isEqualToString: @"disableBlur"]) {
-                [[NetverifyBaseView netverifyAppearance] setDisableBlur: @YES];
+                [[NetverifyBaseView jumioAppearance] setDisableBlur: @YES];
             } else {
                 UIColor *color = [self colorWithHexString: [customization objectForKey: key]];
                 
                 if ([key isEqualToString: @"backgroundColor"]) {
-                    [[NetverifyBaseView netverifyAppearance] setBackgroundColor: color];
+                    [[NetverifyBaseView jumioAppearance] setBackgroundColor: color];
                 } else if ([key isEqualToString: @"tintColor"]) {
-                    [[UINavigationBar netverifyAppearance] setTintColor: color];
+                    [[UINavigationBar jumioAppearance] setTintColor: color];
                 } else if ([key isEqualToString: @"barTintColor"]) {
-                    [[UINavigationBar netverifyAppearance] setBarTintColor: color];
+                    [[UINavigationBar jumioAppearance] setBarTintColor: color];
                 } else if ([key isEqualToString: @"textTitleColor"]) {
-                    [[UINavigationBar netverifyAppearance] setTitleTextAttributes: @{NSForegroundColorAttributeName: color}];
+                    [[UINavigationBar jumioAppearance] setTitleTextAttributes: @{NSForegroundColorAttributeName: color}];
                 } else if ([key isEqualToString: @"foregroundColor"]) {
-                    [[NetverifyBaseView netverifyAppearance] setForegroundColor: color];
+                    [[NetverifyBaseView jumioAppearance] setForegroundColor: color];
                 } else if ([key isEqualToString: @"documentSelectionHeaderBackgroundColor"]) {
-                  	[[NetverifyDocumentSelectionHeaderView netverifyAppearance] setBackgroundColor: color];
+                  	[[NetverifyDocumentSelectionHeaderView jumioAppearance] setBackgroundColor: color];
                	} else if ([key isEqualToString: @"documentSelectionHeaderTitleColor"]) {
-                   	[[NetverifyDocumentSelectionHeaderView netverifyAppearance] setTitleColor: color];
+                   	[[NetverifyDocumentSelectionHeaderView jumioAppearance] setTitleColor: color];
             	} else if ([key isEqualToString: @"documentSelectionHeaderIconColor"]) {
-                    [[NetverifyDocumentSelectionHeaderView netverifyAppearance] setIconColor: color];
+                    [[NetverifyDocumentSelectionHeaderView jumioAppearance] setIconColor: color];
                 } else if ([key isEqualToString: @"documentSelectionButtonBackgroundColor"]) {
-                    [[NetverifyDocumentSelectionButton netverifyAppearance] setBackgroundColor: color forState: UIControlStateNormal];
+                    [[NetverifyDocumentSelectionButton jumioAppearance] setBackgroundColor: color forState: UIControlStateNormal];
                 } else if ([key isEqualToString: @"documentSelectionButtonTitleColor"]) {
-                    [[NetverifyDocumentSelectionButton netverifyAppearance] setTitleColor: color forState: UIControlStateNormal];
+                    [[NetverifyDocumentSelectionButton jumioAppearance] setTitleColor: color forState: UIControlStateNormal];
                 } else if ([key isEqualToString: @"documentSelectionButtonIconColor"]) {
-                    [[NetverifyDocumentSelectionButton netverifyAppearance] setIconColor: color forState: UIControlStateNormal];
+                    [[NetverifyDocumentSelectionButton jumioAppearance] setIconColor: color forState: UIControlStateNormal];
                 } else if ([key isEqualToString: @"fallbackButtonBackgroundColor"]) {
-                    [[NetverifyFallbackButton netverifyAppearance] setBackgroundColor: color forState:UIControlStateNormal];
+                    [[NetverifyFallbackButton jumioAppearance] setBackgroundColor: color forState:UIControlStateNormal];
                 } else if ([key isEqualToString: @"fallbackButtonBorderColor"]) {
-                    [[NetverifyFallbackButton netverifyAppearance] setBorderColor: color];
+                    [[NetverifyFallbackButton jumioAppearance] setBorderColor: color];
                 } else if ([key isEqualToString: @"fallbackButtonTitleColor"]) {
-                    [[NetverifyFallbackButton netverifyAppearance] setTitleColor: color forState:UIControlStateNormal];
+                    [[NetverifyFallbackButton jumioAppearance] setTitleColor: color forState:UIControlStateNormal];
                 } else if ([key isEqualToString: @"positiveButtonBackgroundColor"]) {
-                    [[NetverifyPositiveButton netverifyAppearance] setBackgroundColor: color forState:UIControlStateNormal];
+                    [[NetverifyPositiveButton jumioAppearance] setBackgroundColor: color forState:UIControlStateNormal];
                 } else if ([key isEqualToString: @"positiveButtonBorderColor"]) {
-                    [[NetverifyPositiveButton netverifyAppearance] setBorderColor: color];
+                    [[NetverifyPositiveButton jumioAppearance] setBorderColor: color];
                 } else if ([key isEqualToString: @"positiveButtonTitleColor"]) {
-                    [[NetverifyPositiveButton netverifyAppearance] setTitleColor: color forState:UIControlStateNormal];
+                    [[NetverifyPositiveButton jumioAppearance] setTitleColor: color forState:UIControlStateNormal];
                 } else if ([key isEqualToString: @"negativeButtonBackgroundColor"]) {
-                    [[NetverifyNegativeButton netverifyAppearance] setBackgroundColor: color forState:UIControlStateNormal];
+                    [[NetverifyNegativeButton jumioAppearance] setBackgroundColor: color forState:UIControlStateNormal];
                 } else if ([key isEqualToString: @"negativeButtonBorderColor"]) {
-                    [[NetverifyNegativeButton netverifyAppearance] setBorderColor: color];
+                    [[NetverifyNegativeButton jumioAppearance] setBorderColor: color];
                 } else if ([key isEqualToString: @"negativeButtonTitleColor"]) {
-                    [[NetverifyNegativeButton netverifyAppearance] setTitleColor: color forState:UIControlStateNormal];
+                    [[NetverifyNegativeButton jumioAppearance] setTitleColor: color forState:UIControlStateNormal];
                 }
             }
         }
@@ -258,6 +259,9 @@ RCT_EXPORT_METHOD(startNetverify) {
     AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     [delegate.window.rootViewController dismissViewControllerAnimated: YES completion: ^{
         [self sendEventWithName: @"EventDocumentData" body: result];
+      
+      [self.netverifyViewController destroy];
+      self.netverifyViewController = nil;
     }];
 }
 
@@ -284,6 +288,11 @@ RCT_EXPORT_METHOD(startNetverify) {
 	AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
 	[delegate.window.rootViewController dismissViewControllerAnimated: YES completion: ^{
     	[self sendEventWithName: @"EventError" body: result];
+    
+      if (self.netverifyViewController != nil) {
+        [self.netverifyViewController destroy];
+        self.netverifyViewController = nil;
+      }
 	}];
 }
 

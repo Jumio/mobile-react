@@ -77,20 +77,20 @@ public class JumioModuleNetverify extends ReactContextBaseJavaModule {
         while (keys.hasNextKey()) {
             String key = keys.nextKey();
 
-            if (key.equalsIgnoreCase("requireVerification")) {
-                netverifySDK.setRequireVerification(options.getBoolean(key));
+            if (key.equalsIgnoreCase("enableVerification")) {
+                netverifySDK.setEnableVerification(options.getBoolean(key));
             } else if (key.equalsIgnoreCase("callbackUrl")) {
                 netverifySDK.setCallbackUrl(options.getString(key));
-            } else if (key.equalsIgnoreCase("requireFaceMatch")) {
-                netverifySDK.setRequireFaceMatch(options.getBoolean(key));
+            } else if (key.equalsIgnoreCase("enableIdentityVerification")) {
+                netverifySDK.setEnableIdentityVerification(options.getBoolean(key));
             } else if (key.equalsIgnoreCase("preselectedCountry")) {
                 netverifySDK.setPreselectedCountry(options.getString(key));
-            } else if (key.equalsIgnoreCase("merchantScanReference")) {
-                netverifySDK.setMerchantScanReference(options.getString(key));
-            } else if (key.equalsIgnoreCase("merchantReportingCriteria")) {
-                netverifySDK.setMerchantReportingCriteria(options.getString(key));
-            } else if (key.equalsIgnoreCase("customerID")) {
-                netverifySDK.setCustomerId(options.getString(key));
+            } else if (key.equalsIgnoreCase("customerInternalReference")) {
+                netverifySDK.setCustomerInternalReference(options.getString(key));
+            } else if (key.equalsIgnoreCase("reportingCriteria")) {
+                netverifySDK.setReportingCriteria(options.getString(key));
+            } else if (key.equalsIgnoreCase("userReference")) {
+                netverifySDK.setUserReference(options.getString(key));
             } else if (key.equalsIgnoreCase("enableEpassport")) {
                 netverifySDK.setEnableEMRTD(options.getBoolean(key));
             } else if (key.equalsIgnoreCase("sendDebugInfoToJumio")) {

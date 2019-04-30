@@ -1,5 +1,5 @@
 //
-//  JumioMobileSDKDocumentVerification.h
+//  JumioMobileSDKAuthentication.h
 //
 //  Copyright © 2019 Jumio Corporation All rights reserved.
 //
@@ -8,6 +8,6 @@
 #import <React/RCTBridgeModule.h>
 #import <React/RCTEventEmitter.h>
 
-@interface JumioMobileSDKDocumentVerification : RCTEventEmitter <RCTBridgeModule>
+@interface JumioMobileSDKAuthentication : RCTEventEmitter <RCTBridgeModule>
 
 @end

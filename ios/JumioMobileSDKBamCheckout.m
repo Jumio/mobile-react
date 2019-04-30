@@ -1,11 +1,12 @@
 //
 //  JumioMobileSDKBamCheckout.h
 //
-//  Copyright © 2018 Jumio Corporation All rights reserved.
+//  Copyright © 2019 Jumio Corporation All rights reserved.
 //
 
 #import "JumioMobileSDKBamCheckout.h"
 #import "AppDelegate.h"
+@import JumioCore;
 @import BAMCheckout;
 
 @interface JumioMobileSDKBamCheckout() <BAMCheckoutViewControllerDelegate>
@@ -38,8 +39,8 @@ RCT_EXPORT_METHOD(initBAMWithCustomization:(NSString *)apiToken apiSecret:(NSStr
     // Initialization
     _bamConfiguration = [BAMCheckoutConfiguration new];
     _bamConfiguration.delegate = self;
-    _bamConfiguration.merchantApiToken = apiToken;
-    _bamConfiguration.merchantApiSecret = apiSecret;
+    _bamConfiguration.apiToken = apiToken;
+    _bamConfiguration.apiSecret = apiSecret;
     NSString *dataCenterLowercase = [dataCenter lowercaseString];
     _bamConfiguration.dataCenter = ([dataCenterLowercase isEqualToString: @"eu"]) ? JumioDataCenterEU : JumioDataCenterUS;
   
@@ -59,8 +60,8 @@ RCT_EXPORT_METHOD(initBAMWithCustomization:(NSString *)apiToken apiSecret:(NSStr
                 _bamConfiguration.expiryEditable = [self getBoolValue: [options objectForKey: key]];
             } else if ([key isEqualToString: @"cardHolderNameEditable"]) {
                 _bamConfiguration.cardHolderNameEditable = [self getBoolValue: [options objectForKey: key]];
-            } else if ([key isEqualToString: @"merchantReportingCriteria"]) {
-                _bamConfiguration.merchantReportingCriteria = [options objectForKey: key];
+            } else if ([key isEqualToString: @"reportingCriteria"]) {
+                _bamConfiguration.reportingCriteria = [options objectForKey: key];
             } else if ([key isEqualToString: @"vibrationEffectEnabled"]) {
                 _bamConfiguration.vibrationEffectEnabled = [self getBoolValue: [options objectForKey: key]];
             } else if ([key isEqualToString: @"enableFlashOnScanStart"]) {
@@ -107,36 +108,36 @@ RCT_EXPORT_METHOD(initBAMWithCustomization:(NSString *)apiToken apiSecret:(NSStr
     if (![customization isEqual:[NSNull null]]) {
         for (NSString *key in customization) {
             if ([key isEqualToString: @"disableBlur"]) {
-                [[BAMCheckoutBaseView bamCheckoutAppearance] setDisableBlur: @YES];
+                [[BAMCheckoutBaseView jumioAppearance] setDisableBlur: @YES];
             } else {
                 UIColor *color = [self colorWithHexString: [customization objectForKey: key]];
                 
                 if ([key isEqualToString: @"backgroundColor"]) {
-                    [[BAMCheckoutBaseView bamCheckoutAppearance] setBackgroundColor: color];
+                    [[BAMCheckoutBaseView jumioAppearance] setBackgroundColor: color];
                 } else if ([key isEqualToString: @"tintColor"]) {
-                    [[UINavigationBar bamCheckoutAppearance] setTintColor: color];
+                    [[UINavigationBar jumioAppearance] setTintColor: color];
                 } else if ([key isEqualToString: @"barTintColor"]) {
-                    [[UINavigationBar bamCheckoutAppearance] setBarTintColor: color];
+                    [[UINavigationBar jumioAppearance] setBarTintColor: color];
                 } else if ([key isEqualToString: @"textTitleColor"]) {
-                    [[UINavigationBar bamCheckoutAppearance] setTitleTextAttributes: @{NSForegroundColorAttributeName: color}];
+                    [[UINavigationBar jumioAppearance] setTitleTextAttributes: @{NSForegroundColorAttributeName: color}];
                 } else if ([key isEqualToString: @"foregroundColor"]) {
-                    [[BAMCheckoutBaseView bamCheckoutAppearance] setForegroundColor: color];
+                    [[BAMCheckoutBaseView jumioAppearance] setForegroundColor: color];
                 } else if ([key isEqualToString: @"positiveButtonBackgroundColor"]) {
-                    [[BAMCheckoutPositiveButton bamCheckoutAppearance] setBackgroundColor: color forState:UIControlStateNormal];
+                    [[BAMCheckoutPositiveButton jumioAppearance] setBackgroundColor: color forState:UIControlStateNormal];
                 } else if ([key isEqualToString: @"positiveButtonBorderColor"]) {
-                    [[BAMCheckoutPositiveButton bamCheckoutAppearance] setBorderColor: color];
+                    [[BAMCheckoutPositiveButton jumioAppearance] setBorderColor: color];
                 } else if ([key isEqualToString: @"positiveButtonTitleColor"]) {
-                    [[BAMCheckoutPositiveButton bamCheckoutAppearance] setTitleColor: color forState:UIControlStateNormal];
+                    [[BAMCheckoutPositiveButton jumioAppearance] setTitleColor: color forState:UIControlStateNormal];
                 } else if ([key isEqualToString: @"negativeButtonBackgroundColor"]) {
-                    [[BAMCheckoutNegativeButton bamCheckoutAppearance] setBackgroundColor: color forState:UIControlStateNormal];
+                    [[BAMCheckoutNegativeButton jumioAppearance] setBackgroundColor: color forState:UIControlStateNormal];
                 } else if ([key isEqualToString: @"negativeButtonBorderColor"]) {
-                    [[BAMCheckoutNegativeButton bamCheckoutAppearance] setBorderColor: color];
+                    [[BAMCheckoutNegativeButton jumioAppearance] setBorderColor: color];
                 } else if ([key isEqualToString: @"negativeButtonTitleColor"]) {
-                    [[BAMCheckoutNegativeButton bamCheckoutAppearance] setTitleColor: color forState:UIControlStateNormal];
+                    [[BAMCheckoutNegativeButton jumioAppearance] setTitleColor: color forState:UIControlStateNormal];
                 }  else if ([key isEqualToString: @"scanOverlayTextColor"]) {
-                    [[BAMCheckoutScanOverlay bamCheckoutAppearance] setTextColor: color];
+                    [[BAMCheckoutScanOverlay jumioAppearance] setTextColor: color];
                 }  else if ([key isEqualToString: @"scanOverlayBorderColor"]) {
-                    [[BAMCheckoutScanOverlay bamCheckoutAppearance] setBorderColor: color];
+                    [[BAMCheckoutScanOverlay jumioAppearance] setBorderColor: color];
                 }
             }
         }

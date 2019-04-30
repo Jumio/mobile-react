@@ -17,7 +17,7 @@ android {
 }
 
 ext {
-    SDK_VERSION = "2.14.0"
+    SDK_VERSION = "3.1.0"
 }
 
 repositories {
@@ -27,23 +27,27 @@ repositories {
 }
 
 dependencies {
-    implementation "com.jumio.android:core:${SDK_VERSION}@aar"
+   implementation "com.jumio.android:core:${SDK_VERSION}@aar"
     implementation "com.jumio.android:bam:${SDK_VERSION}@aar"
+    implementation "com.jumio.android:auth:${SDK_VERSION}@aar"
     implementation "com.jumio.android:nv:${SDK_VERSION}@aar"
     implementation "com.jumio.android:nv-mrz:${SDK_VERSION}@aar"
     implementation "com.jumio.android:nv-nfc:${SDK_VERSION}@aar"
     implementation "com.jumio.android:nv-ocr:${SDK_VERSION}@aar"
     implementation "com.jumio.android:nv-barcode:${SDK_VERSION}@aar"
     implementation "com.jumio.android:nv-barcode-vision:${SDK_VERSION}@aar"
-    implementation "com.jumio.android:nv-liveness:${SDK_VERSION}@aar"
+    implementation "com.jumio.android:face:${SDK_VERSION}@aar"
     implementation "com.jumio.android:dv:${SDK_VERSION}@aar"
 
-//for core:
+    //for core:
     implementation "androidx.appcompat:appcompat:1.0.0"
+    implementation "androidx.room:room-runtime:2.0.0"
 
     //for nv:
     implementation "com.google.android.material:material:1.0.0"
     implementation "androidx.cardview:cardview:1.0.0"
+
+    //only for nv-barcode-vision
     implementation ("com.google.android.gms:play-services-vision:15.0.1"){
         exclude group: 'com.android.support', module:'support-v4'
     }
@@ -51,6 +55,9 @@ dependencies {
     //only for nv-nfc
     implementation "com.madgag.spongycastle:prov:1.58.0.0"
     implementation "net.sf.scuba:scuba-sc-android:0.0.16"
+
+    //only for face
+    implementation "com.facetec:zoom-authentication-hybrid:7.0.9@aar"
 
     implementation 'com.facebook.react:react-native:+'
 }

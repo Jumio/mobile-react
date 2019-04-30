@@ -73,16 +73,16 @@ public class JumioModuleDocumentVerification extends ReactContextBaseJavaModule 
                     documentVerificationSDK.setCustomDocumentCode(options.getString(key));
                 } else if (key.equalsIgnoreCase("country")) {
                     documentVerificationSDK.setCountry(options.getString(key));
-                } else if (key.equalsIgnoreCase("merchantReportingCriteria")) {
-                    documentVerificationSDK.setMerchantReportingCriteria(options.getString(key));
+                } else if (key.equalsIgnoreCase("reportingCriteria")) {
+                    documentVerificationSDK.setReportingCriteria(options.getString(key));
                 } else if (key.equalsIgnoreCase("callbackUrl")) {
                     documentVerificationSDK.setCallbackUrl(options.getString(key));
                 } else if (key.equalsIgnoreCase("enableExtraction")) {
                     documentVerificationSDK.setEnableExtraction(options.getBoolean(key));
-                } else if (key.equalsIgnoreCase("merchantScanReference")) {
-                    documentVerificationSDK.setMerchantScanReference(options.getString(key));
-                } else if (key.equalsIgnoreCase("customerId")) {
-                    documentVerificationSDK.setCustomerId(options.getString(key));
+                } else if (key.equalsIgnoreCase("customerInternalReference")) {
+                    documentVerificationSDK.setCustomerInternalReference(options.getString(key));
+                } else if (key.equalsIgnoreCase("userReference")) {
+                    documentVerificationSDK.setUserReference(options.getString(key));
                 } else if (key.equalsIgnoreCase("documentName")) {
                     documentVerificationSDK.setDocumentName(options.getString(key));
                 } else if (key.equalsIgnoreCase("cameraPosition")) {
