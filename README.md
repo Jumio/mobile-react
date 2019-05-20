@@ -72,6 +72,9 @@ import com.jumio.react.JumioActivity;
 public class MainActivity extends JumioActivity {
 ```
 
+6. Add Proguard rules:
+[Proguard](https://developer.android.com/studio/build/shrink-code) is a tool for shrinking and obfuscating code your release application for the app store. You need to add this rules for building an Android release app in your `proguard-rules.pro` file as documented in the [Jumio Android proguard chapter](https://github.com/Jumio/mobile-sdk-android#proguard)
+
 ## Usage
 
 1. Add "**NativeModules**" to the import of 'react-native'.
