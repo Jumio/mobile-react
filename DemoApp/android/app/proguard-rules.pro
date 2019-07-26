@@ -47,6 +47,11 @@
 -keepclassmembers class *  { @com.facebook.react.uimanager.UIProp <fields>; }
 -keepclassmembers class *  { @com.facebook.react.uimanager.annotations.ReactProp <methods>; }
 -keepclassmembers class *  { @com.facebook.react.uimanager.annotations.ReactPropGroup <methods>; }
+-keep class com.facebook.soloader.** { *; }
+-keepclassmembers class com.facebook.soloader.SoLoader {
+     static <fields>;
+}
+
 
 -dontwarn com.facebook.react.**
 
@@ -68,3 +73,27 @@
 -dontwarn java.nio.file.*
 -dontwarn org.codehaus.mojo.animal_sniffer.IgnoreJRERequirement
 -dontwarn okio.**
+
+# Jumio
+
+-keep class com.jumio.** { *; }
+-keep class jumio.** { *; }
+-keep class com.samsung.** { *; }
+-keep class com.samsung.**$* { *; }
+-keep class com.microblink.** { *; }
+-keep class com.microblink.**$* { *; }
+
+-keep class net.sf.scuba.smartcards.IsoDepCardService {*;}
+-keep class org.jmrtd.** { *; }
+-keep class net.sf.scuba.** {*;}
+-keep class org.spongycastle.** {*;}
+-keep class org.ejbca.** {*;}
+
+-dontwarn java.nio.**
+-dontwarn org.codehaus.**
+-dontwarn org.ejbca.**
+-dontwarn org.spongycastle.**
+-dontwarn com.samsung.**
+-dontwarn com.microblink.**
+
+
