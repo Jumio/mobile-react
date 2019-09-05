@@ -73,20 +73,29 @@ public class JumioModuleAuthentication extends ReactContextBaseJavaModule {
     private void configureAuthentication(ReadableMap options) {
         ReadableMapKeySetIterator keys = options.keySetIterator();
         String enrollmentTransactionReference = null;
+        String authenticationTransactionReference = null;
         while (keys.hasNextKey()){
             String key = keys.nextKey();
             if (key.equalsIgnoreCase("userReference")){
                 authenticationSDK.setUserReference(options.getString(key));
             }else if (key.equalsIgnoreCase("enrollmentTransactionReference")){
                 enrollmentTransactionReference = options.getString(key);
+            }else if (key.equalsIgnoreCase("authenticationTransactionReference")){
+                authenticationTransactionReference = options.getString(key);
             }else if (key.equalsIgnoreCase("callbackUrl")) {
             	authenticationSDK.setCallbackUrl(options.getString(key));
             }
         }
         try{
 	        checkAndRequestPermissions();
-            if (enrollmentTransactionReference != null){
-                authenticationSDK.initiate(enrollmentTransactionReference, new AuthenticationCallback(){
+            if (enrollmentTransactionReference != null || authenticationTransactionReference != null){
+                if (authenticationTransactionReference != null) {
+                    authenticationSDK.setAuthenticationTransactionReference(authenticationTransactionReference);
+                } else {
+                    authenticationSDK.setEnrollmentTransactionReference(enrollmentTransactionReference);
+                }
+
+                authenticationSDK.initiate(new AuthenticationCallback(){
                     @Override
                     public void onAuthenticationInitiateSuccess(){
                         initiateSuccessful = true;

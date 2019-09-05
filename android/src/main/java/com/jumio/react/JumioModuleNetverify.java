@@ -19,6 +19,7 @@ import com.facebook.react.modules.core.DeviceEventManagerModule;
 import com.jumio.MobileSDK;
 import com.jumio.core.enums.JumioCameraPosition;
 import com.jumio.core.enums.JumioDataCenter;
+import com.jumio.nv.enums.NVWatchlistScreening;
 import com.jumio.core.exceptions.MissingPermissionException;
 import com.jumio.nv.NetverifySDK;
 import com.jumio.nv.data.document.NVDocumentType;
@@ -93,6 +94,19 @@ public class JumioModuleNetverify extends ReactContextBaseJavaModule {
                 netverifySDK.setUserReference(options.getString(key));
             } else if (key.equalsIgnoreCase("enableEpassport")) {
                 netverifySDK.setEnableEMRTD(options.getBoolean(key));
+            } else if (key.equalsIgnoreCase("enableWatchlistScreening")) {
+                NVWatchlistScreening watchlistScreeningState;
+                switch (options.getString(key).toLowerCase()) {
+                    case "enabled": watchlistScreeningState = NVWatchlistScreening.ENABLED;
+                        break;
+                    case "disabled": watchlistScreeningState = NVWatchlistScreening.DISABLED;
+                        break;
+                    default: watchlistScreeningState = NVWatchlistScreening.DEFAULT;
+                        break;
+                }
+                netverifySDK.setWatchlistScreening(watchlistScreeningState);
+            } else if (key.equalsIgnoreCase("watchlistSearchProfile")) {
+                netverifySDK.setWatchlistSearchProfile(options.getString(key));
             } else if (key.equalsIgnoreCase("sendDebugInfoToJumio")) {
                 netverifySDK.sendDebugInfoToJumio(options.getBoolean(key));
             } else if (key.equalsIgnoreCase("dataExtractionOnMobileOnly")) {

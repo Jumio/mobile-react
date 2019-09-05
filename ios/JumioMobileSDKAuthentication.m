@@ -46,10 +46,17 @@ RCT_EXPORT_METHOD(initAuthentication:(NSString*)apiToken apiSecret:(NSString*)ap
   self.authenticationConfiguration.dataCenter = [dataCenterLowercase isEqualToString:@"eu"] ? JumioDataCenterEU : JumioDataCenterUS;
   
   // Configuration
+  NSString *enrollmentTransactionReference = nil;
+  NSString *authenticationTransactionReference = nil;
+  
   if (![configuration isEqual:[NSNull null]]) {
     for (NSString *key in configuration) {
+      
       if ([key isEqualToString: @"enrollmentTransactionReference"]) {
-        self.authenticationConfiguration.enrollmentTransactionReference = [configuration objectForKey: key];
+        enrollmentTransactionReference = [configuration objectForKey: key];
+        
+      } else if ([key isEqualToString:@"authenticationTransactionReference"]) {
+        authenticationTransactionReference = [configuration objectForKey:key];
         
       } else if ([key isEqualToString: @"callbackUrl"]) {
         self.authenticationConfiguration.callbackUrl = [configuration objectForKey: key];
@@ -63,7 +70,15 @@ RCT_EXPORT_METHOD(initAuthentication:(NSString*)apiToken apiSecret:(NSString*)ap
   
   self.initiateSuccessful = NO;
   
-  self.authenticationController = [[AuthenticationController alloc] initWithConfiguration:self.authenticationConfiguration];
+  if (enrollmentTransactionReference != nil || authenticationTransactionReference != nil){
+    if (authenticationTransactionReference != nil) {
+      self.authenticationConfiguration.authenticationTransactionReference = authenticationTransactionReference;
+    } else {
+      self.authenticationConfiguration.enrollmentTransactionReference = enrollmentTransactionReference;
+    }
+    
+    self.authenticationController = [[AuthenticationController alloc] initWithConfiguration:self.authenticationConfiguration];
+  }
 }
 
 RCT_EXPORT_METHOD(startAuthentication) {

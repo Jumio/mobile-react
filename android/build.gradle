@@ -17,7 +17,7 @@ android {
 }
 
 ext {
-    SDK_VERSION = "3.1.0"
+    SDK_VERSION = "3.3.1"
 }
 
 repositories {
@@ -40,7 +40,7 @@ dependencies {
     implementation "com.jumio.android:dv:${SDK_VERSION}@aar"
 
     //for core:
-    implementation "androidx.appcompat:appcompat:1.0.0"
+    implementation "androidx.appcompat:appcompat:1.0.2"
     implementation "androidx.room:room-runtime:2.0.0"
 
     //for nv:
@@ -53,11 +53,11 @@ dependencies {
     }
 
     //only for nv-nfc
-    implementation "com.madgag.spongycastle:prov:1.58.0.0"
+    implementation "org.bouncycastle:bcprov-jdk15on:1.61"
     implementation "net.sf.scuba:scuba-sc-android:0.0.16"
 
     //only for face
-    implementation "com.facetec:zoom-authentication-hybrid:7.0.9@aar"
+    implementation "com.facetec:zoom-authentication-hybrid:7.0.14@aar"
 
     implementation 'com.facebook.react:react-native:+'
 }

@@ -2,8 +2,10 @@
 
 ## Usage
 
-Adjust your credentials in **index.js** and run the following commands
+Adjust your credentials in **index.js**, open a bash and run the following commands
 
+### Both
+Required to retrieve all dependencies that are required by this demo app:
 ```
 npm install
 ```
@@ -20,14 +22,9 @@ react-native run-ios
 ### Android
 
 ```
+npm run android-windows
+// or
 react-native run-android
-```
-
-If you get the error: ```GC overhead limit exceeded``` add the following line to the android section of your build.gradle (app):
-```javascript
-dexOptions {
-    javaMaxHeapSize "4g"
-}
 ```
 
 If you get the error: ```Unable to crunch file``` on windows add the following line to your build.gradle (project):

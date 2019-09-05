@@ -35,7 +35,9 @@ const startNetverify = () => {
 	  //dataExtractionOnMobileOnly: false,
 	  //cameraPosition: "back",
 	  //preselectedDocumentVariant: "plastic",
-	  //documentTypes: ["PASSPORT", "DRIVER_LICENSE", "IDENTITY_CARD", "VISA"]
+	  //documentTypes: ["PASSPORT", "DRIVER_LICENSE", "IDENTITY_CARD", "VISA"],
+	  //enableWatchlistScreening: ["enabled", "disabled" || "default"],
+	  //watchlistSearchProfile: "YOURPROFILENAME"
   });
   
   // Android only
@@ -50,7 +52,8 @@ const startAuthentication = () => {
   JumioMobileSDKAuthentication.initAuthentication('API_TOKEN', 'API_SECRET', 'DATACENTER', {
 	  enrollmentTransactionReference: "EnrollmentTransactionReference",
 	  //userReference: "UserReference",
-	  //callbackUrl: "URL"
+	  //callbackUrl: "URL",
+	  //authenticationTransactionReference: "AuthenticationTransactionReference"
   });  
 };
 

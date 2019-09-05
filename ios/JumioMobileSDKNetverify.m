@@ -69,6 +69,17 @@ RCT_EXPORT_METHOD(enableEMRTD) {
                 _netverifyConfiguration.reportingCriteria = [options objectForKey: key];
             } else if ([key isEqualToString: @"customerInternalReference"]) {
                 _netverifyConfiguration.customerInternalReference = [options objectForKey: key];
+            } else if ([key isEqualToString: @"enableWatchlistScreening"]) {
+              NSString* watchlistScreeningValue = [[options objectForKey: key] lowercaseString];
+              if ([watchlistScreeningValue isEqualToString:@"enabled"]) {
+                _netverifyConfiguration.watchlistScreening = NetverifyWatchlistScreeningEnabled;
+              } else if ([watchlistScreeningValue isEqualToString:@"disabled"]) {
+                _netverifyConfiguration.watchlistScreening = NetverifyWatchlistScreeningDisabled;
+              } else {
+                _netverifyConfiguration.watchlistScreening = NetverifyWatchlistScreeningDefault;
+              }
+            } else if ([key isEqualToString: @"watchlistSearchProfile"]) {
+              _netverifyConfiguration.watchlistSearchProfile = [options objectForKey: key];
             } else if ([key isEqualToString: @"sendDebugInfoToJumio"]) {
                 _netverifyConfiguration.sendDebugInfoToJumio = [self getBoolValue: [options objectForKey: key]];
             } else if ([key isEqualToString: @"dataExtractionOnMobileOnly"]) {
