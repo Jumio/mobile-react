@@ -381,23 +381,16 @@ Use `enableEMRTD` to read the NFC chip of an eMRTD.
 JumioMobileSDKNetverify.enableEMRTD();
 ```
 
-**If BAM Credit Card + ID is used, init BAM and Netverify**
+### Retrieving information
 
-4. Afterwards start the SDK with the following command.
-```javascript
-JumioMobileSDKNetverify.startNetverify();
-JumioMobileSDKDocumentVerification.startDocumentVerification();
-JumioMobileSDKBamCheckout.startBAM();
-```
-
-5. Now you can listen to events to retrieve the scanned data:
+You can listen to events to retrieve the scanned data:
 * **EventDocumentData** for Netverify results.
 * **EventAuthentication** for Authentication results
 * **EventCardInformation** for BAM results.
 * **EventDocumentVerification** for Document Verification results.
 * **EventError** for every error.
 
-6. First add **NativeEventEmitter** to the import from 'react-native' and listen to the events.
+First add **NativeEventEmitter** to the import from 'react-native' and listen to the events.
 
 ```
 import {
@@ -407,6 +400,7 @@ NativeEventEmitter
 ```
 
 The event receives a json object with all the data.
+The example below shows how to retrieve the information of each emitter as a String:
 
 ```
 const emitterNetverify = new NativeEventEmitter(JumioMobileSDKNetverify);
