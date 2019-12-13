@@ -4,7 +4,7 @@ Official Jumio Mobile SDK plugin for React Native
 
 ## Compatibility
 
-We only ensure compatibility with a minimum React Native version of 0.59.4
+We only ensure compatibility with a minimum React Native version of 0.61.4
 
 ## Setup
 
@@ -12,7 +12,7 @@ Create React Native project and add the Jumio Mobile SDK module to it.
 ```
 react-native init MyProject
 cd MyProject
-npm install --save https://github.com/Jumio/mobile-react.git#v3.3.1
+npm install --save https://github.com/Jumio/mobile-react.git#v3.4.1
 react-native link react-native-jumio-mobilesdk
 ```
 
@@ -20,10 +20,11 @@ react-native link react-native-jumio-mobilesdk
 
 ### iOS
 
-1. Add the Jumio Mobile SDK to your React Native iOS project by either doing manual integration or using dependency management via cocoapods , please see [the official documentation of the Jumio Mobile SDK for iOS](https://github.com/Jumio/mobile-sdk-ios/tree/v3.3.1#basic-setup)
+1. Add the Jumio Mobile SDK to your React Native iOS project by either doing manual integration or using dependency management via cocoapods , please see [the official documentation of the Jumio Mobile SDK for iOS](https://github.com/Jumio/mobile-sdk-ios/tree/v3.4.2#basic-setup)
 2. Open the Xcode workspace (/YourApp/ios/YourApp.xcworkspace) and add the module files according to your desired product (see /YourApp/node_modules/react-native-jumio-mobilesdk/ios/) into the app project.
 * Example: For Fastfill/Netverify add `JumioMobileSDKNetverify.h` and `JumioMobileSDKNetverify.m` to the project
 3. Add the "**NSCameraUsageDescription**"-key to your Info.plist file.
+4. For Jumio React Native plugin 3.4.1, the native SDK used is 3.4.2
 
 ### Android
 
@@ -39,8 +40,8 @@ android:allowBackup="false"
 2. Make sure your compileSdkVersion and buildToolsVersion are high enough.
 ```
 android {
-compileSdkVersion 28
-buildToolsVersion "28.0.3"
+compileSdkVersion 29
+buildToolsVersion "29.0.0"
 ...
 }
 ```
@@ -220,6 +221,11 @@ userReference: "UserReference"
 callbackUrl: "URL"
 });  
 };
+```
+
+As soon as the sdk is initialized, the sdk is started by the following call.
+```javascript
+JumioMobileSDKNetverify.startAuthentication();
 ```
 
 ### Document Verification
@@ -449,16 +455,16 @@ emitterBamCheckout.addListener(
 ### Android
 
 #### Netverify
-The Netverify SDK can be customized to the respective needs by following this [customization chapter](https://github.com/Jumio/mobile-sdk-android/blob/v3.3.1/docs/integration_netverify-fastfill.md#customization).
+The Netverify SDK can be customized to the respective needs by following this [customization chapter](https://github.com/Jumio/mobile-sdk-android/blob/v3.4.1/docs/integration_netverify-fastfill.md#customization).
 
 #### Authentication
-The Authentication SDK can be customized to the respective needs by following this [customization chapter](https://github.com/Jumio/mobile-sdk-android/blob/v3.3.1/docs/integration_authentication.md#customization).
+The Authentication SDK can be customized to the respective needs by following this [customization chapter](https://github.com/Jumio/mobile-sdk-android/blob/v3.4.1/docs/integration_authentication.md#customization).
 
 #### BAM Checkout
-The BAM Checkout SDK can be customized to the respective needs by following this [customization chapter](https://github.com/Jumio/mobile-sdk-android/blob/v3.3.1/docs/integration_bam-checkout.md#customization).
+The BAM Checkout SDK can be customized to the respective needs by following this [customization chapter](https://github.com/Jumio/mobile-sdk-android/blob/v3.4.1/docs/integration_bam-checkout.md#customization).
 
 #### Document Verification
-The Document Verification SDK can be customized to the respective needs by following this [customization chapter](https://github.com/Jumio/mobile-sdk-android/blob/v3.3.1/docs/integration_document-verification.md#customization).
+The Document Verification SDK can be customized to the respective needs by following this [customization chapter](https://github.com/Jumio/mobile-sdk-android/blob/v3.4.1/docs/integration_document-verification.md#customization).
 
 
 ### iOS

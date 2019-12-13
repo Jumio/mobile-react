@@ -1,27 +1,30 @@
 {
   "name": "DemoApp",
-  "version": "3.3.1",
+  "version": "3.4.1",
   "private": true,
   "scripts": {
-    "start": "node node_modules/react-native/local-cli/cli.js start",
-    "android-windows": "react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res && react-native run-android",
-    "test": "jest"
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "start": "react-native start",
+    "test": "jest",
+    "lint": "eslint ."
   },
   "dependencies": {
-    "lodash": "^4.17.15",
-    "mixin-deep": "^2.0.1",
-    "react": "^16.8.3",
-    "react-native": "^0.59.4",
+    "@react-native-community/cli-platform-android": "^3.0.3",
+    "react": "16.9.0",
+    "react-native": "0.61.5",
     "react-native-button": "^2.1.0",
-    "react-native-jumio-mobilesdk": "file:../",
-    "set-value": "^3.0.1",
-    "union-value": "^2.0.1"
+    "react-native-jumio-mobilesdk": "file:../"
   },
   "devDependencies": {
-    "babel-jest": "24.7.1",
-    "metro-react-native-babel-preset": "^0.53.0",
-    "jest": "24.7.1",
-    "react-test-renderer": "16.4.1"
+    "@babel/core": "^7.6.2",
+    "@babel/runtime": "^7.6.2",
+    "@react-native-community/eslint-config": "^0.0.5",
+    "babel-jest": "^24.9.0",
+    "eslint": "^6.5.1",
+    "jest": "^24.9.0",
+    "metro-react-native-babel-preset": "^0.56.0",
+    "react-test-renderer": "16.9.0"
   },
   "jest": {
     "preset": "react-native"

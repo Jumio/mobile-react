@@ -73,10 +73,14 @@ import com.android.build.OutputFile
  */
 
 project.ext.react = [
-    entryFile: "index.js"
+    entryFile: "index.js",
+	enableHermes: false
 ]
 
+apply from: file("../../node_modules/@react-native-community/cli-platform-android/native_modules.gradle")
+applyNativeModulesAppBuildGradle(project)
 apply from: "../../node_modules/react-native/react.gradle"
+
 
 /**
  * Set this to true to create two separate APKs instead of one:
@@ -94,12 +98,12 @@ def enableSeparateBuildPerCPUArchitecture = false
 def enableProguardInReleaseBuilds = false
 
 android {
-        compileSdkVersion 28
-        buildToolsVersion '28.0.3'
+        compileSdkVersion 29
+        buildToolsVersion '29.0.0'
     defaultConfig {
         applicationId "com.demoapp"
         minSdkVersion 19
-        targetSdkVersion 28
+        targetSdkVersion 29
         versionCode 1
         versionName "1.0"
         ndk {
@@ -144,12 +148,39 @@ repositories {
     jcenter()
     maven { url 'https://maven.google.com/' }
     maven { url 'http://mobile-sdk.jumio.com' }
+	// Android JSC is installed from npm
+    maven {
+        // Android JSC is installed from npm
+        url("$rootDir/../node_modules/jsc-android/dist")
+    }
 }
 
+def jscFlavor = 'org.webkit:android-jsc:+'
+
+def enableHermes = project.ext.react.get("enableHermes", false);
+
+
 dependencies {
-    api project(':react-native-jumio-mobilesdk')
+    implementation project(':react-native-jumio-mobilesdk')
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation 'com.facebook.react:react-native:+'
+        implementation "com.facebook.react:react-native:+"  // From node_modules
+
+    if (enableHermes) {
+      // for RN 0.61+
+      def hermesPath = "../../node_modules/hermes-engine/android/";
+
+
+      debugImplementation files(hermesPath + "hermes-debug.aar")
+      releaseImplementation files(hermesPath + "hermes-release.aar")
+    } else {
+      implementation jscFlavor
+    }
+    implementation "com.google.android.gms:play-services-vision:19.0.0"
+    //implementation 'com.google.android.gms:play-services:12.0.1'
+    // implementation "com.android.support:appcompat-v7:${rootProject.ext.supportLibVersion}"
+    // implementation "com.android.support:design:${rootProject.ext.supportLibVersion}"
+    // implementation "com.android.support:support-v4:${rootProject.ext.supportLibVersion}"
+
     // From node_modules
 }
 
