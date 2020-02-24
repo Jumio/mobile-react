@@ -6,6 +6,7 @@
 
 #import "JumioMobileSDKAuthentication.h"
 #import "AppDelegate.h"
+@import JumioCore;
 @import NetverifyFace;
 
 @interface JumioMobileSDKAuthentication () <AuthenticationControllerDelegate>
@@ -22,11 +23,15 @@
 RCT_EXPORT_MODULE();
 
 - (NSArray<NSString *> *)supportedEvents {
-  return @[@"EventError", @"EventAuthentication", @"EventInitiateSuccess"];
+  return @[@"EventErrorAuthentication", @"EventAuthentication", @"EventInitiateSuccess"];
 }
 
 RCT_EXPORT_METHOD(initAuthentication:(NSString*)apiToken apiSecret:(NSString*)apiSecret dataCenter:(NSString*)dataCenter configuration:(NSDictionary*)configuration) {
   [self initAuthenticationHelper:apiToken apiSecret:apiSecret dataCenter:dataCenter configuration:configuration customization:nil];
+}
+
+RCT_EXPORT_METHOD(initAuthenticationWithCustomization:(NSString*)apiToken apiSecret:(NSString*)apiSecret dataCenter:(NSString*)dataCenter configuration:(NSDictionary*)configuration customization:(NSDictionary *)customization) {
+  [self initAuthenticationHelper:apiToken apiSecret:apiSecret dataCenter:dataCenter configuration:configuration customization:customization];
 }
 
 - (void)initAuthenticationHelper:(NSString*)apiToken apiSecret:(NSString*)apiSecret dataCenter:(NSString*)dataCenter configuration:(NSDictionary*)configuration customization:(NSDictionary*)customization {
@@ -42,8 +47,17 @@ RCT_EXPORT_METHOD(initAuthentication:(NSString*)apiToken apiSecret:(NSString*)ap
   self.authenticationConfiguration.delegate = self;
   self.authenticationConfiguration.apiToken = apiToken;
   self.authenticationConfiguration.apiSecret = apiSecret;
-  NSString* dataCenterLowercase = [dataCenter lowercaseString];
-  self.authenticationConfiguration.dataCenter = [dataCenterLowercase isEqualToString:@"eu"] ? JumioDataCenterEU : JumioDataCenterUS;
+  
+  JumioDataCenter jumioDataCenter = JumioDataCenterUS;
+  NSString *dataCenterLowercase = [dataCenter lowercaseString];
+  
+  if ([dataCenterLowercase isEqualToString: @"eu"]) {
+    jumioDataCenter = JumioDataCenterEU;
+  } else if ([dataCenterLowercase isEqualToString: @"sg"]) {
+    jumioDataCenter = JumioDataCenterSG;
+  }
+
+  self.authenticationConfiguration.dataCenter = jumioDataCenter;
   
   // Configuration
   NSString *enrollmentTransactionReference = nil;
@@ -66,6 +80,46 @@ RCT_EXPORT_METHOD(initAuthentication:(NSString*)apiToken apiSecret:(NSString*)ap
 
       }
     }
+  }
+  
+  // Customization
+  if (![customization isEqual:[NSNull null]]) {
+      for (NSString *key in customization) {
+          if ([key isEqualToString: @"disableBlur"]) {
+              [[JumioBaseView jumioAppearance] setDisableBlur: @YES];
+          } else if ([key isEqualToString: @"enableDarkMode"]) {
+              [[JumioBaseView jumioAppearance] setEnableDarkMode:@YES];
+          } else {
+              UIColor *color = [self colorWithHexString: [customization objectForKey: key]];
+              
+              if ([key isEqualToString: @"backgroundColor"]) {
+                  [[JumioBaseView jumioAppearance] setBackgroundColor: color];
+              } else if ([key isEqualToString: @"tintColor"]) {
+                  [[UINavigationBar jumioAppearance] setTintColor: color];
+              } else if ([key isEqualToString: @"barTintColor"]) {
+                  [[UINavigationBar jumioAppearance] setBarTintColor: color];
+              } else if ([key isEqualToString: @"textTitleColor"]) {
+                  [[UINavigationBar jumioAppearance] setTitleTextAttributes: @{NSForegroundColorAttributeName: color}];
+              } else if ([key isEqualToString: @"foregroundColor"]) {
+                  [[JumioBaseView jumioAppearance] setForegroundColor: color];
+              } else if ([key isEqualToString: @"positiveButtonBackgroundColor"]) {
+                  [[JumioPositiveButton jumioAppearance] setBackgroundColor: color forState:UIControlStateNormal];
+              } else if ([key isEqualToString: @"positiveButtonBorderColor"]) {
+                  [[JumioPositiveButton jumioAppearance] setBorderColor: color];
+              } else if ([key isEqualToString: @"positiveButtonTitleColor"]) {
+                  [[JumioPositiveButton jumioAppearance] setTitleColor: color forState:UIControlStateNormal];
+              } else if ([key isEqualToString: @"faceOvalColor"]) {
+                  [[JumioScanOverlayView jumioAppearance] setFaceOvalColor: color];
+              } else if ([key isEqualToString: @"faceProgressColor"]) {
+                   [[JumioScanOverlayView jumioAppearance] setFaceProgressColor: color];
+              } else if ([key isEqualToString: @"faceFeedbackBackgroundColor"]) {
+                   [[JumioScanOverlayView jumioAppearance] setFaceFeedbackBackgroundColor: color];
+              } else if ([key isEqualToString: @"faceFeedbackTextColor"]) {
+                   [[JumioScanOverlayView jumioAppearance] setFaceFeedbackTextColor: color];
+              }
+            
+          }
+      }
   }
   
   self.initiateSuccessful = NO;
@@ -132,7 +186,7 @@ RCT_EXPORT_METHOD(startAuthentication) {
   
   //Dismiss the SDK
   void (^errorCompletion)(void) = ^{    
-    [self sendEventWithName:@"EventError" body: result];
+    [self sendEventWithName:@"EventErrorAuthentication" body: result];
     
     //Destroy the instance to properly clean up the SDK
     [self.authenticationController destroy];
@@ -144,6 +198,23 @@ RCT_EXPORT_METHOD(startAuthentication) {
   } else {
     errorCompletion();
   }
+}
+
+#pragma mark - Helper methods
+
+- (BOOL) getBoolValue:(NSObject *)value {
+    if (value && [value isKindOfClass: [NSNumber class]]) {
+        return [((NSNumber *)value) boolValue];
+    }
+    return value;
+}
+
+- (UIColor *)colorWithHexString:(NSString *)str_HEX {
+    int red = 0;
+    int green = 0;
+    int blue = 0;
+    sscanf([str_HEX UTF8String], "#%02X%02X%02X", &red, &green, &blue);
+    return  [UIColor colorWithRed:red/255.0 green:green/255.0 blue:blue/255.0 alpha:1];
 }
 
 @end

@@ -39,6 +39,6 @@ def pods()
 end
 
 target "DemoApp" do
-    pod 'JumioMobileSDK', '3.4.2'
+    pod 'JumioMobileSDK', '3.5.0'
     pods()
 end

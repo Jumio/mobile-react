@@ -5,47 +5,75 @@
 
 package com.jumio.react;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Build;
-import android.util.Log;
 
+import com.facebook.react.bridge.ActivityEventListener;
 import com.facebook.react.bridge.Arguments;
+import com.facebook.react.bridge.BaseActivityEventListener;
 import com.facebook.react.bridge.ReactApplicationContext;
-import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.bridge.ReadableMapKeySetIterator;
 import com.facebook.react.bridge.WritableMap;
-import com.facebook.react.modules.core.DeviceEventManagerModule;
-import com.jumio.MobileSDK;
 import com.jumio.auth.AuthenticationCallback;
+import com.jumio.auth.AuthenticationResult;
 import com.jumio.auth.AuthenticationSDK;
 import com.jumio.core.enums.JumioDataCenter;
-import com.jumio.core.exceptions.MissingPermissionException;
 
-import androidx.core.app.ActivityCompat;
+import org.jetbrains.annotations.NotNull;
 
-public class JumioModuleAuthentication extends ReactContextBaseJavaModule {
+public class JumioModuleAuthentication extends JumioBaseModule {
 
     private final static String TAG = "JumioMobileSDKAuthentication";
-    public static final int PERMISSION_REQUEST_CODE_AUTHENTICATION = 302;
+	private final String ERROR_KEY = "EventErrorAuthentication";
 
 	public static AuthenticationSDK authenticationSDK;
 	public boolean initiateSuccessful = false;
 
-    JumioModuleAuthentication(ReactApplicationContext reactContext) {
-        super(reactContext);
-    }
+	JumioModuleAuthentication(ReactApplicationContext context) {
+		super(context);
+	}
 
+    @NotNull
     @Override
     public String getName() {
         return "JumioMobileSDKAuthentication";
     }
 
-    @Override
-    public boolean canOverrideExistingModule() {
-        return true;
-    }
+	@Override
+	public String getErrorKey() {
+		return ERROR_KEY;
+	}
 
+	private final ActivityEventListener mActivityEventListener = new BaseActivityEventListener() {
+		@Override
+		public void onActivityResult(Activity activity, int requestCode, int resultCode, Intent data) {
+			if (requestCode == AuthenticationSDK.REQUEST_CODE) {
+				if (data == null) {
+					return;
+				}
+				String transactionReference = data.getStringExtra(AuthenticationSDK.EXTRA_TRANSACTION_REFERENCE) != null ? data.getStringExtra(AuthenticationSDK.EXTRA_TRANSACTION_REFERENCE) : "";
+				if (resultCode == Activity.RESULT_OK) {
+					AuthenticationResult authenticationResult = (AuthenticationResult) data.getSerializableExtra(AuthenticationSDK.EXTRA_SCAN_DATA);
+					WritableMap result = Arguments.createMap();
+					result.putString("authenticationResult", authenticationResult.toString());
+					result.putString("transactionReference", transactionReference);
+
+					sendEvent("EventAuthentication", result);
+				} else if (resultCode == Activity.RESULT_CANCELED) {
+					String errorMessage = data.getStringExtra(AuthenticationSDK.EXTRA_ERROR_MESSAGE);
+					String errorCode = data.getStringExtra(AuthenticationSDK.EXTRA_ERROR_CODE);
+					sendErrorObject(errorCode, errorMessage, transactionReference);
+				}
+				if (JumioModuleAuthentication.authenticationSDK != null) {
+					JumioModuleAuthentication.authenticationSDK.destroy();
+				}
+				reactContext.removeActivityEventListener(mActivityEventListener);
+			}
+		}
+	};
     @ReactMethod
     public void initAuthentication(String apiToken, String apiSecret, String dataCenter, ReadableMap options) {
         if (!AuthenticationSDK.isSupportedPlatform(this.getCurrentActivity())) {
@@ -61,7 +89,12 @@ public class JumioModuleAuthentication extends ReactContextBaseJavaModule {
                 }
             }
 
-            JumioDataCenter center = (dataCenter.equalsIgnoreCase("eu")) ? JumioDataCenter.EU : JumioDataCenter.US;
+            JumioDataCenter center = null;
+            try {
+                center = JumioDataCenter.valueOf(dataCenter.toUpperCase());
+            } catch (Exception e) {
+                throw new Exception("Datacenter not valid: "+dataCenter);            
+            }
             authenticationSDK = AuthenticationSDK.create(getCurrentActivity(), apiToken, apiSecret, center);
 
             this.configureAuthentication(options);
@@ -124,77 +157,18 @@ public class JumioModuleAuthentication extends ReactContextBaseJavaModule {
         }
 
         try {
-        	checkPermissionsAndStart(authenticationSDK);
+        	boolean sdkStarted = checkPermissionsAndStart(authenticationSDK);
+        	if(sdkStarted){
+		        reactContext.addActivityEventListener(mActivityEventListener);
+	        }
         } catch (Exception e) {
             showErrorMessage("Error starting the Authentication SDK: " + e.getLocalizedMessage());
         }
-    }
-
-    // Permissions
-
-	private boolean checkAndRequestPermissions() {
-    	if (!MobileSDK.hasAllRequiredPermissions(getReactApplicationContext())){
-				//Acquire missing permissions.
-		    String[] mp = MobileSDK.getMissingPermissions(getReactApplicationContext());
-		    ActivityCompat.requestPermissions(getReactApplicationContext().getCurrentActivity(), mp, PERMISSION_REQUEST_CODE_AUTHENTICATION);
-		    return false;
-    	} else {
-    		return true;
-	    }
-	}
-
-    private void checkPermissionsAndStart(MobileSDK sdk) {
-        if (!MobileSDK.hasAllRequiredPermissions(getReactApplicationContext())) {
-            //Acquire missing permissions.
-            String[] mp = MobileSDK.getMissingPermissions(getReactApplicationContext());
-
-            int code;
-            if (sdk instanceof AuthenticationSDK)
-                code = PERMISSION_REQUEST_CODE_AUTHENTICATION;
-            else {
-                showErrorMessage("Invalid SDK instance");
-                return;
-            }
-
-            ActivityCompat.requestPermissions(getReactApplicationContext().getCurrentActivity(), mp, code);
-            //The result is received in MainActivity::onRequestPermissionsResult.
-        } else {
-            startSdk(sdk);
-        }
-    }
-
-	private void startSdk(MobileSDK sdk) {
-		try {
-			sdk.start();
-		} catch (MissingPermissionException e) {
-			showErrorMessage(e.getLocalizedMessage());
-		}
-	}
-
-	private void showErrorMessage(String msg) {
-		Log.e("Error", msg);
-		WritableMap errorResult = Arguments.createMap();
-		errorResult.putString("errorMessage", msg != null ? msg : "");
-		sendEvent("EventError", errorResult);
-	}
-
-    private void sendErrorObject(String errorCode, String errorMsg) {
-        WritableMap errorResult = Arguments.createMap();
-        errorResult.putString("errorCode", errorCode != null ? errorCode : "");
-        errorResult.putString("errorMessage", errorMsg != null ? errorMsg : "");
-        sendEvent("EventError", errorResult);
     }
 
     private void sendInitiateSuccessObject(){
     	WritableMap initiateSuccess = Arguments.createMap();
     	sendEvent("EventInitiateSuccess", initiateSuccess);
     }
-
-	// Helper methods
-
-	private void sendEvent(String eventName, WritableMap params) {
-		getReactApplicationContext().getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class)
-				.emit(eventName, params);
-	}
 }
 

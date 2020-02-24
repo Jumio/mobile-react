@@ -6,5 +6,5 @@ source 'https://github.com/CocoaPods/Specs.git'
 use_frameworks!
 
 target "YOUR_TARGET_NAME" do
-    pod 'JumioMobileSDK', '3.4.2'
+    pod 'JumioMobileSDK', '3.5.0'
 end

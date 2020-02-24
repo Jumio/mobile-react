@@ -23,7 +23,7 @@ RCT_EXPORT_MODULE();
 
 - (NSArray<NSString *> *)supportedEvents
 {
-    return @[@"EventError", @"EventCardInformation"];
+    return @[@"EventErrorBam", @"EventCardInformation"];
 }
 
 RCT_EXPORT_METHOD(initBAM:(NSString *)apiToken apiSecret:(NSString *)apiSecret dataCenter:(NSString *)dataCenter configuration:(NSDictionary *)options) {
@@ -41,8 +41,17 @@ RCT_EXPORT_METHOD(initBAMWithCustomization:(NSString *)apiToken apiSecret:(NSStr
     _bamConfiguration.delegate = self;
     _bamConfiguration.apiToken = apiToken;
     _bamConfiguration.apiSecret = apiSecret;
+  
+    JumioDataCenter jumioDataCenter = JumioDataCenterUS;
     NSString *dataCenterLowercase = [dataCenter lowercaseString];
-    _bamConfiguration.dataCenter = ([dataCenterLowercase isEqualToString: @"eu"]) ? JumioDataCenterEU : JumioDataCenterUS;
+    
+    if ([dataCenterLowercase isEqualToString: @"eu"]) {
+      jumioDataCenter = JumioDataCenterEU;
+    } else if ([dataCenterLowercase isEqualToString: @"sg"]) {
+      jumioDataCenter = JumioDataCenterSG;
+    }
+  
+    _bamConfiguration.dataCenter = jumioDataCenter;
   
     self.scanReferences = [[NSMutableArray alloc] init];
     // Configuration
@@ -240,7 +249,7 @@ RCT_EXPORT_METHOD(startBAM) {
 
 	AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
 	[delegate.window.rootViewController dismissViewControllerAnimated: YES completion: ^{
-    	[self sendEventWithName: @"EventError" body: result];
+    	[self sendEventWithName: @"EventErrorBam" body: result];
 	}];
 }
 

@@ -8,7 +8,7 @@
 #import "JumioMobileSDKDocumentVerification.h"
 #import "AppDelegate.h"
 @import JumioCore;
-@import Netverify;
+@import DocumentVerification;
 
 @interface JumioMobileSDKDocumentVerification() <DocumentVerificationViewControllerDelegate>
 
@@ -23,7 +23,7 @@ RCT_EXPORT_MODULE();
 
 - (NSArray<NSString *> *)supportedEvents
 {
-    return @[@"EventError", @"EventDocumentVerification"];
+    return @[@"EventErrorDocumentVerification", @"EventDocumentVerification"];
 }
 
 RCT_EXPORT_METHOD(initDocumentVerification:(NSString *)apiToken apiSecret:(NSString *)apiSecret dataCenter:(NSString *)dataCenter configuration:(NSDictionary *)options) {
@@ -41,8 +41,17 @@ RCT_EXPORT_METHOD(initDocumentVerificationWithCustomization:(NSString *)apiToken
     _documentVerifcationConfiguration.delegate = self;
     _documentVerifcationConfiguration.apiToken = apiToken;
     _documentVerifcationConfiguration.apiSecret = apiSecret;
+  
+    JumioDataCenter jumioDataCenter = JumioDataCenterUS;
     NSString *dataCenterLowercase = [dataCenter lowercaseString];
-    _documentVerifcationConfiguration.dataCenter = ([dataCenterLowercase isEqualToString: @"eu"]) ? JumioDataCenterEU : JumioDataCenterUS;
+    
+    if ([dataCenterLowercase isEqualToString: @"eu"]) {
+      jumioDataCenter = JumioDataCenterEU;
+    } else if ([dataCenterLowercase isEqualToString: @"sg"]) {
+      jumioDataCenter = JumioDataCenterSG;
+    }
+  
+    _documentVerifcationConfiguration.dataCenter = jumioDataCenter;
     
     // Configuration
     if (![options isEqual:[NSNull null]]) {
@@ -77,12 +86,14 @@ RCT_EXPORT_METHOD(initDocumentVerificationWithCustomization:(NSString *)apiToken
     if (![customization isEqual:[NSNull null]]) {
         for (NSString *key in customization) {
             if ([key isEqualToString: @"disableBlur"]) {
-                [[NetverifyBaseView jumioAppearance] setDisableBlur: @YES];
+                [[DocumentVerificationBaseView jumioAppearance] setDisableBlur: @YES];
+            } else if ([key isEqualToString: @"enableDarkMode"]) {
+              [[DocumentVerificationBaseView jumioAppearance] setEnableDarkMode: @YES];
             } else {
                 UIColor *color = [self colorWithHexString: [customization objectForKey: key]];
                 
                 if ([key isEqualToString: @"backgroundColor"]) {
-                    [[NetverifyBaseView jumioAppearance] setBackgroundColor: color];
+                    [[DocumentVerificationBaseView jumioAppearance] setBackgroundColor: color];
                 } else if ([key isEqualToString: @"tintColor"]) {
                     [[UINavigationBar jumioAppearance] setTintColor: color];
                 } else if ([key isEqualToString: @"barTintColor"]) {
@@ -90,19 +101,19 @@ RCT_EXPORT_METHOD(initDocumentVerificationWithCustomization:(NSString *)apiToken
                 } else if ([key isEqualToString: @"textTitleColor"]) {
                     [[UINavigationBar jumioAppearance] setTitleTextAttributes: @{NSForegroundColorAttributeName: color}];
                 } else if ([key isEqualToString: @"foregroundColor"]) {
-                    [[NetverifyBaseView jumioAppearance] setForegroundColor: color];
+                    [[DocumentVerificationBaseView jumioAppearance] setForegroundColor: color];
                 } else if ([key isEqualToString: @"positiveButtonBackgroundColor"]) {
-                    [[NetverifyPositiveButton jumioAppearance] setBackgroundColor: color forState:UIControlStateNormal];
+                    [[DocumentVerificationPositiveButton jumioAppearance] setBackgroundColor: color forState:UIControlStateNormal];
                 } else if ([key isEqualToString: @"positiveButtonBorderColor"]) {
-                    [[NetverifyPositiveButton jumioAppearance] setBorderColor: color];
+                    [[DocumentVerificationPositiveButton jumioAppearance] setBorderColor: color];
                 } else if ([key isEqualToString: @"positiveButtonTitleColor"]) {
-                    [[NetverifyPositiveButton jumioAppearance] setTitleColor: color forState:UIControlStateNormal];
+                    [[DocumentVerificationPositiveButton jumioAppearance] setTitleColor: color forState:UIControlStateNormal];
                 } else if ([key isEqualToString: @"negativeButtonBackgroundColor"]) {
-                    [[NetverifyNegativeButton jumioAppearance] setBackgroundColor: color forState:UIControlStateNormal];
+                    [[DocumentVerificationNegativeButton jumioAppearance] setBackgroundColor: color forState:UIControlStateNormal];
                 } else if ([key isEqualToString: @"negativeButtonBorderColor"]) {
-                    [[NetverifyNegativeButton jumioAppearance] setBorderColor: color];
+                    [[DocumentVerificationNegativeButton jumioAppearance] setBorderColor: color];
                 } else if ([key isEqualToString: @"negativeButtonTitleColor"]) {
-                    [[NetverifyNegativeButton jumioAppearance] setTitleColor: color forState:UIControlStateNormal];
+                    [[DocumentVerificationNegativeButton jumioAppearance] setTitleColor: color forState:UIControlStateNormal];
                 }
             }
         }
@@ -147,7 +158,7 @@ RCT_EXPORT_METHOD(startDocumentVerification) {
 
 	AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
 	[delegate.window.rootViewController dismissViewControllerAnimated: YES completion: ^{
-    	[self sendEventWithName: @"EventError" body: result];
+    	[self sendEventWithName: @"EventErrorDocumentVerification" body: result];
 	}];
 }
 

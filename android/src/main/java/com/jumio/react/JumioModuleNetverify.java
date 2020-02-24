@@ -5,41 +5,162 @@
 
 package com.jumio.react;
 
-import android.util.Log;
+import android.app.Activity;
+import android.content.Intent;
 
+import com.facebook.react.bridge.ActivityEventListener;
 import com.facebook.react.bridge.Arguments;
+import com.facebook.react.bridge.BaseActivityEventListener;
 import com.facebook.react.bridge.ReactApplicationContext;
-import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.ReadableArray;
 import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.bridge.ReadableMapKeySetIterator;
 import com.facebook.react.bridge.WritableMap;
-import com.facebook.react.modules.core.DeviceEventManagerModule;
-import com.jumio.MobileSDK;
 import com.jumio.core.enums.JumioCameraPosition;
 import com.jumio.core.enums.JumioDataCenter;
-import com.jumio.nv.enums.NVWatchlistScreening;
-import com.jumio.core.exceptions.MissingPermissionException;
+import com.jumio.nv.NetverifyDocumentData;
 import com.jumio.nv.NetverifySDK;
 import com.jumio.nv.data.document.NVDocumentType;
 import com.jumio.nv.data.document.NVDocumentVariant;
+import com.jumio.nv.data.document.NVMRZFormat;
+import com.jumio.nv.enums.NVExtractionMethod;
+import com.jumio.nv.enums.NVGender;
+import com.jumio.nv.enums.NVWatchlistScreening;
+
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 
-import androidx.core.app.ActivityCompat;
-
-public class JumioModuleNetverify extends ReactContextBaseJavaModule {
+public class JumioModuleNetverify extends JumioBaseModule {
 
     private final static String TAG = "JumioMobileSDKNetverify";
-    public static final int PERMISSION_REQUEST_CODE_NETVERIFY = 301;
+    private final String ERROR_KEY = "EventErrorNetverify";
 
 	public static  NetverifySDK netverifySDK;
 
-    JumioModuleNetverify(ReactApplicationContext reactContext) {
-        super(reactContext);
+    JumioModuleNetverify(ReactApplicationContext context) {
+        super(context);
+        // Add the listener for `onActivityResult`
     }
 
+    @Override
+    public String getErrorKey() {
+        return ERROR_KEY;
+    }
+
+    private final ActivityEventListener mActivityEventListener = new BaseActivityEventListener() {
+
+        @Override
+        public void onActivityResult(Activity activity, int requestCode, int resultCode, Intent data) {
+
+            if (requestCode == NetverifySDK.REQUEST_CODE) {
+                if (data == null) {
+                    return;
+                }
+                String scanReference = data.getStringExtra(NetverifySDK.EXTRA_SCAN_REFERENCE) != null ? data.getStringExtra(NetverifySDK.EXTRA_SCAN_REFERENCE) : "";
+
+                if (resultCode == Activity.RESULT_OK) {
+                    NetverifyDocumentData documentData = (NetverifyDocumentData) data.getParcelableExtra(NetverifySDK.EXTRA_SCAN_DATA);
+
+                    WritableMap result = Arguments.createMap();
+                    result.putString("selectedCountry", documentData.getSelectedCountry());
+                    if (documentData.getSelectedDocumentType() == NVDocumentType.PASSPORT) {
+                        result.putString("selectedDocumentType", "PASSPORT");
+                    } else if (documentData.getSelectedDocumentType() == NVDocumentType.DRIVER_LICENSE) {
+                        result.putString("selectedDocumentType", "DRIVER_LICENSE");
+                    } else if (documentData.getSelectedDocumentType() == NVDocumentType.IDENTITY_CARD) {
+                        result.putString("selectedDocumentType", "IDENTITY_CARD");
+                    } else if (documentData.getSelectedDocumentType() == NVDocumentType.VISA) {
+                        result.putString("selectedDocumentType", "VISA");
+                    }
+                    result.putString("idNumber", documentData.getIdNumber());
+                    result.putString("personalNumber", documentData.getPersonalNumber());
+                    result.putString("issuingDate", documentData.getIssuingDate() != null ? documentData.getIssuingDate().toString() : "");
+                    result.putString("expiryDate", documentData.getExpiryDate() != null ? documentData.getExpiryDate().toString() : "");
+                    result.putString("issuingCountry", documentData.getIssuingCountry());
+                    result.putString("lastName", documentData.getLastName());
+                    result.putString("firstName", documentData.getFirstName());
+                    result.putString("dob", documentData.getDob() != null ? documentData.getDob().toString() : ""); // test format
+                    if (documentData.getGender() == NVGender.M) {
+                        result.putString("gender", "m");
+                    } else if (documentData.getGender() == NVGender.F) {
+                        result.putString("gender", "f");
+                    } else if (documentData.getGender() == NVGender.X) {
+                        result.putString("gender", "x");
+                    }
+                    result.putString("originatingCountry", documentData.getOriginatingCountry());
+                    result.putString("addressLine", documentData.getAddressLine());
+                    result.putString("city", documentData.getCity());
+                    result.putString("subdivision", documentData.getSubdivision());
+                    result.putString("postCode", documentData.getPostCode());
+                    result.putString("optionalData1", documentData.getOptionalData1());
+                    result.putString("optionalData2", documentData.getOptionalData2());
+                    result.putString("placeOfBirth", documentData.getPlaceOfBirth());
+                    if (documentData.getExtractionMethod() == NVExtractionMethod.MRZ) {
+                        result.putString("extractionMethod", "MRZ");
+                    } else if (documentData.getExtractionMethod() == NVExtractionMethod.OCR) {
+                        result.putString("extractionMethod", "OCR");
+                    } else if (documentData.getExtractionMethod() == NVExtractionMethod.BARCODE) {
+                        result.putString("extractionMethod", "BARCODE");
+                    } else if (documentData.getExtractionMethod() == NVExtractionMethod.BARCODE_OCR) {
+                        result.putString("extractionMethod", "BARCODE_OCR");
+                    } else if (documentData.getExtractionMethod() == NVExtractionMethod.NONE) {
+                        result.putString("extractionMethod", "NONE");
+                    }
+
+                    result.putString("scanReference", scanReference);
+
+                    //MRZ data if available
+                    if (documentData.getMrzData() != null) {
+                        WritableMap mrzData = Arguments.createMap();
+                        if (documentData.getMrzData().getFormat() == NVMRZFormat.MRP) {
+                            mrzData.putString("format", "MRP");
+                        } else if (documentData.getMrzData().getFormat() == NVMRZFormat.TD1) {
+                            mrzData.putString("format", "TD1");
+                        } else if (documentData.getMrzData().getFormat() == NVMRZFormat.TD2) {
+                            mrzData.putString("format", "TD2");
+                        } else if (documentData.getMrzData().getFormat() == NVMRZFormat.CNIS) {
+                            mrzData.putString("format", "CNIS");
+                        } else if (documentData.getMrzData().getFormat() == NVMRZFormat.MRV_A) {
+                            mrzData.putString("format", "MRVA");
+                        } else if (documentData.getMrzData().getFormat() == NVMRZFormat.MRV_B) {
+                            mrzData.putString("format", "MRVB");
+                        } else if (documentData.getMrzData().getFormat() == NVMRZFormat.Unknown) {
+                            mrzData.putString("format", "UNKNOWN");
+                        }
+                        mrzData.putString("line1", documentData.getMrzData().getMrzLine1());
+                        mrzData.putString("line2", documentData.getMrzData().getMrzLine2());
+                        mrzData.putString("line3", documentData.getMrzData().getMrzLine3());
+                        mrzData.putBoolean("idNumberValid", documentData.getMrzData().idNumberValid());
+                        mrzData.putBoolean("dobValid", documentData.getMrzData().dobValid());
+                        mrzData.putBoolean("expiryDateValid", documentData.getMrzData().expiryDateValid());
+                        mrzData.putBoolean("personalNumberValid", documentData.getMrzData().personalNumberValid());
+                        mrzData.putBoolean("compositeValid", documentData.getMrzData().compositeValid());
+                        result.putMap("mrzData", mrzData);
+                    }
+
+                    // EMRTD data if available
+                    if (documentData.getEMRTDStatus() != null) {
+                        result.putString("emrtdStatus", String.valueOf(documentData.getEMRTDStatus()));
+                    }
+
+                    sendEvent("EventDocumentData", result);
+                } else if (resultCode == Activity.RESULT_CANCELED) {
+                    String errorMessage = data.getStringExtra(NetverifySDK.EXTRA_ERROR_MESSAGE);
+                    String errorCode = data.getStringExtra(NetverifySDK.EXTRA_ERROR_CODE);
+                    sendErrorObject(errorCode, errorMessage, scanReference);
+                }
+                if (JumioModuleNetverify.netverifySDK != null) {
+                    JumioModuleNetverify.netverifySDK.destroy();
+                }
+                reactContext.removeActivityEventListener(mActivityEventListener);
+            }
+        }
+    };
+
+
+    @NotNull
     @Override
     public String getName() {
         return "JumioMobileSDKNetverify";
@@ -64,7 +185,12 @@ public class JumioModuleNetverify extends ReactContextBaseJavaModule {
                 return;
             }
 
-            JumioDataCenter center = (dataCenter.equalsIgnoreCase("eu")) ? JumioDataCenter.EU : JumioDataCenter.US;
+            JumioDataCenter center = null;
+            try {
+                center = JumioDataCenter.valueOf(dataCenter.toUpperCase());
+            } catch (Exception e) {
+                throw new Exception("Datacenter not valid: "+dataCenter);            
+            }
             netverifySDK = NetverifySDK.create(getCurrentActivity(), apiToken, apiSecret, center);
 
             this.configureNetverify(options);
@@ -153,7 +279,10 @@ public class JumioModuleNetverify extends ReactContextBaseJavaModule {
         }
 
         try {
-            checkPermissionsAndStart(netverifySDK);
+            boolean sdkStarted = checkPermissionsAndStart(netverifySDK);
+            if(sdkStarted){
+                reactContext.addActivityEventListener(mActivityEventListener);
+            }
         } catch (Exception e) {
             showErrorMessage("Error starting the Netverify SDK: " + e.getLocalizedMessage());
         }
@@ -168,48 +297,5 @@ public class JumioModuleNetverify extends ReactContextBaseJavaModule {
         netverifySDK.setEnableEMRTD(true);
     }
 
-    // Permissions
-
-    private void checkPermissionsAndStart(MobileSDK sdk) {
-        if (!MobileSDK.hasAllRequiredPermissions(getReactApplicationContext())) {
-            //Acquire missing permissions.
-            String[] mp = MobileSDK.getMissingPermissions(getReactApplicationContext());
-
-            int code;
-            if (sdk instanceof NetverifySDK)
-                code = PERMISSION_REQUEST_CODE_NETVERIFY;
-            else {
-                showErrorMessage("Invalid SDK instance");
-                return;
-            }
-
-            ActivityCompat.requestPermissions(getReactApplicationContext().getCurrentActivity(), mp, code);
-            //The result is received in MainActivity::onRequestPermissionsResult.
-        } else {
-            startSdk(sdk);
-        }
-    }
-
-    protected void startSdk(MobileSDK sdk) {
-        try {
-            sdk.start();
-        } catch (MissingPermissionException e) {
-            showErrorMessage(e.getLocalizedMessage());
-        }
-    }
-
-	private void showErrorMessage(String msg) {
-		Log.e("Error", msg);
-		WritableMap errorResult = Arguments.createMap();
-		errorResult.putString("errorMessage", msg != null ? msg : "");
-		sendEvent("EventError", errorResult);
-	}
-
-	// Helper methods
-
-	private void sendEvent(String eventName, WritableMap params) {
-		getReactApplicationContext().getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class)
-				.emit(eventName, params);
-	}
 }
 

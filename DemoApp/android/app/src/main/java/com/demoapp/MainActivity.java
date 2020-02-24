@@ -1,8 +1,9 @@
 package com.demoapp;
 
-import com.jumio.react.JumioActivity;
 
-public class MainActivity extends JumioActivity {
+import com.facebook.react.ReactActivity;
+
+public class MainActivity extends ReactActivity {
 
     /**
      * Returns the name of the main component registered from JavaScript.
