@@ -20,10 +20,17 @@ const { JumioMobileSDKAuthentication } = NativeModules;
 const { JumioMobileSDKBamCheckout } = NativeModules;
 const { JumioMobileSDKDocumentVerification } = NativeModules;
 
+const API_TOKEN = 'YOUR_API_TOKEN'
+const API_SECRET = 'YOUR_API_SECRET'
+const DATACENTER = 'DATACENTER'
+const BAM_API_TOKEN = 'YOUR_BAM_API_TOKEN'
+const BAM_API_SECRET = 'YOUR_BAM_API_SECRET'
+const BAM_DATACENTER = 'BAM_DATACENTER'
+
 // Netverify
 
 const startNetverify = () => {
-  JumioMobileSDKNetverify.initNetverify('API_TOKEN', 'API_SECRET', 'DATACENTER', {
+  JumioMobileSDKNetverify.initNetverify(API_TOKEN, API_SECRET, DATACENTER, {
 	  enableVerification: true,
 	  //callbackUrl: "URL",
 	  //enableIdentityVerification: true,
@@ -49,7 +56,7 @@ const startNetverify = () => {
 // Authentication
 
 const startAuthentication = () => {
-  JumioMobileSDKAuthentication.initAuthentication('API_TOKEN', 'API_SECRET', 'DATACENTER', {
+  JumioMobileSDKAuthentication.initAuthentication(API_TOKEN, API_SECRET, DATACENTER, {
 	  enrollmentTransactionReference: "EnrollmentTransactionReference",
 	  //userReference: "UserReference",
 	  //callbackUrl: "URL",
@@ -60,7 +67,7 @@ const startAuthentication = () => {
 // Document Verification
 
 const startDocumentVerification = () => {
-  JumioMobileSDKDocumentVerification.initDocumentVerification('API_TOKEN', 'API_SECRET', 'DATACENTER', {
+  JumioMobileSDKDocumentVerification.initDocumentVerification(API_TOKEN, API_SECRET, DATACENTER, {
 	  type: "BS",
 	  userReference: "123456789",
 	  country: "USA",
@@ -78,7 +85,7 @@ const startDocumentVerification = () => {
 // BAM Checkout
 
 const startBAM = () => {
-  JumioMobileSDKBamCheckout.initBAM('API_TOKEN', 'API_SECRET', 'DATACENTER', {
+  JumioMobileSDKBamCheckout.initBAM(BAM_API_TOKEN, BAM_API_SECRET, BAM_DATACENTER, {
 	//cardHolderNameRequired: true,
 	//sortCodeAndAccountNumberRequired: false,
 	//expiryRequired: true,

@@ -142,6 +142,7 @@ RCT_EXPORT_METHOD(startDocumentVerification) {
     AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     [delegate.window.rootViewController dismissViewControllerAnimated: YES completion: ^{
         [self sendEventWithName: @"EventDocumentVerification" body: result];
+        _documentVerificationViewController = nil;
     }];
 }
 
@@ -159,6 +160,7 @@ RCT_EXPORT_METHOD(startDocumentVerification) {
 	AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
 	[delegate.window.rootViewController dismissViewControllerAnimated: YES completion: ^{
     	[self sendEventWithName: @"EventErrorDocumentVerification" body: result];
+        _documentVerificationViewController = nil;
 	}];
 }
 

@@ -12,7 +12,7 @@ Create React Native project and add the Jumio Mobile SDK module to it.
 ```
 react-native init MyProject
 cd MyProject
-npm install --save https://github.com/Jumio/mobile-react.git#v3.5.0
+npm install --save https://github.com/Jumio/mobile-react.git#v3.6.0
 react-native link react-native-jumio-mobilesdk
 ```
 
@@ -20,7 +20,7 @@ react-native link react-native-jumio-mobilesdk
 
 ### iOS
 
-1. Add the Jumio Mobile SDK to your React Native iOS project by either doing manual integration or using dependency management via cocoapods , please see [the official documentation of the Jumio Mobile SDK for iOS](https://github.com/Jumio/mobile-sdk-ios/tree/v3.4.2#basic-setup)
+1. Add the Jumio Mobile SDK to your React Native iOS project by either doing manual integration or using dependency management via cocoapods , please see [the official documentation of the Jumio Mobile SDK for iOS](https://github.com/Jumio/mobile-sdk-ios/tree/v3.6.0#basic-setup)
 2. Open the Xcode workspace (/YourApp/ios/YourApp.xcworkspace) and add the module files according to your desired product (see /YourApp/node_modules/react-native-jumio-mobilesdk/ios/) into the app project.
 * Example: For Fastfill/Netverify add `JumioMobileSDKNetverify.h` and `JumioMobileSDKNetverify.m` to the project
 3. Add the "**NSCameraUsageDescription**"-key to your Info.plist file.
@@ -40,7 +40,7 @@ android:allowBackup="false"
 ```
 android {
   compileSdkVersion 29
-  buildToolsVersion "29.0.0"
+  buildToolsVersion "29.0.3"
   ...
 }
 ```
@@ -129,14 +129,14 @@ Initialization example with configuration.
 
 ```javascript
 JumioMobileSDKNetverify.initNetverify("API_TOKEN", "API_SECRET", "US", {
-enableVerification: true,
-enableIdentityVerification: true,
-userReference: "CUSTOMERID",
-preselectedCountry: "USA",
-cameraPosition: "BACK",
-documentTypes: ["DRIVER_LICENSE", "PASSPORT", "IDENTITY_CARD", "VISA"],
-enableWatchlistScreening: "ENABLED",
-watchlistSearchProfile: "YOURPROFILENAME"
+  enableVerification: true,
+  enableIdentityVerification: true,
+  userReference: "CUSTOMERID",
+  preselectedCountry: "USA",
+  cameraPosition: "BACK",
+  documentTypes: ["DRIVER_LICENSE", "PASSPORT", "IDENTITY_CARD", "VISA"],
+  enableWatchlistScreening: "ENABLED",
+  watchlistSearchProfile: "YOURPROFILENAME"
 });
 ```
 
@@ -169,7 +169,6 @@ netverifySDK.setEnableEMRTD(true);
 As soon as the sdk is initialized, the sdk is started by the following call.
 ```javascript
   JumioMobileSDKNetverify.startNetverify();
-};
 ```
 
 ### Authentication
@@ -195,11 +194,11 @@ Initialization example with configuration:
 ```javascript
 const startAuthentication = () => {
   JumioMobileSDKAuthentication.initAuthentication('API_TOKEN', 'API_SECRET', 'US', {
-  enrollmentTransactionReference: "EnrollmentTransactionReference",
-  //authenticationTransactionReference: "AuthenticationTransactionReference",
-  userReference: "UserReference"
-  callbackUrl: "URL"
-});  
+    enrollmentTransactionReference: "EnrollmentTransactionReference",
+    //authenticationTransactionReference: "AuthenticationTransactionReference",
+    userReference: "UserReference"
+    callbackUrl: "URL"
+  });  
 };
 ```
 
@@ -421,16 +420,16 @@ emitterBamCheckout.addListener(
 ### Android
 
 #### Netverify
-The Netverify SDK can be customized to the respective needs by following this [customization chapter](https://github.com/Jumio/mobile-sdk-android/blob/v3.5.0/docs/integration_netverify-fastfill.md#customization).
+The Netverify SDK can be customized to the respective needs by following this [customization chapter](https://github.com/Jumio/mobile-sdk-android/blob/v3.6.2/docs/integration_netverify-fastfill.md#customization).
 
 #### Authentication
-The Authentication SDK can be customized to the respective needs by following this [customization chapter](https://github.com/Jumio/mobile-sdk-android/blob/v3.5.0/docs/integration_authentication.md#customization).
+The Authentication SDK can be customized to the respective needs by following this [customization chapter](https://github.com/Jumio/mobile-sdk-android/blob/v3.6.2/docs/integration_authentication.md#customization).
 
 #### BAM Checkout
-The BAM Checkout SDK can be customized to the respective needs by following this [customization chapter](https://github.com/Jumio/mobile-sdk-android/blob/v3.5.0/docs/integration_bam-checkout.md#customization).
+The BAM Checkout SDK can be customized to the respective needs by following this [customization chapter](https://github.com/Jumio/mobile-sdk-android/blob/v3.6.2/docs/integration_bam-checkout.md#customization).
 
 #### Document Verification
-The Document Verification SDK can be customized to the respective needs by following this [customization chapter](https://github.com/Jumio/mobile-sdk-android/blob/v3.5.0/docs/integration_document-verification.md#customization).
+The Document Verification SDK can be customized to the respective needs by following this [customization chapter](https://github.com/Jumio/mobile-sdk-android/blob/v3.6.2/docs/integration_document-verification.md#customization).
 
 
 ### iOS
@@ -478,8 +477,8 @@ All colors are provided with a HEX string with the following format: #ff00ff.
 
 **Customization example**
 
-```
-Jumio.initNetverifyWithCustomization("API_TOKEN", "API_SECRET", "US", {
+```javascript
+JumioMobileSDKNetverify.initNetverifyWithCustomization("API_TOKEN", "API_SECRET", "US", {
   enableVerification: false,
   ...
 }, {

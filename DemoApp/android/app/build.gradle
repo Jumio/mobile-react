@@ -175,11 +175,7 @@ dependencies {
     } else {
       implementation jscFlavor
     }
-    implementation "com.google.android.gms:play-services-vision:19.0.0"
-    //implementation 'com.google.android.gms:play-services:12.0.1'
-    // implementation "com.android.support:appcompat-v7:${rootProject.ext.supportLibVersion}"
-    // implementation "com.android.support:design:${rootProject.ext.supportLibVersion}"
-    // implementation "com.android.support:support-v4:${rootProject.ext.supportLibVersion}"
+	implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0-rc01'
 
     // From node_modules
 }

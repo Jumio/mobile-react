@@ -1,8 +1,14 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Customize your theme here. -->
+		<item name="colorPrimary">#97be0d</item>
+		<item name="colorPrimaryDark">#79980a</item>
+		<item name="colorControlNormal">#ffffff</item>
+		<item name="colorOnSurface">#000000</item>
+		<item name="editTextColor">#FFFFFF</item>
+		<item name="android:editTextColor">#FFFFFF</item>
     </style>
 
 </resources>
