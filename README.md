@@ -9,35 +9,34 @@ We only ensure compatibility with a minimum React Native version of 0.61.4
 ## Setup
 
 Create React Native project and add the Jumio Mobile SDK module to it.
-```
+
+```sh
 react-native init MyProject
 cd MyProject
-npm install --save https://github.com/Jumio/mobile-react.git#v3.6.0
-react-native link react-native-jumio-mobilesdk
+npm install --save https://github.com/Jumio/mobile-react.git#v3.7.1
 ```
 
 ## Integration
 
 ### iOS
 
-1. Add the Jumio Mobile SDK to your React Native iOS project by either doing manual integration or using dependency management via cocoapods , please see [the official documentation of the Jumio Mobile SDK for iOS](https://github.com/Jumio/mobile-sdk-ios/tree/v3.6.0#basic-setup)
-2. Open the Xcode workspace (/YourApp/ios/YourApp.xcworkspace) and add the module files according to your desired product (see /YourApp/node_modules/react-native-jumio-mobilesdk/ios/) into the app project.
-* Example: For Fastfill/Netverify add `JumioMobileSDKNetverify.h` and `JumioMobileSDKNetverify.m` to the project
-3. Add the "**NSCameraUsageDescription**"-key to your Info.plist file.
+1. Add the "**NSCameraUsageDescription**"-key to your Info.plist file.
 
 ### Android
 
 1. Open your AndroidManifest.xml file and change allowBackup to false.
-```
+
+```xml
 <application
 ...
-android:allowBackup="false"
+android:allowBackup="false">
 ...
 </application>
 ```
 
 2. Make sure your compileSdkVersion and buildToolsVersion are high enough.
-```
+
+```groovy
 android {
   compileSdkVersion 29
   buildToolsVersion "29.0.3"
@@ -48,7 +47,7 @@ android {
 3. Enable MultiDex
 Follow the Android developers guide: https://developer.android.com/studio/build/multidex.html
 
-```
+```groovy
 android {
   ...
   defaultConfig {
@@ -59,7 +58,8 @@ android {
 ```
 
 4. Add the Jumio Mobile SDK repository
-```
+
+```groovy
 repositories {  
   maven { url 'http://mobile-sdk.jumio.com' }
 }
@@ -68,7 +68,8 @@ repositories {
 ## Usage
 
 1. Add "**NativeModules**" to the import of 'react-native'.
-```
+
+```javascript
 import {
   ...
   NativeModules
@@ -76,7 +77,8 @@ import {
 ```
 
 2. Create a variable of your iOS module:
-```
+
+```javascript
 const { JumioMobileSDKNetverify } = NativeModules;
 const { JumioMobileSDKAuthentication } = NativeModules;
 const { JumioMobileSDKBamCheckout } = NativeModules;
@@ -84,12 +86,14 @@ const { JumioMobileSDKDocumentVerification } = NativeModules;
 ```
 
 3. The SDKs can be initialized with the following calls.
-```
+
+```javascript
 JumioMobileSDKNetverify.initNetverify(<API_TOKEN>, <API_SECRET>, <DATACENTER>, {configuration});
 JumioMobileSDKAuthentication.initAuthentication(<API_TOKEN>, <API_SECRET>, <DATACENTER>, {configuration});
 JumioMobileSDKDocumentVerification.initDocumentVerification(<API_TOKEN>, <API_SECRET>, <DATACENTER>, {configuration});
 JumioMobileSDKBamCheckout.initBAM(<API_TOKEN>, <API_SECRET>, <DATACENTER>, {configuration});
 ```
+
 Datacenter can either be **us** or **eu**.
 
 ## Usage
@@ -103,7 +107,6 @@ JumioMobileSDKNetverify.initNetverify(<API_TOKEN>, <API_SECRET>, <DATACENTER>, {
 ```
 
 Datacenter can either be **US** or **EU**.
-
 
 
 Configure the SDK with the *configuration*-Object.
@@ -167,6 +170,7 @@ netverifySDK.setEnableEMRTD(true);
 
 
 As soon as the sdk is initialized, the sdk is started by the following call.
+
 ```javascript
   JumioMobileSDKNetverify.startNetverify();
 ```
@@ -174,6 +178,7 @@ As soon as the sdk is initialized, the sdk is started by the following call.
 ### Authentication
 
 To initialize and start the SDK, perform the following call.
+
 ```javascript
 JumioMobileSDKAuthentication.initAuthentication(<API_TOKEN>, <API_SECRET>, <DATACENTER>, {configuration});
 ```
@@ -191,6 +196,7 @@ In order to connect the Authentication transaction to a specific Netverify user 
 | **userReference*** | String | Set a customer identifier (max. 100 characters) |
 
 Initialization example with configuration:
+
 ```javascript
 const startAuthentication = () => {
   JumioMobileSDKAuthentication.initAuthentication('API_TOKEN', 'API_SECRET', 'US', {
@@ -203,6 +209,7 @@ const startAuthentication = () => {
 ```
 
 As soon as the sdk is initialized, the sdk is started by the following call.
+
 ```javascript
 JumioMobileSDKNetverify.startAuthentication();
 ```
@@ -285,6 +292,7 @@ To Initialize the SDK, perform the following call.
 ```javascript
 JumioMobileSDKBamCheckout.initBAM(<API_TOKEN>, <API_SECRET>, <DATACENTER>, {configuration});
 ```
+
 Datacenter can either be **US** or **EU**.
 
 Configure the SDK with the *configuration*-Object.
@@ -331,7 +339,7 @@ If you want to use Fastfill in offline mode please contact Jumio Customer Servic
 
 Pass your offline token to your configuration object of BAM Checkout.
 
-```
+```javascript
 offlineToken: "TOKEN",
 ```
 
@@ -342,13 +350,15 @@ Offline scanning not supported yet.
 ### Android Netverify eMRTD
 
 Use `enableEMRTD` to read the NFC chip of an eMRTD.
-```
+
+```javascript
 JumioMobileSDKNetverify.enableEMRTD();
 ```
 
 ### Retrieving information
 
 You can listen to events to retrieve the scanned data:
+
 * **EventDocumentData** for Netverify results.
 * **EventErrorNetverify** for Netverify error.
 
@@ -363,7 +373,7 @@ You can listen to events to retrieve the scanned data:
 
 First add **NativeEventEmitter** to the import from 'react-native' and listen to the events.
 
-```
+```javascript
 import {
 ...
 NativeEventEmitter
@@ -420,16 +430,16 @@ emitterBamCheckout.addListener(
 ### Android
 
 #### Netverify
-The Netverify SDK can be customized to the respective needs by following this [customization chapter](https://github.com/Jumio/mobile-sdk-android/blob/v3.6.2/docs/integration_netverify-fastfill.md#customization).
+The Netverify SDK can be customized to the respective needs by following this [customization chapter](https://github.com/Jumio/mobile-sdk-android/blob/v3.7.2/docs/integration_netverify-fastfill.md#customization).
 
 #### Authentication
-The Authentication SDK can be customized to the respective needs by following this [customization chapter](https://github.com/Jumio/mobile-sdk-android/blob/v3.6.2/docs/integration_authentication.md#customization).
+The Authentication SDK can be customized to the respective needs by following this [customization chapter](https://github.com/Jumio/mobile-sdk-android/blob/v3.7.2/docs/integration_authentication.md#customization).
 
 #### BAM Checkout
-The BAM Checkout SDK can be customized to the respective needs by following this [customization chapter](https://github.com/Jumio/mobile-sdk-android/blob/v3.6.2/docs/integration_bam-checkout.md#customization).
+The BAM Checkout SDK can be customized to the respective needs by following this [customization chapter](https://github.com/Jumio/mobile-sdk-android/blob/v3.7.2/docs/integration_bam-checkout.md#customization).
 
 #### Document Verification
-The Document Verification SDK can be customized to the respective needs by following this [customization chapter](https://github.com/Jumio/mobile-sdk-android/blob/v3.6.2/docs/integration_document-verification.md#customization).
+The Document Verification SDK can be customized to the respective needs by following this [customization chapter](https://github.com/Jumio/mobile-sdk-android/blob/v3.7.2/docs/integration_document-verification.md#customization).
 
 
 ### iOS

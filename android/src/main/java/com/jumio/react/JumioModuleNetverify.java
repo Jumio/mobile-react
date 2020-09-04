@@ -140,11 +140,6 @@ public class JumioModuleNetverify extends JumioBaseModule {
                         result.putMap("mrzData", mrzData);
                     }
 
-                    // EMRTD data if available
-                    if (documentData.getEMRTDStatus() != null) {
-                        result.putString("emrtdStatus", String.valueOf(documentData.getEMRTDStatus()));
-                    }
-
                     sendEvent("EventDocumentData", result);
                 } else if (resultCode == Activity.RESULT_CANCELED) {
                     String errorMessage = data.getStringExtra(NetverifySDK.EXTRA_ERROR_MESSAGE);

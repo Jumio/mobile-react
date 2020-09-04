@@ -4,9 +4,8 @@
 //  Copyright © 2019 Jumio Corporation All rights reserved.
 //
 
-
 #import "JumioMobileSDKDocumentVerification.h"
-#import "AppDelegate.h"
+
 @import JumioCore;
 @import DocumentVerification;
 
@@ -129,8 +128,8 @@ RCT_EXPORT_METHOD(startDocumentVerification) {
     }
     
     dispatch_sync(dispatch_get_main_queue(), ^{
-        AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-        [delegate.window.rootViewController presentViewController: _documentVerificationViewController animated: YES completion: nil];
+        id<UIApplicationDelegate> delegate = [[UIApplication sharedApplication] delegate];
+        [delegate.window.rootViewController presentViewController: self.documentVerificationViewController animated: YES completion: nil];
     });
 }
 
@@ -139,10 +138,10 @@ RCT_EXPORT_METHOD(startDocumentVerification) {
 - (void)documentVerificationViewController:(DocumentVerificationViewController *)documentVerificationViewController didFinishWithScanReference:(NSString *)scanReference {
 	NSDictionary *result = [NSDictionary dictionaryWithObject: scanReference forKey: @"scanReference"];
 
-    AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    id<UIApplicationDelegate> delegate = [[UIApplication sharedApplication] delegate];
     [delegate.window.rootViewController dismissViewControllerAnimated: YES completion: ^{
         [self sendEventWithName: @"EventDocumentVerification" body: result];
-        _documentVerificationViewController = nil;
+        self.documentVerificationViewController = nil;
     }];
 }
 
@@ -157,10 +156,10 @@ RCT_EXPORT_METHOD(startDocumentVerification) {
 	[result setValue: error.code forKey: @"errorCode"];
 	[result setValue: error.message forKey: @"errorMessage"];
 
-	AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+	id<UIApplicationDelegate> delegate = [[UIApplication sharedApplication] delegate];
 	[delegate.window.rootViewController dismissViewControllerAnimated: YES completion: ^{
     	[self sendEventWithName: @"EventErrorDocumentVerification" body: result];
-        _documentVerificationViewController = nil;
+        self.documentVerificationViewController = nil;
 	}];
 }
 

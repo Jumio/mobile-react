@@ -5,7 +5,6 @@
 //
 
 #import "JumioMobileSDKBamCheckout.h"
-#import "AppDelegate.h"
 @import JumioCore;
 @import BAMCheckout;
 
@@ -161,7 +160,7 @@ RCT_EXPORT_METHOD(startBAM) {
         return;
     }
     
-    AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    id<UIApplicationDelegate> delegate = [[UIApplication sharedApplication] delegate];
     dispatch_sync(dispatch_get_main_queue(), ^{
         [delegate.window.rootViewController presentViewController: _bamViewController animated: YES completion: nil];
     });
@@ -209,7 +208,7 @@ RCT_EXPORT_METHOD(startBAM) {
 	
     [result setValue: self.scanReferences forKey: @"scanReferences"];
     
-    AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    id<UIApplicationDelegate> delegate = [[UIApplication sharedApplication] delegate];
     [delegate.window.rootViewController dismissViewControllerAnimated: YES completion: ^{
         [self sendEventWithName: @"EventCardInformation" body: result];
         [self.scanReferences removeAllObjects];
@@ -247,7 +246,7 @@ RCT_EXPORT_METHOD(startBAM) {
 		[result setValue: scanReferences forKey: @"scanReferences"];
 	}
 
-	AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+	id<UIApplicationDelegate> delegate = [[UIApplication sharedApplication] delegate];
 	[delegate.window.rootViewController dismissViewControllerAnimated: YES completion: ^{
     	[self sendEventWithName: @"EventErrorBam" body: result];
 	}];

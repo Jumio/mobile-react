@@ -5,7 +5,7 @@
 //
 
 #import "JumioMobileSDKNetverify.h"
-#import "AppDelegate.h"
+
 @import JumioCore;
 @import Netverify;
 
@@ -197,7 +197,7 @@ RCT_EXPORT_METHOD(startNetverify) {
     }
     
     dispatch_sync(dispatch_get_main_queue(), ^{
-        AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+        id<UIApplicationDelegate> delegate = [[UIApplication sharedApplication] delegate];
         [delegate.window.rootViewController presentViewController: _netverifyViewController animated:YES completion: nil];
     });
 }
@@ -285,7 +285,7 @@ RCT_EXPORT_METHOD(startNetverify) {
 	
 	[result setValue: scanReference forKey: @"scanReference"];
     
-    AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    id<UIApplicationDelegate> delegate = [[UIApplication sharedApplication] delegate];
     [delegate.window.rootViewController dismissViewControllerAnimated: YES completion: ^{
         [self sendEventWithName: @"EventDocumentData" body: result];
       
@@ -314,7 +314,7 @@ RCT_EXPORT_METHOD(startNetverify) {
 		[result setValue: scanReference forKey: @"scanReference"];
 	}
 
-	AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+	id<UIApplicationDelegate> delegate = [[UIApplication sharedApplication] delegate];
 	[delegate.window.rootViewController dismissViewControllerAnimated: YES completion: ^{
     	[self sendEventWithName: @"EventErrorNetverify" body: result];
     

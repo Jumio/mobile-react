@@ -5,7 +5,6 @@
 //
 
 #import "JumioMobileSDKAuthentication.h"
-#import "AppDelegate.h"
 @import JumioCore;
 @import NetverifyFace;
 
@@ -142,7 +141,7 @@ RCT_EXPORT_METHOD(startAuthentication) {
   }
   
   dispatch_async(dispatch_get_main_queue(), ^{
-    AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    id<UIApplicationDelegate> delegate = [[UIApplication sharedApplication] delegate];
     [delegate.window.rootViewController presentViewController: self.authenticationScanViewController animated:YES completion: nil];
   });
 }
