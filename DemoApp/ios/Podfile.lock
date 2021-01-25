@@ -19,9 +19,12 @@ PODS:
     - DoubleConversion
     - glog
   - glog (0.3.5)
-  - JumioMobileSDK (3.7.1):
-    - JumioMobileSDK/JumioMobileSDK (= 3.7.1)
-  - JumioMobileSDK/JumioMobileSDK (3.7.1)
+  - iProov (8.1.1):
+    - Socket.IO-Client-Swift (~> 15.2)
+  - JumioMobileSDK (3.8.0):
+    - JumioMobileSDK/JumioMobileSDK (= 3.8.0)
+  - JumioMobileSDK/JumioMobileSDK (3.8.0):
+    - iProov (= 8.1.1)
   - RCTRequired (0.62.2)
   - RCTTypeSafety (0.62.2):
     - FBLazyVector (= 0.62.2)
@@ -185,8 +188,8 @@ PODS:
     - React-cxxreact (= 0.62.2)
     - React-jsi (= 0.62.2)
   - React-jsinspector (0.62.2)
-  - react-native-jumio-mobilesdk (3.7.1):
-    - JumioMobileSDK (= 3.7.1)
+  - react-native-jumio-mobilesdk (3.8.0):
+    - JumioMobileSDK (= 3.8.0)
     - React
   - React-RCTActionSheet (0.62.2):
     - React-Core/RCTActionSheetHeaders (= 0.62.2)
@@ -247,6 +250,9 @@ PODS:
     - React-cxxreact (= 0.62.2)
     - React-jsi (= 0.62.2)
     - ReactCommon/callinvoker (= 0.62.2)
+  - Socket.IO-Client-Swift (15.2.0):
+    - Starscream (~> 3.1)
+  - Starscream (3.1.1)
   - Yoga (1.14.0)
 
 DEPENDENCIES:
@@ -283,7 +289,10 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - boost-for-react-native
+    - iProov
     - JumioMobileSDK
+    - Socket.IO-Client-Swift
+    - Starscream
 
 EXTERNAL SOURCES:
   DoubleConversion:
@@ -346,7 +355,8 @@ SPEC CHECKSUMS:
   FBReactNativeSpec: 5465d51ccfeecb7faa12f9ae0024f2044ce4044e
   Folly: 30e7936e1c45c08d884aa59369ed951a8e68cf51
   glog: 1f3da668190260b06b429bb211bfbee5cd790c28
-  JumioMobileSDK: d6508dff44b2a54d0fbf5623d40da2569d8ed93c
+  iProov: 5cefb12ff4890c260f190d6e2426737ab389eb79
+  JumioMobileSDK: c686a7afd079218163810d29031adac0b5e602b1
   RCTRequired: cec6a34b3ac8a9915c37e7e4ad3aa74726ce4035
   RCTTypeSafety: 93006131180074cffa227a1075802c89a49dd4ce
   React: 29a8b1a02bd764fb7644ef04019270849b9a7ac3
@@ -356,7 +366,7 @@ SPEC CHECKSUMS:
   React-jsi: b6dc94a6a12ff98e8877287a0b7620d365201161
   React-jsiexecutor: 1540d1c01bb493ae3124ed83351b1b6a155db7da
   React-jsinspector: 512e560d0e985d0e8c479a54a4e5c147a9c83493
-  react-native-jumio-mobilesdk: 8602b711881bcc888c12b21464f19fbe2ef62f58
+  react-native-jumio-mobilesdk: 6262948a773b38959f7afce605b3801c63fe9866
   React-RCTActionSheet: f41ea8a811aac770e0cc6e0ad6b270c644ea8b7c
   React-RCTAnimation: 49ab98b1c1ff4445148b72a3d61554138565bad0
   React-RCTBlob: a332773f0ebc413a0ce85942a55b064471587a71
@@ -367,8 +377,10 @@ SPEC CHECKSUMS:
   React-RCTText: fae545b10cfdb3d247c36c56f61a94cfd6dba41d
   React-RCTVibration: 4356114dbcba4ce66991096e51a66e61eda51256
   ReactCommon: ed4e11d27609d571e7eee8b65548efc191116eb3
+  Socket.IO-Client-Swift: 1e3e3a1f09f3312a167f0d781eb2f383d477357c
+  Starscream: 4bb2f9942274833f7b4d296a55504dcfc7edb7b0
   Yoga: 3ebccbdd559724312790e7742142d062476b698e
 
-PODFILE CHECKSUM: 49cd3c76070f4fd99c19ade06cc116cb337768c2
+PODFILE CHECKSUM: e99814b11f9613c8592991c8cbd2b5efd81a3094
 
-COCOAPODS: 1.9.1
+COCOAPODS: 1.10.1

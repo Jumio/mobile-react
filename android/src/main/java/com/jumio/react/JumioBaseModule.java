@@ -9,7 +9,6 @@ import com.facebook.react.bridge.WritableArray;
 import com.facebook.react.bridge.WritableMap;
 import com.facebook.react.modules.core.DeviceEventManagerModule;
 import com.jumio.MobileSDK;
-import com.jumio.auth.AuthenticationSDK;
 import com.jumio.bam.BamSDK;
 import com.jumio.core.exceptions.MissingPermissionException;
 import com.jumio.dv.DocumentVerificationSDK;
@@ -61,8 +60,6 @@ public class JumioBaseModule extends ReactContextBaseJavaModule {
 			int code;
 			if (sdk instanceof NetverifySDK) {
 				code = PERMISSION_REQUEST_CODE_NETVERIFY;
-			} else if (sdk instanceof AuthenticationSDK) {
-				code = PERMISSION_REQUEST_CODE_AUTHENTICATION;
 			} else if (sdk instanceof DocumentVerificationSDK) {
 				code = PERMISSION_REQUEST_CODE_DOCUMENT_VERIFICATION;
 			} else if (sdk instanceof BamSDK) {

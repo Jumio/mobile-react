@@ -11,8 +11,9 @@
 		13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB11A68108700A75B9A /* LaunchScreen.xib */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		23D7F81EAC112128CFC78BE0 /* Pods_DemoApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 097DB924E834F0DD2B1D7C08 /* Pods_DemoApp.framework */; };
+		76A9FCE325AC61AA006D0C6D /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A9FCE225AC61AA006D0C6D /* File.swift */; };
 		96673C9922662D4200EE3C95 /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96673C6B22662D4200EE3C95 /* JavaScriptCore.framework */; };
-		BB7A9B3F5B4DDBA71CB02617 /* libPods-DemoApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 69F5759E77AD1D34618A5320 /* libPods-DemoApp.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -284,6 +285,7 @@
 		00C302BB1ABCB91800DB3ED1 /* RCTImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTImage.xcodeproj; path = "../node_modules/react-native/Libraries/Image/RCTImage.xcodeproj"; sourceTree = "<group>"; };
 		00C302D31ABCB9D200DB3ED1 /* RCTNetwork.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTNetwork.xcodeproj; path = "../node_modules/react-native/Libraries/Network/RCTNetwork.xcodeproj"; sourceTree = "<group>"; };
 		00C302DF1ABCB9EE00DB3ED1 /* RCTVibration.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTVibration.xcodeproj; path = "../node_modules/react-native/Libraries/Vibration/RCTVibration.xcodeproj"; sourceTree = "<group>"; };
+		097DB924E834F0DD2B1D7C08 /* Pods_DemoApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DemoApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		139105B61AF99BAD00B5F7CC /* RCTSettings.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTSettings.xcodeproj; path = "../node_modules/react-native/Libraries/Settings/RCTSettings.xcodeproj"; sourceTree = "<group>"; };
 		139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTWebSocket.xcodeproj; path = "../node_modules/react-native/Libraries/WebSocket/RCTWebSocket.xcodeproj"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* DemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DemoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -296,7 +298,8 @@
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
 		349266BC24F7D0380009839A /* DemoApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = DemoApp.entitlements; path = DemoApp/DemoApp.entitlements; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
-		69F5759E77AD1D34618A5320 /* libPods-DemoApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DemoApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		76A9FCE125AC61A9006D0C6D /* DemoApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DemoApp-Bridging-Header.h"; sourceTree = "<group>"; };
+		76A9FCE225AC61AA006D0C6D /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		96673C6B22662D4200EE3C95 /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
@@ -311,7 +314,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				96673C9922662D4200EE3C95 /* JavaScriptCore.framework in Frameworks */,
-				BB7A9B3F5B4DDBA71CB02617 /* libPods-DemoApp.a in Frameworks */,
+				23D7F81EAC112128CFC78BE0 /* Pods_DemoApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -364,7 +367,7 @@
 			isa = PBXGroup;
 			children = (
 				96673C6B22662D4200EE3C95 /* JavaScriptCore.framework */,
-				69F5759E77AD1D34618A5320 /* libPods-DemoApp.a */,
+				097DB924E834F0DD2B1D7C08 /* Pods_DemoApp.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -476,11 +479,13 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				76A9FCE225AC61AA006D0C6D /* File.swift */,
 				13B07FAE1A68108700A75B9A /* DemoApp */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				9B8CF5E62609CE1F07808039 /* Pods */,
 				0976E2600E74B5C26861E76B /* Frameworks */,
+				76A9FCE125AC61A9006D0C6D /* DemoApp-Bridging-Header.h */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -546,6 +551,7 @@
 				ORGANIZATIONNAME = Facebook;
 				TargetAttributes = {
 					13B07F861A680F5B00A75B9A = {
+						LastSwiftMigration = 1230;
 						ProvisioningStyle = Manual;
 					};
 				};
@@ -915,27 +921,35 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-DemoApp/Pods-DemoApp-frameworks.sh",
-				"${PODS_ROOT}/JumioMobileSDK/JumioMobileSDK-3.7.1/JumioCore.framework",
-				"${PODS_ROOT}/JumioMobileSDK/JumioMobileSDK-3.7.1/BAMCheckout.framework",
-				"${PODS_ROOT}/JumioMobileSDK/JumioMobileSDK-3.7.1/Netverify.framework",
-				"${PODS_ROOT}/JumioMobileSDK/JumioMobileSDK-3.7.1/NetverifyBarcode.framework",
-				"${PODS_ROOT}/JumioMobileSDK/JumioMobileSDK-3.7.1/MicroBlink.framework",
-				"${PODS_ROOT}/JumioMobileSDK/JumioMobileSDK-3.7.1/NetverifyFace.framework",
-				"${PODS_ROOT}/JumioMobileSDK/JumioMobileSDK-3.7.1/ZoomAuthentication.framework",
-				"${PODS_ROOT}/JumioMobileSDK/JumioMobileSDK-3.7.1/DocumentVerification.framework",
-				"${PODS_ROOT}/JumioMobileSDK/JumioMobileSDK-3.7.1/JumioNFC.framework",
+				"${PODS_ROOT}/JumioMobileSDK/JumioMobileSDK-3.8.0/JumioCore.framework",
+				"${PODS_ROOT}/JumioMobileSDK/JumioMobileSDK-3.8.0/BAMCheckout.framework",
+				"${PODS_ROOT}/JumioMobileSDK/JumioMobileSDK-3.8.0/Netverify.framework",
+				"${PODS_ROOT}/JumioMobileSDK/JumioMobileSDK-3.8.0/MicroBlink.framework",
+				"${PODS_ROOT}/JumioMobileSDK/JumioMobileSDK-3.8.0/NetverifyBarcode.framework",
+				"${PODS_ROOT}/JumioMobileSDK/JumioMobileSDK-3.8.0/NetverifyFace.framework",
+				"${PODS_ROOT}/JumioMobileSDK/JumioMobileSDK-3.8.0/ZoomAuthentication.framework",
+				"${PODS_ROOT}/JumioMobileSDK/JumioMobileSDK-3.8.0/DocumentVerification.framework",
+				"${PODS_ROOT}/JumioMobileSDK/JumioMobileSDK-3.8.0/JumioNFC.framework",
+				"${PODS_ROOT}/JumioMobileSDK/JumioMobileSDK-3.8.0/JumioIProov.framework",
+				"${BUILT_PRODUCTS_DIR}/Socket.IO-Client-Swift/SocketIO.framework",
+				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/iProov/iProov.framework/iProov",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JumioCore.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BAMCheckout.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Netverify.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NetverifyBarcode.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MicroBlink.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NetverifyBarcode.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NetverifyFace.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ZoomAuthentication.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DocumentVerification.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JumioNFC.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JumioIProov.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SocketIO.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/iProov.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -968,6 +982,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
+				76A9FCE325AC61AA006D0C6D /* File.swift in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1005,9 +1020,10 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.jumio.react-demo";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jumio.react.demo;
 				PRODUCT_NAME = DemoApp;
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -1029,9 +1045,10 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.jumio.react-demo";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jumio.react.demo;
 				PRODUCT_NAME = DemoApp;
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;

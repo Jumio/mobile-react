@@ -132,11 +132,6 @@ public class JumioModuleBamCheckout extends JumioBaseModule {
             return;
         }
 
-        if (!BamSDK.isSupportedPlatform(this.getCurrentActivity())) {
-            showErrorMessage("This platform is not supported.");
-            return;
-        }
-
         try {
             if (apiToken.isEmpty() || apiSecret.isEmpty() || dataCenter.isEmpty()) {
                 showErrorMessage("Missing required parameters apiToken, apiSecret or dataCenter.");

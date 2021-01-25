@@ -23,7 +23,6 @@ public class JumioPackage implements ReactPackage {
         List<NativeModule> modules = new ArrayList<>();
 //        modules.add(new JumioModule(reactContext));
         modules.add(new JumioModuleNetverify(reactContext));
-        modules.add(new JumioModuleAuthentication(reactContext));
         modules.add(new JumioModuleBamCheckout(reactContext));
         modules.add(new JumioModuleDocumentVerification(reactContext));
         return modules;

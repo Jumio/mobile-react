@@ -80,11 +80,6 @@ public class JumioModuleDocumentVerification extends JumioBaseModule {
 
 	@ReactMethod
 	public void initDocumentVerification(String apiToken, String apiSecret, String dataCenter, ReadableMap options) {
-		if (!DocumentVerificationSDK.isSupportedPlatform(this.getCurrentActivity())) {
-			showErrorMessage("This platform is not supported.");
-			return;
-		}
-
 		try {
 			if (apiToken.isEmpty() || apiSecret.isEmpty() || dataCenter.isEmpty()) {
 				showErrorMessage("Missing required parameters apiToken, apiSecret or dataCenter.");

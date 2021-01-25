@@ -16,7 +16,6 @@ import {
 import Button from 'react-native-button';
 
 const { JumioMobileSDKNetverify } = NativeModules;
-const { JumioMobileSDKAuthentication } = NativeModules;
 const { JumioMobileSDKBamCheckout } = NativeModules;
 const { JumioMobileSDKDocumentVerification } = NativeModules;
 
@@ -46,22 +45,11 @@ const startNetverify = () => {
 	  //enableWatchlistScreening: ["enabled", "disabled" || "default"],
 	  //watchlistSearchProfile: "YOURPROFILENAME"
   });
-  
+
   // Android only
   //JumioMobileSDKNetverify.enableEMRTD();
-  
+
   JumioMobileSDKNetverify.startNetverify();
-};
-
-// Authentication
-
-const startAuthentication = () => {
-  JumioMobileSDKAuthentication.initAuthentication(API_TOKEN, API_SECRET, DATACENTER, {
-	  enrollmentTransactionReference: "EnrollmentTransactionReference",
-	  //userReference: "UserReference",
-	  //callbackUrl: "URL",
-	  //authenticationTransactionReference: "AuthenticationTransactionReference"
-  });  
 };
 
 // Document Verification
@@ -114,20 +102,6 @@ emitterNetverify.addListener(
     (EventErrorNetverify) => console.warn("EventErrorNetverify: " + JSON.stringify(EventErrorNetverify))
 );
 
-const emitterAuthentication = new NativeEventEmitter(JumioMobileSDKAuthentication);
-emitterAuthentication.addListener(
-    'EventAuthentication',
-	(EventAuthentication) => console.warn("EventAuthentication: " + JSON.stringify(EventAuthentication))
-);
-emitterAuthentication.addListener(
-    'EventErrorAuthentication',
-    (EventErrorAuthentication) => console.warn("EventErrorAuthentication: " + JSON.stringify(EventErrorAuthentication))
-);
-emitterAuthentication.addListener(
-    'EventInitiateSuccess',
-    (EventInitiateSuccess) => JumioMobileSDKAuthentication.startAuthentication()
-);
-
 const emitterDocumentVerification = new NativeEventEmitter(JumioMobileSDKDocumentVerification)
 emitterDocumentVerification.addListener(
     'EventDocumentVerification',
@@ -156,11 +130,6 @@ export default class DemoApp extends Component {
 			onPress={startNetverify}
 			style={styles.buttonStyle}>
 			Start Netverify
-		</Button>
-		<Button
-			onPress={startAuthentication}
-			style={styles.buttonStyle}>
-			Start Authentication
 		</Button>
 		<Button
 			onPress={startDocumentVerification}

@@ -35,8 +35,34 @@ def pods()
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
   
   use_native_modules!
+  use_frameworks!
 end
 
 target "DemoApp" do
     pods()
+end
+
+dynamic_frameworks = ['Socket.IO-Client-Swift', 'Starscream', 'iProov']
+
+# make all the other frameworks into static frameworks by overriding the static_framework? function to return true
+pre_install do |installer|
+  installer.pod_targets.each do |pod|
+    if !dynamic_frameworks.include?(pod.name)
+      puts "Overriding the static_framework? method for #{pod.name}"
+      def pod.static_framework?;
+        true
+      end
+      def pod.build_type;
+        Pod::BuildType.static_library
+      end
+    end
+  end
+end
+
+post_install do |installer|
+    installer.pods_project.targets.each do |target|
+      target.build_configurations.each do |config|
+          config.build_settings['BUILD_LIBRARY_FOR_DISTRIBUTION'] = 'YES'
+      end
+    end
 end

@@ -151,7 +151,9 @@ RCT_EXPORT_METHOD(initBAMWithCustomization:(NSString *)apiToken apiSecret:(NSStr
         }
     }
     
-    _bamViewController = [[BAMCheckoutViewController alloc]initWithConfiguration: _bamConfiguration];
+    dispatch_sync(dispatch_get_main_queue(), ^{
+        self.bamViewController = [[BAMCheckoutViewController alloc]initWithConfiguration: self.bamConfiguration];
+    });
 }
 
 RCT_EXPORT_METHOD(startBAM) {
@@ -160,8 +162,8 @@ RCT_EXPORT_METHOD(startBAM) {
         return;
     }
     
-    id<UIApplicationDelegate> delegate = [[UIApplication sharedApplication] delegate];
     dispatch_sync(dispatch_get_main_queue(), ^{
+        id<UIApplicationDelegate> delegate = [[UIApplication sharedApplication] delegate];
         [delegate.window.rootViewController presentViewController: _bamViewController animated: YES completion: nil];
     });
 }

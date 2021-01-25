@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		3438E4D824A38D5A00360771 /* JumioMobileSDKDocumentVerification.m in Sources */ = {isa = PBXBuildFile; fileRef = 3438E4D024A38D5A00360771 /* JumioMobileSDKDocumentVerification.m */; };
-		3438E4D924A38D5A00360771 /* JumioMobileSDKAuthentication.m in Sources */ = {isa = PBXBuildFile; fileRef = 3438E4D224A38D5A00360771 /* JumioMobileSDKAuthentication.m */; };
 		3438E4DA24A38D5A00360771 /* JumioMobileSDKNetverify.m in Sources */ = {isa = PBXBuildFile; fileRef = 3438E4D424A38D5A00360771 /* JumioMobileSDKNetverify.m */; };
 		3438E4DB24A38D5A00360771 /* JumioMobileSDKBamCheckout.m in Sources */ = {isa = PBXBuildFile; fileRef = 3438E4D724A38D5A00360771 /* JumioMobileSDKBamCheckout.m */; };
 /* End PBXBuildFile section */
@@ -29,10 +28,8 @@
 		3438E4C424A38CA600360771 /* libJumioReactMobileSdk.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libJumioReactMobileSdk.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		3438E4D024A38D5A00360771 /* JumioMobileSDKDocumentVerification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JumioMobileSDKDocumentVerification.m; sourceTree = "<group>"; };
 		3438E4D124A38D5A00360771 /* JumioMobileSDKDocumentVerification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JumioMobileSDKDocumentVerification.h; sourceTree = "<group>"; };
-		3438E4D224A38D5A00360771 /* JumioMobileSDKAuthentication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JumioMobileSDKAuthentication.m; sourceTree = "<group>"; };
 		3438E4D324A38D5A00360771 /* JumioMobileSDKNetverify.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JumioMobileSDKNetverify.h; sourceTree = "<group>"; };
 		3438E4D424A38D5A00360771 /* JumioMobileSDKNetverify.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JumioMobileSDKNetverify.m; sourceTree = "<group>"; };
-		3438E4D524A38D5A00360771 /* JumioMobileSDKAuthentication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JumioMobileSDKAuthentication.h; sourceTree = "<group>"; };
 		3438E4D624A38D5A00360771 /* JumioMobileSDKBamCheckout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JumioMobileSDKBamCheckout.h; sourceTree = "<group>"; };
 		3438E4D724A38D5A00360771 /* JumioMobileSDKBamCheckout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JumioMobileSDKBamCheckout.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -51,8 +48,6 @@
 		3438E4BB24A38CA600360771 = {
 			isa = PBXGroup;
 			children = (
-				3438E4D524A38D5A00360771 /* JumioMobileSDKAuthentication.h */,
-				3438E4D224A38D5A00360771 /* JumioMobileSDKAuthentication.m */,
 				3438E4D624A38D5A00360771 /* JumioMobileSDKBamCheckout.h */,
 				3438E4D724A38D5A00360771 /* JumioMobileSDKBamCheckout.m */,
 				3438E4D124A38D5A00360771 /* JumioMobileSDKDocumentVerification.h */,
@@ -130,7 +125,6 @@
 				3438E4DA24A38D5A00360771 /* JumioMobileSDKNetverify.m in Sources */,
 				3438E4D824A38D5A00360771 /* JumioMobileSDKDocumentVerification.m in Sources */,
 				3438E4DB24A38D5A00360771 /* JumioMobileSDKBamCheckout.m in Sources */,
-				3438E4D924A38D5A00360771 /* JumioMobileSDKAuthentication.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

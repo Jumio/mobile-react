@@ -4,7 +4,7 @@ Official Jumio Mobile SDK plugin for React Native
 
 ## Compatibility
 
-We only ensure compatibility with a minimum React Native version of 0.61.4
+We only ensure compatibility with a minimum React Native version of 0.63.4
 
 ## Setup
 
@@ -13,7 +13,7 @@ Create React Native project and add the Jumio Mobile SDK module to it.
 ```sh
 react-native init MyProject
 cd MyProject
-npm install --save https://github.com/Jumio/mobile-react.git#v3.7.1
+npm install --save https://github.com/Jumio/mobile-react.git#v3.8.0
 ```
 
 ## Integration
@@ -61,7 +61,7 @@ android {
 
 ```groovy
 repositories {  
-  maven { url 'http://mobile-sdk.jumio.com' }
+  maven { url 'https://mobile-sdk.jumio.com' }
 }
 ```
 
@@ -80,7 +80,6 @@ import {
 
 ```javascript
 const { JumioMobileSDKNetverify } = NativeModules;
-const { JumioMobileSDKAuthentication } = NativeModules;
 const { JumioMobileSDKBamCheckout } = NativeModules;
 const { JumioMobileSDKDocumentVerification } = NativeModules;
 ```
@@ -89,7 +88,6 @@ const { JumioMobileSDKDocumentVerification } = NativeModules;
 
 ```javascript
 JumioMobileSDKNetverify.initNetverify(<API_TOKEN>, <API_SECRET>, <DATACENTER>, {configuration});
-JumioMobileSDKAuthentication.initAuthentication(<API_TOKEN>, <API_SECRET>, <DATACENTER>, {configuration});
 JumioMobileSDKDocumentVerification.initDocumentVerification(<API_TOKEN>, <API_SECRET>, <DATACENTER>, {configuration});
 JumioMobileSDKBamCheckout.initBAM(<API_TOKEN>, <API_SECRET>, <DATACENTER>, {configuration});
 ```
@@ -160,7 +158,7 @@ If you are using eMRTD scanning, following lines are needed in your Manifest fil
 -dontwarn org.bouncycastle.**
 ```
 
-Add the needed dependencies following [this chapter](https://github.com/Jumio/mobile-sdk-android/blob/master/docs/integration_netverify-fastfill.md#dependencies) of the android integration guide.
+Add the needed dependencies following [this chapter](https://github.com/Jumio/mobile-sdk-android/blob/master/docs/integration_id-verification-fastfill.md#dependencies) of the android integration guide.
 
 Enable eMRTD by using the following method in your native android code:
 
@@ -173,45 +171,6 @@ As soon as the sdk is initialized, the sdk is started by the following call.
 
 ```javascript
   JumioMobileSDKNetverify.startNetverify();
-```
-
-### Authentication
-
-To initialize and start the SDK, perform the following call.
-
-```javascript
-JumioMobileSDKAuthentication.initAuthentication(<API_TOKEN>, <API_SECRET>, <DATACENTER>, {configuration});
-```
-
-Datacenter can either be **US** or **EU**.
-
-Configure the SDK with the *configuration*-Object. **(configuration marked with * are mandatory)**
-
-In order to connect the Authentication transaction to a specific Netverify user identity the parameter `enrollmentTransactionReference` must be set. In case an Authentication transaction has been created via the facemap server to server API `authenticationTransactionReference` should be used. Therefore `enrollmentTransactionReference` should not be set.
-
-| Configuration | Datatype | Description |
-| ------ | -------- | ----------- |
-| **enrollmentTransactionReference*** | String | The reference of the enrollment scan to authenticate for |
-| **authenticationTransactionReference*** | String | The reference of the authentication scan to authenticate for |
-| **userReference*** | String | Set a customer identifier (max. 100 characters) |
-
-Initialization example with configuration:
-
-```javascript
-const startAuthentication = () => {
-  JumioMobileSDKAuthentication.initAuthentication('API_TOKEN', 'API_SECRET', 'US', {
-    enrollmentTransactionReference: "EnrollmentTransactionReference",
-    //authenticationTransactionReference: "AuthenticationTransactionReference",
-    userReference: "UserReference"
-    callbackUrl: "URL"
-  });  
-};
-```
-
-As soon as the sdk is initialized, the sdk is started by the following call.
-
-```javascript
-JumioMobileSDKNetverify.startAuthentication();
 ```
 
 ### Document Verification
@@ -362,9 +321,6 @@ You can listen to events to retrieve the scanned data:
 * **EventDocumentData** for Netverify results.
 * **EventErrorNetverify** for Netverify error.
 
-* **EventAuthentication** for Authentication results
-* **EventErrorAuthentication** for Authentication error.
-
 * **EventDocumentVerification** for Document Verification results.
 * **EventErrorDocumentVerification** for Document Verification error.
 
@@ -394,16 +350,6 @@ emitterNetverify.addListener(
   (EventErrorNetverify) => console.warn("EventErrorNetverify: " + JSON.stringify(EventErrorNetverify))
 );
 
-const emitterAuthentication = new NativeEventEmitter(JumioMobileSDKAuthentication);
-  emitterAuthentication.addListener(
-  'EventAuthentication',
-  (EventAuthentication) => console.warn("EventAuthentication: " + JSON.stringify(EventAuthentication))
-);
-emitterAuthentication.addListener(
-  'EventErrorAuthentication',
-  (EventErrorAuthentication) => console.warn("EventErrorAuthentication: " + JSON.stringify(EventErrorAuthentication))
-);
-
 const emitterDocumentVerification = new NativeEventEmitter(JumioMobileSDKDocumentVerification)
 emitterDocumentVerification.addListener(
   'EventDocumentVerification',
@@ -430,16 +376,13 @@ emitterBamCheckout.addListener(
 ### Android
 
 #### Netverify
-The Netverify SDK can be customized to the respective needs by following this [customization chapter](https://github.com/Jumio/mobile-sdk-android/blob/v3.7.2/docs/integration_netverify-fastfill.md#customization).
-
-#### Authentication
-The Authentication SDK can be customized to the respective needs by following this [customization chapter](https://github.com/Jumio/mobile-sdk-android/blob/v3.7.2/docs/integration_authentication.md#customization).
+The Netverify SDK can be customized to the respective needs by following this [customization chapter](https://github.com/Jumio/mobile-sdk-android/blob/v3.8.0/docs/integration_id-verification-fastfill.md#customization).
 
 #### BAM Checkout
-The BAM Checkout SDK can be customized to the respective needs by following this [customization chapter](https://github.com/Jumio/mobile-sdk-android/blob/v3.7.2/docs/integration_bam-checkout.md#customization).
+The BAM Checkout SDK can be customized to the respective needs by following this [customization chapter](https://github.com/Jumio/mobile-sdk-android/blob/v3.8.0/docs/integration_bam-checkout.md#customization).
 
 #### Document Verification
-The Document Verification SDK can be customized to the respective needs by following this [customization chapter](https://github.com/Jumio/mobile-sdk-android/blob/v3.7.2/docs/integration_document-verification.md#customization).
+The Document Verification SDK can be customized to the respective needs by following this [customization chapter](https://github.com/Jumio/mobile-sdk-android/blob/v3.8.0/docs/integration_document-verification.md#customization).
 
 
 ### iOS
@@ -449,7 +392,6 @@ The SDK can be customized to the respective needs by using the following initial
 JumioMobileSDKNetverify.initNetverifyWithCustomization(<API_TOKEN>, <API_SECRET>, <DATACENTER>, {configuration}, {customization});
 JumioMobileSDKDocumentVerification.initDocumentVerificationWithCustomization(<API_TOKEN>, <API_SECRET>, <DATACENTER>, {configuration}, {customization});
 JumioMobileSDKBamCheckout.initBAMWithCustomization(<API_TOKEN>, <API_SECRET>, <DATACENTER>, {configuration}, {customization});
-JumioMobileSDKAuthentication.initAuthenticationWithCustomization(<API_TOKEN>, <API_SECRET>, <DATACENTER>, {configuration}, {customization});
 ```
 
 You can pass the following customization options to the initializer:
@@ -545,15 +487,6 @@ The JSONObject with all the extracted data that is returned for the specific pro
 | expiryDateValid |    BOOL| |    True if date of expiry check digit is valid or not available, otherwise false|
 | personalNumberValid | BOOL | | True if personal number check digit is valid or not available, otherwise false |
 | compositeValid | BOOL | | True if composite check digit is valid, otherwise false |
-
-
-### Authentication
-
-*AuthenticationResult:*
-
-| Parameter |Type | Max. length | Description |
-|:---------------|:------------- |:-------------|:-----------------|
-| authenticationResult | String |  8| SUCCESS or FAILED |
 
 ### BAM Checkout
 

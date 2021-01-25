@@ -118,7 +118,9 @@ RCT_EXPORT_METHOD(initDocumentVerificationWithCustomization:(NSString *)apiToken
         }
     }
     
-    _documentVerificationViewController = [[DocumentVerificationViewController alloc]initWithConfiguration: _documentVerifcationConfiguration];
+    dispatch_sync(dispatch_get_main_queue(), ^{
+        self.documentVerificationViewController = [[DocumentVerificationViewController alloc]initWithConfiguration: self.documentVerifcationConfiguration];
+    });
 }
 
 RCT_EXPORT_METHOD(startDocumentVerification) {

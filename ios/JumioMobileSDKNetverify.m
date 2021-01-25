@@ -186,17 +186,17 @@ RCT_EXPORT_METHOD(enableEMRTD) {
             }
         }
     }
-    
-    _netverifyViewController = [[NetverifyViewController alloc] initWithConfiguration: _netverifyConfiguration];
+    dispatch_sync(dispatch_get_main_queue(), ^{
+        self.netverifyViewController = [[NetverifyViewController alloc] initWithConfiguration: self.netverifyConfiguration];
+    });
 }
 
 RCT_EXPORT_METHOD(startNetverify) {
-    if (_netverifyViewController == nil) {
-        NSLog(@"The Netverify SDK is not initialized yet. Call initNetverify() first.");
-        return;
-    }
-    
     dispatch_sync(dispatch_get_main_queue(), ^{
+        if (_netverifyViewController == nil) {
+            NSLog(@"The Netverify SDK is not initialized yet. Call initNetverify() first.");
+            return;
+        }
         id<UIApplicationDelegate> delegate = [[UIApplication sharedApplication] delegate];
         [delegate.window.rootViewController presentViewController: _netverifyViewController animated:YES completion: nil];
     });
@@ -288,9 +288,9 @@ RCT_EXPORT_METHOD(startNetverify) {
     id<UIApplicationDelegate> delegate = [[UIApplication sharedApplication] delegate];
     [delegate.window.rootViewController dismissViewControllerAnimated: YES completion: ^{
         [self sendEventWithName: @"EventDocumentData" body: result];
-      
-      [self.netverifyViewController destroy];
-      self.netverifyViewController = nil;
+        
+        [self.netverifyViewController destroy];
+        self.netverifyViewController = nil;
     }];
 }
 
@@ -307,22 +307,22 @@ RCT_EXPORT_METHOD(startNetverify) {
 # pragma mark - Helper methods
 
 - (void) sendNetverifyError:(NetverifyError *)error scanReference:(NSString *)scanReference {
-	NSMutableDictionary *result = [[NSMutableDictionary alloc] init];
-	[result setValue: error.code forKey: @"errorCode"];
-	[result setValue: error.message forKey: @"errorMessage"];
-	if (scanReference) {
-		[result setValue: scanReference forKey: @"scanReference"];
-	}
-
-	id<UIApplicationDelegate> delegate = [[UIApplication sharedApplication] delegate];
-	[delegate.window.rootViewController dismissViewControllerAnimated: YES completion: ^{
-    	[self sendEventWithName: @"EventErrorNetverify" body: result];
+    NSMutableDictionary *result = [[NSMutableDictionary alloc] init];
+    [result setValue: error.code forKey: @"errorCode"];
+    [result setValue: error.message forKey: @"errorMessage"];
+    if (scanReference) {
+        [result setValue: scanReference forKey: @"scanReference"];
+    }
     
-      if (self.netverifyViewController != nil) {
-        [self.netverifyViewController destroy];
-        self.netverifyViewController = nil;
-      }
-	}];
+    id<UIApplicationDelegate> delegate = [[UIApplication sharedApplication] delegate];
+    [delegate.window.rootViewController dismissViewControllerAnimated: YES completion: ^{
+        [self sendEventWithName: @"EventErrorNetverify" body: result];
+        
+        if (self.netverifyViewController != nil) {
+            [self.netverifyViewController destroy];
+            self.netverifyViewController = nil;
+        }
+    }];
 }
 
 - (BOOL) getBoolValue:(NSObject *)value {
