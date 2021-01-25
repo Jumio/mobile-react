@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+     <!-- color variables -->
+
+     <color name="CustomAndroidBackground">#ffffff</color>
+
+     <!-- base application theme -->
+
+     <style name="CustomNetverifyTheme" parent="Theme.Netverify">
+      <!-- global colors -->
+      <item name="colorPrimary">#034757</item>
+      <item name="colorPrimaryDark">#023946</item>
+      <item name="colorControlNormal">#ffffff</item>
+      <item name="colorOnSurface">#000000</item>
+      <item name="jumio_toolbarStyle">@style/Jumio.Actionbar.Title</item>
+      <item name="jumio_toolbarSubStyle">@style/Jumio.Actionbar.Subtitle</item>
+      <item name="jumio_dialogNegativeButtonTextColor">#BDBDBD</item>
+      <item name="jumio_dialogPositiveButtonTextColor">#034757</item>
+      <item name="jumio_shutterbutton_pressed">#034757</item>
+      <item name="jumio_shutterbutton_default">#000000</item>
+      <item name="jumio_shutterbutton_background">#ffffff</item>
+      <item name="android:windowBackground">@color/CustomAndroidBackground</item>
+<!--      <item name="editTextColor"></item>-->
+<!--      <item name="android:editTextColor"></item>-->
+
+      <!-- loading sdk specific colors -->
+
+      <item name="netverify_scanOptionsLoadingProgress">#FFFFFF</item>
+      <!-- Replace the HEX color value above to change the loading progress color (SDK start)-->
+
+      <!-- select document specific colors -->
+
+      <item name="netverify_scanOptionsLoadingBackground">#034757</item>
+<!--      <item name="netverify_scanOptionsItemBackground"></item>-->
+      <item name="netverify_scanOptionsItemForeground">#011d26</item>
+      <item name="netverify_scanOptionsItemHeaderBackground">#e6f2f1</item>
+
+      <!-- country selection specific colors -->
+
+      <item name="netverify_countryListCountryName">#011d26</item>
+      <item name="netverify_countryListSeperator">#011d26</item>
+
+      <!-- scan instructions colors -->
+
+      <item name="netverify_helpBackground">#B3000000</item><!--70%-->
+      <item name="netverify_helpTitle">#FFFFFF</item>
+      <item name="netverify_helpImage">#FFFFFF</item>
+      <item name="netverify_helpSeperator">#33FFFFFF</item>
+      <item name="netverify_helpInstructions">#FFFFFF</item>
+      <item name="netverify_helpFallback">#FFFFFF</item>
+      <item name="netverify_helpFallbackText">#222222</item>
+
+      <!-- scan instructions NFC Passport specific colors -->
+
+      <item name="netverify_nfc_passport_cover">@color/jumio_white</item>
+      <item name="netverify_nfc_passport_foreground">@color/jumio_black</item>
+      <item name="netverify_nfc_passport_page_dark">@color/jumio_grey450</item>
+      <item name="netverify_nfc_passport_page_light">@color/jumio_grey300</item>
+      <item name="netverify_nfc_phone_background">@color/jumio_grey200</item>
+
+      <!-- scan document (scan screen) specific colors -->
+
+      <item name="netverify_scanOverlay">#B3FFFFFF</item>
+      <item name="netverify_scanOverlayFill">#66FFFFFF</item>
+      <item name="netverify_scanBackground">#40000000</item><!--25%-->
+
+      <!-- 3d liveness specific colors -->
+
+      <item name="face_scanOverlayFeedbackText">#ffffff</item>
+      <item name="face_scanOverlayBackground">#FF000000</item><!--100%-->
+      <item name="face_scanOverlayFeedbackBackground">#02a197</item>
+      <item name="face_scanOverlayOval">#ffffff</item>
+      <item name="face_scanOverlayProgress">#02a197</item>
+      <item name="face_helpBackground">#B3000000</item><!--70%-->
+      <item name="face_helpProgressString">#80FFFFFF</item>
+      <item name="face_helpImage">#FFFFFF</item>
+      <item name="face_helpTitle">#FFFFFF</item>
+      <item name="face_helpSeperator">#33FFFFFF</item>
+      <item name="face_helpInstructions">#FFFFFF</item>
+      <item name="face_helpFallback">#FFFFFF</item>
+      <item name="face_helpFallbackText">#222222</item>
+      <item name="face_helpButtonTheme">@style/Netverify.Helpview.Button</item>
+
+      <!-- verification specific colors -->
+
+      <item name="netverify_confirmationBackground">#000000</item>
+      <item name="netverify_confirmationHintStyle">@style/Custom.Netverify.Confirmation.Hint</item>
+      <item name="netverify_confirmationPositiveStyle">@style/Netverify.Confirmation.MaterialButton</item>
+      <item name="netverify_confirmationNegativeStyle">@style/Netverify.Confirmation.MaterialButton.Outlined</item>
+      <item name="netverify_confirmationIcon">#FFFFFF</item>
+
+      <!-- submission error (error screen) specific colors -->
+
+      <item name="netverify_submissionErrorStatusBar">#a60707</item>
+      <item name="netverify_submissionErrorBackground">#cf0909</item>
+      <item name="netverify_submissionErrorTitle">#ffffff</item>
+      <item name="netverify_submissionErrorDescription">#ffffff</item>
+      <item name="netverify_submissionErrorSeperator">#ffffff</item>
+      <item name="netverify_submissionErrorImage">#FFFFFF</item>
+      <item name="netverify_submissionErrorButtonBackground">#02a197</item>
+      <item name="netverify_submissionErrorButtonText">#ffffff</item>
+
+      <!-- submission success (success screen) specific colors -->
+
+      <item name="netverify_submissionProgressSuccessTitle">#FFFFFF</item>
+      <item name="netverify_submissionProgressSuccessDescription">#FFFFFF</item>
+      <item name="netverify_submissionProgressSuccessSeperator">#FFFFFF</item>
+      <item name="netverify_submissionProgressSuccessImage">#FFFFFF</item>
+      <item name="netverify_submissionProgressSuccessBackground">#034757</item>
+     </style>
+
+     <!-- actionbar title color -->
+
+     <style name="Jumio.Actionbar.Title" parent="Base.ThemeOverlay.Jumio">
+<!--      <item name="android:textColorPrimary"></item>-->
+     </style>
+     <style name="Jumio.Actionbar.Subtitle" parent="@android:style/TextAppearance">
+<!--      <item nameame="android:textColor"></item>-->
+     </style>
+
+     <!-- positive button theme (verification screen) -->
+
+     <style name="Netverify.Confirmation.MaterialButton" parent="Widget.MaterialComponents.Button">
+      <item name="android:textColor">#ffffff</item>
+      <item name="android:background">#02a197</item>
+      <!-- For API Level 21+ -->
+      <item name="android:backgroundTint">#02a197</item>
+     </style>
+
+     <!-- negative button theme (verification screen) -->
+
+     <style name="Netverify.Confirmation.MaterialButton.Outlined" parent="Widget.MaterialComponents.Button.OutlinedButton">
+      <item name="android:textColor">#02a197</item>
+      <item name="strokeColor">#02a197</item>
+      <!-- For API Level 21+ -->
+      <item name="android:strokeColor">#02a197</item>
+     </style>
+
+
+     <!-- Verification info theme (verification screen) -->
+
+     <style name="Custom.Netverify.Confirmation.Hint" parent="Netverify.Confirmation.Hint">
+      <item name="android:theme">@style/ThemeOverlay.AppCompat.Dark</item>
+      <item name="android:background">#000000</item>
+      <item name="android:textColor">#FFFFFF</item>
+     </style>
+
+
+     <!-- authentication theme -->
+
+     <style name="CustomAuthenticationTheme" parent="Theme.Authentication">
+      <item name="face_helpBackground">#B3000000</item><!--70%-->
+      <item name="face_helpProgressString">#80FFFFFF</item>
+      <item name="face_helpImage">#FFFFFF</item>
+      <item name="face_helpTitle">#FFFFFF</item>
+      <item name="face_helpSeperator">#33FFFFFF</item>
+      <item name="face_helpInstructions">#FFFFFF</item>
+      <item name="face_helpFallback">#FFFFFF</item>
+      <item name="face_helpFallbackText">#222222</item>
+      <item name="face_helpButtonTheme">@style/Authentication.Helpview.Button</item>
+      <item name="jumio_dialogNegativeButtonTextColor">#BDBDBD</item>
+      <item name="jumio_dialogPositiveButtonTextColor">#034757</item>
+      <item name="face_scanOverlayFeedbackText">#ffffff</item>
+      <item name="face_scanOverlayBackground">#FF000000</item><!--100%-->
+      <item name="face_scanOverlayFeedbackBackground">#02a197</item>
+      <item name="face_scanOverlayOval">#ffffff</item>
+      <item name="face_scanOverlayProgress">#02a197</item>
+     </style>
+
+</resources>

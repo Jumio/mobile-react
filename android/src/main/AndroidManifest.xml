@@ -19,7 +19,7 @@
             android:windowSoftInputMode="adjustResize"
             android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
             android:hardwareAccelerated="true"
-            android:theme="@style/Theme.Netverify"/>
+            android:theme="@style/CustomNetverifyTheme"/>
         <activity
             android:name="com.jumio.bam.BamActivity"
             android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
