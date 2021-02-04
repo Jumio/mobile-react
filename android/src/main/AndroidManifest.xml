@@ -19,7 +19,7 @@
             android:windowSoftInputMode="adjustResize"
             android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
             android:hardwareAccelerated="true"
-            android:theme="@style/CustomNetverifyTheme"/>
+            android:theme="@style/Theme.Netverify"/>
         <activity
             android:name="com.jumio.bam.BamActivity"
             android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
@@ -31,12 +31,6 @@
             android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
             android:hardwareAccelerated="true"
             android:theme="@style/CustomDocumentVerificationTheme"/>
-        <activity
-            android:name="com.jumio.auth.AuthenticationActivity"
-            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
-            android:hardwareAccelerated="true"
-            android:theme="@style/Theme.Authentication"
-            android:windowSoftInputMode="adjustResize"/>
             
         -keep class net.sf.scuba.smartcards.IsoDepCardService {*;}
         -keep class org.jmrtd.** { *; }
