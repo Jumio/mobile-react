@@ -30,7 +30,7 @@
             android:windowSoftInputMode="adjustResize"
             android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
             android:hardwareAccelerated="true"
-            android:theme="@style/Theme.DocumentVerification"/>
+            android:theme="@style/CustomDocumentVerificationTheme"/>
         <activity
             android:name="com.jumio.auth.AuthenticationActivity"
             android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
