@@ -168,4 +168,59 @@
       <item name="face_scanOverlayProgress">#02a197</item>
      </style>
 
+           <style name="CustomDocumentVerificationTheme" parent="Theme.DocumentVerification">
+        <!-- global colors -->
+        <item name="colorPrimary">#034757</item>
+        <item name="colorPrimaryDark">#034757</item>
+        <item name="colorControlNormal">#ffffff</item>
+        <item name="colorOnSurface">#034757</item>
+        <item name="jumio_toolbarStyle">@style/Jumio.Actionbar.Title</item>
+        <item name="jumio_toolbarSubStyle">@style/Jumio.Actionbar.Subtitle</item>
+        <item name="jumio_dialogNegativeButtonTextColor">#BDBDBD</item>
+        <item name="jumio_dialogPositiveButtonTextColor">#034757</item>
+        <item name="jumio_shutterbutton_pressed">#034757</item>
+        <item name="jumio_shutterbutton_default">#034757</item>
+        <item name="jumio_shutterbutton_background">#ffffff</item>
+        <item name="android:windowBackground">@color/CustomAndroidBackground</item>
+        <!--      <item name="editTextColor"></item>-->
+        <!--      <item name="android:editTextColor"></item>-->
+
+
+		<item name="dv_confirmationBackground">@color/jumio_black</item>
+		<item name="dv_confirmationHintStyle">@style/DocumentVerification.Confirmation.Hint</item>
+
+		<item name="dv_scanOptionsLoadingBackground">#034757</item>
+		<item name="dv_scanOptionsLoadingProgress">@color/jumio_white</item>
+
+		<item name="dv_helpBackground">@color/jumio_black_alpha90</item>
+		<item name="dv_helpTitle">@color/jumio_white</item>
+		<item name="dv_confirmationIcon">@color/jumio_white</item>
+
+        <item name="jumio_dialogNegativeButtonTextColor">@color/jumio_grey400</item>
+        <item name="jumio_dialogPositiveButtonTextColor">#034757</item>
+
+		<item name="dv_submissionErrorStatusBar">@color/jumio_grey450</item>
+		<item name="dv_submissionErrorBackground">@color/jumio_grey200</item>
+		<item name="dv_submissionErrorTitle">@color/jumio_grey900</item>
+		<item name="dv_submissionErrorDescription">@color/jumio_grey600_alpha80</item>
+		<item name="dv_submissionErrorSeperator">@color/jumio_grey600_alpha35</item>
+		<item name="dv_submissionErrorImage">@color/jumio_white</item>
+		<item name="dv_submissionErrorButtonBackground">@color/jumio_white</item>
+		<item name="dv_submissionErrorButtonText">@color/jumio_black</item>
+
+		<item name="dv_submissionProgressSuccessBackground">#034757</item>
+		<item name="dv_submissionProgressSuccessTitle">@color/jumio_white</item>
+		<item name="dv_submissionProgressSuccessDescription">@color/jumio_white_alpha72</item>
+		<item name="dv_submissionProgressSuccessSeperator">@color/jumio_white_alpha15</item>
+		<item name="dv_submissionProgressSuccessImage">@color/jumio_white</item>
+
+		<item name="dv_scanOverlay">@color/jumio_white_alpha40</item>
+		<item name="dv_scanBackground">@color/jumio_black_alpha50</item>
+
+
+        <item name="dv_scanOptionsLoadingBackground">#034757</item>
+        <item name="dv_scanOptionsLoadingProgress">#ffffff</item>
+
+    </style>
+
 </resources>
