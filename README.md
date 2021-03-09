@@ -17,6 +17,8 @@ This plugin is compatible with version 3.8.0 of the Jumio SDK. If you have quest
     - [Retrieving Information](#retrieving-information)
 - [Customization](#customization)
 - [Callbacks](#callbacks)
+- [FAQ](#faq)
+    - [Using Dynamic Frameworks with React Native Sample App](#using-dynamic-frameworks-with-react-native-sample-app)
 - [Support](#support)
 
 ## Compatibility
@@ -508,6 +510,42 @@ The JSONObject with all the extracted data that is returned for the specific pro
 
 ### Document Verification
 No data returned.
+
+## FAQ
+### Using Dynamic Frameworks with React Native Sample App
+Jumio SDK version 3.8.0 uses iProov dependencies that need need to be built as dynamic frameworks.
+Since React Native supports only static libraries, a pre-install hook has been added to ensure that pods added as `dynamic_frameworks` are actually built as dynamic frameworks, while all other pods are built as static libraries.
+
+```
+dynamic_frameworks = ['Socket.IO-Client-Swift', 'Starscream', 'iProov']
+
+pre_install do |installer|
+  installer.pod_targets.each do |pod|
+    if !dynamic_frameworks.include?(pod.name)
+      puts "Overriding the static_framework? method for #{pod.name}"
+      def pod.static_framework?;
+        true
+      end
+      def pod.build_type;
+        Pod::BuildType.static_library
+      end
+    end
+  end
+end
+```
+
+Additionally, a post install hook needs to be added to the Podfile to ensure dependencies are build for distribution:
+```
+post_install do |installer|
+    installer.pods_project.targets.each do |target|
+      target.build_configurations.each do |config|
+          config.build_settings['BUILD_LIBRARY_FOR_DISTRIBUTION'] = 'YES'
+      end
+    end
+end
+```
+
+Please refer to the iOS section of our [DemoApp guide](DemoApp/README.md#iOS) for additional details.
 
 # Support
 
