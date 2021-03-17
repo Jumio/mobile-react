@@ -46,9 +46,6 @@ const startNetverify = () => {
 	  //watchlistSearchProfile: "YOURPROFILENAME"
   });
 
-  // Android only
-  //JumioMobileSDKNetverify.enableEMRTD();
-
   JumioMobileSDKNetverify.startNetverify();
 };
 

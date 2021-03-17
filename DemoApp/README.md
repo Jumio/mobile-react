@@ -1,7 +1,8 @@
 # DemoApp for React Native
 
 ## Usage
-Adjust your credentials in **index.js** file, open a bash and run the following commands
+
+Adjust your credentials in **index.js**, open a bash and run the following commands
 
 ### Both
 Required to retrieve all dependencies that are required by this demo app:
@@ -10,6 +11,7 @@ npm install
 ```
 
 ### iOS
+
 ```
 cd ios
 pod install
@@ -17,7 +19,7 @@ cd ..
 react-native run-ios
 ```
 
-Jumio SDK dependencies added in version 3.8.0 made it necessary to add the following pre-install hook to the Podfile:
+Becaues of Jumio SDK dependencies added in version 3.8.0, a post install hook was added in the Podfile.
 ```
 dynamic_frameworks = ['Socket.IO-Client-Swift', 'Starscream', 'iProov']
 
@@ -35,9 +37,9 @@ pre_install do |installer|
   end
 end
 ```
-This was added because iProov dependencies __SocketIO__ and __Starscream__ need to be build as dynamic frameworks while React Native are supported only as static libraries. This pre-install hook ensures that the pods added as `dynamic_frameworks` are built as dynamic frameworks, while the other pods are built as static libraries.
+This was added because the depencencies of iProov: SocketIO and Starscream need to be build as dynamic frameworks while React Native are supported only as static libraries. This pre install hook, ensures that the pod added in `dynamic_frameworks` are build as dynamic frameworks, while the other pods are build as static libraries.
 
-One additional post-install hook needs to be added to the Podfile so that the dependencies are build for distribution:
+One additional post install hook needs to be added to the Podfile so that the dependencies are build for distribution
 ```
 post_install do |installer|
     installer.pods_project.targets.each do |target|
@@ -49,6 +51,7 @@ end
 ```
 
 ### Android
+
 ```
 npm run android-windows
 // or

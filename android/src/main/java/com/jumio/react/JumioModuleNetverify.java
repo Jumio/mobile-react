@@ -208,8 +208,6 @@ public class JumioModuleNetverify extends JumioBaseModule {
                 netverifySDK.setReportingCriteria(options.getString(key));
             } else if (key.equalsIgnoreCase("userReference")) {
                 netverifySDK.setUserReference(options.getString(key));
-            } else if (key.equalsIgnoreCase("enableEpassport")) {
-                netverifySDK.setEnableEMRTD(options.getBoolean(key));
             } else if (key.equalsIgnoreCase("enableWatchlistScreening")) {
                 NVWatchlistScreening watchlistScreeningState;
                 switch (options.getString(key).toLowerCase()) {
@@ -277,15 +275,5 @@ public class JumioModuleNetverify extends JumioBaseModule {
             showErrorMessage("Error starting the Netverify SDK: " + e.getLocalizedMessage());
         }
     }
-
-    @ReactMethod
-    public void enableEMRTD() {
-        if (netverifySDK == null) {
-            showErrorMessage("The Netverify SDK is not initialized yet. Call initNetverify() first.");
-            return;
-        }
-        netverifySDK.setEnableEMRTD(true);
-    }
-
 }
 

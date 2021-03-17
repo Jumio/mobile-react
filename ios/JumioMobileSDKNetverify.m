@@ -32,11 +32,6 @@ RCT_EXPORT_METHOD(initNetverifyWithCustomization:(NSString *)apiToken apiSecret:
     [self initNetverifyHelper:apiToken apiSecret:apiSecret dataCenter:dataCenter configuration:options customization:customization];
 }
 
-RCT_EXPORT_METHOD(enableEMRTD) {
-    // only working on android
-    // method does nothing!
-}
-
 - (void)initNetverifyHelper:(NSString *)apiToken apiSecret:(NSString *)apiSecret dataCenter:(NSString *)dataCenter configuration:(NSDictionary *)options customization:(NSDictionary *)customization {
     
     if (self.netverifyViewController) {
@@ -204,7 +199,7 @@ RCT_EXPORT_METHOD(startNetverify) {
 
 #pragma mark - Netverify Delegates
 
-- (void) netverifyViewController:(NetverifyViewController *)netverifyViewController didFinishWithDocumentData:(NetverifyDocumentData *)documentData scanReference:(NSString *)scanReference {
+- (void) netverifyViewController:(NetverifyViewController *)netverifyViewController didFinishWithDocumentData:(NetverifyDocumentData *)documentData scanReference:(NSString *)scanReference accountId:(NSString* _Nullable)accountId authenticationResult:(BOOL)authenticationResult {
     NSMutableDictionary *result = [[NSMutableDictionary alloc] init];
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat: @"yyyy-MM-dd'T'HH:mm:ss.SSS"];
@@ -252,6 +247,11 @@ RCT_EXPORT_METHOD(startNetverify) {
     } else if (documentData.extractionMethod == NetverifyExtractionMethodNone) {
         [result setValue: @"NONE" forKey: @"extractionMethod"];
     }
+    if (accountId) {
+        [result setValue: accountId forKey: @"accountId"];
+    }
+    [result setValue: [NSNumber numberWithBool: authenticationResult] forKey: @"authenticationResult"];
+    
     
     // MRZ data if available
     if (documentData.mrzData != nil) {
@@ -294,26 +294,28 @@ RCT_EXPORT_METHOD(startNetverify) {
     }];
 }
 
-- (void) netverifyViewController:(NetverifyViewController *)netverifyViewController didCancelWithError:(NetverifyError *)error scanReference:(NSString *)scanReference {
-  [self sendNetverifyError: error scanReference: scanReference];
+- (void) netverifyViewController:(NetverifyViewController *)netverifyViewController didCancelWithError:(NetverifyError *)error scanReference:(NSString *)scanReference accountId:(NSString* _Nullable)accountId {
+    [self sendNetverifyError: error scanReference: scanReference accountId:accountId];
 }
 
 - (void) netverifyViewController:(NetverifyViewController *)netverifyViewController didFinishInitializingWithError:(NetverifyError *)error {
   if (error != nil) {
-    [self sendNetverifyError: error scanReference: nil];
+    [self sendNetverifyError: error scanReference: nil accountId:nil];
   }
 }
 
 # pragma mark - Helper methods
 
-- (void) sendNetverifyError:(NetverifyError *)error scanReference:(NSString *)scanReference {
+- (void) sendNetverifyError:(NetverifyError *)error scanReference:(NSString *)scanReference accountId:(NSString* _Nullable)accountId {
     NSMutableDictionary *result = [[NSMutableDictionary alloc] init];
     [result setValue: error.code forKey: @"errorCode"];
     [result setValue: error.message forKey: @"errorMessage"];
     if (scanReference) {
         [result setValue: scanReference forKey: @"scanReference"];
     }
-    
+    if (accountId) {
+        [result setValue: accountId forKey: @"accountId"];
+    }
     id<UIApplicationDelegate> delegate = [[UIApplication sharedApplication] delegate];
     [delegate.window.rootViewController dismissViewControllerAnimated: YES completion: ^{
         [self sendEventWithName: @"EventErrorNetverify" body: result];
