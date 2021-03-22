@@ -18,7 +18,7 @@ This plugin is compatible with version 3.9.1 of the Jumio SDK. If you have quest
     - [Retrieving Information](#retrieving-information)
 - [Customization](#customization)
 - [Callbacks](#callbacks)
-[FAQ](#faq)
+- [FAQ](#faq)
    - [Using Dynamic Frameworks with React Native Sample App](#using-dynamic-frameworks-with-react-native-sample-app)
 - [Support](#support)
 
