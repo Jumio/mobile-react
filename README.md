@@ -556,7 +556,7 @@ Please note that as of 3.8.0. the following keys have been added to the SDK:
 * `"IProov_PromptTooFar"`
 
 Make sure your `podfile` is up to date and that new pod versions are installed properly so your `Localizable` files include new strings.
-For more information, please refer to our [Changelog](https://github.com/Jumio/mobile-sdk-ios/blob/master/docs/changelog) and [Transition Guide](ttps://github.com/Jumio/mobile-sdk-ios/blob/master/docs/transition-guide_id-verification-fastfill.md#3.8.0 ).
+For more information, please refer to our [Changelog](https://github.com/Jumio/mobile-sdk-ios/blob/master/docs/changelog) and [Transition Guide](https://github.com/Jumio/mobile-sdk-ios/blob/master/docs/transition-guide_id-verification-fastfill.md#3.8.0).
 
 # Support
 
