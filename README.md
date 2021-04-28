@@ -109,7 +109,7 @@ JumioMobileSDKDocumentVerification.initDocumentVerification(<API_TOKEN>, <API_SE
 JumioMobileSDKBamCheckout.initBAM(<API_TOKEN>, <API_SECRET>, <DATACENTER>, {configuration});
 ```
 
-Datacenter can either be **US** or **EU**.
+Datacenter can either be **US**, **EU** or **SG**.
 
 ## Usage
 
@@ -120,8 +120,7 @@ To initialize the SDK, perform the following call.
 JumioMobileSDKNetverify.initNetverify(<API_TOKEN>, <API_SECRET>, <DATACENTER>, {configuration});
 ```
 
-Datacenter can either be **US** or **EU**.
-
+Datacenter can either be **US**, **EU** or **SG**.
 
 Configure the SDK with the *configuration*-Object.
 
@@ -189,7 +188,7 @@ To initialize the SDK, perform the following call.
 JumioMobileSDKDocumentVerification.initDocumentVerification(<API_TOKEN>, <API_SECRET>, <DATACENTER>, {configuration});
 ```
 
-Datacenter can either be **US** or **EU**.
+Datacenter can either be **US**, **EU** or **SG**.
 
 Configure the SDK with the *configuration*-Object. **(configuration marked with * are mandatory)**
 
@@ -260,7 +259,7 @@ To Initialize the SDK, perform the following call.
 JumioMobileSDKBamCheckout.initBAM(<API_TOKEN>, <API_SECRET>, <DATACENTER>, {configuration});
 ```
 
-Datacenter can either be **US** or **EU**.
+Datacenter can either be **US**, **EU** or **SG**.
 
 Configure the SDK with the *configuration*-Object.
 
