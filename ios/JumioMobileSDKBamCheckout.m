@@ -5,6 +5,8 @@
 //
 
 #import "JumioMobileSDKBamCheckout.h"
+#import <React/RCTUtils.h>
+
 @import JumioCore;
 @import BAMCheckout;
 
@@ -163,8 +165,8 @@ RCT_EXPORT_METHOD(startBAM) {
     }
     
     dispatch_sync(dispatch_get_main_queue(), ^{
-        id<UIApplicationDelegate> delegate = [[UIApplication sharedApplication] delegate];
-        [delegate.window.rootViewController presentViewController: _bamViewController animated: YES completion: nil];
+        UIViewController *presentedViewController = RCTPresentedViewController();
+        [presentedViewController presentViewController: _bamViewController animated: YES completion: nil];
     });
 }
 

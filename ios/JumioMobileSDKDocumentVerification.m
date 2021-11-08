@@ -5,6 +5,7 @@
 //
 
 #import "JumioMobileSDKDocumentVerification.h"
+#import <React/RCTUtils.h>
 
 @import JumioCore;
 @import DocumentVerification;
@@ -130,8 +131,8 @@ RCT_EXPORT_METHOD(startDocumentVerification) {
     }
     
     dispatch_sync(dispatch_get_main_queue(), ^{
-        id<UIApplicationDelegate> delegate = [[UIApplication sharedApplication] delegate];
-        [delegate.window.rootViewController presentViewController: self.documentVerificationViewController animated: YES completion: nil];
+        UIViewController *presentedViewController = RCTPresentedViewController();
+        [presentedViewController presentViewController: self.documentVerificationViewController animated: YES completion: nil];
     });
 }
 

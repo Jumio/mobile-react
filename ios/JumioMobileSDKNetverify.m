@@ -5,6 +5,7 @@
 //
 
 #import "JumioMobileSDKNetverify.h"
+#import <React/RCTUtils.h>
 
 @import JumioCore;
 @import Netverify;
@@ -252,8 +253,8 @@ RCT_EXPORT_METHOD(startNetverify) {
             NSLog(@"The Netverify SDK is not initialized yet. Call initNetverify() first.");
             return;
         }
-        id<UIApplicationDelegate> delegate = [[UIApplication sharedApplication] delegate];
-        [delegate.window.rootViewController presentViewController: _netverifyViewController animated:YES completion: nil];
+        UIViewController *presentedViewController = RCTPresentedViewController();
+        [presentedViewController presentViewController: _netverifyViewController animated:YES completion: nil];
     });
 }
 
