@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2021. Jumio Corporation All rights reserved.
+ */
+
 package com.jumio.react;
 
 import android.util.Log;
@@ -5,14 +9,9 @@ import android.util.Log;
 import com.facebook.react.bridge.Arguments;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
-import com.facebook.react.bridge.WritableArray;
 import com.facebook.react.bridge.WritableMap;
 import com.facebook.react.modules.core.DeviceEventManagerModule;
-import com.jumio.MobileSDK;
-import com.jumio.bam.BamSDK;
-import com.jumio.core.exceptions.MissingPermissionException;
-import com.jumio.dv.DocumentVerificationSDK;
-import com.jumio.nv.NetverifySDK;
+import com.jumio.sdk.JumioSDK;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -22,10 +21,7 @@ import androidx.core.app.ActivityCompat;
 
 public class JumioBaseModule extends ReactContextBaseJavaModule {
 
-	public static final int PERMISSION_REQUEST_CODE_BAM = 300;
-	public static final int PERMISSION_REQUEST_CODE_NETVERIFY = 301;
-	public static final int PERMISSION_REQUEST_CODE_AUTHENTICATION = 302;
-	public static final int PERMISSION_REQUEST_CODE_DOCUMENT_VERIFICATION = 303;
+	public static final int PERMISSION_REQUEST_CODE = 303;
 
 	protected static ReactApplicationContext reactContext;
 
@@ -41,7 +37,7 @@ public class JumioBaseModule extends ReactContextBaseJavaModule {
 	@NotNull
 	@Override
 	public String getName() {
-		return "JumioBaseModule";
+		return "JumioMobileSDK";
 	}
 
 	@Override
@@ -49,53 +45,17 @@ public class JumioBaseModule extends ReactContextBaseJavaModule {
 		return true;
 	}
 
-
 	// Permissions
-
-	protected boolean checkPermissionsAndStart(MobileSDK sdk) {
-		if (!MobileSDK.hasAllRequiredPermissions(getReactApplicationContext())) {
+	protected boolean checkPermissionsAndStart() {
+		if (!JumioSDK.hasAllRequiredPermissions(getReactApplicationContext())) {
 			//Acquire missing permissions.
-			String[] mp = MobileSDK.getMissingPermissions(getReactApplicationContext());
+			String[] mp = JumioSDK.getMissingPermissions(getReactApplicationContext());
 
-			int code;
-			if (sdk instanceof NetverifySDK) {
-				code = PERMISSION_REQUEST_CODE_NETVERIFY;
-			} else if (sdk instanceof DocumentVerificationSDK) {
-				code = PERMISSION_REQUEST_CODE_DOCUMENT_VERIFICATION;
-			} else if (sdk instanceof BamSDK) {
-				code = PERMISSION_REQUEST_CODE_BAM;
-			} else {
-				showErrorMessage("Invalid SDK instance");
-				return false;
-			}
-
-			ActivityCompat.requestPermissions(Objects.requireNonNull(getReactApplicationContext().getCurrentActivity()), mp, code);
+			ActivityCompat.requestPermissions(Objects.requireNonNull(getReactApplicationContext().getCurrentActivity()), mp, PERMISSION_REQUEST_CODE);
 			//The result is received in MainActivity::onRequestPermissionsResult.
 			return false;
 		} else {
-			startSdk(sdk);
 			return true;
-		}
-	}
-
-	// Permissions
-
-	protected boolean checkAndRequestPermissions() {
-		if (!MobileSDK.hasAllRequiredPermissions(getReactApplicationContext())) {
-			//Acquire missing permissions.
-			String[] mp = MobileSDK.getMissingPermissions(getReactApplicationContext());
-			ActivityCompat.requestPermissions(getReactApplicationContext().getCurrentActivity(), mp, PERMISSION_REQUEST_CODE_AUTHENTICATION);
-			return false;
-		} else {
-			return true;
-		}
-	}
-
-	protected void startSdk(MobileSDK sdk) {
-		try {
-			sdk.start();
-		} catch (MissingPermissionException e) {
-			showErrorMessage(e.getLocalizedMessage());
 		}
 	}
 
@@ -103,28 +63,6 @@ public class JumioBaseModule extends ReactContextBaseJavaModule {
 		WritableMap errorResult = Arguments.createMap();
 		errorResult.putString("errorCode", errorCode != null ? errorCode : "");
 		errorResult.putString("errorMessage", errorMsg != null ? errorMsg : "");
-		sendEvent(getErrorKey(), errorResult);
-	}
-
-	protected void sendErrorObject(String errorCode, String errorMsg, String scanReference) {
-		WritableMap errorResult = Arguments.createMap();
-		errorResult.putString("errorCode", errorCode != null ? errorCode : "");
-		errorResult.putString("errorMessage", errorMsg != null ? errorMsg : "");
-		if(scanReference != null) {
-			errorResult.putString("scanReference", scanReference != null ? scanReference : "");
-		}
-		sendEvent(getErrorKey(), errorResult);
-	}
-
-	protected void sendErrorObjectWithArray(String errorCode, String errorMsg, WritableArray array) {
-		WritableMap errorResult = Arguments.createMap();
-		errorResult.putString("errorCode", errorCode != null ? errorCode : "");
-		errorResult.putString("errorMessage", errorMsg != null ? errorMsg : "");
-		if (array != null) {
-			errorResult.putArray("scanReferences", array);
-		} else {
-			errorResult.putString("scanReferences", "");
-		}
 		sendEvent(getErrorKey(), errorResult);
 	}
 

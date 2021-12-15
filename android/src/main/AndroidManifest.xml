@@ -14,23 +14,6 @@
             android:name="com.google.android.gms.vision.DEPENDENCIES"
             android:value="barcode, face"
             tools:replace="android:value"/>
-        <activity
-            android:name="com.jumio.nv.NetverifyActivity"
-            android:windowSoftInputMode="adjustResize"
-            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
-            android:hardwareAccelerated="true"
-            android:theme="@style/Theme.Netverify"/>
-        <activity
-            android:name="com.jumio.bam.BamActivity"
-            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
-            android:hardwareAccelerated="true"
-            android:theme="@style/Theme.Bam"/>
-        <activity
-            android:name="com.jumio.dv.DocumentVerificationActivity"
-            android:windowSoftInputMode="adjustResize"
-            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
-            android:hardwareAccelerated="true"
-            android:theme="@style/Theme.DocumentVerification"/>
             
         -keep class net.sf.scuba.smartcards.IsoDepCardService {*;}
         -keep class org.jmrtd.** { *; }

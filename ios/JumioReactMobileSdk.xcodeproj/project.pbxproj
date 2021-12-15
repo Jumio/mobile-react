@@ -7,9 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3438E4D824A38D5A00360771 /* JumioMobileSDKDocumentVerification.m in Sources */ = {isa = PBXBuildFile; fileRef = 3438E4D024A38D5A00360771 /* JumioMobileSDKDocumentVerification.m */; };
-		3438E4DA24A38D5A00360771 /* JumioMobileSDKNetverify.m in Sources */ = {isa = PBXBuildFile; fileRef = 3438E4D424A38D5A00360771 /* JumioMobileSDKNetverify.m */; };
-		3438E4DB24A38D5A00360771 /* JumioMobileSDKBamCheckout.m in Sources */ = {isa = PBXBuildFile; fileRef = 3438E4D724A38D5A00360771 /* JumioMobileSDKBamCheckout.m */; };
+		768002C9274F9F24007E8DC5 /* JumioMobileSDKNetverify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768002C8274F9F24007E8DC5 /* JumioMobileSDKNetverify.swift */; };
+		768002CB274F9F9E007E8DC5 /* JumioMobileSDKNetverify.m in Sources */ = {isa = PBXBuildFile; fileRef = 768002CA274F9F9E007E8DC5 /* JumioMobileSDKNetverify.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -26,12 +25,9 @@
 
 /* Begin PBXFileReference section */
 		3438E4C424A38CA600360771 /* libJumioReactMobileSdk.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libJumioReactMobileSdk.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		3438E4D024A38D5A00360771 /* JumioMobileSDKDocumentVerification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JumioMobileSDKDocumentVerification.m; sourceTree = "<group>"; };
-		3438E4D124A38D5A00360771 /* JumioMobileSDKDocumentVerification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JumioMobileSDKDocumentVerification.h; sourceTree = "<group>"; };
-		3438E4D324A38D5A00360771 /* JumioMobileSDKNetverify.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JumioMobileSDKNetverify.h; sourceTree = "<group>"; };
-		3438E4D424A38D5A00360771 /* JumioMobileSDKNetverify.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JumioMobileSDKNetverify.m; sourceTree = "<group>"; };
-		3438E4D624A38D5A00360771 /* JumioMobileSDKBamCheckout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JumioMobileSDKBamCheckout.h; sourceTree = "<group>"; };
-		3438E4D724A38D5A00360771 /* JumioMobileSDKBamCheckout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JumioMobileSDKBamCheckout.m; sourceTree = "<group>"; };
+		768002C7274F9F24007E8DC5 /* JumioReactMobileSdk-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JumioReactMobileSdk-Bridging-Header.h"; sourceTree = "<group>"; };
+		768002C8274F9F24007E8DC5 /* JumioMobileSDKNetverify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JumioMobileSDKNetverify.swift; sourceTree = "<group>"; };
+		768002CA274F9F9E007E8DC5 /* JumioMobileSDKNetverify.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JumioMobileSDKNetverify.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,13 +44,10 @@
 		3438E4BB24A38CA600360771 = {
 			isa = PBXGroup;
 			children = (
-				3438E4D624A38D5A00360771 /* JumioMobileSDKBamCheckout.h */,
-				3438E4D724A38D5A00360771 /* JumioMobileSDKBamCheckout.m */,
-				3438E4D124A38D5A00360771 /* JumioMobileSDKDocumentVerification.h */,
-				3438E4D024A38D5A00360771 /* JumioMobileSDKDocumentVerification.m */,
-				3438E4D324A38D5A00360771 /* JumioMobileSDKNetverify.h */,
-				3438E4D424A38D5A00360771 /* JumioMobileSDKNetverify.m */,
+				768002C8274F9F24007E8DC5 /* JumioMobileSDKNetverify.swift */,
+				768002CA274F9F9E007E8DC5 /* JumioMobileSDKNetverify.m */,
 				3438E4C524A38CA600360771 /* Products */,
+				768002C7274F9F24007E8DC5 /* JumioReactMobileSdk-Bridging-Header.h */,
 			);
 			sourceTree = "<group>";
 		};
@@ -96,6 +89,7 @@
 				TargetAttributes = {
 					3438E4C324A38CA600360771 = {
 						CreatedOnToolsVersion = 11.5;
+						LastSwiftMigration = 1310;
 					};
 				};
 			};
@@ -122,9 +116,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3438E4DA24A38D5A00360771 /* JumioMobileSDKNetverify.m in Sources */,
-				3438E4D824A38D5A00360771 /* JumioMobileSDKDocumentVerification.m in Sources */,
-				3438E4DB24A38D5A00360771 /* JumioMobileSDKBamCheckout.m in Sources */,
+				768002C9274F9F24007E8DC5 /* JumioMobileSDKNetverify.swift in Sources */,
+				768002CB274F9F9E007E8DC5 /* JumioMobileSDKNetverify.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,10 +237,19 @@
 		3438E4CE24A38CA600360771 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "JumioReactMobileSdk-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -255,10 +257,18 @@
 		3438E4CF24A38CA600360771 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "JumioReactMobileSdk-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

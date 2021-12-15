@@ -515,7 +515,6 @@
 				0B04A6162BFB94B1ADB012BD /* Pods-DemoApp.debug.xcconfig */,
 				016079F2E804D6C2ADDBB6A7 /* Pods-DemoApp.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -945,30 +944,18 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-DemoApp/Pods-DemoApp-frameworks.sh",
-				"${PODS_ROOT}/JumioMobileSDK/JumioMobileSDK-3.9.1/JumioCore.framework",
-				"${PODS_ROOT}/JumioMobileSDK/JumioMobileSDK-3.9.1/BAMCheckout.framework",
-				"${PODS_ROOT}/JumioMobileSDK/JumioMobileSDK-3.9.1/Netverify.framework",
-				"${PODS_ROOT}/JumioMobileSDK/JumioMobileSDK-3.9.1/Microblink.framework",
-				"${PODS_ROOT}/JumioMobileSDK/JumioMobileSDK-3.9.1/NetverifyBarcode.framework",
-				"${PODS_ROOT}/JumioMobileSDK/JumioMobileSDK-3.9.1/DocumentVerification.framework",
-				"${PODS_ROOT}/JumioMobileSDK/JumioMobileSDK-3.9.1/JumioNFC.framework",
-				"${PODS_ROOT}/JumioMobileSDK/JumioMobileSDK-3.9.1/JumioIProov.framework",
 				"${BUILT_PRODUCTS_DIR}/Socket.IO-Client-Swift/SocketIO.framework",
 				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/Jumio/Liveness/Jumio.framework/Jumio",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/PPpdf417/Pdf417Mobi.framework/Pdf417Mobi",
 				"${PODS_XCFRAMEWORKS_BUILD_DIR}/iProov/iProov.framework/iProov",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JumioCore.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BAMCheckout.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Netverify.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Microblink.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NetverifyBarcode.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DocumentVerification.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JumioNFC.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JumioIProov.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SocketIO.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Jumio.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Pdf417Mobi.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/iProov.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
