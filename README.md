@@ -28,7 +28,7 @@ Create React Native project and add the Jumio Mobile SDK module to it.
 ```sh
 react-native init MyProject
 cd MyProject
-npm install --save https://github.com/Jumio/mobile-react.git#v4.0.0
+npm install --save https://github.com/Jumio/mobile-react.git#v4.0.1
 ```
 
 ## Integration
@@ -60,7 +60,7 @@ android {
 }
 ```
 
-__Enable MultiDex__
+__Enable MultiDex__    
 Follow the Android developers guide: https://developer.android.com/studio/build/multidex.html
 
 ```groovy
@@ -90,7 +90,7 @@ buildscript {
 
 Modify the Gradle Wrapper version in android/gradle.properties.
 
-__Repository__
+__Repository__    
 Add the Jumio Mobile SDK repository:
 
 ```groovy
@@ -133,6 +133,11 @@ As soon as the SDK is initialized, the SDK is started by the following call.
   JumioMobileSDK.start();
 ```
 
+Optionally, it is possible to check whether a device is rooted / jailbroken with the following method:
+```javascript
+  const isRooted = await JumioMobileSDK.isRooted();
+```
+
 ### Retrieving information
 
 You can listen to events to retrieve the scanned data:
@@ -163,6 +168,10 @@ emitterJumio.addListener(
     (EventError) => console.warn("EventError: " + JSON.stringify(EventError))
 );
 ```
+
+## Customization
+### Android
+The JumioSDK colors can be customized by overriding the custom theme `AppThemeCustomJumio`. An example customization of all values that can be found in the [styles.xml of the DemoApp](DemoApp\android\app\src\main\res\values\styles.xml) 
 
 ## Callbacks
 In oder to get information about result fields, Retrieval API, Delete API, global settings and more, please read our [page with server related information](https://github.com/Jumio/implementation-guides/blob/master/api-guide/api_guide.md#callback).

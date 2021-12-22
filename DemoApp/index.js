@@ -27,6 +27,11 @@ const startJumio = (authorizationToken) => {
     JumioMobileSDK.start();
 };
 
+const isDeviceRooted = async () => {
+    const isRooted = await JumioMobileSDK.isRooted();
+    console.warn("Device is rooted: " + isRooted)
+}
+
 // Callbacks - (Data is displayed as a warning for demo purposes)
 const emitterJumio = new NativeEventEmitter(JumioMobileSDK);
 emitterJumio.addListener(

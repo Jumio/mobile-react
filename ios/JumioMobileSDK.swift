@@ -56,6 +56,10 @@ class JumioMobileSDK: RCTEventEmitter {
         }
     }
 
+    @objc func isRooted(_ resolve: RCTPromiseResolveBlock, rejecter reject: RCTPromiseRejectBlock) {
+        resolve(Jumio.SDK.isJailbroken);
+    }
+
     private func getIDResult(idResult: Jumio.IDResult) -> [String: Any] {
         let result: [String: Any?] = [
             "selectedCountry": idResult.country,

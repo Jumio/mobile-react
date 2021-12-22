@@ -10,11 +10,13 @@ import android.content.Intent;
 import com.facebook.react.bridge.ActivityEventListener;
 import com.facebook.react.bridge.Arguments;
 import com.facebook.react.bridge.BaseActivityEventListener;
+import com.facebook.react.bridge.Promise;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.WritableArray;
 import com.facebook.react.bridge.WritableMap;
 import com.jumio.defaultui.JumioActivity;
+import com.jumio.sdk.JumioSDK;
 import com.jumio.sdk.credentials.JumioCredentialInfo;
 import com.jumio.sdk.result.JumioCredentialResult;
 import com.jumio.sdk.result.JumioFaceResult;
@@ -61,6 +63,15 @@ public class JumioModule extends JumioBaseModule {
     };
 
     @ReactMethod
+    public void isRooted(Promise promise) {
+        if (reactContext != null && JumioSDK.isRooted(reactContext)) {
+            promise.resolve(true);
+        } else {
+            promise.resolve(false);
+        }
+    }
+
+    @ReactMethod
     public void initialize(String authorizationToken, String dataCenter) {
         try {
             if (authorizationToken.isEmpty() || dataCenter.isEmpty()) {
@@ -73,7 +84,7 @@ public class JumioModule extends JumioBaseModule {
             intent.putExtra(JumioActivity.EXTRA_DATACENTER, dataCenter);
 
 //            The following intent extra can be used to customize the Theme of Default UI
-//            intent.putExtra(JumioActivity.EXTRA_CUSTOM_THEME, R.style.AppThemeCustomJumio);
+            intent.putExtra(JumioActivity.EXTRA_CUSTOM_THEME, R.style.AppThemeCustomJumio);
 
             getCurrentActivity().startActivityForResult(intent, REQUEST_CODE);
 

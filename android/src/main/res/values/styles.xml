@@ -1,0 +1,8 @@
+<resources>
+
+     Base application theme.
+	<style name="AppThemeCustomJumio" parent="Theme.Jumio">
+        <!--Custom theme definition that can be overridden outside-->
+	</style>
+
+</resources>
