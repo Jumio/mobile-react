@@ -171,7 +171,7 @@ emitterJumio.addListener(
 
 ## Customization
 ### Android
-The JumioSDK colors can be customized by overriding the custom theme `AppThemeCustomJumio`. An example customization of all values that can be found in the [styles.xml of the DemoApp](DemoApp\android\app\src\main\res\values\styles.xml) 
+The JumioSDK colors can be customized by overriding the custom theme `AppThemeCustomJumio`. An example customization of all values that can be found in the [styles.xml of the DemoApp](DemoApp/android/app/src/main/res/values/styles.xml) 
 
 ## Callbacks
 In oder to get information about result fields, Retrieval API, Delete API, global settings and more, please read our [page with server related information](https://github.com/Jumio/implementation-guides/blob/master/api-guide/api_guide.md#callback).
