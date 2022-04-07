@@ -1,7 +1,7 @@
 # Plugin for React Native
 Official Jumio Mobile SDK plugin for React Native
 
-This plugin is compatible with version 4.0.0 of the Jumio SDK. If you have questions, please reach out to your Account Manager or contact [Jumio Support](#support).
+This plugin is compatible with version 4.1.0 of the Jumio SDK. If you have questions, please reach out to your Account Manager or contact [Jumio Support](#support).
 
 # Table of Contents
 - [Compatibility](#compatibility)
@@ -20,7 +20,7 @@ This plugin is compatible with version 4.0.0 of the Jumio SDK. If you have quest
 - [Support](#support)
 
 ## Compatibility
-We only ensure compatibility with a minimum React Native version of 0.66.3
+We only ensure compatibility with a minimum React Native version of 0.67.4
 
 ## Setup
 Create React Native project and add the Jumio Mobile SDK module to it.
@@ -28,7 +28,7 @@ Create React Native project and add the Jumio Mobile SDK module to it.
 ```sh
 react-native init MyProject
 cd MyProject
-npm install --save https://github.com/Jumio/mobile-react.git#v4.0.1
+npm install --save https://github.com/Jumio/mobile-react.git#v4.1.0
 ```
 
 ## Integration
@@ -55,7 +55,7 @@ Make sure your compileSdkVersion and buildToolsVersion are high enough.
 ```groovy
 android {
   compileSdkVersion 31
-  buildToolsVersion "31.0.0"
+  buildToolsVersion "32.0.0"
   ...
 }
 ```
@@ -94,8 +94,16 @@ __Repository__
 Add the Jumio Mobile SDK repository:
 
 ```groovy
-repositories {  
-  maven { url 'https://mobile-sdk.jumio.com' }
+exclusiveContent {
+  forRepository {
+    maven {
+      url 'https://mobile-sdk.jumio.com'
+    }
+  }
+  filter {
+    includeGroup "com.jumio.android"
+    includeGroup "com.iproov.sdk"
+  }
 }
 ```
 

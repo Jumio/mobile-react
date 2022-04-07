@@ -16,7 +16,7 @@ apply plugin: 'kotlin-android'
 
 android {
     compileSdkVersion 31
-	buildToolsVersion "31.0.0"
+	buildToolsVersion "32.0.0"
 
     defaultConfig {
         minSdkVersion 19
@@ -30,18 +30,28 @@ android {
     }
 
 	compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
     }
 }
 
 repositories {
     google()
-    maven { url 'https://mobile-sdk.jumio.com' }
+	exclusiveContent {
+		forRepository {
+			maven {
+				url 'https://mobile-sdk.jumio.com'
+			}
+		}
+		filter {
+			includeGroup "com.jumio.android"
+			includeGroup "com.iproov.sdk"
+		}
+	}
 }
 
 ext {
-    SDK_VERSION = "4.0.0"
+    SDK_VERSION = "4.1.0"
 }
 
 dependencies {
@@ -54,9 +64,17 @@ dependencies {
 	implementation "com.jumio.android:barcode-mlkit:${SDK_VERSION}"
 	implementation "com.jumio.android:iproov:${SDK_VERSION}"
 	implementation "com.jumio.android:defaultui:${SDK_VERSION}"
+	implementation "com.jumio.android:datadog:${SDK_VERSION}"
 
 	//only for the sample code
 	implementation "androidx.activity:activity-ktx:1.4.0"
+
+	//workaround for RN bug
+	implementation ("androidx.appcompat:appcompat:1.3.1") {
+		version {
+			strictly '1.3.1'
+		}
+	}
 
 	//Kotlin
 	implementation "androidx.multidex:multidex:2.0.1"
