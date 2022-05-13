@@ -17,6 +17,7 @@ This plugin is compatible with version 4.1.0 of the Jumio SDK. If you have quest
    - [Using Dynamic Frameworks with React Native Sample App](#using-dynamic-frameworks-with-react-native-sample-app)
    - [iOS Localization](#ios-localization)
    - [iProov String Keys](#iproov-string-keys)
+   - [Known Issues (Native SDK)](#known-issues-native-sdk)
 - [Support](#support)
 
 ## Compatibility
@@ -282,11 +283,12 @@ Please note that as of 3.8.0. the following keys have been added to the SDK:
 Make sure your `podfile` is up to date and that new pod versions are installed properly so your `Localizable` files include new strings.
 For more information, please refer to our [Changelog](https://github.com/Jumio/mobile-sdk-ios/blob/master/docs/changelog) and [Transition Guide](https://github.com/Jumio/mobile-sdk-ios/blob/master/docs/transition-guide_id-verification-fastfill.md#3.8.0).
 
+### Known Issues (Native SDK)
+* [iOS Known Issues](https://github.com/Jumio/mobile-sdk-ios/blob/master/docs/known_issues.md#known-issues)
+
+* [Android Known Issues](https://github.com/Jumio/mobile-sdk-android/blob/master/docs/known_issues.md)
+
 # Support
-
-## [iOS Known Issues](https://github.com/Jumio/mobile-sdk-ios/blob/master/docs/known_issues.md#known-issues)
-## [Android Known Issues](https://github.com/Jumio/mobile-sdk-android/blob/master/docs/known_issues.md)
-
 
 ## Contact
 If you have any questions regarding our implementation guide please contact Jumio Customer Service at support@jumio.com or https://support.jumio.com. The Jumio online helpdesk contains a wealth of information regarding our service including demo videos, product descriptions, FAQs and other things that may help to get you started with Jumio. Check it out at: https://support.jumio.com.
