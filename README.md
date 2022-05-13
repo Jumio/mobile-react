@@ -284,6 +284,10 @@ For more information, please refer to our [Changelog](https://github.com/Jumio/m
 
 # Support
 
+## [iOS Known Issues](https://github.com/Jumio/mobile-sdk-ios/blob/master/docs/known_issues.md#known-issues)
+## [Android Known Issues](https://github.com/Jumio/mobile-sdk-android/blob/master/docs/known_issues.md)
+
+
 ## Contact
 If you have any questions regarding our implementation guide please contact Jumio Customer Service at support@jumio.com or https://support.jumio.com. The Jumio online helpdesk contains a wealth of information regarding our service including demo videos, product descriptions, FAQs and other things that may help to get you started with Jumio. Check it out at: https://support.jumio.com.
 
