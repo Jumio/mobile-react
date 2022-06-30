@@ -12,6 +12,7 @@ import UIKit
 class JumioMobileSDK: RCTEventEmitter {
     fileprivate var jumio: Jumio.SDK?
     fileprivate var jumioVC: Jumio.ViewController?
+    fileprivate var customizations: [String: Any?]?
 
     override func supportedEvents() -> [String]! {
         return ["EventError", "EventResult"]
@@ -22,7 +23,6 @@ class JumioMobileSDK: RCTEventEmitter {
     }
 
     @objc func initialize(_ token: String, dataCenter: String) {
-        
         jumio = Jumio.SDK()
         jumio?.defaultUIDelegate = self
         jumio?.token = token
@@ -37,11 +37,23 @@ class JumioMobileSDK: RCTEventEmitter {
         }
     }
 
+    @objc func setupCustomizations(_ customizations: NSDictionary?) {
+        if let customizations = customizations as? [String: Any?] {
+            self.customizations = customizations
+        }
+    }
+
     @objc func start() {
         DispatchQueue.main.sync { [weak self] in
             guard let weakself = self, let jumio = jumio else { return }
 
             jumio.startDefaultUI()
+
+            // Check if customization argument is added
+            if let customizations = weakself.customizations {
+                let customTheme = customizeSDKColors(customizations: customizations)
+                jumio.customize(theme: customTheme)
+            }
 
             weakself.jumioVC = try? jumio.viewController()
 
@@ -57,7 +69,7 @@ class JumioMobileSDK: RCTEventEmitter {
     }
 
     @objc func isRooted(_ resolve: RCTPromiseResolveBlock, rejecter reject: RCTPromiseRejectBlock) {
-        resolve(Jumio.SDK.isJailbroken);
+        resolve(Jumio.SDK.isJailbroken)
     }
 
     private func getIDResult(idResult: Jumio.IDResult) -> [String: Any] {
@@ -103,6 +115,7 @@ extension JumioMobileSDK: Jumio.DefaultUIDelegate {
 
             weakself.jumioVC = nil
             weakself.jumio = nil
+            weakself.customizations = nil
 
             weakself.handleResult(jumioResult: result)
         }

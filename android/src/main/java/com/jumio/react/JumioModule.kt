@@ -60,6 +60,10 @@ class JumioModule(context: ReactApplicationContext) : JumioBaseModule(context) {
     }
 
     @ReactMethod
+    fun setupCustomizations(customizations: ReadableMap?) {
+    }
+
+    @ReactMethod
     fun start() {
         try {
             val sdkStarted = checkPermissionsAndStart()

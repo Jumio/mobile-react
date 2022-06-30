@@ -107,6 +107,7 @@ android {
             abiFilters "armeabi-v7a", "x86"
         }
         multiDexEnabled true
+        buildConfigField("Boolean", "IS_NEW_ARCHITECTURE_ENABLED", "false")
     }
     splits {
         abi {

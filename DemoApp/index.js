@@ -8,6 +8,7 @@ import React, {Component, useState} from 'react';
 import {
     AppRegistry,
     Button,
+    Platform,
     StyleSheet,
     View,
     NativeModules,
@@ -24,6 +25,20 @@ const DATACENTER = 'DATACENTER'
 // Jumio SDK
 const startJumio = (authorizationToken) => {
     JumioMobileSDK.initialize(authorizationToken, DATACENTER);
+
+    // Setup iOS customizations
+//    JumioMobileSDK.setupCustomizations(
+//        {
+//            loadingCircleIcon: "#000000",
+//            loadingCirclePlain: "#000000",
+//            loadingCircleGradientStart: "#000000",
+//            loadingCircleGradientEnd: "#000000",
+//            loadingErrorCircleGradientStart: "#000000",
+//            loadingErrorCircleGradientEnd: "#000000",
+//            primaryButtonBackground: {"light": "#FFC0CB", "dark": "#FF1493"}
+//        }
+//    );
+
     JumioMobileSDK.start();
 };
 

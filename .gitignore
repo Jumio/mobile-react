@@ -39,6 +39,10 @@ captures/
 .idea/gradle.xml
 .idea/dictionaries
 .idea/libraries
+.idea/.gitignore
+.idea/modules.xml
+.idea/runConfigurations.xml
+.idea/vcs.xml
 android/.idea
 
 # Keystore files

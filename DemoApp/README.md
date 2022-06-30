@@ -15,7 +15,7 @@ npm install
 cd ios
 pod install
 cd ..
-react-native run-ios
+react-native run-ios or react-native run-ios --device
 ```
 
 Jumio SDK dependencies added in version 3.8.0 make it necessary to add the following pre-install hook to the Podfile:
