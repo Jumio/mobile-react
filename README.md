@@ -14,6 +14,7 @@ This plugin is compatible with version 4.2.0 of the Jumio SDK. If you have quest
 - [Customization](#customization)
 - [Callbacks](#callbacks)
 - [FAQ](#faq)
+   - [iOS Runs on Debug, Crashes on Release Build](#ios-app-runs-on-debug-crashes-on-release-build)
    - [Using Dynamic Frameworks with React Native Sample App](#using-dynamic-frameworks-with-react-native-sample-app)
    - [iOS Localization](#ios-localization)
    - [iProov String Keys](#iproov-string-keys)
@@ -184,7 +185,7 @@ JumioSDK Android appearance can be customized by overriding the custom theme `Ap
 ### iOS
 JumioSDK iOS appearance can be customized to your respective needs. You can customize each color based on the device's set appearance, for either Dark mode or Light mode, or you can set a single color for both appearances. Customization is optional and not required.
 
-You can pass the following customization options to the [`setupCustomizations()`](DemoApp/index.js#L30) function: 
+You can pass the following customization options to the [`setupCustomizations()`](DemoApp/index.js#L30) function:
 
 | Customization key                               |
 |:------------------------------------------------|
@@ -309,6 +310,21 @@ The JSON object with all the extracted data that is returned for the specific pr
 | compositeValid      | BOOL   |             | True if composite check digit is valid, otherwise false                        |
 
 ## FAQ
+
+### iOS Runs on Debug, Crashes on Release Build
+This happens due to Xcode 13 introducing a new option to their __App Store Distribution Options__:
+
+__"Manage Version and Build Number"__ (see image below)
+
+If checked, this option changes the version and build number of all content of your app to the overall application version, including third-party frameworks. __This option is enabled by default.__ Please make sure to disable this option when archiving / exporting your application to the App Store. Otherwise, the Jumio SDK version check, which ensures all bundled frameworks are up to date, will fail.
+
+![Xcode13 Issue](images/known_issues_xcode13.png)
+
+Alternatively, it is also possible to set the key `manageAppVersionAndBuildNumber` in the __exportOptions.plist__ to `false`:
+```
+<key>manageAppVersionAndBuildNumber</key>
+<false/>
+```
 
 ### Using Dynamic Frameworks with React Native Sample App
 Jumio SDK version 3.8.0 and newer use iProov dependencies that need need to be built as dynamic frameworks.
