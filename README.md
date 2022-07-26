@@ -14,7 +14,7 @@ This plugin is compatible with version 4.2.0 of the Jumio SDK. If you have quest
 - [Customization](#customization)
 - [Callbacks](#callbacks)
 - [FAQ](#faq)
-   - [iOS Runs on Debug, Crashes on Release Build](#ios-app-runs-on-debug-crashes-on-release-build)
+   - [iOS Runs on Debug, Crashes on Release Build](#ios-runs-on-debug-crashes-on-release-build)
    - [Using Dynamic Frameworks with React Native Sample App](#using-dynamic-frameworks-with-react-native-sample-app)
    - [iOS Localization](#ios-localization)
    - [iProov String Keys](#iproov-string-keys)
