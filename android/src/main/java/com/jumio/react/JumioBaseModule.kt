@@ -25,7 +25,7 @@ abstract class JumioBaseModule(context: ReactApplicationContext) : ReactContextB
     override fun canOverrideExistingModule() = true
 
     // Permissions
-    fun checkPermissionsAndStart() =
+    fun checkPermissions() =
         if (!JumioSDK.hasAllRequiredPermissions(reactContext)) {
             //Acquire missing permissions.
             val mp = JumioSDK.getMissingPermissions(reactContext)

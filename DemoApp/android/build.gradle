@@ -3,7 +3,7 @@
 buildscript {
     ext {
         buildToolsVersion = "32.0.0"
-        minSdkVersion = 19
+        minSdkVersion = 21
         compileSdkVersion = 31
     }
     repositories {
@@ -13,7 +13,7 @@ buildscript {
         exclusiveContent {
             forRepository {
                 maven {
-                    url 'https://mobile-sdk.jumio.com'
+                    url 'https://repo.mobile.jumio.ai'
                 }
             }
             filter {
@@ -23,11 +23,11 @@ buildscript {
         }
     }
     dependencies {
-        classpath('com.android.tools.build:gradle:7.0.4')
+        classpath('com.android.tools.build:gradle:7.1.1')
         // classpath("com.google.gms:google-services:4.2.0")
         classpath("com.google.android.gms:play-services-vision:19.0.0")
         classpath("com.facebook.react:react-native-gradle-plugin")
-        classpath("de.undercouch:gradle-download-task:4.1.2")
+        classpath("de.undercouch:gradle-download-task:5.0.1")
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }

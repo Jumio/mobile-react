@@ -2,11 +2,18 @@ package com.jumio.react
 
 import android.app.Activity
 import android.content.Intent
-import com.facebook.react.bridge.*
+import com.facebook.react.bridge.Arguments
+import com.facebook.react.bridge.BaseActivityEventListener
+import com.facebook.react.bridge.Promise
+import com.facebook.react.bridge.ReactApplicationContext
+import com.facebook.react.bridge.ReactMethod
+import com.facebook.react.bridge.ReadableMap
+import com.facebook.react.bridge.WritableMap
 import com.jumio.defaultui.JumioActivity
 import com.jumio.sdk.JumioSDK
 import com.jumio.sdk.credentials.JumioCredentialCategory.FACE
 import com.jumio.sdk.credentials.JumioCredentialCategory.ID
+import com.jumio.sdk.enums.JumioDataCenter
 import com.jumio.sdk.result.JumioIDResult
 import com.jumio.sdk.result.JumioResult
 
@@ -41,21 +48,20 @@ class JumioModule(context: ReactApplicationContext) : JumioBaseModule(context) {
 
     @ReactMethod
     fun initialize(authorizationToken: String, dataCenter: String) {
-        try {
-            if (authorizationToken.isEmpty() || dataCenter.isEmpty()) {
-                showErrorMessage("Missing required parameters one-time session authorization token, or dataCenter.")
-                return
-            }
-            val intent = Intent(currentActivity, JumioActivity::class.java).apply {
-                putExtra(JumioActivity.EXTRA_TOKEN, authorizationToken)
-                putExtra(JumioActivity.EXTRA_DATACENTER, dataCenter)
+        val hasPermissions = checkPermissions()
+        val jumioDataCenter = getJumioDataCenter(dataCenter)
 
-                //The following intent extra can be used to customize the Theme of Default UI
-                putExtra(JumioActivity.EXTRA_CUSTOM_THEME, R.style.AppThemeCustomJumio)
+        when {
+            !hasPermissions -> showErrorMessage("Missing required app permissions.")
+            jumioDataCenter == null -> showErrorMessage("Invalid Datacenter value.")
+            authorizationToken.isEmpty() -> showErrorMessage("Missing required parameters one-time session authorization token.")
+            else -> {
+                try {
+                    initSdk(dataCenter, authorizationToken)
+                } catch (e: Exception) {
+                    showErrorMessage("Error initializing the Jumio SDK: " + e.localizedMessage)
+                }
             }
-            currentActivity?.startActivityForResult(intent, REQUEST_CODE)
-        } catch (e: Exception) {
-            showErrorMessage("Error initializing the Jumio SDK: " + e.localizedMessage)
         }
     }
 
@@ -66,17 +72,26 @@ class JumioModule(context: ReactApplicationContext) : JumioBaseModule(context) {
     @ReactMethod
     fun start() {
         try {
-            val sdkStarted = checkPermissionsAndStart()
-            if (sdkStarted) {
-                reactContext.addActivityEventListener(mActivityEventListener)
-            }
+            reactContext.addActivityEventListener(mActivityEventListener)
         } catch (e: Exception) {
             showErrorMessage("Error starting the Jumio SDK: " + e.localizedMessage)
         }
     }
 
+    private fun initSdk(dataCenter: String, authorizationToken: String) {
+        val intent = Intent(currentActivity, JumioActivity::class.java).apply {
+            putExtra(JumioActivity.EXTRA_TOKEN, authorizationToken)
+            putExtra(JumioActivity.EXTRA_DATACENTER, dataCenter)
+
+            //The following intent extra can be used to customize the Theme of Default UI
+            putExtra(JumioActivity.EXTRA_CUSTOM_THEME, R.style.AppThemeCustomJumio)
+        }
+        currentActivity?.startActivityForResult(intent, REQUEST_CODE)
+    }
+
     private fun sendScanResult(jumioResult: JumioResult) {
         val accountId = jumioResult.accountId
+        val workflowId = jumioResult.workflowExecutionId
         val credentialInfoList = jumioResult.credentialInfos
 
         val result = Arguments.createMap()
@@ -84,21 +99,25 @@ class JumioModule(context: ReactApplicationContext) : JumioBaseModule(context) {
 
         credentialInfoList?.let {
             accountId?.let { result.putString("accountId", it) }
+            workflowId?.let { result.putString("workflowId", it) }
 
             credentialInfoList.forEach {
                 val eventResultMap = Arguments.createMap().apply {
                     putString("credentialId", it.id)
                     putString("credentialCategory", it.category.toString())
                 }
+                when (it.category) {
+                    ID -> {
+                        val idResult = jumioResult.getIDResult(it)
 
-                if (it.category == ID) {
-                    val idResult = jumioResult.getIDResult(it)
+                        idResult?.let { handleIdResult(idResult, eventResultMap) }
+                    }
+                    FACE -> {
+                        val faceResult = jumioResult.getFaceResult(it)
 
-                    idResult?.let { handleIdResult(idResult, eventResultMap) }
-                } else if (it.category == FACE) {
-                    val faceResult = jumioResult.getFaceResult(it)
-
-                    faceResult?.passed?.let { passed -> eventResultMap.putString("passed", passed.toString()) }
+                        faceResult?.passed?.let { passed -> eventResultMap.putString("passed", passed.toString()) }
+                    }
+                    else -> {}
                 }
                 credentialArray.pushMap(eventResultMap)
             }
@@ -141,4 +160,10 @@ class JumioModule(context: ReactApplicationContext) : JumioBaseModule(context) {
         } else {
             showErrorMessage("There was a problem extracting the scan result")
         }
+
+    private fun getJumioDataCenter(dataCenter: String) = try {
+        JumioDataCenter.valueOf(dataCenter)
+    } catch (e: IllegalArgumentException) {
+        null
+    }
 }

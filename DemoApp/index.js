@@ -18,7 +18,7 @@ import { LogBox } from 'react-native';
 
 LogBox.ignoreLogs(['new NativeEventEmitter']);
 
-const {JumioMobileSDK} = NativeModules;
+const { JumioMobileSDK } = NativeModules;
 
 const DATACENTER = 'DATACENTER'
 

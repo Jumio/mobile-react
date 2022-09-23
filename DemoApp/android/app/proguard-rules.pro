@@ -78,12 +78,10 @@
 
 -keep class com.jumio.** { *; }
 -keep class jumio.** { *; }
--keep class com.samsung.** { *; }
--keep class com.samsung.**$* { *; }
 -keep class com.microblink.** { *; }
 -keep class com.microblink.**$* { *; }
+-keep public class com.iproov.sdk.IProov {public *; }
 
--keep class net.sf.scuba.smartcards.IsoDepCardService {*;}
 -keep class org.jmrtd.** { *; }
 -keep class net.sf.scuba.** {*;}
 -keep class org.bouncycastle.** {*;}
@@ -93,7 +91,6 @@
 -dontwarn org.codehaus.**
 -dontwarn org.ejbca.**
 -dontwarn org.bouncycastle.**
--dontwarn com.samsung.**
+-dontwarn module-info
 -dontwarn com.microblink.**
-
-
+-dontwarn javax.annotation.Nullable
