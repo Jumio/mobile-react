@@ -29,7 +29,7 @@ Create React Native project and add the Jumio Mobile SDK module to it.
 ```sh
 react-native init MyProject
 cd MyProject
-npm install --save https://github.com/Jumio/mobile-react.git#v4.3.0
+npm install --save https://github.com/Jumio/mobile-react.git#v4.3.1
 ```
 
 ## Integration
