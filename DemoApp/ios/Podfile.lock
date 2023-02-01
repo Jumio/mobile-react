@@ -12,22 +12,25 @@ PODS:
     - ReactCommon/turbomodule/core (= 0.68.3)
   - fmt (6.2.1)
   - glog (0.3.5)
-  - iProov (9.5.0):
-    - Socket.IO-Client-Swift (~> 16.0)
-  - Jumio (4.3.0):
-    - Jumio/All (= 4.3.0)
-  - Jumio/All (4.3.0):
-    - Jumio/Datadog (= 4.3.0)
-    - Jumio/DeviceRisk (= 4.3.0)
-    - Jumio/DocFinder (= 4.3.0)
-    - Jumio/Liveness (= 4.3.0)
-  - Jumio/Datadog (4.3.0):
+  - iProov (10.1.0):
+    - Starscream (~> 4.0)
+    - SwiftProtobuf (~> 1.0)
+  - Jumio (4.4.0):
+    - Jumio/All (= 4.4.0)
+  - Jumio/All (4.4.0):
+    - Jumio/Datadog (= 4.4.0)
+    - Jumio/DeviceRisk (= 4.4.0)
+    - Jumio/DocFinder (= 4.4.0)
+    - Jumio/Jumio (= 4.4.0)
+    - Jumio/Liveness (= 4.4.0)
+  - Jumio/Datadog (4.4.0):
     - DatadogSDK (= 1.11.1)
-  - Jumio/DeviceRisk (4.3.0)
-  - Jumio/DocFinder (4.3.0)
-  - Jumio/Liveness (4.3.0):
-    - iProov (= 9.5.0)
+  - Jumio/DeviceRisk (4.4.0)
+  - Jumio/DocFinder (4.4.0)
+  - Jumio/Jumio (4.4.0):
     - PPpdf417 (= 8.0.0)
+  - Jumio/Liveness (4.4.0):
+    - iProov (= 10.1.0)
   - PPpdf417 (8.0.0)
   - RCT-Folly (2021.06.28.00-v2):
     - boost
@@ -236,8 +239,8 @@ PODS:
   - React-jsinspector (0.68.3)
   - React-logger (0.68.3):
     - glog
-  - react-native-jumio-mobilesdk (4.3.0):
-    - Jumio (= 4.3.0)
+  - react-native-jumio-mobilesdk (4.4.0):
+    - Jumio (= 4.4.0)
     - React-Core
   - React-perflogger (0.68.3)
   - React-RCTActionSheet (0.68.3):
@@ -304,9 +307,8 @@ PODS:
     - React-jsi (= 0.68.3)
     - React-logger (= 0.68.3)
     - React-perflogger (= 0.68.3)
-  - Socket.IO-Client-Swift (16.0.1):
-    - Starscream (~> 4.0)
   - Starscream (4.0.4)
+  - SwiftProtobuf (1.20.3)
   - Yoga (1.14.0)
 
 DEPENDENCIES:
@@ -352,8 +354,8 @@ SPEC REPOS:
     - iProov
     - Jumio
     - PPpdf417
-    - Socket.IO-Client-Swift
     - Starscream
+    - SwiftProtobuf
 
 EXTERNAL SOURCES:
   boost:
@@ -429,8 +431,8 @@ SPEC CHECKSUMS:
   FBReactNativeSpec: 68c23fb2cea9393190e0815b673d742fa33d2dab
   fmt: ff9d55029c625d3757ed641535fd4a75fedc7ce9
   glog: 476ee3e89abb49e07f822b48323c51c57124b572
-  iProov: 52df07fc60c6f848b02f2f2f506bb7b4a26898a1
-  Jumio: db6a6e5d7109362a31b6a2ad0fce8ae2c8556244
+  iProov: 1baef733a065659d8f2b70f5d447a1d73f55d8d2
+  Jumio: dcba7b38500570fcea598f5fec3d8a9ce10e897b
   PPpdf417: aa644766d51a7e00b8d41c70868bba8b818f5215
   RCT-Folly: 4d8508a426467c48885f1151029bc15fa5d7b3b8
   RCTRequired: b8caca023d386d43740dfb94c2cf68f695fa5e77
@@ -445,7 +447,7 @@ SPEC CHECKSUMS:
   React-jsiexecutor: a5043e9e1e1bd13b80b58b228c6901b3721a4f54
   React-jsinspector: 86e89b9f135787a2e8eb74b3fc00ec61e9a80ae1
   React-logger: f790bd10f86b38012e108fb4b564023602702270
-  react-native-jumio-mobilesdk: 5efa17784daed7a146b050059d9c7610ae1a4c95
+  react-native-jumio-mobilesdk: bde159dfe18b59b4a28740b10d7d7181f715f435
   React-perflogger: fa15d1d29ff7557ee25ea48f7f59e65896fb3215
   React-RCTActionSheet: e83515333352a3cc19c146e3c7a63a8a9269da8f
   React-RCTAnimation: 8032daa2846e3db7ac28c4c5a207d0bfb5e1e3ad
@@ -458,10 +460,10 @@ SPEC CHECKSUMS:
   React-RCTVibration: f41f116aad644973f24653effb3db3de64fa0314
   React-runtimeexecutor: 8cdd80915ed6dabf2221a689f1f7ddb50ea5e9f3
   ReactCommon: 5b1b43a7d81a1ac4eec85f7c4db3283a14a3b13d
-  Socket.IO-Client-Swift: c116d6dc9fd6be9c259bacfe143f8725bce7d79e
   Starscream: 5178aed56b316f13fa3bc55694e583d35dd414d9
+  SwiftProtobuf: b02b5075dcf60c9f5f403000b3b0c202a11b6ae1
   Yoga: 2f6a78c58dcc2963bd8e34d96a4246d9dff2e3a7
 
-PODFILE CHECKSUM: b6aa06f0ce9870fa4e63983ac31e9baec5eddd80
+PODFILE CHECKSUM: 10c4b7b667cfa53a3f802dde479daf486723bbe7
 
 COCOAPODS: 1.11.3

@@ -1023,24 +1023,26 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-DemoApp/Pods-DemoApp-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/DatadogSDK/Datadog.framework",
-				"${BUILT_PRODUCTS_DIR}/Socket.IO-Client-Swift/SocketIO.framework",
 				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftProtobuf/SwiftProtobuf.framework",
 				"${PODS_XCFRAMEWORKS_BUILD_DIR}/Jumio/Datadog/JumioDatadog.framework/JumioDatadog",
 				"${PODS_XCFRAMEWORKS_BUILD_DIR}/Jumio/DeviceRisk/JumioDeviceRisk.framework/JumioDeviceRisk",
 				"${PODS_XCFRAMEWORKS_BUILD_DIR}/Jumio/DocFinder/JumioDocFinder.framework/JumioDocFinder",
-				"${PODS_XCFRAMEWORKS_BUILD_DIR}/Jumio/Liveness/Jumio.framework/Jumio",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/Jumio/Jumio/Jumio.framework/Jumio",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/Jumio/Liveness/JumioIProov.framework/JumioIProov",
 				"${PODS_XCFRAMEWORKS_BUILD_DIR}/PPpdf417/Pdf417Mobi.framework/Pdf417Mobi",
 				"${PODS_XCFRAMEWORKS_BUILD_DIR}/iProov/iProov.framework/iProov",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Datadog.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SocketIO.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftProtobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JumioDatadog.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JumioDeviceRisk.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JumioDocFinder.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Jumio.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JumioIProov.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Pdf417Mobi.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/iProov.framework",
 			);
@@ -1151,8 +1153,9 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
 				INFOPLIST_FILE = DemoApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 4.3.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -1172,12 +1175,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = DemoApp/DemoApp.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = DemoApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 4.3.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",

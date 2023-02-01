@@ -1,7 +1,7 @@
 # Plugin for React Native
 Official Jumio Mobile SDK plugin for React Native
 
-This plugin is compatible with version 4.3.0 of the Jumio SDK. If you have questions, please reach out to your Account Manager or contact [Jumio Support](#support).
+This plugin is compatible with version 4.4.0 of the Jumio SDK (4.4.0 for iOS, 4.4.1 for Android). If you have questions, please reach out to your Account Manager or contact [Jumio Support](#support).
 
 # Table of Contents
 - [Compatibility](#compatibility)
@@ -29,7 +29,7 @@ Create React Native project and add the Jumio Mobile SDK module to it.
 ```sh
 react-native init MyProject
 cd MyProject
-npm install --save https://github.com/Jumio/mobile-react.git#v4.3.1
+npm install --save https://github.com/Jumio/mobile-react.git#v4.4.0
 ```
 
 ## Integration
@@ -189,20 +189,19 @@ You can pass the following customization options to the [`setupCustomizations()`
 
 | Customization key                               |
 |:------------------------------------------------|
-| iProovLineColor                                 |
-| iProovHeaderTextColor                           |
-| iProovHeaderBackgroundColor                     |
-| iProovPromptTextColor                           |
-| iProovFooterBackgroundColor                     |
-| iProovCloseButtonTintColor                      |
-| iProovLivenessAssurancePrimaryTintColor         |
-| iProovLivenessAssuranceSecondaryTintColor       |
-| iProovGenuinePresenceAssuranceProgressBarColor  |
-| iProovGenuinePresenceAssuranceNotReadyTintColor |
-| iProovGenuinePresenceAssuranceReadyTintColor    |
 | iProovAnimationForeground                       |
 | iProovAnimationBackground                       |
-| iProovFloatingPromptEnabled                     |
+| iProovFilterForegroundColor                     |
+| iProovFilterBackgroundColor                     |
+| iProovTitleTextColor                            |
+| iProovCloseButtonTintColor                      |
+| iProovSurroundColor                             |
+| iProovPromptTextColor                           |
+| iProovPromptBackgroundColor                     |
+| genuinePresenceAssuranceReadyOvalStrokeColor    |
+| genuinePresenceAssuranceNotReadyOvalStrokeColor |
+| livenessAssuranceOvalStrokeColor                |
+| livenessAssuranceCompletedOvalStrokeColor       |
 | primaryButtonBackground                         |
 | primaryButtonBackgroundPressed                  |
 | primaryButtonBackgroundDisabled                 |
@@ -240,6 +239,11 @@ You can pass the following customization options to the [`setupCustomizations()`
 | searchBubbleBackground                          |
 | searchBubbleForeground                          |
 | searchBubbleListItemSelected                    |
+| confirmationImageBackground                     |
+| confirmationImageBackgroundBorder               |
+| confirmationIndicatorActive                     |
+| confirmationIndicatorDefault                    |
+| background                                      |
 | navigationIconColor                             |
 | textForegroundColor                             |
 | primaryColor                                    |
@@ -362,7 +366,7 @@ Please refer to the iOS section of our [DemoApp guide](DemoApp/README.md#iOS) fo
 
 ### iOS Localization
 After installing Cocoapods, please localize your iOS application using the languages provided at the following path:   
-`ios -> Pods -> JumioMobileSDK -> JumioMobileSDK-3.9.0 -> Localizations -> xx.lproj`
+`ios -> Pods -> Jumio -> Localizations -> xx.lproj`
 
 ![Localization](images/RN_localization.gif)
 
@@ -377,7 +381,7 @@ Please note that as of 3.8.0. the following keys have been added to the SDK:
 * `"IProov_PromptTooClose"`
 * `"IProov_PromptTooFar"`
 
-Make sure your `podfile` is up to date and that new pod versions are installed properly so your `Localizable` files include new strings.
+Make sure your `Podfile` is up to date and that new pod versions are installed properly so your `Localizable` files include new strings.
 For more information, please refer to our [Changelog](https://github.com/Jumio/mobile-sdk-ios/blob/master/docs/changelog) and [Transition Guide](https://github.com/Jumio/mobile-sdk-ios/blob/master/docs/transition-guide_id-verification-fastfill.md#3.8.0).
 
 # Support

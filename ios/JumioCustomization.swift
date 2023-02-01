@@ -4,22 +4,46 @@ extension JumioMobileSDK {
     func customizeSDKColors(customizations: [String: Any?]) -> Jumio.Theme {
         var customTheme = Jumio.Theme()
         // IProov
-        if let iProovLineColor = customizations["iProovLineColor"] as? [String: String?], let light = iProovLineColor["light"] as? String, let dark = iProovLineColor["dark"] as? String {
-            customTheme.iProov.lineColor = Jumio.Theme.Value(light: UIColor(hexString: light), dark: UIColor(hexString: dark))
-        } else if let iProovLineColor = customizations["iProovLineColor"] as? String {
-            customTheme.iProov.lineColor = Jumio.Theme.Value(UIColor(hexString: iProovLineColor))
+        if let iProovAnimationForeground = customizations["iProovAnimationForeground"] as? [String: String?], let light = iProovAnimationForeground["light"] as? String, let dark = iProovAnimationForeground["dark"] as? String {
+            customTheme.iProov.animationForeground = Jumio.Theme.Value(light: UIColor(hexString: light), dark: UIColor(hexString: dark))
+        } else if let iProovAnimationForeground = customizations["iProovAnimationForeground"] as? String {
+            customTheme.iProov.animationForeground = Jumio.Theme.Value(UIColor(hexString: iProovAnimationForeground))
+        }
+        
+        if let iProovAnimationBackground = customizations["iProovAnimationBackground"] as? [String: String?], let light = iProovAnimationBackground["light"] as? String, let dark = iProovAnimationBackground["dark"] as? String {
+            customTheme.iProov.animationBackground = Jumio.Theme.Value(light: UIColor(hexString: light), dark: UIColor(hexString: dark))
+        } else if let iProovAnimationBackground = customizations["iProovAnimationBackground"] as? String {
+            customTheme.iProov.animationBackground = Jumio.Theme.Value(UIColor(hexString: iProovAnimationBackground))
+        }
+        
+        if let iProovFilterForegroundColor = customizations["iProovFilterForegroundColor"] as? [String: String?], let light = iProovFilterForegroundColor["light"] as? String, let dark = iProovFilterForegroundColor["dark"] as? String {
+            customTheme.iProov.filterForegroundColor = Jumio.Theme.Value(light: UIColor(hexString: light), dark: UIColor(hexString: dark))
+        } else if let iProovFilterForegroundColor = customizations["iProovFilterForegroundColor"] as? String {
+            customTheme.iProov.filterForegroundColor = Jumio.Theme.Value(UIColor(hexString: iProovFilterForegroundColor))
+        }
+        
+        if let iProovFilterBackgroundColor = customizations["iProovFilterBackgroundColor"] as? [String: String?], let light = iProovFilterBackgroundColor["light"] as? String, let dark = iProovFilterBackgroundColor["dark"] as? String {
+            customTheme.iProov.filterBackgroundColor = Jumio.Theme.Value(light: UIColor(hexString: light), dark: UIColor(hexString: dark))
+        } else if let iProovFilterBackgroundColor = customizations["iProovFilterBackgroundColor"] as? String {
+            customTheme.iProov.filterBackgroundColor = Jumio.Theme.Value(UIColor(hexString: iProovFilterBackgroundColor))
         }
 
-        if let iProovHeaderTextColor = customizations["iProovHeaderTextColor"] as? [String: String?], let light = iProovHeaderTextColor["light"] as? String, let dark = iProovHeaderTextColor["dark"] as? String {
-            customTheme.iProov.headerTextColor = Jumio.Theme.Value(light: UIColor(hexString: light), dark: UIColor(hexString: dark))
-        } else if let iProovHeaderTextColor = customizations["iProovHeaderTextColor"] as? String {
-            customTheme.iProov.headerTextColor = Jumio.Theme.Value(UIColor(hexString: iProovHeaderTextColor))
+        if let iProovTitleTextColor = customizations["iProovTitleTextColor"] as? [String: String?], let light = iProovTitleTextColor["light"] as? String, let dark = iProovTitleTextColor["dark"] as? String {
+            customTheme.iProov.titleTextColor = Jumio.Theme.Value(light: UIColor(hexString: light), dark: UIColor(hexString: dark))
+        } else if let iProovTitleTextColor = customizations["iProovTitleTextColor"] as? String {
+            customTheme.iProov.titleTextColor = Jumio.Theme.Value(UIColor(hexString: iProovTitleTextColor))
         }
-
-        if let iProovHeaderBackgroundColor = customizations["iProovHeaderBackgroundColor"] as? [String: String?], let light = iProovHeaderBackgroundColor["light"] as? String, let dark = iProovHeaderBackgroundColor["dark"] as? String {
-            customTheme.iProov.headerBackgroundColor = Jumio.Theme.Value(light: UIColor(hexString: light), dark: UIColor(hexString: dark))
-        } else if let iProovHeaderBackgroundColor = customizations["iProovHeaderBackgroundColor"] as? String {
-            customTheme.iProov.headerBackgroundColor = Jumio.Theme.Value(UIColor(hexString: iProovHeaderBackgroundColor))
+        
+        if let iProovCloseButtonTintColor = customizations["iProovCloseButtonTintColor"] as? [String: String?], let light = iProovCloseButtonTintColor["light"] as? String, let dark = iProovCloseButtonTintColor["dark"] as? String {
+            customTheme.iProov.closeButtonTintColor = Jumio.Theme.Value(light: UIColor(hexString: light), dark: UIColor(hexString: dark))
+        } else if let iProovCloseButtonTintColor = customizations["iProovCloseButtonTintColor"] as? String {
+            customTheme.iProov.closeButtonTintColor = Jumio.Theme.Value(UIColor(hexString: iProovCloseButtonTintColor))
+        }
+        
+        if let iProovSurroundColor = customizations["iProovSurroundColor"] as? [String: String?], let light = iProovSurroundColor["light"] as? String, let dark = iProovSurroundColor["dark"] as? String {
+            customTheme.iProov.surroundColor = Jumio.Theme.Value(light: UIColor(hexString: light), dark: UIColor(hexString: dark))
+        } else if let iProovSurroundColor = customizations["iProovSurroundColor"] as? String {
+            customTheme.iProov.surroundColor = Jumio.Theme.Value(UIColor(hexString: iProovSurroundColor))
         }
 
         if let iProovPromptTextColor = customizations["iProovPromptTextColor"] as? [String: String?], let light = iProovPromptTextColor["light"] as? String, let dark = iProovPromptTextColor["dark"] as? String {
@@ -27,63 +51,35 @@ extension JumioMobileSDK {
         } else if let iProovPromptTextColor = customizations["iProovPromptTextColor"] as? String {
             customTheme.iProov.promptTextColor = Jumio.Theme.Value(UIColor(hexString: iProovPromptTextColor))
         }
-
-        if let iProovFooterBackgroundColor = customizations["iProovFooterBackgroundColor"] as? [String: String?], let light = iProovFooterBackgroundColor["light"] as? String, let dark = iProovFooterBackgroundColor["dark"] as? String {
-            customTheme.iProov.footerBackgroundColor = Jumio.Theme.Value(light: UIColor(hexString: light), dark: UIColor(hexString: dark))
-        } else if let iProovFooterBackgroundColor = customizations["iProovFooterBackgroundColor"] as? String {
-            customTheme.iProov.footerBackgroundColor = Jumio.Theme.Value(UIColor(hexString: iProovFooterBackgroundColor))
+        
+        if let iProovPromptBackgroundColor = customizations["iProovPromptBackgroundColor"] as? [String: String?], let light = iProovPromptBackgroundColor["light"] as? String, let dark = iProovPromptBackgroundColor["dark"] as? String {
+            customTheme.iProov.promptBackgroundColor = Jumio.Theme.Value(light: UIColor(hexString: light), dark: UIColor(hexString: dark))
+        } else if let iProovPromptBackgroundColor = customizations["iProovPromptBackgroundColor"] as? String {
+            customTheme.iProov.promptBackgroundColor = Jumio.Theme.Value(UIColor(hexString: iProovPromptBackgroundColor))
         }
-
-        if let iProovCloseButtonTintColor = customizations["iProovCloseButtonTintColor"] as? [String: String?], let light = iProovCloseButtonTintColor["light"] as? String, let dark = iProovCloseButtonTintColor["dark"] as? String {
-            customTheme.iProov.closeButtonTintColor = Jumio.Theme.Value(light: UIColor(hexString: light), dark: UIColor(hexString: dark))
-        } else if let iProovCloseButtonTintColor = customizations["iProovCloseButtonTintColor"] as? String {
-            customTheme.iProov.closeButtonTintColor = Jumio.Theme.Value(UIColor(hexString: iProovCloseButtonTintColor))
+        
+        if let genuinePresenceAssuranceReadyOvalStrokeColor = customizations["genuinePresenceAssuranceReadyOvalStrokeColor"] as? [String: String?], let light = genuinePresenceAssuranceReadyOvalStrokeColor["light"] as? String, let dark = genuinePresenceAssuranceReadyOvalStrokeColor["dark"] as? String {
+            customTheme.iProov.genuinePresenceAssuranceReadyOvalStrokeColor = Jumio.Theme.Value(light: UIColor(hexString: light), dark: UIColor(hexString: dark))
+        } else if let genuinePresenceAssuranceReadyOvalStrokeColor = customizations["genuinePresenceAssuranceReadyOvalStrokeColor"] as? String {
+            customTheme.iProov.genuinePresenceAssuranceReadyOvalStrokeColor = Jumio.Theme.Value(UIColor(hexString: genuinePresenceAssuranceReadyOvalStrokeColor))
         }
-
-        if let iProovLivenessAssurancePrimaryTintColor = customizations["iProovLivenessAssurancePrimaryTintColor"] as? [String: String?], let light = iProovLivenessAssurancePrimaryTintColor["light"] as? String, let dark = iProovLivenessAssurancePrimaryTintColor["dark"] as? String {
-            customTheme.iProov.livenessAssurancePrimaryTintColor = Jumio.Theme.Value(light: UIColor(hexString: light), dark: UIColor(hexString: dark))
-        } else if let iProovLivenessAssurancePrimaryTintColor = customizations["iProovLivenessAssurancePrimaryTintColor"] as? String {
-            customTheme.iProov.livenessAssurancePrimaryTintColor = Jumio.Theme.Value(UIColor(hexString: iProovLivenessAssurancePrimaryTintColor))
+        
+        if let genuinePresenceAssuranceNotReadyOvalStrokeColor = customizations["genuinePresenceAssuranceNotReadyOvalStrokeColor"] as? [String: String?], let light = genuinePresenceAssuranceNotReadyOvalStrokeColor["light"] as? String, let dark = genuinePresenceAssuranceNotReadyOvalStrokeColor["dark"] as? String {
+            customTheme.iProov.genuinePresenceAssuranceNotReadyOvalStrokeColor = Jumio.Theme.Value(light: UIColor(hexString: light), dark: UIColor(hexString: dark))
+        } else if let genuinePresenceAssuranceNotReadyOvalStrokeColor = customizations["genuinePresenceAssuranceNotReadyOvalStrokeColor"] as? String {
+            customTheme.iProov.genuinePresenceAssuranceNotReadyOvalStrokeColor = Jumio.Theme.Value(UIColor(hexString: genuinePresenceAssuranceNotReadyOvalStrokeColor))
         }
-
-        if let iProovLivenessAssuranceSecondaryTintColor = customizations["iProovLivenessAssuranceSecondaryTintColor"] as? [String: String?], let light = iProovLivenessAssuranceSecondaryTintColor["light"] as? String, let dark = iProovLivenessAssuranceSecondaryTintColor["dark"] as? String {
-            customTheme.iProov.livenessAssuranceSecondaryTintColor = Jumio.Theme.Value(light: UIColor(hexString: light), dark: UIColor(hexString: dark))
-        } else if let iProovLivenessAssuranceSecondaryTintColor = customizations["iProovLivenessAssuranceSecondaryTintColor"] as? String {
-            customTheme.iProov.livenessAssuranceSecondaryTintColor = Jumio.Theme.Value(UIColor(hexString: iProovLivenessAssuranceSecondaryTintColor))
+        
+        if let livenessAssuranceOvalStrokeColor = customizations["livenessAssuranceOvalStrokeColor"] as? [String: String?], let light = livenessAssuranceOvalStrokeColor["light"] as? String, let dark = livenessAssuranceOvalStrokeColor["dark"] as? String {
+            customTheme.iProov.livenessAssuranceOvalStrokeColor = Jumio.Theme.Value(light: UIColor(hexString: light), dark: UIColor(hexString: dark))
+        } else if let livenessAssuranceOvalStrokeColor = customizations["livenessAssuranceOvalStrokeColor"] as? String {
+            customTheme.iProov.livenessAssuranceOvalStrokeColor = Jumio.Theme.Value(UIColor(hexString: livenessAssuranceOvalStrokeColor))
         }
-
-        if let iProovGenuinePresenceAssuranceProgressBarColor = customizations["iProovGenuinePresenceAssuranceProgressBarColor"] as? [String: String?], let light = iProovGenuinePresenceAssuranceProgressBarColor["light"] as? String, let dark = iProovGenuinePresenceAssuranceProgressBarColor["dark"] as? String {
-            customTheme.iProov.genuinePresenceAssuranceProgressBarColor = Jumio.Theme.Value(light: UIColor(hexString: light), dark: UIColor(hexString: dark))
-        } else if let iProovGenuinePresenceAssuranceProgressBarColor = customizations["iProovGenuinePresenceAssuranceProgressBarColor"] as? String {
-            customTheme.iProov.genuinePresenceAssuranceProgressBarColor = Jumio.Theme.Value(UIColor(hexString: iProovGenuinePresenceAssuranceProgressBarColor))
-        }
-
-        if let iProovGenuinePresenceAssuranceNotReadyTintColor = customizations["iProovGenuinePresenceAssuranceNotReadyTintColor"] as? [String: String?], let light = iProovGenuinePresenceAssuranceNotReadyTintColor["light"] as? String, let dark = iProovGenuinePresenceAssuranceNotReadyTintColor["dark"] as? String {
-            customTheme.iProov.genuinePresenceAssuranceNotReadyTintColor = Jumio.Theme.Value(light: UIColor(hexString: light), dark: UIColor(hexString: dark))
-        } else if let iProovGenuinePresenceAssuranceNotReadyTintColor = customizations["iProovGenuinePresenceAssuranceNotReadyTintColor"] as? String {
-            customTheme.iProov.genuinePresenceAssuranceNotReadyTintColor = Jumio.Theme.Value(UIColor(hexString: iProovGenuinePresenceAssuranceNotReadyTintColor))
-        }
-
-        if let iProovGenuinePresenceAssuranceReadyTintColor = customizations["iProovGenuinePresenceAssuranceReadyTintColor"] as? [String: String?], let light = iProovGenuinePresenceAssuranceReadyTintColor["light"] as? String, let dark = iProovGenuinePresenceAssuranceReadyTintColor["dark"] as? String {
-            customTheme.iProov.genuinePresenceAssuranceReadyTintColor = Jumio.Theme.Value(light: UIColor(hexString: light), dark: UIColor(hexString: dark))
-        } else if let iProovGenuinePresenceAssuranceReadyTintColor = customizations["iProovGenuinePresenceAssuranceReadyTintColor"] as? String {
-            customTheme.iProov.genuinePresenceAssuranceReadyTintColor = Jumio.Theme.Value(UIColor(hexString: iProovGenuinePresenceAssuranceReadyTintColor))
-        }
-
-        if let iProovAnimationForeground = customizations["iProovAnimationForeground"] as? [String: String?], let light = iProovAnimationForeground["light"] as? String, let dark = iProovAnimationForeground["dark"] as? String {
-            customTheme.iProov.animationForeground = Jumio.Theme.Value(light: UIColor(hexString: light), dark: UIColor(hexString: dark))
-        } else if let iProovAnimationForeground = customizations["iProovAnimationForeground"] as? String {
-            customTheme.iProov.animationForeground = Jumio.Theme.Value(UIColor(hexString: iProovAnimationForeground))
-        }
-
-        if let iProovAnimationBackground = customizations["iProovAnimationBackground"] as? [String: String?], let light = iProovAnimationBackground["light"] as? String, let dark = iProovAnimationBackground["dark"] as? String {
-            customTheme.iProov.animationBackground = Jumio.Theme.Value(light: UIColor(hexString: light), dark: UIColor(hexString: dark))
-        } else if let iProovAnimationBackground = customizations["iProovAnimationBackground"] as? String {
-            customTheme.iProov.animationBackground = Jumio.Theme.Value(UIColor(hexString: iProovAnimationBackground))
-        }
-
-        if let iProovFloatingPromptEnabled = customizations["iProovFloatingPromptEnabled"] as? Bool {
-            customTheme.iProov.floatingPromptEnabled = iProovFloatingPromptEnabled
+        
+        if let livenessAssuranceCompletedOvalStrokeColor = customizations["livenessAssuranceCompletedOvalStrokeColor"] as? [String: String?], let light = livenessAssuranceCompletedOvalStrokeColor["light"] as? String, let dark = livenessAssuranceCompletedOvalStrokeColor["dark"] as? String {
+            customTheme.iProov.livenessAssuranceCompletedOvalStrokeColor = Jumio.Theme.Value(light: UIColor(hexString: light), dark: UIColor(hexString: dark))
+        } else if let livenessAssuranceCompletedOvalStrokeColor = customizations["livenessAssuranceCompletedOvalStrokeColor"] as? String {
+            customTheme.iProov.livenessAssuranceCompletedOvalStrokeColor = Jumio.Theme.Value(UIColor(hexString: livenessAssuranceCompletedOvalStrokeColor))
         }
 
         // Primary & Secondry Buttons
@@ -313,6 +309,31 @@ extension JumioMobileSDK {
             customTheme.searchBubble.listItemSelected = Jumio.Theme.Value(light: UIColor(hexString: light), dark: UIColor(hexString: dark))
         } else if let searchBubbleListItemSelected = customizations["searchBubbleListItemSelected"] as? String {
             customTheme.searchBubble.listItemSelected = Jumio.Theme.Value(UIColor(hexString: searchBubbleListItemSelected))
+        }
+        
+        // Confirmation
+        if let confirmationImageBackground = customizations["confirmationImageBackground"] as? [String: String?], let light = confirmationImageBackground["light"] as? String, let dark = confirmationImageBackground["dark"] as? String {
+            customTheme.confirmation.imageBackground = Jumio.Theme.Value(light: UIColor(hexString: light), dark: UIColor(hexString: dark))
+        } else if let confirmationImageBackground = customizations["confirmationImageBackground"] as? String {
+            customTheme.confirmation.imageBackground = Jumio.Theme.Value(UIColor(hexString: confirmationImageBackground))
+        }
+        
+        if let confirmationImageBackgroundBorder = customizations["confirmationImageBackgroundBorder"] as? [String: String?], let light = confirmationImageBackgroundBorder["light"] as? String, let dark = confirmationImageBackgroundBorder["dark"] as? String {
+            customTheme.confirmation.imageBackgroundBorder = Jumio.Theme.Value(light: UIColor(hexString: light), dark: UIColor(hexString: dark))
+        } else if let confirmationImageBackgroundBorder = customizations["confirmationImageBackgroundBorder"] as? String {
+            customTheme.confirmation.imageBackgroundBorder = Jumio.Theme.Value(UIColor(hexString: confirmationImageBackgroundBorder))
+        }
+        
+        if let confirmationIndicatorActive = customizations["confirmationIndicatorActive"] as? [String: String?], let light = confirmationIndicatorActive["light"] as? String, let dark = confirmationIndicatorActive["dark"] as? String {
+            customTheme.confirmation.indicatorActive = Jumio.Theme.Value(light: UIColor(hexString: light), dark: UIColor(hexString: dark))
+        } else if let confirmationIndicatorActive = customizations["confirmationIndicatorActive"] as? String {
+            customTheme.confirmation.indicatorActive = Jumio.Theme.Value(UIColor(hexString: confirmationIndicatorActive))
+        }
+        
+        if let confirmationIndicatorDefault = customizations["confirmationIndicatorDefault"] as? [String: String?], let light = confirmationIndicatorDefault["light"] as? String, let dark = confirmationIndicatorDefault["dark"] as? String {
+            customTheme.confirmation.indicatorDefault = Jumio.Theme.Value(light: UIColor(hexString: light), dark: UIColor(hexString: dark))
+        } else if let confirmationIndicatorDefault = customizations["confirmationIndicatorDefault"] as? String {
+            customTheme.confirmation.indicatorDefault = Jumio.Theme.Value(UIColor(hexString: confirmationIndicatorDefault))
         }
 
         // Global
