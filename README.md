@@ -15,6 +15,7 @@ This plugin is compatible with version 4.4.0 of the Jumio SDK (4.4.0 for iOS, 4.
 - [Callbacks](#callbacks)
 - [FAQ](#faq)
    - [iOS Runs on Debug, Crashes on Release Build](#ios-runs-on-debug-crashes-on-release-build)
+   - [iOS Build Fails for React 0.71.2](#ios-build-fails-for-react-0.71.2)
    - [Using Dynamic Frameworks with React Native Sample App](#using-dynamic-frameworks-with-react-native-sample-app)
    - [iOS Localization](#ios-localization)
    - [iProov String Keys](#iproov-string-keys)
@@ -363,6 +364,14 @@ end
 ```
 
 Please refer to the iOS section of our [DemoApp guide](DemoApp/README.md#iOS) for additional details.
+
+### iOS Build Fails for React 0.71.2
+`use_frameworks!` needs to be included in the `Podfile` and properly executed in order for Jumio dynamic frameworks to install correctly.
+Make sure [the necessary `pre_install` and `post_install` hooks](#using-dynamic-frameworks-with-react-native-sample-app) have been included.
+Also make sure that [Flipper](https://fbflipper.com/) is disabled for your project, since Flipper is not compatible with iOS dynamic frameworks at the moment.
+
+Please also refer to the [Podfile](DemoApp/ios/Podfile) of our sample application for further details.
+
 
 ### iOS Localization
 After installing Cocoapods, please localize your iOS application using the languages provided at the following path:   
