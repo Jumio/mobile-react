@@ -15,7 +15,7 @@ This plugin is compatible with version 4.4.0 of the Jumio SDK (4.4.0 for iOS, 4.
 - [Callbacks](#callbacks)
 - [FAQ](#faq)
    - [iOS Runs on Debug, Crashes on Release Build](#ios-runs-on-debug-crashes-on-release-build)
-   - [iOS Build Fails for React 0.71.2](#ios-build-fails-for-react-0.71.2)
+   - [iOS Build Fails for React 0.71.2](#ios-build-fails-for-react-0712)
    - [Using Dynamic Frameworks with React Native Sample App](#using-dynamic-frameworks-with-react-native-sample-app)
    - [iOS Localization](#ios-localization)
    - [iProov String Keys](#iproov-string-keys)
