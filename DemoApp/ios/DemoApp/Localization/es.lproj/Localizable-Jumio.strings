@@ -51,6 +51,8 @@
 "IProov_PromptTooFar" = "Acérquese";
 "IProov_PromptYawTooHigh" = "Gire levemente a su izquierda";
 "IProov_PromptYawTooLow" = "Gire levemente a su derecha";
+"jumio_accessibility_alert_confirm" = "De acuerdo";
+"jumio_accessibility_alert_hint" = "Pista";
 "jumio_accessibility_button_close" = "Cerrar";
 "jumio_accessibility_scan_back" = "Atrás";
 "jumio_accessibility_scan_help" = "Menú Ayuda";
@@ -60,6 +62,13 @@
 "jumio_accessibility_scan_switch_camera" = "Cambiar cámara";
 "jumio_analyzing_biometric" = "Analizando datos biométricos";
 "jumio_button_cancel" = "Cancelar";
+"jumio_di_back_to_document_selection" = "Se le conducirá de nuevo a la selección de documentos.";
+"jumio_di_retry_expire" = "Su sesión ha caducado";
+"jumio_di_retry_service_error" = "Error en la verificación";
+"jumio_di_retry_third_party_verification_error" = "Error en la verificación";
+"jumio_di_retry_unknown" = "Algo ha ido mal";
+"jumio_di_vendor_selection_title" = "Seleccione el proveedor de la identificación digital";
+"jumio_di_verification_prompt_processing" = "Complete el flujo en la aplicación %@.";
 "jumio_dv_confirm_button_reselect" = "Volver a seleccionar";
 "jumio_dv_confirm_file_info" = "Asegúrese de haber seleccionado el archivo PDF correcto";
 "jumio_dv_confirm_file_title" = "Confirme su archivo";
@@ -81,6 +90,7 @@
 "jumio_error_button_retake_one" = "Volver a tomar";
 "jumio_error_button_retry" = "Volver a intentarlo";
 "jumio_error_cancelled_by_user" = "Cancelado por el usuario final";
+"jumio_error_case_cancelled" = "Anulado";
 "jumio_error_certificate_not_valid_anymore" = "El certificado ha dejado de ser válido. Actualice su aplicación";
 "jumio_error_connection_title" = "Error de conexión";
 "jumio_error_device_is_offline" = "Compruebe que está conectado";
@@ -165,6 +175,7 @@
 "jumio_identity_title" = "Verificación facial";
 "jumio_idtype_countrysearch_search" = "Buscar país";
 "jumio_idtype_countrysearch_title" = "Seleccione el país de expedición";
+"jumio_idtype_di" = "Identificación digital";
 "jumio_idtype_dl" = "Permiso de conducir";
 "jumio_idtype_format_option_other" = "Otro formato";
 "jumio_idtype_format_option_plastic" = "Tarjeta de plástico";

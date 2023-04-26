@@ -51,6 +51,8 @@
 "IProov_PromptTooFar" = "Avvicinati";
 "IProov_PromptYawTooHigh" = "Girati leggermente a sinistra";
 "IProov_PromptYawTooLow" = "Girati leggermente a destra";
+"jumio_accessibility_alert_confirm" = "Ok";
+"jumio_accessibility_alert_hint" = "Alludere";
 "jumio_accessibility_button_close" = "Chiudi";
 "jumio_accessibility_scan_back" = "Indietro";
 "jumio_accessibility_scan_help" = "Menu guida";
@@ -60,6 +62,13 @@
 "jumio_accessibility_scan_switch_camera" = "Cambia fotocamera";
 "jumio_analyzing_biometric" = "Analisi dei dati biometrici";
 "jumio_button_cancel" = "Annulla";
+"jumio_di_back_to_document_selection" = "Tornerai alla selezione del documento.";
+"jumio_di_retry_expire" = "La tua sessione è scaduta";
+"jumio_di_retry_service_error" = "Verifica non riuscita";
+"jumio_di_retry_third_party_verification_error" = "Verifica non riuscita";
+"jumio_di_retry_unknown" = "Si è verificato un errore";
+"jumio_di_vendor_selection_title" = "Seleziona provider di identità digitale";
+"jumio_di_verification_prompt_processing" = "Completa la procedura nell'app %@.";
 "jumio_dv_confirm_button_reselect" = "Riseleziona";
 "jumio_dv_confirm_file_info" = "Assicurati di aver selezionato il file PDF corretto";
 "jumio_dv_confirm_file_title" = "Conferma il file";
@@ -81,6 +90,7 @@
 "jumio_error_button_retake_one" = "Scatta di nuovo";
 "jumio_error_button_retry" = "Riprova";
 "jumio_error_cancelled_by_user" = "Annullato dall'utente finale";
+"jumio_error_case_cancelled" = "Annullato";
 "jumio_error_certificate_not_valid_anymore" = "Il certificato non è più valido. Si prega di aggiornare la vostra applicazione";
 "jumio_error_connection_title" = "Errore di connessione";
 "jumio_error_device_is_offline" = "Controlla di essere online";
@@ -165,6 +175,7 @@
 "jumio_identity_title" = "Riconoscimento facciale";
 "jumio_idtype_countrysearch_search" = "Cercare Paese";
 "jumio_idtype_countrysearch_title" = "Seleziona il paese di emissione";
+"jumio_idtype_di" = "Identità digitale";
 "jumio_idtype_dl" = "Patente di guida";
 "jumio_idtype_format_option_other" = "Altro formato";
 "jumio_idtype_format_option_plastic" = "Tessera in plastica";

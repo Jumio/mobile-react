@@ -1,5 +1,5 @@
 buildscript {
-	ext.kotlin_version = "1.7.0"
+	ext.kotlin_version = "1.7.10"
 	repositories {
 		google()
 		mavenCentral()
@@ -8,6 +8,7 @@ buildscript {
 	dependencies {
 		classpath 'com.android.tools.build:gradle:7.2.1'
 		classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+		classpath("de.undercouch:gradle-download-task:5.0.1")
 	}
 }
 
@@ -15,12 +16,12 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
 android {
-    compileSdkVersion 32
-	buildToolsVersion "32.0.0"
+    compileSdkVersion 33
+	buildToolsVersion "33.0.0"
 
     defaultConfig {
         minSdkVersion 21
-        targetSdkVersion 32
+        targetSdkVersion 33
         versionCode 1
         versionName "1.0"
         ndk {
@@ -51,15 +52,14 @@ repositories {
 }
 
 ext {
-    SDK_VERSION = "4.4.1"
+    SDK_VERSION = "4.5.0"
 }
 
 dependencies {
 	// Jumio dependencies
 	implementation "com.jumio.android:core:${SDK_VERSION}"
 	implementation "com.jumio.android:linefinder:${SDK_VERSION}"
-	    // React can't properly handle results after activity restarts caused by Docfinder module
-    //implementation "com.jumio.android:docfinder:${SDK_VERSION}"
+        implementation "com.jumio.android:docfinder:${SDK_VERSION}"
 	implementation "com.jumio.android:mrz:${SDK_VERSION}"
 	implementation "com.jumio.android:nfc:${SDK_VERSION}"
 	implementation "com.jumio.android:barcode:${SDK_VERSION}"
@@ -67,7 +67,7 @@ dependencies {
 	implementation "com.jumio.android:iproov:${SDK_VERSION}"
 	implementation "com.jumio.android:defaultui:${SDK_VERSION}"
 	implementation "com.jumio.android:datadog:${SDK_VERSION}"
-	implementation "com.iproov.sdk:iproov:8.1.0"
+	implementation "com.jumio.android:digital-identity:${SDK_VERSION}"
 
 	//only for the sample code
 	implementation "androidx.activity:activity-ktx:1.4.0"

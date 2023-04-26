@@ -51,6 +51,8 @@
 "IProov_PromptTooFar" = "Apropiați-vă";
 "IProov_PromptYawTooHigh" = "Întoarceți-vă ușor spre stânga";
 "IProov_PromptYawTooLow" = "Întoarceți-vă ușor spre dreapta";
+"jumio_accessibility_alert_confirm" = "Bine";
+"jumio_accessibility_alert_hint" = "Aluzie";
 "jumio_accessibility_button_close" = "Închideți";
 "jumio_accessibility_scan_back" = "Înapoi";
 "jumio_accessibility_scan_help" = "Meniu Ajutor";
@@ -60,6 +62,13 @@
 "jumio_accessibility_scan_switch_camera" = "Comutați camera";
 "jumio_analyzing_biometric" = "Sunt analizate datele biometrice";
 "jumio_button_cancel" = "Anulare";
+"jumio_di_back_to_document_selection" = "Veți naviga înapoi la selecția documentului.";
+"jumio_di_retry_expire" = "Sesiunea dumneavoastră a expirat";
+"jumio_di_retry_service_error" = "Verificarea nu a reușit";
+"jumio_di_retry_third_party_verification_error" = "Verificarea nu a reușit";
+"jumio_di_retry_unknown" = "Ceva nu a funcționat corect";
+"jumio_di_vendor_selection_title" = "Selectați furnizorul de ID digital";
+"jumio_di_verification_prompt_processing" = "Vă rugăm să încheiați fluxul în aplicația %@.";
 "jumio_dv_confirm_button_reselect" = "Selectați din nou";
 "jumio_dv_confirm_file_info" = "Asigurați-vă că ați selectat fișierul PDF corect";
 "jumio_dv_confirm_file_title" = "Confirmați fișierul dvs.";
@@ -81,6 +90,7 @@
 "jumio_error_button_retake_one" = "Faceți o nouă poză";
 "jumio_error_button_retry" = "Încercați din nou";
 "jumio_error_cancelled_by_user" = "Anulat de utilizatorul final";
+"jumio_error_case_cancelled" = "Anulat";
 "jumio_error_certificate_not_valid_anymore" = "Certificatul nu mai este valabil. Vă rugăm să actualizați aplicația";
 "jumio_error_connection_title" = "Eroare de conexiune";
 "jumio_error_device_is_offline" = "Vă rugăm să vă asigurați că sunteți online";
@@ -165,6 +175,7 @@
 "jumio_identity_title" = "Verificarea feței";
 "jumio_idtype_countrysearch_search" = "Căutați țara";
 "jumio_idtype_countrysearch_title" = "Selectați țara emitentă";
+"jumio_idtype_di" = "ID digital";
 "jumio_idtype_dl" = "Permis de conducere";
 "jumio_idtype_format_option_other" = "Alt format";
 "jumio_idtype_format_option_plastic" = "Card de plastic";

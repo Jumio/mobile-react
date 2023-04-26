@@ -51,6 +51,8 @@
 "IProov_PromptTooFar" = "ខិតមកជិតជាងមុន";
 "IProov_PromptYawTooHigh" = "ងាកទៅខាងឆ្វេងតិចៗ";
 "IProov_PromptYawTooLow" = "ងាកទៅខាងស្ដាំតិចៗ";
+"jumio_accessibility_alert_confirm" = "យល់ព្រម";
+"jumio_accessibility_alert_hint" = "គន្លឹះ";
 "jumio_accessibility_button_close" = "បិទ";
 "jumio_accessibility_scan_back" = "ថយក្រោយ";
 "jumio_accessibility_scan_help" = "ម៉ឺនុយជំនួយ";
@@ -60,6 +62,13 @@
 "jumio_accessibility_scan_switch_camera" = "ប្តូរកាមេរ៉ា";
 "jumio_analyzing_biometric" = "កំពុងវិភាគទិន្នន័យជីវមាត្រ";
 "jumio_button_cancel" = "បោះបង់";
+"jumio_di_back_to_document_selection" = "អ្នកនឹងរុករកត្រលប់មកកាន់ការជ្រើសរើសឯកសារវិញ។";
+"jumio_di_retry_expire" = "រយៈពេលរបស់អ្នកបានផុតកំណត់ហើយ";
+"jumio_di_retry_service_error" = "ការផ្ទៀងផ្ទាត់បានបរាជ័យ";
+"jumio_di_retry_third_party_verification_error" = "ការផ្ទៀងផ្ទាត់បានបរាជ័យ";
+"jumio_di_retry_unknown" = "មានអ្វីមួយបានខុសពីប្រក្រតី";
+"jumio_di_vendor_selection_title" = "ជ្រើសរើសអ្នកផ្ដល់សេវាកម្មអត្តសញ្ញាណបណ្ណឌីជីថល";
+"jumio_di_verification_prompt_processing" = "សូមបំពេញលំហូរការងារនៅលើកម្មវិធី %@។";
 "jumio_dv_confirm_button_reselect" = "ជ្រើសឡើងវិញ";
 "jumio_dv_confirm_file_info" = "ត្រូវប្រាកដថា អ្នកបានជ្រើសរើសឯកសារ PDF ត្រឹមត្រូវ";
 "jumio_dv_confirm_file_title" = "បញ្ជាក់ឯកសាររបស់អ្នក";
@@ -81,6 +90,7 @@
 "jumio_error_button_retake_one" = "ថតម្ដងទៀត";
 "jumio_error_button_retry" = "សូមព្យាយាមម្ដងទៀត";
 "jumio_error_cancelled_by_user" = "ត្រូវបានបោះបង់ដោយអ្នកប្រើចុងក្រោយ";
+"jumio_error_case_cancelled" = "លុបចោល";
 "jumio_error_certificate_not_valid_anymore" = "វិញ្ញាបនបត្រលែងមានសុពលភាពទៀតហើយ។ សូមធ្វើបច្ចុប្បន្នភាពពាក្យសុំរបស់អ្នក";
 "jumio_error_connection_title" = "កំហុសក្នុងការភ្ជាប់";
 "jumio_error_device_is_offline" = "សូមពិនិត្យមើលថាអ្នកកំពុងអនឡាញ";
@@ -165,6 +175,7 @@
 "jumio_identity_title" = "ការផ្ទៀងផ្ទាត់ទម្រង់មុខ";
 "jumio_idtype_countrysearch_search" = "ស្វែងរកប្រទេស";
 "jumio_idtype_countrysearch_title" = "ជ្រើសរើសប្រទេសដែលចេញប័ណ្ណ";
+"jumio_idtype_di" = "អត្តសញ្ញាណបណ្ណឌីជីថល";
 "jumio_idtype_dl" = "បណ្ណបើកបរ";
 "jumio_idtype_format_option_other" = "ទម្រង់ផ្សេងទៀត";
 "jumio_idtype_format_option_plastic" = "បណ្ណប្លាស្ទិច";

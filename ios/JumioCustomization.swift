@@ -280,12 +280,6 @@ extension JumioMobileSDK {
             customTheme.scanView.foreground = Jumio.Theme.Value(UIColor(hexString: scanViewForeground))
         }
 
-        if let scanViewAnimationBackground = customizations["scanViewAnimationBackground"] as? [String: String?], let light = scanViewAnimationBackground["light"] as? String, let dark = scanViewAnimationBackground["dark"] as? String {
-            customTheme.scanView.animationBackground = Jumio.Theme.Value(light: UIColor(hexString: light), dark: UIColor(hexString: dark))
-        } else if let scanViewAnimationBackground = customizations["scanViewAnimationBackground"] as? String {
-            customTheme.scanView.animationBackground = Jumio.Theme.Value(UIColor(hexString: scanViewAnimationBackground))
-        }
-
         if let scanViewAnimationShutter = customizations["scanViewAnimationShutter"] as? [String: String?], let light = scanViewAnimationShutter["light"] as? String, let dark = scanViewAnimationShutter["dark"] as? String {
             customTheme.scanView.shutter = Jumio.Theme.Value(light: UIColor(hexString: light), dark: UIColor(hexString: dark))
         } else if let scanViewAnimationShutter = customizations["scanViewAnimationShutter"] as? String {

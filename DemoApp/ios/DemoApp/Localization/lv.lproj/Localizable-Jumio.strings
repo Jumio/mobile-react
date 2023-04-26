@@ -51,6 +51,8 @@
 "IProov_PromptTooFar" = "Panāciet tuvāk";
 "IProov_PromptYawTooHigh" = "Nedaudz pagriezieties pa kreisi";
 "IProov_PromptYawTooLow" = "Nedaudz pagriezieties pa labi";
+"jumio_accessibility_alert_confirm" = "Labi";
+"jumio_accessibility_alert_hint" = "Padoms";
 "jumio_accessibility_button_close" = "Aizvērt";
 "jumio_accessibility_scan_back" = "Atpakaļ";
 "jumio_accessibility_scan_help" = "Palīdzība";
@@ -60,6 +62,13 @@
 "jumio_accessibility_scan_switch_camera" = "Pārslēgt kameru";
 "jumio_analyzing_biometric" = "Analizē biometriskos datus";
 "jumio_button_cancel" = "Atcelt";
+"jumio_di_back_to_document_selection" = "Jūs atgriezīsieties dokumentu atlases sadaļā.";
+"jumio_di_retry_expire" = "Jūsu sesija ir beigusies";
+"jumio_di_retry_service_error" = "Verifikācija nav izdevusies";
+"jumio_di_retry_third_party_verification_error" = "Verifikācija nav izdevusies";
+"jumio_di_retry_unknown" = "Kaut kas nogājis greizi";
+"jumio_di_vendor_selection_title" = "Izvēlieties digitālā ID pakalpojuma sniedzēju";
+"jumio_di_verification_prompt_processing" = "Veiciet nepieciešamās darbības %@  lietotnē.";
 "jumio_dv_confirm_button_reselect" = "Atlasīt vēlreiz";
 "jumio_dv_confirm_file_info" = "Pārliecinieties, ka atlasījāt īsto PDF failu";
 "jumio_dv_confirm_file_title" = "Apstiprināt datni";
@@ -81,6 +90,7 @@
 "jumio_error_button_retake_one" = "Uzņemt vēlreiz";
 "jumio_error_button_retry" = "Mēģiniet vēlreiz";
 "jumio_error_cancelled_by_user" = "Gala lietotājs atcēla procesu";
+"jumio_error_case_cancelled" = "Atcelta";
 "jumio_error_certificate_not_valid_anymore" = "Sertifikāts vairs nav derīgs. Lūdzu, atjauniniet savu pieteikumu.";
 "jumio_error_connection_title" = "Savienojuma kļūda";
 "jumio_error_device_is_offline" = "Lūdzu, pārbaudiet, vai esat tiešsaistē";
@@ -165,6 +175,7 @@
 "jumio_identity_title" = "Sejas pārbaude";
 "jumio_idtype_countrysearch_search" = "Meklēt valsti";
 "jumio_idtype_countrysearch_title" = "Izvēlieties izdevējvalsti";
+"jumio_idtype_di" = "Digitālais ID";
 "jumio_idtype_dl" = "Vadītāja apliecība";
 "jumio_idtype_format_option_other" = "Cits formāts";
 "jumio_idtype_format_option_plastic" = "Plastikāta karte";

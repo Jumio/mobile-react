@@ -1,4 +1,4 @@
-platform :ios, '11.0'
+platform :ios, '12.4'
 install! 'cocoapods', :deterministic_uuids => false
 require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
 require_relative '../node_modules/react-native/scripts/react_native_pods'
@@ -12,9 +12,11 @@ def pods()
   # Flags change depending on the env values.
   flags = get_default_flags()
   use_react_native!(
-    :path => config["reactNativePath"],
-    # to enable hermes on iOS, change `false` to `true` and then install pods
-    :hermes_enabled => flags[:hermes_enabled],
+    :path => config[:reactNativePath],
+    # Hermes is now enabled by default. Disable by setting this flag to false.
+    # Upcoming versions of React Native may rely on get_default_flags(), but
+    # we make it explicit here to aid in the React Native upgrade process.
+    :hermes_enabled => true,
     :fabric_enabled => flags[:fabric_enabled],
     # An absolute path to your application root.
     :app_path => "#{Pod::Config.instance.installation_root}/.."
@@ -46,7 +48,19 @@ end
 post_install do |installer|
     installer.pods_project.targets.each do |target|
       target.build_configurations.each do |config|
-          config.build_settings['BUILD_LIBRARY_FOR_DISTRIBUTION'] = 'YES'
+        config.build_settings['BUILD_LIBRARY_FOR_DISTRIBUTION'] = 'YES'
       end
     end
+    installer.generated_projects.each do |project|
+      project.targets.each do |target|
+        target.build_configurations.each do |config|
+          config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '12.0'
+        end
+      end
+    end
+    `sed -i -e  $'s/__IPHONE_10_0/__IPHONE_13_0/' #{installer.sandbox.root}/RCT-Folly/folly/portability/Time.h`
+    path = "Pods/Target Support Files/Pods-DemoApp/Pods-DemoApp-frameworks.sh"
+    lines = File.readlines(path)
+    lines.insert(177, 'install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/hermes-engine/hermes.framework"'+"\n")
+    File.write(path, lines.join, mode: "w")
 end

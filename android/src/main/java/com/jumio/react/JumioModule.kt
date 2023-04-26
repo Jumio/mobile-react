@@ -2,6 +2,7 @@ package com.jumio.react
 
 import android.app.Activity
 import android.content.Intent
+import android.os.Build
 import com.facebook.react.bridge.Arguments
 import com.facebook.react.bridge.BaseActivityEventListener
 import com.facebook.react.bridge.Promise
@@ -31,12 +32,15 @@ class JumioModule(context: ReactApplicationContext) : JumioBaseModule(context) {
             override fun onActivityResult(activity: Activity?, requestCode: Int, resultCode: Int, data: Intent?) {
                 if (requestCode == REQUEST_CODE) {
                     data?.let {
-                        val jumioResult = data.getSerializableExtra(JumioActivity.EXTRA_RESULT) as JumioResult?
-                        if (jumioResult != null && jumioResult.isSuccess) {
-                            sendScanResult(jumioResult)
+                        val jumioResult = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                            it.getSerializableExtra(JumioActivity.EXTRA_RESULT, JumioResult::class.java)
                         } else {
-                            sendCancelResult(jumioResult)
+                            @Suppress("DEPRECATION")
+                            it.getSerializableExtra(JumioActivity.EXTRA_RESULT) as JumioResult?
                         }
+
+                        if (jumioResult?.isSuccess == true) sendScanResult(jumioResult) else sendCancelResult(jumioResult)
+
                         reactContext.removeActivityEventListener(this)
                     }
                 }
@@ -89,10 +93,10 @@ class JumioModule(context: ReactApplicationContext) : JumioBaseModule(context) {
         currentActivity?.startActivityForResult(intent, REQUEST_CODE)
     }
 
-    private fun sendScanResult(jumioResult: JumioResult) {
-        val accountId = jumioResult.accountId
-        val workflowId = jumioResult.workflowExecutionId
-        val credentialInfoList = jumioResult.credentialInfos
+    private fun sendScanResult(jumioResult: JumioResult?) {
+        val accountId = jumioResult?.accountId
+        val workflowId = jumioResult?.workflowExecutionId
+        val credentialInfoList = jumioResult?.credentialInfos
 
         val result = Arguments.createMap()
         val credentialArray = Arguments.createArray()

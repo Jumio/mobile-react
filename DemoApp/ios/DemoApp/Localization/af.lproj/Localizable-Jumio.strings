@@ -51,6 +51,8 @@
 "IProov_PromptTooFar" = "Kom nader";
 "IProov_PromptYawTooHigh" = "Draai effens na u linkerkant";
 "IProov_PromptYawTooLow" = "Draai effens na u regterkant";
+"jumio_accessibility_alert_confirm" = "Goed";
+"jumio_accessibility_alert_hint" = "Wenk";
 "jumio_accessibility_button_close" = "Sluit";
 "jumio_accessibility_scan_back" = "Terug";
 "jumio_accessibility_scan_help" = "Hulpkieslys";
@@ -60,6 +62,13 @@
 "jumio_accessibility_scan_switch_camera" = "Verander van kamera";
 "jumio_analyzing_biometric" = "Besig om biometriese data te ontleed";
 "jumio_button_cancel" = "Kanselleer";
+"jumio_di_back_to_document_selection" = "Ons sal jou na dokumentseleksie terughelp.";
+"jumio_di_retry_expire" = "U sessie het verstryk";
+"jumio_di_retry_service_error" = "Verfiëring het misluk";
+"jumio_di_retry_third_party_verification_error" = "Verfiëring het misluk";
+"jumio_di_retry_unknown" = "Iets het skeefgeloop";
+"jumio_di_vendor_selection_title" = "Kies digitale-ID-verskaffer";
+"jumio_di_verification_prompt_processing" = "Voltooi asseblief die vloei op %@-app.";
 "jumio_dv_confirm_button_reselect" = "Herselekteer";
 "jumio_dv_confirm_file_info" = "Sorg dat u die regte PDF-lêer gekies het";
 "jumio_dv_confirm_file_title" = "Bevestig u lêer";
@@ -81,6 +90,7 @@
 "jumio_error_button_retake_one" = "Neem weer";
 "jumio_error_button_retry" = "Probeer weer";
 "jumio_error_cancelled_by_user" = "Gekanselleer deur eindgebruiker";
+"jumio_error_case_cancelled" = "Gekanselleer";
 "jumio_error_certificate_not_valid_anymore" = "Sertifikaat is nie meer geldig nie. Werk u program asseblief by.";
 "jumio_error_connection_title" = "Verbindingsfout";
 "jumio_error_device_is_offline" = "Maak asseblief seker u is aanlyn";
@@ -165,6 +175,7 @@
 "jumio_identity_title" = "Gesigverifiëring";
 "jumio_idtype_countrysearch_search" = "Deursoek land";
 "jumio_idtype_countrysearch_title" = "Kies land van uitreiking";
+"jumio_idtype_di" = "Digitale ID";
 "jumio_idtype_dl" = "Bestuurderslisensie";
 "jumio_idtype_format_option_other" = "Ander formaat";
 "jumio_idtype_format_option_plastic" = "Plastiekkaart";

@@ -51,6 +51,8 @@
 "IProov_PromptTooFar" = "Približite se";
 "IProov_PromptYawTooHigh" = "Okrenite se malo nalijevo";
 "IProov_PromptYawTooLow" = "Okrenite se malo nadesno";
+"jumio_accessibility_alert_confirm" = "U redu";
+"jumio_accessibility_alert_hint" = "Savjet";
 "jumio_accessibility_button_close" = "Zatvori";
 "jumio_accessibility_scan_back" = "Natrag";
 "jumio_accessibility_scan_help" = "Izbornik pomoći";
@@ -60,6 +62,13 @@
 "jumio_accessibility_scan_switch_camera" = "Promijeni kameru";
 "jumio_analyzing_biometric" = "Analiza biometrijskih podataka";
 "jumio_button_cancel" = "Otkaži";
+"jumio_di_back_to_document_selection" = "Bit ćete vraćeni na odabir dokumenta.";
+"jumio_di_retry_expire" = "Vaša sesija je istekla";
+"jumio_di_retry_service_error" = "Provjera nije uspjela";
+"jumio_di_retry_third_party_verification_error" = "Provjera nije uspjela";
+"jumio_di_retry_unknown" = "Nešto nije u redu";
+"jumio_di_vendor_selection_title" = "Odaberi pružatelja digitalnih identifikacijskih dokumenata";
+"jumio_di_verification_prompt_processing" = "Dovršite tijek u aplikaciji dobavljača %@.";
 "jumio_dv_confirm_button_reselect" = "Ponovno odaberi";
 "jumio_dv_confirm_file_info" = "Provjerite jeste li odabrali pravu PDF datoteku";
 "jumio_dv_confirm_file_title" = "Potvrdite svoju datoteku";
@@ -81,6 +90,7 @@
 "jumio_error_button_retake_one" = "Ponovno snimi";
 "jumio_error_button_retry" = "Pokušajte ponovno";
 "jumio_error_cancelled_by_user" = "Otkazano od krajnjeg korisnika";
+"jumio_error_case_cancelled" = "Poništen";
 "jumio_error_certificate_not_valid_anymore" = "Certifikat više nije valjan. Ažurirajte svoju aplikaciju";
 "jumio_error_connection_title" = "Pogreška u povezivanju";
 "jumio_error_device_is_offline" = "Molimo, provjerite da ste na mreži";
@@ -165,6 +175,7 @@
 "jumio_identity_title" = "Provjera lica";
 "jumio_idtype_countrysearch_search" = "Traži državu";
 "jumio_idtype_countrysearch_title" = "Odaberite državu izdavanja";
+"jumio_idtype_di" = "Digitalni identifikacijski dokument";
 "jumio_idtype_dl" = "Vozačka dozvola";
 "jumio_idtype_format_option_other" = "Drugi format";
 "jumio_idtype_format_option_plastic" = "Plastična kartica";

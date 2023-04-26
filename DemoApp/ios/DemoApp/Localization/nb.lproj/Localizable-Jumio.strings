@@ -51,6 +51,8 @@
 "IProov_PromptTooFar" = "Kom nærmere";
 "IProov_PromptYawTooHigh" = "Vri deg litt til venstre";
 "IProov_PromptYawTooLow" = "Vri deg litt til høyre";
+"jumio_accessibility_alert_confirm" = "OK";
+"jumio_accessibility_alert_hint" = "Vink";
 "jumio_accessibility_button_close" = "Lukk";
 "jumio_accessibility_scan_back" = "Tilbake";
 "jumio_accessibility_scan_help" = "Hjelp-menyen";
@@ -60,6 +62,13 @@
 "jumio_accessibility_scan_switch_camera" = "Bytt kameravinkel";
 "jumio_analyzing_biometric" = "Analysere biometriske data";
 "jumio_button_cancel" = "Avbryt";
+"jumio_di_back_to_document_selection" = "Du vil sendes tilbake til dokumentvalget.";
+"jumio_di_retry_expire" = "Økten din har utløpt";
+"jumio_di_retry_service_error" = "Bekreftelsen mislyktes";
+"jumio_di_retry_third_party_verification_error" = "Bekreftelsen mislyktes";
+"jumio_di_retry_unknown" = "Noe gikk galt";
+"jumio_di_vendor_selection_title" = "Velg leverandør av digital-ID";
+"jumio_di_verification_prompt_processing" = "Fullfør flyten i %@-appen.";
 "jumio_dv_confirm_button_reselect" = "Velg på nytt";
 "jumio_dv_confirm_file_info" = "Pass på at du har valgt riktig PDF-fil";
 "jumio_dv_confirm_file_title" = "Bekreft filen din";
@@ -81,6 +90,7 @@
 "jumio_error_button_retake_one" = "Ta på nytt";
 "jumio_error_button_retry" = "Prøv igjen";
 "jumio_error_cancelled_by_user" = "Avbrutt av sluttbruker";
+"jumio_error_case_cancelled" = "Avlyst";
 "jumio_error_certificate_not_valid_anymore" = "Sertifikatet er ikke gyldig lenger. Oppdater søknaden din";
 "jumio_error_connection_title" = "Tilkoblingsfeil";
 "jumio_error_device_is_offline" = "Kontroller om du er online";
@@ -165,6 +175,7 @@
 "jumio_identity_title" = "Ansiktsbekreftelse";
 "jumio_idtype_countrysearch_search" = "Søk i land";
 "jumio_idtype_countrysearch_title" = "Velg utstedelsesland";
+"jumio_idtype_di" = "Digital-ID";
 "jumio_idtype_dl" = "Førerkort";
 "jumio_idtype_format_option_other" = "Annet format";
 "jumio_idtype_format_option_plastic" = "Plastkort";

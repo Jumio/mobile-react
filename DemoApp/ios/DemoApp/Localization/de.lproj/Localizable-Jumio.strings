@@ -51,6 +51,8 @@
 "IProov_PromptTooFar" = "Näher kommen";
 "IProov_PromptYawTooHigh" = "Drehen Sie sich leicht nach links";
 "IProov_PromptYawTooLow" = "Drehen Sie sich leicht nach rechts";
+"jumio_accessibility_alert_confirm" = "Okay";
+"jumio_accessibility_alert_hint" = "Hinweis";
 "jumio_accessibility_button_close" = "Schließen";
 "jumio_accessibility_scan_back" = "Zurück";
 "jumio_accessibility_scan_help" = "Hilfe-Menü";
@@ -60,6 +62,13 @@
 "jumio_accessibility_scan_switch_camera" = "Kamera wechseln";
 "jumio_analyzing_biometric" = "Biometrie-Daten werden analysiert";
 "jumio_button_cancel" = "Beenden";
+"jumio_di_back_to_document_selection" = "Sie kehren zur Dokumentauswahl zurück.";
+"jumio_di_retry_expire" = "Ihre Sitzung ist abgelaufen";
+"jumio_di_retry_service_error" = "Die Verifizierung ist fehlgeschlagen";
+"jumio_di_retry_third_party_verification_error" = "Die Verifizierung ist fehlgeschlagen";
+"jumio_di_retry_unknown" = "Es ist ein Fehler aufgetreten";
+"jumio_di_vendor_selection_title" = "Digitaler ID-Anbieter";
+"jumio_di_verification_prompt_processing" = "Bitte vervollständigen Sie den Ablauf auf der %@-App.";
 "jumio_dv_confirm_button_reselect" = "Neu auswählen";
 "jumio_dv_confirm_file_info" = "Stellen Sie sicher, dass Sie die richtige PDF-Datei ausgewählt haben";
 "jumio_dv_confirm_file_title" = "Bestätigen Sie Ihre Datei";
@@ -81,6 +90,7 @@
 "jumio_error_button_retake_one" = "Erneut aufnehmen";
 "jumio_error_button_retry" = "Erneut versuchen";
 "jumio_error_cancelled_by_user" = "Beendet durch Benutzer";
+"jumio_error_case_cancelled" = "Abgebrochen";
 "jumio_error_certificate_not_valid_anymore" = "Zertifikat nicht mehr gültig. Bitte aktualisieren Sie Ihre Applikation";
 "jumio_error_connection_title" = "Verbindungsfehler";
 "jumio_error_device_is_offline" = "Bitte prüfen Sie, ob Sie online sind";
@@ -165,6 +175,7 @@
 "jumio_identity_title" = "Gesichtserkennung";
 "jumio_idtype_countrysearch_search" = "Land suchen";
 "jumio_idtype_countrysearch_title" = "Ausstellungsland auswählen";
+"jumio_idtype_di" = "Digitale ID";
 "jumio_idtype_dl" = "Führerschein";
 "jumio_idtype_format_option_other" = "Anderes Format";
 "jumio_idtype_format_option_plastic" = "Plastikkarte";

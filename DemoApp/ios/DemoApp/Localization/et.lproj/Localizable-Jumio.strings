@@ -51,6 +51,8 @@
 "IProov_PromptTooFar" = "Liigutage lähemale";
 "IProov_PromptYawTooHigh" = "Pöörake veidi vasakule";
 "IProov_PromptYawTooLow" = "Pöörake veidi paremale";
+"jumio_accessibility_alert_confirm" = "Sain aru";
+"jumio_accessibility_alert_hint" = "Vihje";
 "jumio_accessibility_button_close" = "Sule";
 "jumio_accessibility_scan_back" = "Tagasi";
 "jumio_accessibility_scan_help" = "Abimenüü";
@@ -60,6 +62,13 @@
 "jumio_accessibility_scan_switch_camera" = "Lülituge teisele kaamerale";
 "jumio_analyzing_biometric" = "Biomeetriliste andmete analüüsimine";
 "jumio_button_cancel" = "Tühista";
+"jumio_di_back_to_document_selection" = "Teid suunatakse tagasi dokumendi valimisse.";
+"jumio_di_retry_expire" = "Sessioon on aegunud";
+"jumio_di_retry_service_error" = "Tuvastamine ebaõnnestus";
+"jumio_di_retry_third_party_verification_error" = "Tuvastamine ebaõnnestus";
+"jumio_di_retry_unknown" = "Miski läks valesti";
+"jumio_di_vendor_selection_title" = "Valige digi-ID pakkuja";
+"jumio_di_verification_prompt_processing" = "Palun lõpetage toiming rakenduses %@.";
 "jumio_dv_confirm_button_reselect" = "Valige uuesti";
 "jumio_dv_confirm_file_info" = "Kontrollige, kas valisite õige PDF-faili";
 "jumio_dv_confirm_file_title" = "Kinnitage oma fail";
@@ -81,6 +90,7 @@
 "jumio_error_button_retake_one" = "Uuesti";
 "jumio_error_button_retry" = "Proovige uuesti";
 "jumio_error_cancelled_by_user" = "Lõppkasutaja poolt tühistatud";
+"jumio_error_case_cancelled" = "Tühistatud";
 "jumio_error_certificate_not_valid_anymore" = "Sertifikaat ei kehti enam. Värskendage oma taotlust";
 "jumio_error_connection_title" = "Ühendusetõrge";
 "jumio_error_device_is_offline" = "Kontrollige, et teil oleks võrguühendus";
@@ -165,6 +175,7 @@
 "jumio_identity_title" = "Näotuvastus";
 "jumio_idtype_countrysearch_search" = "Riigi otsing";
 "jumio_idtype_countrysearch_title" = "Valige dokumendi väljastanud riik";
+"jumio_idtype_di" = "Digi-ID";
 "jumio_idtype_dl" = "Juhiluba";
 "jumio_idtype_format_option_other" = "Muu vorming";
 "jumio_idtype_format_option_plastic" = "Plastkaart";

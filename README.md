@@ -1,7 +1,7 @@
 # Plugin for React Native
 Official Jumio Mobile SDK plugin for React Native
 
-This plugin is compatible with version 4.4.0 of the Jumio SDK (4.4.0 for iOS, 4.4.1 for Android). If you have questions, please reach out to your Account Manager or contact [Jumio Support](#support).
+This plugin is compatible with version 4.5.0 of the Jumio SDK. If you have questions, please reach out to your Account Manager or contact [Jumio Support](#support).
 
 # Table of Contents
 - [Compatibility](#compatibility)
@@ -15,14 +15,14 @@ This plugin is compatible with version 4.4.0 of the Jumio SDK (4.4.0 for iOS, 4.
 - [Callbacks](#callbacks)
 - [FAQ](#faq)
    - [iOS Runs on Debug, Crashes on Release Build](#ios-runs-on-debug-crashes-on-release-build)
+   - [Using iOS Dynamic Frameworks with React Native Sample App](#using-ios-dynamic-frameworks-with-react-native-sample-app)
    - [iOS Build Fails for React 0.71.2](#ios-build-fails-for-react-0712)
-   - [Using Dynamic Frameworks with React Native Sample App](#using-dynamic-frameworks-with-react-native-sample-app)
    - [iOS Localization](#ios-localization)
    - [iProov String Keys](#iproov-string-keys)
 - [Support](#support)
 
 ## Compatibility
-We only ensure compatibility with a minimum React Native version of 0.68.3
+We only ensure compatibility with a minimum React Native version of 0.70
 
 ## Setup
 Create React Native project and add the Jumio Mobile SDK module to it.
@@ -30,7 +30,7 @@ Create React Native project and add the Jumio Mobile SDK module to it.
 ```sh
 react-native init MyProject
 cd MyProject
-npm install --save https://github.com/Jumio/mobile-react.git#v4.4.0
+npm install --save https://github.com/Jumio/mobile-react.git#v4.5.0
 ```
 
 ## Integration
@@ -56,8 +56,8 @@ Make sure your compileSdkVersion and buildToolsVersion are high enough.
 
 ```groovy
 android {
-  compileSdkVersion 31
-  buildToolsVersion "32.0.0"
+  compileSdkVersion 33
+  buildToolsVersion "33.0.0"
   ...
 }
 ```
@@ -235,7 +235,6 @@ You can pass the following customization options to the [`setupCustomizations()`
 | scanViewBubbleForeground                        |
 | scanViewBubbleBackground                        |
 | scanViewForeground                              |
-| scanViewAnimationBackground                     |
 | scanViewAnimationShutter                        |
 | searchBubbleBackground                          |
 | searchBubbleForeground                          |
@@ -314,6 +313,22 @@ The JSON object with all the extracted data that is returned for the specific pr
 | personalNumberValid | BOOL   |             | True if personal number check digit is valid or not available, otherwise false |
 | compositeValid      | BOOL   |             | True if composite check digit is valid, otherwise false                        |
 
+
+## Local Models for JumioDocfinder
+
+If you are using our JumioDocFinder module, you can download our encrypted models and add them to your bundle from [here](https://cdn.mobile.jumio.ai/model/classifier_on_device_ep_99_float16_quant.enc) and [here](https://cdn.mobile.jumio.ai/model/normalized_ensemble_passports_v2_float16_quant.enc).
+
+We recommend to download the files and add them to your project without changing their names (the same way you add Localization files). This will save two network requests on runtime to download these files.
+
+### iOS
+
+You also need to copy those files to the "ios/Assets" folder for React to recognize them.
+
+### Android
+
+You need to copy those files to the assets folder of your Android project (Path: "app/src/main/assets/")
+
+
 ## FAQ
 
 ### iOS Runs on Debug, Crashes on Release Build
@@ -331,7 +346,7 @@ Alternatively, it is also possible to set the key `manageAppVersionAndBuildNumbe
 <false/>
 ```
 
-### Using Dynamic Frameworks with React Native Sample App
+### Using iOS Dynamic Frameworks with React Native Sample App
 Jumio SDK version 3.8.0 and newer use iProov dependencies that need need to be built as dynamic frameworks.
 Since React Native supports only static libraries, a pre-install hook has been added to ensure that pods added as `dynamic_frameworks` are actually built as dynamic frameworks, while all other pods are built as static libraries.
 
@@ -371,7 +386,6 @@ Make sure [the necessary `pre_install` and `post_install` hooks](#using-dynamic-
 Also make sure that [Flipper](https://fbflipper.com/) is disabled for your project, since Flipper is not compatible with iOS dynamic frameworks at the moment.
 
 Please also refer to the [Podfile](DemoApp/ios/Podfile) of our sample application for further details.
-
 
 ### iOS Localization
 After installing Cocoapods, please localize your iOS application using the languages provided at the following path:   

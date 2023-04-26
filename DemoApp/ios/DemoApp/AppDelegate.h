@@ -9,6 +9,7 @@
 
 #import <UIKit/UIKit.h>
 #import <React/RCTBridge.h>
+#import <Jumio/Jumio-Swift.h>
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate, RCTBridgeDelegate>
 

@@ -57,6 +57,13 @@
   return YES;
 }
 
+-(BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
+    if([JumioSDK handleDeeplinkWithURL:url]) {
+        return YES;
+    }
+    return NO;
+}
+
 - (NSURL *)sourceURLForBridge:(RCTBridge *)bridge
 {
 #if DEBUG
