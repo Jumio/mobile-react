@@ -382,7 +382,7 @@ Please refer to the iOS section of our [DemoApp guide](DemoApp/README.md#iOS) fo
 
 ### iOS Build Fails for React 0.71.2
 `use_frameworks!` needs to be included in the `Podfile` and properly executed in order for Jumio dynamic frameworks to install correctly.
-Make sure [the necessary `pre_install` and `post_install` hooks](#using-dynamic-frameworks-with-react-native-sample-app) have been included.
+Make sure [the necessary `pre_install` and `post_install` hooks](#using-ios-dynamic-frameworks-with-react-native-sample-app) have been included.
 Also make sure that [Flipper](https://fbflipper.com/) is disabled for your project, since Flipper is not compatible with iOS dynamic frameworks at the moment.
 
 Please also refer to the [Podfile](DemoApp/ios/Podfile) of our sample application for further details.
