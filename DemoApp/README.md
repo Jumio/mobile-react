@@ -46,18 +46,13 @@ post_install do |installer|
         config.build_settings['BUILD_LIBRARY_FOR_DISTRIBUTION'] = 'YES'
       end
     end
-    installer.generated_projects.each do |project|
-      project.targets.each do |target|
-        target.build_configurations.each do |config|
-          config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '12.0'
-        end
-      end
-    end
-    `sed -i -e  $'s/__IPHONE_10_0/__IPHONE_13_0/' #{installer.sandbox.root}/RCT-Folly/folly/portability/Time.h`
-    path = "Pods/Target Support Files/Pods-DemoApp/Pods-DemoApp-frameworks.sh"
-    lines = File.readlines(path)
-    lines.insert(177, 'install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/hermes-engine/hermes.framework"'+"\n")
-    File.write(path, lines.join, mode: "w")
+   
+   react_native_post_install(
+     installer,
+     config[:reactNativePath],
+     :mac_catalyst_enabled => false
+   )
+   __apply_Xcode_12_5_M1_post_install_workaround(installer)
 end
 ```
 
