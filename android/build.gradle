@@ -6,7 +6,7 @@ buildscript {
 		gradlePluginPortal()
 	}
 	dependencies {
-		classpath 'com.android.tools.build:gradle:7.2.1'
+		classpath 'com.android.tools.build:gradle:7.3.1'
 		classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
 		classpath("de.undercouch:gradle-download-task:5.0.1")
 	}
@@ -16,8 +16,8 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
 android {
-    compileSdkVersion 33
-	buildToolsVersion "33.0.0"
+    compileSdk 33
+	buildToolsVersion = "33.0.0"
 
     defaultConfig {
         minSdkVersion 21
@@ -52,14 +52,14 @@ repositories {
 }
 
 ext {
-    SDK_VERSION = "4.5.0"
+    SDK_VERSION = "4.6.0"
 }
 
 dependencies {
 	// Jumio dependencies
 	implementation "com.jumio.android:core:${SDK_VERSION}"
 	implementation "com.jumio.android:linefinder:${SDK_VERSION}"
-        implementation "com.jumio.android:docfinder:${SDK_VERSION}"
+	implementation "com.jumio.android:docfinder:${SDK_VERSION}"
 	implementation "com.jumio.android:mrz:${SDK_VERSION}"
 	implementation "com.jumio.android:nfc:${SDK_VERSION}"
 	implementation "com.jumio.android:barcode:${SDK_VERSION}"
@@ -68,9 +68,10 @@ dependencies {
 	implementation "com.jumio.android:defaultui:${SDK_VERSION}"
 	implementation "com.jumio.android:datadog:${SDK_VERSION}"
 	implementation "com.jumio.android:digital-identity:${SDK_VERSION}"
+	implementation "com.jumio.android:liveness:${SDK_VERSION}"
 
 	//only for the sample code
-	implementation "androidx.activity:activity-ktx:1.4.0"
+	implementation "androidx.activity:activity-ktx:1.5.1"
 
 	//Kotlin
 	implementation "androidx.multidex:multidex:2.0.1"

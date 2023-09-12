@@ -4,6 +4,7 @@
 */
   
 "IProov_AccessibilityLabelCloseButton" = "Zavřít";
+"IProov_AccessibilityLabelSecuredByIProov" = "";
 "IProov_AccessibilityPromptAlignFace" = "Držte zařízení před obličejem a dívejte se na obrazovku";
 "IProov_AccessibilityPromptScanning" = "Skenování";
 "IProov_Authenticate" = "";
@@ -147,7 +148,6 @@
 "jumio_id_scan_prompt_front_captured" = "Pořízení PŘEDNÍ STRANY";
 "jumio_id_scan_prompt_hold_still" = "Nehýbejte se...";
 "jumio_id_scan_prompt_hold_straight" = "Držte se rovně";
-"jumio_id_scan_prompt_initial_linefinder" = "Zarovnejte svůj dokument s rámečkem";
 "jumio_id_scan_prompt_move_closer" = "Pojďte blíže";
 "jumio_id_scan_prompt_processing" = "Probíhá kontrola snímku...";
 "jumio_id_scan_prompt_redact_deu_id_paper" = "Před zachycením prosím zakryjte nebo pozměňte identifikační číslo.";
@@ -190,6 +190,9 @@
 "jumio_iproov_failure_generic_light" = "Je nutné, aby byla vaše tvář rovnoměrně osvětlená a nesplývala s pozadím";
 "jumio_iproov_failure_generic_title" = "Tvář nerozpoznána.";
 "jumio_iproov_intro_la" = "Obličej nasměrujte do středu rámečku a postupujte dle pokynů na obrazovce.";
+"jumio_liveness_prompt_no_target" = "Umístěte obličej do rámečku";
+"jumio_liveness_prompt_success_another_shot" = "Mám to! Proveďme nyní další pokus";
+"jumio_liveness_upfront_intro" = "Musíme pořídit sken vašeho obličeje, abychom si mohli ověřit, že jste skutečná osoba.";
 "jumio_loading_title" = "Načítá se...";
 "jumio_nfc_button_skip" = "Přeskočit";
 "jumio_nfc_description_secure_connection" = "Navázání zabezpečeného připojení";

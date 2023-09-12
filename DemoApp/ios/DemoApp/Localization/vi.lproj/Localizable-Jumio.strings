@@ -4,6 +4,7 @@
 */
   
 "IProov_AccessibilityLabelCloseButton" = "Đóng";
+"IProov_AccessibilityLabelSecuredByIProov" = "";
 "IProov_AccessibilityPromptAlignFace" = "Giữ thiết bị trước mặt và nhìn vào màn hình";
 "IProov_AccessibilityPromptScanning" = "Đang quét";
 "IProov_Authenticate" = "";
@@ -147,7 +148,6 @@
 "jumio_id_scan_prompt_front_captured" = "Đã chụp MẶT TRƯỚC";
 "jumio_id_scan_prompt_hold_still" = "Giữ yên...";
 "jumio_id_scan_prompt_hold_straight" = "Giữ thẳng";
-"jumio_id_scan_prompt_initial_linefinder" = "Đóng khung ID của bạn";
 "jumio_id_scan_prompt_move_closer" = "Tiến lại gần";
 "jumio_id_scan_prompt_processing" = "Đang kiểm tra hình ảnh...";
 "jumio_id_scan_prompt_redact_deu_id_paper" = "Hãy che số ID trước khi chụp";
@@ -190,6 +190,9 @@
 "jumio_iproov_failure_generic_light" = "Khuôn mặt của bạn phải được chiếu sáng đồng đều và nổi bật so với nền xung quanh";
 "jumio_iproov_failure_generic_title" = "Không nhận dạng được khuôn mặt";
 "jumio_iproov_intro_la" = "Căn giữa khuôn mặt của bạn trong khung và làm theo hướng dẫn trên màn hình.";
+"jumio_liveness_prompt_no_target" = "Kéo mặt bạn vào khung";
+"jumio_liveness_prompt_success_another_shot" = "Đã hiểu! Hãy chụp một bức ảnh khác";
+"jumio_liveness_upfront_intro" = "Chúng tôi cần quét khuôn mặt bạn để xác minh rằng bạn là người thật.";
 "jumio_loading_title" = "Đang tải";
 "jumio_nfc_button_skip" = "Nhảy";
 "jumio_nfc_description_secure_connection" = "Thiết lập kết nối an toàn";

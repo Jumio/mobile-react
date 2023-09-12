@@ -4,6 +4,7 @@
 */
   
 "IProov_AccessibilityLabelCloseButton" = "Sulje";
+"IProov_AccessibilityLabelSecuredByIProov" = "";
 "IProov_AccessibilityPromptAlignFace" = "Pitele laitetta kasvojesi edessä ja katso näyttöä kohti";
 "IProov_AccessibilityPromptScanning" = "Skannataan";
 "IProov_Authenticate" = "";
@@ -147,7 +148,6 @@
 "jumio_id_scan_prompt_front_captured" = "ETUPUOLI kuvattu";
 "jumio_id_scan_prompt_hold_still" = "Pitele paikoillaan...";
 "jumio_id_scan_prompt_hold_straight" = "Pitele suorassa";
-"jumio_id_scan_prompt_initial_linefinder" = "Sovita asiakirjasi kehykseen";
 "jumio_id_scan_prompt_move_closer" = "Siirrä lähemmäksi";
 "jumio_id_scan_prompt_processing" = "Kuvaa tarkistetaan...";
 "jumio_id_scan_prompt_redact_deu_id_paper" = "Peitä henkilötunnus ennen kuvan tallentamista";
@@ -190,6 +190,9 @@
 "jumio_iproov_failure_generic_light" = "Kasvojen tulee olla valaistu tasaisesti, ja niiden tulee erottua selkeästi taustasta";
 "jumio_iproov_failure_generic_title" = "Kasvojentunnistus epäonnistui";
 "jumio_iproov_intro_la" = "Kohdista kasvosi kehyksen keskelle ja noudata näytöllä näkyviä ohjeita.";
+"jumio_liveness_prompt_no_target" = "Sovita kasvosi kehykseen";
+"jumio_liveness_prompt_success_another_shot" = "Selvä! Otetaanpa toinen kuva";
+"jumio_liveness_upfront_intro" = "Meidän täytyy skannata kasvosi vahvistaaksemme, että olet oikea henkilö.";
 "jumio_loading_title" = "Ladataan";
 "jumio_nfc_button_skip" = "Ohita";
 "jumio_nfc_description_secure_connection" = "Muodostetaan suojattua yhteyttä";

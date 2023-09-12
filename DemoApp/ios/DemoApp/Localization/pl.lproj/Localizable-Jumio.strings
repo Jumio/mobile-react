@@ -4,6 +4,7 @@
 */
   
 "IProov_AccessibilityLabelCloseButton" = "Zamknij";
+"IProov_AccessibilityLabelSecuredByIProov" = "";
 "IProov_AccessibilityPromptAlignFace" = "Trzymaj urządzenie przed twarzą i patrz na ekran";
 "IProov_AccessibilityPromptScanning" = "Skanowanie";
 "IProov_Authenticate" = "";
@@ -147,7 +148,6 @@
 "jumio_id_scan_prompt_front_captured" = "PRZÓD uchwycony";
 "jumio_id_scan_prompt_hold_still" = "Nie ruszaj kamerą...";
 "jumio_id_scan_prompt_hold_straight" = "Wyrównaj";
-"jumio_id_scan_prompt_initial_linefinder" = "Wykadruj swój dokument tożsamości";
 "jumio_id_scan_prompt_move_closer" = "Przybliż";
 "jumio_id_scan_prompt_processing" = "Sprawdzanie obrazu...";
 "jumio_id_scan_prompt_redact_deu_id_paper" = "Przed przechwyceniem zakryj numer identyfikacyjny";
@@ -190,6 +190,9 @@
 "jumio_iproov_failure_generic_light" = "Twarz musi być równomiernie oświetlona i wyróżniać się z tła";
 "jumio_iproov_failure_generic_title" = "Nie rozpoznano twarzy";
 "jumio_iproov_intro_la" = "Wyśrodkuj twarz w owalnej ramce i postępuj zgodnie z instrukcjami wyświetlanymi na ekranie.";
+"jumio_liveness_prompt_no_target" = "Umieść twarz w ramce";
+"jumio_liveness_prompt_success_another_shot" = "Mamy to! Zróbmy jeszcze jedno ujęcie";
+"jumio_liveness_upfront_intro" = "Musimy wykonać skan Twojej twarzy, aby sprawdzić, czy jesteś prawdziwą osobą.";
 "jumio_loading_title" = "Ładowanie";
 "jumio_nfc_button_skip" = "Pomiń";
 "jumio_nfc_description_secure_connection" = "Nawiązywanie bezpiecznego połączenia";

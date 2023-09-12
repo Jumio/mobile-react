@@ -4,6 +4,7 @@
 */
   
 "IProov_AccessibilityLabelCloseButton" = "ปิด";
+"IProov_AccessibilityLabelSecuredByIProov" = "";
 "IProov_AccessibilityPromptAlignFace" = "ถืออุปกรณ์ไว้ข้างหน้าและมองไปที่หน้าจอ";
 "IProov_AccessibilityPromptScanning" = "กำลังสแกน";
 "IProov_Authenticate" = "";
@@ -147,7 +148,6 @@
 "jumio_id_scan_prompt_front_captured" = "จับภาพด้านหน้าแล้ว";
 "jumio_id_scan_prompt_hold_still" = "ถือนิ่ง ๆ...";
 "jumio_id_scan_prompt_hold_straight" = "ถือตรง ๆ";
-"jumio_id_scan_prompt_initial_linefinder" = "วางเอกสารของคุณให้อยู่ในกรอบ";
 "jumio_id_scan_prompt_move_closer" = "เข้ามาใกล้";
 "jumio_id_scan_prompt_processing" = "กำลังตรวจสอบภาพ...";
 "jumio_id_scan_prompt_redact_deu_id_paper" = "โปรดตรวจสอบหมายเลขบัตรประชาชนก่อนจับภาพ";
@@ -190,6 +190,9 @@
 "jumio_iproov_failure_generic_light" = "ใบหน้าของคุณจะต้องสว่างสม่ำเสมอและโดดเด่นจากพื้นหลัง";
 "jumio_iproov_failure_generic_title" = "ไม่รู้จักใบหน้า";
 "jumio_iproov_intro_la" = "วางใบหน้าให้อยู่กลางกรอบและทำตามคำแนะนำบนหน้าจอ";
+"jumio_liveness_prompt_no_target" = "วางให้ใบหน้าอยู่ในกรอบ";
+"jumio_liveness_prompt_success_another_shot" = "เข้าใจแล้ว! มาถ่ายรูปกันอีกสักรอบเถอะนะ";
+"jumio_liveness_upfront_intro" = "คุณจะต้องสแกนใบหน้าของคุณเพื่อยืนยันว่าคุณเป็นคนจริงๆ";
 "jumio_loading_title" = "กำลังโหลด";
 "jumio_nfc_button_skip" = "ข้าม";
 "jumio_nfc_description_secure_connection" = "กำลังสร้างการเชื่อมต่อที่ปลอดภัย";

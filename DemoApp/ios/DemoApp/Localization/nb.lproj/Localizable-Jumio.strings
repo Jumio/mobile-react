@@ -4,6 +4,7 @@
 */
   
 "IProov_AccessibilityLabelCloseButton" = "Lukk";
+"IProov_AccessibilityLabelSecuredByIProov" = "";
 "IProov_AccessibilityPromptAlignFace" = "Hold enheten foran ansiktet ditt og se på skjermen";
 "IProov_AccessibilityPromptScanning" = "Skanner";
 "IProov_Authenticate" = "";
@@ -147,7 +148,6 @@
 "jumio_id_scan_prompt_front_captured" = "Forsiden er registrert";
 "jumio_id_scan_prompt_hold_still" = "Hold i ro...";
 "jumio_id_scan_prompt_hold_straight" = "Hold rett";
-"jumio_id_scan_prompt_initial_linefinder" = "Ram inn dokumentet ditt";
 "jumio_id_scan_prompt_move_closer" = "Flytt nærmere";
 "jumio_id_scan_prompt_processing" = "Kontrollerer bildet ...";
 "jumio_id_scan_prompt_redact_deu_id_paper" = "Vennligst rediger ID-nummeret før du tar bildet";
@@ -190,6 +190,9 @@
 "jumio_iproov_failure_generic_light" = "Ansiktet ditt må være jevnt opplyst og skille seg ut fra bakgrunnen";
 "jumio_iproov_failure_generic_title" = "Ansiktet ikke registrert";
 "jumio_iproov_intro_la" = "Sentrer ansiktet ditt i rammen og følg instruksjonene på skjermen.";
+"jumio_liveness_prompt_no_target" = "Plasser ansiktet ditt i rammen";
+"jumio_liveness_prompt_success_another_shot" = "Flott! La oss ta enda et bilde.";
+"jumio_liveness_upfront_intro" = "Vi må skanne ansiktet ditt for å bekrefte at du er en ekte person.";
 "jumio_loading_title" = "Laster";
 "jumio_nfc_button_skip" = "Hoppe over";
 "jumio_nfc_description_secure_connection" = "Etablere sikker tilkobling";

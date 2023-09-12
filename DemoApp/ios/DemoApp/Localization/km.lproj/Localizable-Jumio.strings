@@ -4,6 +4,7 @@
 */
   
 "IProov_AccessibilityLabelCloseButton" = "បិទ";
+"IProov_AccessibilityLabelSecuredByIProov" = "";
 "IProov_AccessibilityPromptAlignFace" = "កាន់ឧបករណ៍នៅចំពីមុខអ្នក ហើយមើលទៅអេក្រង់";
 "IProov_AccessibilityPromptScanning" = "កំពុងស្កេន";
 "IProov_Authenticate" = "";
@@ -147,7 +148,6 @@
 "jumio_id_scan_prompt_front_captured" = "បានថតខាងមុខ";
 "jumio_id_scan_prompt_hold_still" = "កាន់ឲ្យនឹង...";
 "jumio_id_scan_prompt_hold_straight" = "កាន់ឲ្យត្រង់";
-"jumio_id_scan_prompt_initial_linefinder" = "ដាក់ស៊ុមឯកសាររបស់អ្នក";
 "jumio_id_scan_prompt_move_closer" = "ខិតឲ្យជិតជាងនេះ";
 "jumio_id_scan_prompt_processing" = "កំពុងពិនិត្យរូបភាព...";
 "jumio_id_scan_prompt_redact_deu_id_paper" = "សូមលេខ ID  មុននឹងថត";
@@ -190,6 +190,9 @@
 "jumio_iproov_failure_generic_light" = "ផ្ទៃមុខរបស់អ្នកត្រូវតែមានពន្លឺស្មើគ្នា និងលេចធ្លោពីផ្ទៃខាងក្រោយ";
 "jumio_iproov_failure_generic_title" = "មិនស្គាល់មុខទេ";
 "jumio_iproov_intro_la" = "ដាក់មុខរបស់អ្នកឲ្យចំពាក់កណ្ដាលស៊ុម ហើយអនុវត្តតាមការណែនាំនៅលើអេក្រង់។";
+"jumio_liveness_prompt_no_target" = "ដាក់មុខរបស់អ្នកនៅក្នុងស៊ុម";
+"jumio_liveness_prompt_success_another_shot" = "យល់ហើយ! អញ្ចឹងថតមួយទៀត";
+"jumio_liveness_upfront_intro" = "យើងត្រូវថតការស្កេនមុខរបស់អ្នក ដើម្បីផ្ទៀងផ្ទាត់ថា អ្នកជាមនុស្សពិត។";
 "jumio_loading_title" = "កំពុងផ្ទុក";
 "jumio_nfc_button_skip" = "រំលង";
 "jumio_nfc_description_secure_connection" = "កំពុងបង្កើតការតភ្ជាប់ដែលមានសុវត្ថិភាព";

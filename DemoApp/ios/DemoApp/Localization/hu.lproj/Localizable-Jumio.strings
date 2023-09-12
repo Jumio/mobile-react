@@ -4,6 +4,7 @@
 */
   
 "IProov_AccessibilityLabelCloseButton" = "Bezárás";
+"IProov_AccessibilityLabelSecuredByIProov" = "";
 "IProov_AccessibilityPromptAlignFace" = "Tartsa az eszközt az arca elé, és nézzen a képernyőre";
 "IProov_AccessibilityPromptScanning" = "Szkennelés";
 "IProov_Authenticate" = "";
@@ -147,7 +148,6 @@
 "jumio_id_scan_prompt_front_captured" = "ELÜLSŐ oldal rögzítve";
 "jumio_id_scan_prompt_hold_still" = "Tartsa mozdulatanul...";
 "jumio_id_scan_prompt_hold_straight" = "Tartsa egyenesen";
-"jumio_id_scan_prompt_initial_linefinder" = "Keretezze be az igazolványt";
 "jumio_id_scan_prompt_move_closer" = "Mozgassa közelebb";
 "jumio_id_scan_prompt_processing" = "Kép ellenőrzése folyamatban...";
 "jumio_id_scan_prompt_redact_deu_id_paper" = "A rögzítés előtt kérjük, rövidítse le az azonosítószámot";
@@ -190,6 +190,9 @@
 "jumio_iproov_failure_generic_light" = "Gondoskodjon arról, hogy arca egyenletesen legyen megvilágítva, és elkülönüljön a háttértől";
 "jumio_iproov_failure_generic_title" = "Az arc nem ismerhető fel";
 "jumio_iproov_intro_la" = "Helyezze az arcát a keret közepébe, és kövesse a képernyőn megjelenő utasításokat.";
+"jumio_liveness_prompt_no_target" = "Igazítsa az arcát a keretbe";
+"jumio_liveness_prompt_success_another_shot" = "Értem! Készítsünk egy másik fényképet";
+"jumio_liveness_upfront_intro" = "Be kell szkennelnünk az arcát, hogy meggyőződjünk róla, valódi személyről van szó.";
 "jumio_loading_title" = "Betöltés";
 "jumio_nfc_button_skip" = "Kihagyás";
 "jumio_nfc_description_secure_connection" = "Biztonságos kapcsolat létrehozása";

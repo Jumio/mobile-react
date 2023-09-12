@@ -4,6 +4,7 @@
 */
   
 "IProov_AccessibilityLabelCloseButton" = "關閉";
+"IProov_AccessibilityLabelSecuredByIProov" = "";
 "IProov_AccessibilityPromptAlignFace" = "將裝置放在臉前並注視螢幕";
 "IProov_AccessibilityPromptScanning" = "掃描中...";
 "IProov_Authenticate" = "";
@@ -147,7 +148,6 @@
 "jumio_id_scan_prompt_front_captured" = "正面截圖";
 "jumio_id_scan_prompt_hold_still" = "保持不動...";
 "jumio_id_scan_prompt_hold_straight" = "站直";
-"jumio_id_scan_prompt_initial_linefinder" = "將文件置於框內";
 "jumio_id_scan_prompt_move_closer" = "靠近一點";
 "jumio_id_scan_prompt_processing" = "正在檢查圖像...";
 "jumio_id_scan_prompt_redact_deu_id_paper" = "拍攝前請編輯證件號碼";
@@ -190,6 +190,9 @@
 "jumio_iproov_failure_generic_light" = "您的臉必須被均勻照亮，且與背景對比強烈";
 "jumio_iproov_failure_generic_title" = "臉部無法識別";
 "jumio_iproov_intro_la" = "將您的面部置於框中間，並遵循螢幕上的指示。";
+"jumio_liveness_prompt_no_target" = "將您的面部置於框內";
+"jumio_liveness_prompt_success_another_shot" = "瞭解！讓我們再拍一張";
+"jumio_liveness_upfront_intro" = "我們需要掃描您的臉部，以驗證您是真人。";
 "jumio_loading_title" = "載入中";
 "jumio_nfc_button_skip" = "跳躍";
 "jumio_nfc_description_secure_connection" = "建立安全連線";

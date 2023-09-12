@@ -4,6 +4,7 @@
 */
   
 "IProov_AccessibilityLabelCloseButton" = "Stäng";
+"IProov_AccessibilityLabelSecuredByIProov" = "";
 "IProov_AccessibilityPromptAlignFace" = "Håll enheten framför ditt ansikte och titta på skärmen";
 "IProov_AccessibilityPromptScanning" = "Skannar";
 "IProov_Authenticate" = "Tomt";
@@ -147,7 +148,6 @@
 "jumio_id_scan_prompt_front_captured" = "Bild tagen av FRAMSIDAN";
 "jumio_id_scan_prompt_hold_still" = "Håll stadigt ...";
 "jumio_id_scan_prompt_hold_straight" = "Håll rakt";
-"jumio_id_scan_prompt_initial_linefinder" = "Placera ID-handlingen inom ramen";
 "jumio_id_scan_prompt_move_closer" = "Flytta närmare";
 "jumio_id_scan_prompt_processing" = "Kontrollerar bilden...";
 "jumio_id_scan_prompt_redact_deu_id_paper" = "Justera id-numret innan bilden tas";
@@ -190,6 +190,9 @@
 "jumio_iproov_failure_generic_light" = "Ditt ansikte måste vara jämnt upplyst och sticka ut från bakgrunden";
 "jumio_iproov_failure_generic_title" = "Ansiktet känns inte igen";
 "jumio_iproov_intro_la" = "Se till att ansiktet är i mitten av ramen och följ instruktionerna på skärmen.";
+"jumio_liveness_prompt_no_target" = "Rama in ansiktet";
+"jumio_liveness_prompt_success_another_shot" = "Okej! Gör ett nytt försök";
+"jumio_liveness_upfront_intro" = "Vi måste skanna ditt ansikte för att verifiera att du är en riktig person.";
 "jumio_loading_title" = "Laddar";
 "jumio_nfc_button_skip" = "Hoppa";
 "jumio_nfc_description_secure_connection" = "Upprättar en säker anslutning";

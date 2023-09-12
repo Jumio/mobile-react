@@ -4,6 +4,7 @@
 */
   
 "IProov_AccessibilityLabelCloseButton" = "إغلاق";
+"IProov_AccessibilityLabelSecuredByIProov" = "";
 "IProov_AccessibilityPromptAlignFace" = "احمل الجهاز مقابل وجهك وانظر إلى الشاشة";
 "IProov_AccessibilityPromptScanning" = "جار المسح الضوئي";
 "IProov_Authenticate" = "";
@@ -147,7 +148,6 @@
 "jumio_id_scan_prompt_front_captured" = "تم التقاط الجزء الأمامي";
 "jumio_id_scan_prompt_hold_still" = "اثبت في مكانك...";
 "jumio_id_scan_prompt_hold_straight" = "حافظ على استقامتك";
-"jumio_id_scan_prompt_initial_linefinder" = "ضع مستندك داخل الإطار";
 "jumio_id_scan_prompt_move_closer" = "اقترب";
 "jumio_id_scan_prompt_processing" = "جارٍ التحقق من الصورة...";
 "jumio_id_scan_prompt_redact_deu_id_paper" = "يُرجى تعديل رقم الهوية قبل الالتقاط";
@@ -190,6 +190,9 @@
 "jumio_iproov_failure_generic_light" = "يجب أن يكون وجهك مضاءً بشكل متساوٍ وأن يبرز من الخلفية";
 "jumio_iproov_failure_generic_title" = "لم يتم التعرف على الوجه";
 "jumio_iproov_intro_la" = "اجعل وجهك في وسط الإطار واتبع التعليمات التي تظهر على الشاشة.";
+"jumio_liveness_prompt_no_target" = "ضع وجهك في الإطار";
+"jumio_liveness_prompt_success_another_shot" = "فهمت! فلنحاول مرة أخرى";
+"jumio_liveness_upfront_intro" = "نريد إجراء مسح لوجهك للتحقق من أنك شخص حقيقي.";
 "jumio_loading_title" = "جار التحميل";
 "jumio_nfc_button_skip" = "تخطى";
 "jumio_nfc_description_secure_connection" = "إنشاء اتصال آمن";

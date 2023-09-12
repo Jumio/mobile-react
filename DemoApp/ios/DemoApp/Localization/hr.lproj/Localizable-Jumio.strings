@@ -4,6 +4,7 @@
 */
   
 "IProov_AccessibilityLabelCloseButton" = "Zatvori";
+"IProov_AccessibilityLabelSecuredByIProov" = "";
 "IProov_AccessibilityPromptAlignFace" = "Držite uređaj ispred lica i gledajte u zaslon";
 "IProov_AccessibilityPromptScanning" = "Skeniranje";
 "IProov_Authenticate" = "";
@@ -147,7 +148,6 @@
 "jumio_id_scan_prompt_front_captured" = "PREDNJA STRANA je dohvaćena";
 "jumio_id_scan_prompt_hold_still" = "Budite mirni...";
 "jumio_id_scan_prompt_hold_straight" = "Držite se uspravno";
-"jumio_id_scan_prompt_initial_linefinder" = "Uokvirite svoj dokument";
 "jumio_id_scan_prompt_move_closer" = "Priđite bliže";
 "jumio_id_scan_prompt_processing" = "Provjera slike...";
 "jumio_id_scan_prompt_redact_deu_id_paper" = "Molimo da uredite broj osobne iskaznice prije snimanja";
@@ -190,6 +190,9 @@
 "jumio_iproov_failure_generic_light" = "Lice vam mora biti ravnomjerno osvjetljeno i isticati se od pozadine";
 "jumio_iproov_failure_generic_title" = "Lice nije prepoznato";
 "jumio_iproov_intro_la" = "Centrirajte lice u okviru i pratite upute na zaslonu.";
+"jumio_liveness_prompt_no_target" = "Stavite svoje lice u okvir";
+"jumio_liveness_prompt_success_another_shot" = "Razumijem! Pokušajmo još jedanput";
+"jumio_liveness_upfront_intro" = "Moramo skenirati vaše lice da bismo potvrdili da ste stvarna osoba.";
 "jumio_loading_title" = "Učitavam";
 "jumio_nfc_button_skip" = "Preskoči";
 "jumio_nfc_description_secure_connection" = "Uspostavljanje sigurne veze";

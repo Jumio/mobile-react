@@ -4,6 +4,7 @@
 */
   
 "IProov_AccessibilityLabelCloseButton" = "닫기";
+"IProov_AccessibilityLabelSecuredByIProov" = "";
 "IProov_AccessibilityPromptAlignFace" = "기기를 얼굴 앞에 대고 화면을 봅니다";
 "IProov_AccessibilityPromptScanning" = "스캔 중";
 "IProov_Authenticate" = "";
@@ -147,7 +148,6 @@
 "jumio_id_scan_prompt_front_captured" = "앞면이 촬영되었습니다";
 "jumio_id_scan_prompt_hold_still" = "가만히 계세요...";
 "jumio_id_scan_prompt_hold_straight" = "정면 응시 후 정지";
-"jumio_id_scan_prompt_initial_linefinder" = "서류를 프레임에 맞추세요";
 "jumio_id_scan_prompt_move_closer" = "가까이 이동";
 "jumio_id_scan_prompt_processing" = "이미지 확인 중...";
 "jumio_id_scan_prompt_redact_deu_id_paper" = "촬영 전에 ID 번호를 가려주세요";
@@ -190,6 +190,9 @@
 "jumio_iproov_failure_generic_light" = "얼굴에 그림자나 빛 반사가 없고 얼굴이 배경과 구분될 수 있어야 합니다.";
 "jumio_iproov_failure_generic_title" = "얼굴 인식 불가";
 "jumio_iproov_intro_la" = "프레임 중앙에 얼굴을 놓고 화면에 뜨는 설명을 따라 해주세요.";
+"jumio_liveness_prompt_no_target" = "프레임에 얼굴을 놓아주세요";
+"jumio_liveness_prompt_success_another_shot" = "좋아요! 한 번 더 촬영해 봅시다";
+"jumio_liveness_upfront_intro" = "실제 사람인지 확인하기 위해 얼굴을 스캔해야 합니다.";
 "jumio_loading_title" = "불러오는 중";
 "jumio_nfc_button_skip" = "건너 뛰기";
 "jumio_nfc_description_secure_connection" = "보안 연결 설정 중";

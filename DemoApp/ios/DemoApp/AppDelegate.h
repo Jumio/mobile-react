@@ -8,11 +8,9 @@
  */
 
 #import <UIKit/UIKit.h>
-#import <React/RCTBridge.h>
+#import <RCTAppDelegate.h>
 #import <Jumio/Jumio-Swift.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate, RCTBridgeDelegate>
-
-@property (nonatomic, strong) UIWindow *window;
+@interface AppDelegate : RCTAppDelegate
 
 @end

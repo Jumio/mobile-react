@@ -1,66 +1,82 @@
-platform :ios, '12.4'
-install! 'cocoapods', :deterministic_uuids => false
-require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
-require_relative '../node_modules/react-native/scripts/react_native_pods'
+# Resolve react_native_pods.rb with node to allow for hoisting
+require Pod::Executable.execute_command('node', ['-p',
+  'require.resolve(
+    "react-native/scripts/react_native_pods.rb",
+    {paths: [process.argv[1]]},
+  )', __dir__]).strip
 
-#source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, min_ios_version_supported
+prepare_react_native_project!
+# If you are using a `react-native-flipper` your iOS build will fail when `NO_FLIPPER=1` is set.
+# because `react-native-flipper` depends on (FlipperKit,...) that will be excluded
+#
+# To fix this you can also exclude `react-native-flipper` using a `react-native.config.js`
+# ```js
+# module.exports = {
+#   dependencies: {
+#     ...(process.env.NO_FLIPPER ? { 'react-native-flipper': { platforms: { ios: null } } } : {}),
+# ```
+flipper_config = ENV['NO_FLIPPER'] == "1" ? FlipperConfiguration.disabled : FlipperConfiguration.enabled
 
-def pods()
-  # Pods for DemoApp
-  config = use_native_modules!
-
-  # Flags change depending on the env values.
-  flags = get_default_flags()
-  use_react_native!(
-    :path => config[:reactNativePath],
-    # Hermes is now enabled by default. Disable by setting this flag to false.
-    # Upcoming versions of React Native may rely on get_default_flags(), but
-    # we make it explicit here to aid in the React Native upgrade process.
-    :hermes_enabled => true,
-    :fabric_enabled => flags[:fabric_enabled],
-    # An absolute path to your application root.
-    :app_path => "#{Pod::Config.instance.installation_root}/.."
-  )
-  use_frameworks!
+linkage = ENV['USE_FRAMEWORKS']
+if linkage != nil
+  Pod::UI.puts "Configuring Pod with #{linkage}ally linked Frameworks".green
+  use_frameworks! :linkage => linkage.to_sym
 end
 
 target "DemoApp" do
-    pods()
-end
+    config = use_native_modules!
 
-dynamic_frameworks = ['Starscream', 'iProov', 'DatadogSDK', 'SwiftProtobuf']
+    # Flags change depending on the env values.
+    flags = get_default_flags()
+    
+    use_react_native!(
+      :path => config[:reactNativePath],
+      :hermes_enabled => flags[:hermes_enabled],
+      :fabric_enabled => flags[:fabric_enabled],
+      # Enables Flipper.
+      #
+      # Note that if you have use_frameworks! enabled, Flipper will not work and
+      # you should disable the next line.
+      # :flipper_configuration => flipper_config,
+      # An absolute path to your application root.
+      :app_path => "#{Pod::Config.instance.installation_root}/.."
+    )
+    use_frameworks!
 
-# make all the other frameworks into static frameworks by overriding the static_framework? function to return true
-pre_install do |installer|
-  installer.pod_targets.each do |pod|
-    if !dynamic_frameworks.include?(pod.name)
-      puts "Overriding the static_framework? method for #{pod.name}"
-      def pod.static_framework?;
-        true
-      end
-      def pod.build_type;
-        Pod::BuildType.static_library
-      end
-    end
-  end
-end
+    dynamic_frameworks = ['Starscream', 'iProov', 'DatadogSDK', 'SwiftProtobuf']
 
-post_install do |installer|
-    installer.pods_project.targets.each do |target|
-      target.build_configurations.each do |config|
-        config.build_settings['BUILD_LIBRARY_FOR_DISTRIBUTION'] = 'YES'
-      end
-    end
-    installer.generated_projects.each do |project|
-      project.targets.each do |target|
-        target.build_configurations.each do |config|
-          config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '12.0'
+    # make all the other frameworks into static frameworks by overriding the static_framework? function to return true
+    pre_install do |installer|
+      installer.pod_targets.each do |pod|
+        if !dynamic_frameworks.include?(pod.name)
+          puts "Overriding the static_framework? method for #{pod.name}"
+          def pod.static_framework?;
+            true
+          end
+          def pod.build_type;
+            Pod::BuildType.static_library
+          end
         end
       end
     end
-    `sed -i -e  $'s/__IPHONE_10_0/__IPHONE_13_0/' #{installer.sandbox.root}/RCT-Folly/folly/portability/Time.h`
-    path = "Pods/Target Support Files/Pods-DemoApp/Pods-DemoApp-frameworks.sh"
-    lines = File.readlines(path)
-    lines.insert(177, 'install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/hermes-engine/hermes.framework"'+"\n")
-    File.write(path, lines.join, mode: "w")
+
+    post_install do |installer|
+      installer.pods_project.targets.each do |target|
+        target.build_configurations.each do |config|
+          config.build_settings['BUILD_LIBRARY_FOR_DISTRIBUTION'] = 'YES'
+        end
+      end
+
+      installer.pods_project.build_configurations.each do |config|
+        config.build_settings["EXCLUDED_ARCHS[sdk=iphonesimulator*]"] = "arm64"
+      end
+
+      react_native_post_install(
+        installer,
+        config[:reactNativePath],
+        :mac_catalyst_enabled => false
+      )
+      __apply_Xcode_12_5_M1_post_install_workaround(installer)
+    end
 end

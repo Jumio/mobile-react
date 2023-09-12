@@ -1,7 +1,8 @@
 # Plugin for React Native
 Official Jumio Mobile SDK plugin for React Native
 
-This plugin is compatible with version 4.5.0 of the Jumio SDK. If you have questions, please reach out to your Account Manager or contact [Jumio Support](#support).
+This plugin is compatible with version 4.6.0 of the Jumio Android SDK and 4.6.1 of the Jumio iOS SDK.    
+If you have questions, please reach out to your Account Manager or contact [Jumio Support](#support).
 
 # Table of Contents
 - [Compatibility](#compatibility)
@@ -9,6 +10,7 @@ This plugin is compatible with version 4.5.0 of the Jumio SDK. If you have quest
 - [Integration](#integration)
   - [iOS](#ios)
   - [Android](#ios)
+    - [Proguard](#proguard)
 - [Usage](#usage)
   - [Retrieving Information](#retrieving-information)
 - [Customization](#customization)
@@ -22,7 +24,7 @@ This plugin is compatible with version 4.5.0 of the Jumio SDK. If you have quest
 - [Support](#support)
 
 ## Compatibility
-We only ensure compatibility with a minimum React Native version of 0.70
+We only ensure compatibility with a minimum React Native version of 0.72.4
 
 ## Setup
 Create React Native project and add the Jumio Mobile SDK module to it.
@@ -30,7 +32,8 @@ Create React Native project and add the Jumio Mobile SDK module to it.
 ```sh
 react-native init MyProject
 cd MyProject
-npm install --save https://github.com/Jumio/mobile-react.git#v4.5.0
+npm install --save https://github.com/Jumio/mobile-react.git#v4.6.1
+cd ios && pod install
 ```
 
 ## Integration
@@ -39,17 +42,17 @@ npm install --save https://github.com/Jumio/mobile-react.git#v4.5.0
 1. Add the "**NSCameraUsageDescription**"-key to your Info.plist file.
 2. Your app's deployment target must be at least iOS 11.0
 
+#### Device Risk
+To include Jumio's Device Risk functionality, you need to add `pod Jumio/DeviceRisk` to your Podfile.
+
 ### Android
 __AndroidManifest__    
-Open your AndroidManifest.xml file and change `allowBackup` to false. Add user permission `HIGH_SAMPLING_RATE_SENSORS` to access sensor data with a sampling rate greater than 200 Hz.
-
+Open your AndroidManifest.xml file and change `allowBackup` to false. 
 ```xml
 <application
 ...
 android:allowBackup="false">
 </application>
-...
-<uses-permission android:name="android.permission.HIGH_SAMPLING_RATE_SENSORS"/>
 ```
 
 Make sure your compileSdkVersion and buildToolsVersion are high enough.
@@ -109,7 +112,7 @@ exclusiveContent {
 }
 ```
 
-***Proguard Rules***    
+#### Proguard 
 For information on Android Proguard Rules concerning the Jumio SDK, please refer to our [Android guides](https://github.com/Jumio/mobile-sdk-android#proguard).
 
 ## Usage
@@ -331,6 +334,9 @@ You need to copy those files to the assets folder of your Android project (Path:
 
 ## FAQ
 
+### iOS Simulator shows a white-screen, when the Jumio SDK is started
+The Jumio SDK does not support the iOS Simulator. Please run the Jumio SDK only on physical devices.
+
 ### iOS Runs on Debug, Crashes on Release Build
 This happens due to Xcode 13 introducing a new option to their __App Store Distribution Options__:
 
@@ -382,7 +388,7 @@ Please refer to the iOS section of our [DemoApp guide](DemoApp/README.md#iOS) fo
 
 ### iOS Build Fails for React 0.71.2
 `use_frameworks!` needs to be included in the `Podfile` and properly executed in order for Jumio dynamic frameworks to install correctly.
-Make sure [the necessary `pre_install` and `post_install` hooks](#using-ios-dynamic-frameworks-with-react-native-sample-app) have been included.
+Make sure [the necessary `pre_install` and `post_install` hooks](#using-dynamic-frameworks-with-react-native-sample-app) have been included.
 Also make sure that [Flipper](https://fbflipper.com/) is disabled for your project, since Flipper is not compatible with iOS dynamic frameworks at the moment.
 
 Please also refer to the [Podfile](DemoApp/ios/Podfile) of our sample application for further details.

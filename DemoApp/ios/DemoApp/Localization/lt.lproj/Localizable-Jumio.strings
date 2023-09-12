@@ -4,6 +4,7 @@
 */
   
 "IProov_AccessibilityLabelCloseButton" = "Uždaryti";
+"IProov_AccessibilityLabelSecuredByIProov" = "";
 "IProov_AccessibilityPromptAlignFace" = "Laikykite įrenginį priešais veidą ir žiūrėkite į ekraną";
 "IProov_AccessibilityPromptScanning" = "Nuskaitoma";
 "IProov_Authenticate" = "";
@@ -147,7 +148,6 @@
 "jumio_id_scan_prompt_front_captured" = "PRIEKINĖ pusė nufotografuota";
 "jumio_id_scan_prompt_hold_still" = "Nejudėkite...";
 "jumio_id_scan_prompt_hold_straight" = "Stovėkite tiesiai";
-"jumio_id_scan_prompt_initial_linefinder" = "Sutalpinkite dokumentą į rėmelį";
 "jumio_id_scan_prompt_move_closer" = "Prieikite arčiau";
 "jumio_id_scan_prompt_processing" = "Nuotrauka tikrinama...";
 "jumio_id_scan_prompt_redact_deu_id_paper" = "Prieš fotografuodami uždenkite ID numerį";
@@ -190,6 +190,9 @@
 "jumio_iproov_failure_generic_light" = "Jūsų veidas turi būti tolygiai apšviestas ir išsiskirti iš fono";
 "jumio_iproov_failure_generic_title" = "Veidas neatpažintas";
 "jumio_iproov_intro_la" = "Išlaikykite veidą rėmelio centre ir vadovaukitės ekrane pateikiamais nurodymais.";
+"jumio_liveness_prompt_no_target" = "Patalpinkite savo veidą rėmelyje";
+"jumio_liveness_prompt_success_another_shot" = "Supratau! Pabandom iš naujo";
+"jumio_liveness_upfront_intro" = "Norėdami įsitikinti, kad esate tikras asmuo, turėsime nuskaityti jūsų veidą.";
 "jumio_loading_title" = "Įkeliama";
 "jumio_nfc_button_skip" = "Praleisti";
 "jumio_nfc_description_secure_connection" = "Užmezgamas saugus ryšys";

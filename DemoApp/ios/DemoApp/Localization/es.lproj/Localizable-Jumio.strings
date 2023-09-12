@@ -4,6 +4,7 @@
 */
   
 "IProov_AccessibilityLabelCloseButton" = "Cerrar";
+"IProov_AccessibilityLabelSecuredByIProov" = "";
 "IProov_AccessibilityPromptAlignFace" = "Sujete el dispositivo frente a su cara y mire a la pantalla";
 "IProov_AccessibilityPromptScanning" = "Escaneando";
 "IProov_Authenticate" = "";
@@ -147,7 +148,6 @@
 "jumio_id_scan_prompt_front_captured" = "PARTE DELANTERA capturada";
 "jumio_id_scan_prompt_hold_still" = "No se mueva...";
 "jumio_id_scan_prompt_hold_straight" = "Mantenga una postura recta";
-"jumio_id_scan_prompt_initial_linefinder" = "Encuadre su documento";
 "jumio_id_scan_prompt_move_closer" = "Acérquese";
 "jumio_id_scan_prompt_processing" = "Comprobando la imagen...";
 "jumio_id_scan_prompt_redact_deu_id_paper" = "Por favor, oculte el número de ID antes de capturar";
@@ -180,7 +180,7 @@
 "jumio_idtype_format_option_other" = "Otro formato";
 "jumio_idtype_format_option_plastic" = "Tarjeta de plástico";
 "jumio_idtype_format_title" = "¿En qué formato está?";
-"jumio_idtype_id" = "Tarjeta de identidad";
+"jumio_idtype_id" = "Documento de identidad";
 "jumio_idtype_pp" = "Pasaporte";
 "jumio_idtype_subtitle_country" = "Compruebe el país de expedición";
 "jumio_idtype_subtitle_id" = "Seleccione el tipo de documento";
@@ -190,6 +190,9 @@
 "jumio_iproov_failure_generic_light" = "Su cara debe estar uniformemente iluminada y distinguirse del fondo";
 "jumio_iproov_failure_generic_title" = "No se reconoce la cara";
 "jumio_iproov_intro_la" = "Centre el rostro en el marco y siga las instrucciones en pantalla.";
+"jumio_liveness_prompt_no_target" = "Ubique la cara dentro del marco";
+"jumio_liveness_prompt_success_another_shot" = "¡Entendido! Intentémoslo de nuevo.";
+"jumio_liveness_upfront_intro" = "Necesitamos escanear su rostro para verificar que es una persona real.";
 "jumio_loading_title" = "Cargando";
 "jumio_nfc_button_skip" = "Omitir";
 "jumio_nfc_description_secure_connection" = "Establecimiento de una conexión segura";

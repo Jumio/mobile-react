@@ -4,6 +4,7 @@
 */
   
 "IProov_AccessibilityLabelCloseButton" = "बंद करे";
+"IProov_AccessibilityLabelSecuredByIProov" = "";
 "IProov_AccessibilityPromptAlignFace" = "डिवाइस को अपने चेहरे के सामने रखें और स्क्रीन पर देखें";
 "IProov_AccessibilityPromptScanning" = "स्कैनिंग";
 "IProov_Authenticate" = "";
@@ -147,7 +148,6 @@
 "jumio_id_scan_prompt_front_captured" = "आगे के हिस्से को केप्चर किया";
 "jumio_id_scan_prompt_hold_still" = "स्थिर पकड़ें...";
 "jumio_id_scan_prompt_hold_straight" = "सीधे पकड़ें";
-"jumio_id_scan_prompt_initial_linefinder" = "अपने दस्तावेज़ को फ़्रेम करें";
 "jumio_id_scan_prompt_move_closer" = "पास ले जाएँ";
 "jumio_id_scan_prompt_processing" = "इमेज की जांच की जा रही है...";
 "jumio_id_scan_prompt_redact_deu_id_paper" = "कृपया कैप्चर करने से पहले आईडी नंबर को संपादित करें";
@@ -190,6 +190,9 @@
 "jumio_iproov_failure_generic_light" = "आपका चेहरा समान रूप से चमकीला होना चाहिए और पृष्ठभूमि से स्पष्ट होना चाहिए";
 "jumio_iproov_failure_generic_title" = "चेहरा पहचाना नहीं गया";
 "jumio_iproov_intro_la" = "अपने चेहरे को फ्रेम के केंद्र में रखें और स्क्रीन पर आने वाले निर्देशों का पालन करें।";
+"jumio_liveness_prompt_no_target" = "अपने चेहरे को फ्रेम में रखें";
+"jumio_liveness_prompt_success_another_shot" = "अब समझा! एक और शॉट लेते हैं";
+"jumio_liveness_upfront_intro" = "यह वेरीफाई करने के लिए कि आप एक वास्तविक व्यक्ति हैं, हमें आपके चेहरे को स्कैन करने की आवश्यकता है।";
 "jumio_loading_title" = "लोड हो रहा है";
 "jumio_nfc_button_skip" = "छोड़ें";
 "jumio_nfc_description_secure_connection" = "सुरक्षित कनेक्शन स्थापित किया जा रहा है";

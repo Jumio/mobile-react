@@ -4,6 +4,7 @@
 */
   
 "IProov_AccessibilityLabelCloseButton" = "Închideți";
+"IProov_AccessibilityLabelSecuredByIProov" = "";
 "IProov_AccessibilityPromptAlignFace" = "Țineți dispozitivul în dreptul feței dvs. și priviți spre ecran";
 "IProov_AccessibilityPromptScanning" = "Se scanează";
 "IProov_Authenticate" = "";
@@ -147,7 +148,6 @@
 "jumio_id_scan_prompt_front_captured" = "PARTE FAȚĂ capturată";
 "jumio_id_scan_prompt_hold_still" = "Țineți nemișcat...";
 "jumio_id_scan_prompt_hold_straight" = "Țineți drept";
-"jumio_id_scan_prompt_initial_linefinder" = "Încadrați documentul dvs.";
 "jumio_id_scan_prompt_move_closer" = "Apropiați";
 "jumio_id_scan_prompt_processing" = "Verificarea imaginii...";
 "jumio_id_scan_prompt_redact_deu_id_paper" = "Vă rugăm revizuiți numărul cărții de identificare înainte de a face fotografia";
@@ -190,6 +190,9 @@
 "jumio_iproov_failure_generic_light" = "Asigurați-vă că fața este luminată uniform și se distinge de fundal";
 "jumio_iproov_failure_generic_title" = "Fața nu a fost recunoscută";
 "jumio_iproov_intro_la" = "Centrați-vă fața și urmăriți instrucțiunile de pe ecran.";
+"jumio_liveness_prompt_no_target" = "Încadrați-vă fața";
+"jumio_liveness_prompt_success_another_shot" = "Perfect! Să mai facem o poză";
+"jumio_liveness_upfront_intro" = "Trebuie să vă scanăm fața pentru a verifica dacă sunteți o persoană reală.";
 "jumio_loading_title" = "Se încarcă";
 "jumio_nfc_button_skip" = "Ocolire";
 "jumio_nfc_description_secure_connection" = "Stabilirea unei conexiuni sigure";

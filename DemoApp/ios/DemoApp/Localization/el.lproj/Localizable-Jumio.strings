@@ -4,6 +4,7 @@
 */
   
 "IProov_AccessibilityLabelCloseButton" = "Κλείσιμο";
+"IProov_AccessibilityLabelSecuredByIProov" = "";
 "IProov_AccessibilityPromptAlignFace" = "Κρατήστε τη συσκευή μπροστά στο πρόσωπό σας και κοιτάξτε την οθόνη";
 "IProov_AccessibilityPromptScanning" = "Σάρωση";
 "IProov_Authenticate" = "";
@@ -147,7 +148,6 @@
 "jumio_id_scan_prompt_front_captured" = "Αποτυπώθηκε η ΜΠΡΟΣΤΙΝΗ όψη";
 "jumio_id_scan_prompt_hold_still" = "Μείνετε ακίνητοι…";
 "jumio_id_scan_prompt_hold_straight" = "Κρατήστε ίσιο τον κορμό σας";
-"jumio_id_scan_prompt_initial_linefinder" = "Τοποθετήστε το έγγραφό σας εντός του πλαισίου";
 "jumio_id_scan_prompt_move_closer" = "Ελάτε πιο κοντά";
 "jumio_id_scan_prompt_processing" = "Γίνεται έλεγχος της εικόνας...";
 "jumio_id_scan_prompt_redact_deu_id_paper" = "Αποκρύψτε τον αριθμό ταυτότητας πριν από τη λήψη";
@@ -190,6 +190,9 @@
 "jumio_iproov_failure_generic_light" = "Το πρόσωπό σας πρέπει να φωτίζεται ομοιόμορφα και να ξεχωρίζει από το φόντο";
 "jumio_iproov_failure_generic_title" = "Το πρόσωπο δεν αναγνωρίστηκε";
 "jumio_iproov_intro_la" = "Κεντράρετε το πρόσωπό σας στο πλαίσιο και ακολουθήστε τις οδηγίες που εμφανίζονται στην οθόνη.";
+"jumio_liveness_prompt_no_target" = "Τοποθετήστε το πρόσωπό σας στο πλαίσιο";
+"jumio_liveness_prompt_success_another_shot" = "Εντάξει! Ας τραβήξουμε άλλη μια φωτογραφία";
+"jumio_liveness_upfront_intro" = "Πρέπει να κάνουμε σάρωση του προσώπου σας για να επαληθεύσουμε ότι είστε πραγματικό άτομο.";
 "jumio_loading_title" = "Φόρτωση";
 "jumio_nfc_button_skip" = "Παραλείπω";
 "jumio_nfc_description_secure_connection" = "Δημιουργία ασφαλούς σύνδεσης";

@@ -4,6 +4,7 @@
 */
   
 "IProov_AccessibilityLabelCloseButton" = "Close";
+"IProov_AccessibilityLabelSecuredByIProov" = "";
 "IProov_AccessibilityPromptAlignFace" = "Hold the device in front of your face and look at the screen";
 "IProov_AccessibilityPromptScanning" = "Scanning";
 "IProov_Authenticate" = "";
@@ -147,7 +148,6 @@
 "jumio_id_scan_prompt_front_captured" = "FRONT captured";
 "jumio_id_scan_prompt_hold_still" = "Hold still...";
 "jumio_id_scan_prompt_hold_straight" = "Hold straight";
-"jumio_id_scan_prompt_initial_linefinder" = "Frame your document";
 "jumio_id_scan_prompt_move_closer" = "Move closer";
 "jumio_id_scan_prompt_processing" = "Checking the image...";
 "jumio_id_scan_prompt_redact_deu_id_paper" = "Please cover the ID number before capturing";
@@ -190,6 +190,9 @@
 "jumio_iproov_failure_generic_light" = "Your face must be evenly lit and stand out from the background";
 "jumio_iproov_failure_generic_title" = "Face not recognized";
 "jumio_iproov_intro_la" = "Center your face in the frame and follow the on-screen instructions.";
+"jumio_liveness_prompt_no_target" = "Put your face in the frame";
+"jumio_liveness_prompt_success_another_shot" = "Got it! Let's take another shot";
+"jumio_liveness_upfront_intro" = "We need to take a scan of your face to verify that you are a real person.";
 "jumio_loading_title" = "Loading";
 "jumio_nfc_button_skip" = "Skip";
 "jumio_nfc_description_secure_connection" = "Establishing secure connection";

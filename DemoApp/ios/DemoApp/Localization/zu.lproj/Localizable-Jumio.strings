@@ -4,6 +4,7 @@
 */
   
 "IProov_AccessibilityLabelCloseButton" = "Vala";
+"IProov_AccessibilityLabelSecuredByIProov" = "";
 "IProov_AccessibilityPromptAlignFace" = "Bamba ubuso bakho phambi kobuso bakho futhi ubheke isikrini";
 "IProov_AccessibilityPromptScanning" = "Iyaskena";
 "IProov_Authenticate" = "";
@@ -147,7 +148,6 @@
 "jumio_id_scan_prompt_front_captured" = "INGAPHAMBILI ithathiwe";
 "jumio_id_scan_prompt_hold_still" = "Yibambe unganyakazi...";
 "jumio_id_scan_prompt_hold_straight" = "Yibambe iqonde";
-"jumio_id_scan_prompt_initial_linefinder" = "Faka uhlaka kwidokhumenti yakho";
 "jumio_id_scan_prompt_move_closer" = "Sondeza eduzane";
 "jumio_id_scan_prompt_processing" = "Ihlola isithombe...";
 "jumio_id_scan_prompt_redact_deu_id_paper" = "Sicela usule inombolo ye-ID ngaphambi kokuthatha isithombe";
@@ -190,6 +190,9 @@
 "jumio_iproov_failure_generic_light" = "Ubuso bakho kumelwe bukhanyiswe ngendlela efanayo futhi bugqame kunalokho okungemuva";
 "jumio_iproov_failure_generic_title" = "Ubuso abuqashelwa";
 "jumio_iproov_intro_la" = "Beka ubuso bakho phakathi nendawo ohlakeni futhi ulandele iziqondiso ezisesikrinini.";
+"jumio_liveness_prompt_no_target" = "Beka ubuso bakho ohlakeni";
+"jumio_liveness_prompt_success_another_shot" = "Ngiyaqonda! Masithathe esinye isithombe";
+"jumio_liveness_upfront_intro" = "Kudingeka siskene ubuso bakho ukuze siqinisekise ukuthi ungumuntu ongokoqobo.";
 "jumio_loading_title" = "Iyaloda";
 "jumio_nfc_button_skip" = "Yeqa";
 "jumio_nfc_description_secure_connection" = "Isungula ukuxhumana okuphephile";

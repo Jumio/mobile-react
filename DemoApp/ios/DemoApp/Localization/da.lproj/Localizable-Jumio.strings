@@ -4,6 +4,7 @@
 */
   
 "IProov_AccessibilityLabelCloseButton" = "Luk";
+"IProov_AccessibilityLabelSecuredByIProov" = "";
 "IProov_AccessibilityPromptAlignFace" = "Hold enheden foran dit ansigt, og kig på skærmen";
 "IProov_AccessibilityPromptScanning" = "Scanner";
 "IProov_Authenticate" = "";
@@ -147,7 +148,6 @@
 "jumio_id_scan_prompt_front_captured" = "FORside taget";
 "jumio_id_scan_prompt_hold_still" = "Hold stille...";
 "jumio_id_scan_prompt_hold_straight" = "Hold lige";
-"jumio_id_scan_prompt_initial_linefinder" = "Placer dit ID i rammen";
 "jumio_id_scan_prompt_move_closer" = "Ryk nærmere";
 "jumio_id_scan_prompt_processing" = "Kontrollerer billedet ...";
 "jumio_id_scan_prompt_redact_deu_id_paper" = "Sørg for, at id-nummeret er skjult inden billedet tages";
@@ -190,6 +190,9 @@
 "jumio_iproov_failure_generic_light" = "Dit ansigt skal være jævnt belyst og skille sig ud fra baggrunden";
 "jumio_iproov_failure_generic_title" = "Ansigt ikke genkendt";
 "jumio_iproov_intro_la" = "Centrer dit ansigt i rammen, og og følg vejledningen på skærmen.";
+"jumio_liveness_prompt_no_target" = "Anbring dit ansigt i rammen";
+"jumio_liveness_prompt_success_another_shot" = "OK! Lad os tage et andet billede";
+"jumio_liveness_upfront_intro" = "Vi er nødt til at scanne dit ansigt for at kunne bekræfte, at du er et menneske.";
 "jumio_loading_title" = "Indlæser";
 "jumio_nfc_button_skip" = "Springe";
 "jumio_nfc_description_secure_connection" = "Opretter sikker forbindelse";

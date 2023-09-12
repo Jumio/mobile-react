@@ -4,6 +4,7 @@
 */
   
 "IProov_AccessibilityLabelCloseButton" = "Chiudi";
+"IProov_AccessibilityLabelSecuredByIProov" = "";
 "IProov_AccessibilityPromptAlignFace" = "Tieni il dispositivo di fronte al viso e guarda verso lo schermo";
 "IProov_AccessibilityPromptScanning" = "Scansione";
 "IProov_Authenticate" = "";
@@ -147,7 +148,6 @@
 "jumio_id_scan_prompt_front_captured" = "FRONTE acquisito";
 "jumio_id_scan_prompt_hold_still" = "Rimani immobile...";
 "jumio_id_scan_prompt_hold_straight" = "Rimani dritto";
-"jumio_id_scan_prompt_initial_linefinder" = "Inquadra il documento";
 "jumio_id_scan_prompt_move_closer" = "Avvicinati";
 "jumio_id_scan_prompt_processing" = "Controllo immagine...";
 "jumio_id_scan_prompt_redact_deu_id_paper" = "Si prega di censurare il numero della carta d'identità prima di scattare";
@@ -190,6 +190,9 @@
 "jumio_iproov_failure_generic_light" = "Il viso deve essere illuminato in modo uniforme e distinguersi dallo sfondo";
 "jumio_iproov_failure_generic_title" = "Viso non riconosciuto";
 "jumio_iproov_intro_la" = "Centra il viso nella cornice e segui le istruzioni sullo schermo.";
+"jumio_liveness_prompt_no_target" = "Inquadra il viso nell'ovale";
+"jumio_liveness_prompt_success_another_shot" = "Bene! Facciamo un'altra scansione";
+"jumio_liveness_upfront_intro" = "Dobbiamo eseguire una scansione del tuo viso per verificare che tu sia una persona reale.";
 "jumio_loading_title" = "Caricamento";
 "jumio_nfc_button_skip" = "Salta";
 "jumio_nfc_description_secure_connection" = "Tentativo di stabilire una connessione sicura";

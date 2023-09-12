@@ -4,6 +4,7 @@
 */
   
 "IProov_AccessibilityLabelCloseButton" = "Затваряне";
+"IProov_AccessibilityLabelSecuredByIProov" = "";
 "IProov_AccessibilityPromptAlignFace" = "Дръжте устройството пред лицето си и гледайте в екрана";
 "IProov_AccessibilityPromptScanning" = "Сканиране";
 "IProov_Authenticate" = "";
@@ -147,7 +148,6 @@
 "jumio_id_scan_prompt_front_captured" = "ПРЕДНА страна уловена";
 "jumio_id_scan_prompt_hold_still" = "Останете неподвижно...";
 "jumio_id_scan_prompt_hold_straight" = "Дръжте изправено";
-"jumio_id_scan_prompt_initial_linefinder" = "Наместете документа в рамката";
 "jumio_id_scan_prompt_move_closer" = "Приближете се по-близо";
 "jumio_id_scan_prompt_processing" = "Изображението се проверява...";
 "jumio_id_scan_prompt_redact_deu_id_paper" = "Скрийте номера на личната карта, преди да я заснемете";
@@ -190,6 +190,9 @@
 "jumio_iproov_failure_generic_light" = "Лицето ви трябва да е равномерно осветено и да се откроява от фона";
 "jumio_iproov_failure_generic_title" = "Лицето не е разпознато";
 "jumio_iproov_intro_la" = "Позиционирайте лицето си в центъра на рамката и последвайте инструкциите на екрана.";
+"jumio_liveness_prompt_no_target" = "Позиционирайте лицето си в рамката";
+"jumio_liveness_prompt_success_another_shot" = "Готово! Нека направим още един опит за снимка";
+"jumio_liveness_upfront_intro" = "Трябва да направим снимка на лицето ви, за да потвърдим, че сте истински човек.";
 "jumio_loading_title" = "Зареждане";
 "jumio_nfc_button_skip" = "Пропуснете";
 "jumio_nfc_description_secure_connection" = "Установяване на защитена връзка";
