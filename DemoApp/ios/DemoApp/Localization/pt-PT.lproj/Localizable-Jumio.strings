@@ -1,6 +1,6 @@
 /*
   Localizable-Jumio.strings
-  Copyright © 2021 Jumio Corporation. All rights reserved.
+  Copyright © 2023 Jumio Corporation. All rights reserved.
 */
   
 "IProov_AccessibilityLabelCloseButton" = "Fechar";
@@ -52,8 +52,6 @@
 "IProov_PromptTooFar" = "Aproximar";
 "IProov_PromptYawTooHigh" = "Vire-se ligeiramente para a sua esquerda";
 "IProov_PromptYawTooLow" = "Vire-se ligeiramente para a sua direita";
-"jumio_accessibility_alert_confirm" = "OK";
-"jumio_accessibility_alert_hint" = "Dica";
 "jumio_accessibility_button_close" = "Fechar";
 "jumio_accessibility_scan_back" = "Voltar";
 "jumio_accessibility_scan_help" = "Menu de ajuda";
@@ -131,13 +129,10 @@
 "jumio_id_confirm_button_confirm" = "Confirmar";
 "jumio_id_confirm_paragraph" = "Certifique-se de que os detalhes são claramente visíveis e legíveis";
 "jumio_id_confirm_title" = "Confirme a sua foto";
-"jumio_id_scan_guide_take_photo_back_dl" = "Tire uma foto do VERSO da sua carta de condução.";
-"jumio_id_scan_guide_take_photo_back_idc" = "Tire uma foto do VERSO do seu documento de identificação.";
-"jumio_id_scan_guide_take_photo_back_pd" = "Tire uma foto do VERSO do seu documento pessoal.";
-"jumio_id_scan_guide_take_photo_front_dl" = "Tire uma foto da FRENTE da sua carta de condução.";
-"jumio_id_scan_guide_take_photo_front_idc" = "Tire uma foto da FRENTE do seu documento de identificação.";
-"jumio_id_scan_guide_take_photo_front_pd" = "Tire uma foto da FRENTE do seu documento pessoal.";
-"jumio_id_scan_guide_take_photo_passport" = "Tire uma foto do seu passaporte.";
+"jumio_id_scan_guide_back_side" = "Capture o VERSO";
+"jumio_id_scan_guide_back_side_manually" = "Capture manualmente o VERSO";
+"jumio_id_scan_guide_photo_side" = "Capture a FRENTE";
+"jumio_id_scan_guide_photo_side_manually" = "Capture manualmente a FRENTE";
 "jumio_id_scan_hint_performance_fallback" = "Digitalização otimizada para um melhor desempenho do dispositivo";
 "jumio_id_scan_manual" = "Tire uma foto do seu documento";
 "jumio_id_scan_manual_tips" = "Certifique-se de que capta o documento completo";
@@ -150,11 +145,6 @@
 "jumio_id_scan_prompt_hold_straight" = "Mantenha-se numa posição direita";
 "jumio_id_scan_prompt_move_closer" = "Aproxime-se";
 "jumio_id_scan_prompt_processing" = "A verificar a imagem...";
-"jumio_id_scan_prompt_redact_deu_id_paper" = "Oculte o número do Documento de Identificação antes de captar a imagem";
-"jumio_id_scan_prompt_redact_deu_id_plastic" = "Oculte o número do Documento de Identificação e o número de acesso antes de captar a imagem";
-"jumio_id_scan_prompt_redact_deu_passport" = "Oculte o número do passaporte antes de captar a imagem";
-"jumio_id_scan_prompt_redact_kor" = "Oculte o segundo bloco do seu Número de Registo de Residente antes de captar a imagem";
-"jumio_id_scan_prompt_redact_nld" = "Oculte o seu BSN antes de captar a imagem";
 "jumio_id_scan_prompt_too_close" = "Demasiado perto";
 "jumio_id_scan_prompt_zoom_barcode" = "Amplie o seu código de barras";
 "jumio_id_scan_tips_barcode" = "Aproximar a câmara do código de barras";
@@ -163,7 +153,6 @@
 "jumio_id_scan_tips_focusing" = "Verifique se a foto está em foco";
 "jumio_id_scan_tips_glare" = "Evitar reflexos e ofuscamento";
 "jumio_id_scan_tips_lighting" = "Não tirar fotografia no escuro";
-"jumio_id_scan_tips_passport" = "Alinhar a sobreposição com a página de fotografia";
 "jumio_id_scan_tips_placing" = "Colocar o ID sobre uma superfície plana";
 "jumio_id_scan_tips_title" = "Dicas";
 "jumio_id_scan_tooltip" = "Precisa de ajuda?";

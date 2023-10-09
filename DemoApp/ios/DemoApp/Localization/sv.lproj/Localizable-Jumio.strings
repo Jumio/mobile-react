@@ -1,6 +1,6 @@
 /*
   Localizable-Jumio.strings
-  Copyright © 2021 Jumio Corporation. All rights reserved.
+  Copyright © 2023 Jumio Corporation. All rights reserved.
 */
   
 "IProov_AccessibilityLabelCloseButton" = "Stäng";
@@ -52,8 +52,6 @@
 "IProov_PromptTooFar" = "Flytta närmare";
 "IProov_PromptYawTooHigh" = "Vänd dig lite åt vänster";
 "IProov_PromptYawTooLow" = "Vänd dig lite åt höger";
-"jumio_accessibility_alert_confirm" = "Okej";
-"jumio_accessibility_alert_hint" = "Tips";
 "jumio_accessibility_button_close" = "Stäng";
 "jumio_accessibility_scan_back" = "Tillbaka";
 "jumio_accessibility_scan_help" = "Hjälpmeny";
@@ -131,13 +129,10 @@
 "jumio_id_confirm_button_confirm" = "Bekräfta";
 "jumio_id_confirm_paragraph" = "Se till att alla uppgifter syns tydligt och är läsbara";
 "jumio_id_confirm_title" = "Bekräfta din bild";
-"jumio_id_scan_guide_take_photo_back_dl" = "Ta en bild av BAKSIDAN av ditt körkort.";
-"jumio_id_scan_guide_take_photo_back_idc" = "Ta en bild av BAKSIDAN av ditt ID-kort.";
-"jumio_id_scan_guide_take_photo_back_pd" = "Ta en bild av BAKSIDAN av ditt personliga dokument.";
-"jumio_id_scan_guide_take_photo_front_dl" = "Ta en bild av FRAMSIDAN av ditt körkort.";
-"jumio_id_scan_guide_take_photo_front_idc" = "Ta en bild av FRAMSIDAN av ditt ID-kort.";
-"jumio_id_scan_guide_take_photo_front_pd" = "Ta en bild av FRAMSIDAN av ditt personliga dokument.";
-"jumio_id_scan_guide_take_photo_passport" = "Ta en bild av ditt pass.";
+"jumio_id_scan_guide_back_side" = "Ta en bild av BAKSIDAN";
+"jumio_id_scan_guide_back_side_manually" = "Ta en bild av BAKSIDAN manuellt";
+"jumio_id_scan_guide_photo_side" = "Ta en bild av FOTO-sidan";
+"jumio_id_scan_guide_photo_side_manually" = "Ta en bild av FOTO-sidan manuellt";
 "jumio_id_scan_hint_performance_fallback" = "Skanning optimerad för bättre enhetsprestanda";
 "jumio_id_scan_manual" = "Ta en bild av ditt dokument";
 "jumio_id_scan_manual_tips" = "Se till att hela dokumentet inkluderas";
@@ -150,11 +145,6 @@
 "jumio_id_scan_prompt_hold_straight" = "Håll rakt";
 "jumio_id_scan_prompt_move_closer" = "Flytta närmare";
 "jumio_id_scan_prompt_processing" = "Kontrollerar bilden...";
-"jumio_id_scan_prompt_redact_deu_id_paper" = "Justera id-numret innan bilden tas";
-"jumio_id_scan_prompt_redact_deu_id_plastic" = "Justera id-handlingen och åtkomstnumret innan bilden tas";
-"jumio_id_scan_prompt_redact_deu_passport" = "Justera passnumret innan bilden tas";
-"jumio_id_scan_prompt_redact_kor" = "Justera den andra sektionen av ditt folkbokföringsnummer innan bilden tas";
-"jumio_id_scan_prompt_redact_nld" = "Justera BSN innan bilden tas";
 "jumio_id_scan_prompt_too_close" = "För nära";
 "jumio_id_scan_prompt_zoom_barcode" = "Zooma in på din streckkod";
 "jumio_id_scan_tips_barcode" = "Flytta kameran närmare streckkoden";
@@ -163,7 +153,6 @@
 "jumio_id_scan_tips_focusing" = "Se till att bilden är fokuserad";
 "jumio_id_scan_tips_glare" = "Undvik reflektioner och bländning";
 "jumio_id_scan_tips_lighting" = "Ta inte i bilden mörker";
-"jumio_id_scan_tips_passport" = "Justera överlappningen med fotosidan";
 "jumio_id_scan_tips_placing" = "Placera ID:t på en plan yta";
 "jumio_id_scan_tips_title" = "Tips";
 "jumio_id_scan_tooltip" = "Kan vi hjälpa dej?";

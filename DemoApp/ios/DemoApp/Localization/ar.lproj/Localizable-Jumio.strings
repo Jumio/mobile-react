@@ -1,6 +1,6 @@
 /*
   Localizable-Jumio.strings
-  Copyright © 2021 Jumio Corporation. All rights reserved.
+  Copyright © 2023 Jumio Corporation. All rights reserved.
 */
   
 "IProov_AccessibilityLabelCloseButton" = "إغلاق";
@@ -52,8 +52,6 @@
 "IProov_PromptTooFar" = "اقترب";
 "IProov_PromptYawTooHigh" = "انعطف ببطء إلى يسارك";
 "IProov_PromptYawTooLow" = "انعطف ببطء إلى يمينك";
-"jumio_accessibility_alert_confirm" = "موافق";
-"jumio_accessibility_alert_hint" = "تلميح";
 "jumio_accessibility_button_close" = "إغلاق";
 "jumio_accessibility_scan_back" = "رجوع";
 "jumio_accessibility_scan_help" = "قائمة التعليمات";
@@ -131,13 +129,10 @@
 "jumio_id_confirm_button_confirm" = "تأكيد";
 "jumio_id_confirm_paragraph" = "تأكد من أن التفاصيل مرئية بوضوح ويمكن قراءتها";
 "jumio_id_confirm_title" = "تأكيد صورتك";
-"jumio_id_scan_guide_take_photo_back_dl" = "التقط صورة للجزء الخلفي من رخصة قيادتك.";
-"jumio_id_scan_guide_take_photo_back_idc" = "التقط صورة للجزء الخلفي من بطاقة هويتك.";
-"jumio_id_scan_guide_take_photo_back_pd" = "التقط صورة للجزء الخلفي من المستند الشخصي.";
-"jumio_id_scan_guide_take_photo_front_dl" = "التقط صورة للجزء الأمامي من رخصة قيادتك.";
-"jumio_id_scan_guide_take_photo_front_idc" = "التقط صورة للجزء الأمامي من بطاقة هويتك.";
-"jumio_id_scan_guide_take_photo_front_pd" = "التقط صورة للجزء الأمامي من المستند الشخصي.";
-"jumio_id_scan_guide_take_photo_passport" = "التقط صورة لجواز سفرك.";
+"jumio_id_scan_guide_back_side" = "التقاط صورة للجانب \"الخلفي\"";
+"jumio_id_scan_guide_back_side_manually" = "التقط صورة للجانب \"الخلفي\" يدويًا";
+"jumio_id_scan_guide_photo_side" = "التقط جانب \"الصورة\"";
+"jumio_id_scan_guide_photo_side_manually" = "التقط يدويًا جانب \"الصورة\"";
 "jumio_id_scan_hint_performance_fallback" = "تم تحسين المسح الضوئي للحصول على أداء أفضل للجهاز";
 "jumio_id_scan_manual" = "التقط صورة لمستندك";
 "jumio_id_scan_manual_tips" = "تأكد من التقاط المستند بأكمله";
@@ -150,11 +145,6 @@
 "jumio_id_scan_prompt_hold_straight" = "حافظ على استقامتك";
 "jumio_id_scan_prompt_move_closer" = "اقترب";
 "jumio_id_scan_prompt_processing" = "جارٍ التحقق من الصورة...";
-"jumio_id_scan_prompt_redact_deu_id_paper" = "يُرجى تعديل رقم الهوية قبل الالتقاط";
-"jumio_id_scan_prompt_redact_deu_id_plastic" = "يُرجى تعديل الهوية ورقم الوصول قبل الالتقاط";
-"jumio_id_scan_prompt_redact_deu_passport" = "يُرجى تعديل رقم جواز السفر قبل الالتقاط";
-"jumio_id_scan_prompt_redact_kor" = "قم بتعديل المجموعة الثانية لرقم تسجيل الإقامة الخاص بك قبل الالتقاط";
-"jumio_id_scan_prompt_redact_nld" = "يُرجى تعديل BSN الخاص بك قبل الالتقاط";
 "jumio_id_scan_prompt_too_close" = "قريب جدًا";
 "jumio_id_scan_prompt_zoom_barcode" = "قم بتكبير الرمز الشريطي الخاص بك";
 "jumio_id_scan_tips_barcode" = "حرِّك الكاميرا بالقرب من الرمز الشريطي";
@@ -163,7 +153,6 @@
 "jumio_id_scan_tips_focusing" = "تأكد من أن الصورة في بؤرة التركيز";
 "jumio_id_scan_tips_glare" = "تجنب الانعكاسات والوهج";
 "jumio_id_scan_tips_lighting" = "لا تلتقط الصورة في الظلام";
-"jumio_id_scan_tips_passport" = "قم بمحاذاة مساحة الالتقاط مع صفحة الصورة";
 "jumio_id_scan_tips_placing" = "ضع مستند هويتك على سطح مستوٍ";
 "jumio_id_scan_tips_title" = "نصائح";
 "jumio_id_scan_tooltip" = "هل تحتاج مساعدة؟";

@@ -1,6 +1,6 @@
 /*
   Localizable-Jumio.strings
-  Copyright © 2021 Jumio Corporation. All rights reserved.
+  Copyright © 2023 Jumio Corporation. All rights reserved.
 */
   
 "IProov_AccessibilityLabelCloseButton" = "关闭";
@@ -52,8 +52,6 @@
 "IProov_PromptTooFar" = "靠近一点";
 "IProov_PromptYawTooHigh" = "请稍微转向左侧";
 "IProov_PromptYawTooLow" = "请稍微转向右侧";
-"jumio_accessibility_alert_confirm" = "确定";
-"jumio_accessibility_alert_hint" = "提示";
 "jumio_accessibility_button_close" = "关闭";
 "jumio_accessibility_scan_back" = "返回";
 "jumio_accessibility_scan_help" = "帮助菜单";
@@ -131,13 +129,10 @@
 "jumio_id_confirm_button_confirm" = "确认";
 "jumio_id_confirm_paragraph" = "请确保所有细节均清晰可见且可读";
 "jumio_id_confirm_title" = "确认您的照片";
-"jumio_id_scan_guide_take_photo_back_dl" = "拍摄您的驾驶证背面照片。";
-"jumio_id_scan_guide_take_photo_back_idc" = "拍摄您的身份证背面照片。";
-"jumio_id_scan_guide_take_photo_back_pd" = "拍摄您的个人证件背面照片。";
-"jumio_id_scan_guide_take_photo_front_dl" = "拍摄您的驾驶证正面照片。";
-"jumio_id_scan_guide_take_photo_front_idc" = "拍摄您的身份证正面照片。";
-"jumio_id_scan_guide_take_photo_front_pd" = "拍摄您的个人证件正面照片。";
-"jumio_id_scan_guide_take_photo_passport" = "拍摄您的护照照片。";
+"jumio_id_scan_guide_back_side" = "拍摄背面";
+"jumio_id_scan_guide_back_side_manually" = "手动拍摄背面";
+"jumio_id_scan_guide_photo_side" = "拍摄照片面";
+"jumio_id_scan_guide_photo_side_manually" = "手动拍摄照片面";
 "jumio_id_scan_hint_performance_fallback" = "扫描已优化，可提高设备性能";
 "jumio_id_scan_manual" = "拍摄您的证件照片";
 "jumio_id_scan_manual_tips" = "请确保已拍下完整的文件";
@@ -150,11 +145,6 @@
 "jumio_id_scan_prompt_hold_straight" = "保持笔直";
 "jumio_id_scan_prompt_move_closer" = "靠近一点";
 "jumio_id_scan_prompt_processing" = "正在检查图像...";
-"jumio_id_scan_prompt_redact_deu_id_paper" = "请在拍摄前遮挡身份证号";
-"jumio_id_scan_prompt_redact_deu_id_plastic" = "请在拍摄前遮掉身份证号和准入号码";
-"jumio_id_scan_prompt_redact_deu_passport" = "请在拍摄前遮挡护照号码";
-"jumio_id_scan_prompt_redact_kor" = "请在拍摄前遮挡您的居民登记号码的第二部分";
-"jumio_id_scan_prompt_redact_nld" = "请在拍摄前遮挡您的 BSN";
 "jumio_id_scan_prompt_too_close" = "太近了";
 "jumio_id_scan_prompt_zoom_barcode" = "放大您的条形码";
 "jumio_id_scan_tips_barcode" = "将摄像头移近条形码";
@@ -163,7 +153,6 @@
 "jumio_id_scan_tips_focusing" = "请确保照片对焦正确";
 "jumio_id_scan_tips_glare" = "避免反射和眩光";
 "jumio_id_scan_tips_lighting" = "不要在黑暗中拍照";
-"jumio_id_scan_tips_passport" = "对齐覆盖图层与照片页面";
 "jumio_id_scan_tips_placing" = "将身份证放置在平坦的表面";
 "jumio_id_scan_tips_title" = "提示";
 "jumio_id_scan_tooltip" = "需要帮助？";

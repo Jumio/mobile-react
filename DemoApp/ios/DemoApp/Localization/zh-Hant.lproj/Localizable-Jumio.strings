@@ -1,6 +1,6 @@
 /*
   Localizable-Jumio.strings
-  Copyright © 2021 Jumio Corporation. All rights reserved.
+  Copyright © 2023 Jumio Corporation. All rights reserved.
 */
   
 "IProov_AccessibilityLabelCloseButton" = "關閉";
@@ -52,8 +52,6 @@
 "IProov_PromptTooFar" = "靠近一點";
 "IProov_PromptYawTooHigh" = "稍向左轉";
 "IProov_PromptYawTooLow" = "稍向右轉";
-"jumio_accessibility_alert_confirm" = "確定";
-"jumio_accessibility_alert_hint" = "提示";
 "jumio_accessibility_button_close" = "關閉";
 "jumio_accessibility_scan_back" = "返回";
 "jumio_accessibility_scan_help" = "幫助選單";
@@ -131,13 +129,10 @@
 "jumio_id_confirm_button_confirm" = "確認";
 "jumio_id_confirm_paragraph" = "確保細節清晰可見且可讀";
 "jumio_id_confirm_title" = "確認相片";
-"jumio_id_scan_guide_take_photo_back_dl" = "拍攝駕照的背面。";
-"jumio_id_scan_guide_take_photo_back_idc" = "拍攝身分證的背面。";
-"jumio_id_scan_guide_take_photo_back_pd" = "拍攝個人文件的背面。";
-"jumio_id_scan_guide_take_photo_front_dl" = "拍攝駕照的正面。";
-"jumio_id_scan_guide_take_photo_front_idc" = "拍攝身分證的正面。";
-"jumio_id_scan_guide_take_photo_front_pd" = "拍攝個人文件的正面。";
-"jumio_id_scan_guide_take_photo_passport" = "拍攝您的護照。";
+"jumio_id_scan_guide_back_side" = "捕捉背面";
+"jumio_id_scan_guide_back_side_manually" = "手動捕捉背面";
+"jumio_id_scan_guide_photo_side" = "捕捉照片面";
+"jumio_id_scan_guide_photo_side_manually" = "手動捕捉照片面";
 "jumio_id_scan_hint_performance_fallback" = "掃描最佳化以獲得更好的裝置效能";
 "jumio_id_scan_manual" = "拍一張文件相片";
 "jumio_id_scan_manual_tips" = "確保擷取完整文件";
@@ -150,11 +145,6 @@
 "jumio_id_scan_prompt_hold_straight" = "站直";
 "jumio_id_scan_prompt_move_closer" = "靠近一點";
 "jumio_id_scan_prompt_processing" = "正在檢查圖像...";
-"jumio_id_scan_prompt_redact_deu_id_paper" = "拍攝前請編輯證件號碼";
-"jumio_id_scan_prompt_redact_deu_id_plastic" = "拍攝前請編輯 ID 和存取號碼";
-"jumio_id_scan_prompt_redact_deu_passport" = "拍攝前請編輯護照號碼";
-"jumio_id_scan_prompt_redact_kor" = "拍攝前請先編輯居民登記號的第二塊";
-"jumio_id_scan_prompt_redact_nld" = "拍攝前請編輯 BSN";
 "jumio_id_scan_prompt_too_close" = "太近";
 "jumio_id_scan_prompt_zoom_barcode" = "放大您的條碼";
 "jumio_id_scan_tips_barcode" = "將相機移近條碼";
@@ -163,7 +153,6 @@
 "jumio_id_scan_tips_focusing" = "確保相片對焦";
 "jumio_id_scan_tips_glare" = "避免反射和眩光";
 "jumio_id_scan_tips_lighting" = "請勿在暗處拍照";
-"jumio_id_scan_tips_passport" = "將拍攝框與相片頁面對齊";
 "jumio_id_scan_tips_placing" = "將身分證件放在平面上";
 "jumio_id_scan_tips_title" = "提示";
 "jumio_id_scan_tooltip" = "需要幫助嗎？";

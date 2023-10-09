@@ -1,6 +1,6 @@
 /*
   Localizable-Jumio.strings
-  Copyright © 2021 Jumio Corporation. All rights reserved.
+  Copyright © 2023 Jumio Corporation. All rights reserved.
 */
   
 "IProov_AccessibilityLabelCloseButton" = "Đóng";
@@ -52,8 +52,6 @@
 "IProov_PromptTooFar" = "Di chuyển lại gần hơn";
 "IProov_PromptYawTooHigh" = "Xoay nhẹ sang bên trái của bạn";
 "IProov_PromptYawTooLow" = "Xoay nhẹ sang bên phải của bạn";
-"jumio_accessibility_alert_confirm" = "Ok";
-"jumio_accessibility_alert_hint" = "Gợi ý";
 "jumio_accessibility_button_close" = "Đóng";
 "jumio_accessibility_scan_back" = "Trở lại";
 "jumio_accessibility_scan_help" = "Menu trợ giúp";
@@ -131,13 +129,10 @@
 "jumio_id_confirm_button_confirm" = "Xác nhận";
 "jumio_id_confirm_paragraph" = "Đảm bảo rằng có thể nhìn thấy rõ ràng và có thể đọc được các chi tiết";
 "jumio_id_confirm_title" = "Xác nhận ảnh của bạn";
-"jumio_id_scan_guide_take_photo_back_dl" = "Chụp ảnh MẶT SAU giấy phép lái xe của bạn.";
-"jumio_id_scan_guide_take_photo_back_idc" = "Chụp ảnh MẶT SAU thẻ căn cước công dân của bạn.";
-"jumio_id_scan_guide_take_photo_back_pd" = "Chụp ảnh MẶT SAU tài liệu cá nhân của bạn.";
-"jumio_id_scan_guide_take_photo_front_dl" = "Chụp ảnh MẶT TRƯỚC giấy phép lái xe của bạn.";
-"jumio_id_scan_guide_take_photo_front_idc" = "Chụp ảnh MẶT TRƯỚC thẻ căn cước công dân của bạn.";
-"jumio_id_scan_guide_take_photo_front_pd" = "Chụp ảnh MẶT TRƯỚC tài liệu cá nhân của bạn.";
-"jumio_id_scan_guide_take_photo_passport" = "Chụp ảnh hộ chiếu của bạn.";
+"jumio_id_scan_guide_back_side" = "Chụp mặt SAU của giấy tờ";
+"jumio_id_scan_guide_back_side_manually" = "Chụp mặt SAU của giấy tờ theo cách thủ công";
+"jumio_id_scan_guide_photo_side" = "Chụp mặt TRƯỚC của giấy tờ";
+"jumio_id_scan_guide_photo_side_manually" = "Chụp mặt TRƯỚC của giấy tờ theo cách thủ công";
 "jumio_id_scan_hint_performance_fallback" = "Quy trình quét được tối ưu hóa để thiết bị đạt hiệu suất tốt hơn";
 "jumio_id_scan_manual" = "Chụp ảnh tài liệu của bạn";
 "jumio_id_scan_manual_tips" = "Đảm bảo chụp toàn bộ tài liệu";
@@ -150,11 +145,6 @@
 "jumio_id_scan_prompt_hold_straight" = "Giữ thẳng";
 "jumio_id_scan_prompt_move_closer" = "Tiến lại gần";
 "jumio_id_scan_prompt_processing" = "Đang kiểm tra hình ảnh...";
-"jumio_id_scan_prompt_redact_deu_id_paper" = "Hãy che số ID trước khi chụp";
-"jumio_id_scan_prompt_redact_deu_id_plastic" = "Hãy che số ID và số truy cập trước khi chụp";
-"jumio_id_scan_prompt_redact_deu_passport" = "Hãy che số hộ chiếu và số truy cập trước khi chụp";
-"jumio_id_scan_prompt_redact_kor" = "Hãy che phần sau của Số đăng ký cư trú trước khi chụp";
-"jumio_id_scan_prompt_redact_nld" = "Hãy che BSN trước khi chụp";
 "jumio_id_scan_prompt_too_close" = "Quá gần";
 "jumio_id_scan_prompt_zoom_barcode" = "Phóng to mã vạch của bạn";
 "jumio_id_scan_tips_barcode" = "Di chuyển máy ảnh đến gần mã vạch";
@@ -163,7 +153,6 @@
 "jumio_id_scan_tips_focusing" = "Đảm bảo ảnh được lấy nét";
 "jumio_id_scan_tips_glare" = "Tránh phản xạ và ánh sáng chói";
 "jumio_id_scan_tips_lighting" = "Không chụp ảnh trong bóng tối";
-"jumio_id_scan_tips_passport" = "Căn chỉnh lớp phủ với trang ảnh";
 "jumio_id_scan_tips_placing" = "Đặt ID trên một bề mặt phẳng";
 "jumio_id_scan_tips_title" = "Mẹo";
 "jumio_id_scan_tooltip" = "Cần trợ giúp?";

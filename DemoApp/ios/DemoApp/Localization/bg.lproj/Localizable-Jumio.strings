@@ -1,6 +1,6 @@
 /*
   Localizable-Jumio.strings
-  Copyright © 2021 Jumio Corporation. All rights reserved.
+  Copyright © 2023 Jumio Corporation. All rights reserved.
 */
   
 "IProov_AccessibilityLabelCloseButton" = "Затваряне";
@@ -52,8 +52,6 @@
 "IProov_PromptTooFar" = "Приближете се";
 "IProov_PromptYawTooHigh" = "Обърнете се леко наляво";
 "IProov_PromptYawTooLow" = "Обърнете се леко надясно";
-"jumio_accessibility_alert_confirm" = "Добре";
-"jumio_accessibility_alert_hint" = "Подсказка";
 "jumio_accessibility_button_close" = "Затваряне";
 "jumio_accessibility_scan_back" = "Назад";
 "jumio_accessibility_scan_help" = "Помощ";
@@ -131,13 +129,10 @@
 "jumio_id_confirm_button_confirm" = "Потвърждавам";
 "jumio_id_confirm_paragraph" = "Уверете се, че информацията се вижда ясно и е четлива";
 "jumio_id_confirm_title" = "Потвърдете снимката си";
-"jumio_id_scan_guide_take_photo_back_dl" = "Снимайте ЗАДНАТА страна на шофьорска книжка.";
-"jumio_id_scan_guide_take_photo_back_idc" = "Снимайте ЗАДНАТА страна на личната ви карта.";
-"jumio_id_scan_guide_take_photo_back_pd" = "Снимайте ЗАДНАТА страна на вашия документ за самоличност.";
-"jumio_id_scan_guide_take_photo_front_dl" = "Снимайте ПРЕДНАТА страна на вашата шофьорска книжка.";
-"jumio_id_scan_guide_take_photo_front_idc" = "Снимайте ПРЕДНАТА страна на личната ви карта.";
-"jumio_id_scan_guide_take_photo_front_pd" = "Снимайте ПРЕДНАТА страна на вашия документ за самоличност.";
-"jumio_id_scan_guide_take_photo_passport" = "Снимайте паспорта си.";
+"jumio_id_scan_guide_back_side" = "Снимайте ЗАДНАТА страна";
+"jumio_id_scan_guide_back_side_manually" = "Ръчно заснемете ЗАДНАТА страна";
+"jumio_id_scan_guide_photo_side" = "Снимайте страната със СНИМКАТА";
+"jumio_id_scan_guide_photo_side_manually" = "Ръчно заснемете страната със СНИМКАТА";
 "jumio_id_scan_hint_performance_fallback" = "Оптимизирано сканиране за по-добра производителност на устройството";
 "jumio_id_scan_manual" = "Снимайте документа";
 "jumio_id_scan_manual_tips" = "Снимката трябва да обхваща целия документ";
@@ -145,16 +140,11 @@
 "jumio_id_scan_prompt_capture_success" = "Готово!";
 "jumio_id_scan_prompt_center_id" = "Центрирайте документа";
 "jumio_id_scan_prompt_flip_to_back" = "Обърнете на ЗАДНАТА страна";
-"jumio_id_scan_prompt_front_captured" = "ПРЕДНА страна уловена";
+"jumio_id_scan_prompt_front_captured" = "ПРЕДНА страна заснета";
 "jumio_id_scan_prompt_hold_still" = "Останете неподвижно...";
 "jumio_id_scan_prompt_hold_straight" = "Дръжте изправено";
 "jumio_id_scan_prompt_move_closer" = "Приближете се по-близо";
 "jumio_id_scan_prompt_processing" = "Изображението се проверява...";
-"jumio_id_scan_prompt_redact_deu_id_paper" = "Скрийте номера на личната карта, преди да я заснемете";
-"jumio_id_scan_prompt_redact_deu_id_plastic" = "Скрийте номера на личната карта и номера за достъп, преди да я заснемете";
-"jumio_id_scan_prompt_redact_deu_passport" = "Скрийте номера на паспорта, преди да го заснемете";
-"jumio_id_scan_prompt_redact_kor" = "Скрийте втория блок от цифри на вашия граждански регистрационен номер, преди да го заснемете";
-"jumio_id_scan_prompt_redact_nld" = "Скрийте вашия BSN, преди да го заснемете.";
 "jumio_id_scan_prompt_too_close" = "Твърде близо сте";
 "jumio_id_scan_prompt_zoom_barcode" = "Увеличете вашия баркод";
 "jumio_id_scan_tips_barcode" = "Приближете камерата до баркода";
@@ -163,7 +153,6 @@
 "jumio_id_scan_tips_focusing" = "Уверете се, че снимката е на фокус";
 "jumio_id_scan_tips_glare" = "Избягвайте отражения и отблясъци";
 "jumio_id_scan_tips_lighting" = "Не правете снимката на тъмно";
-"jumio_id_scan_tips_passport" = "Наместете очертанията върху страницата със снимката";
 "jumio_id_scan_tips_placing" = "Поставете документа за самоличност на плоска повърхност";
 "jumio_id_scan_tips_title" = "Съвети";
 "jumio_id_scan_tooltip" = "Имате нужда от помощ?";

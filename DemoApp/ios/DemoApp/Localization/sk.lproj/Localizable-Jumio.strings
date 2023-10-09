@@ -1,6 +1,6 @@
 /*
   Localizable-Jumio.strings
-  Copyright © 2021 Jumio Corporation. All rights reserved.
+  Copyright © 2023 Jumio Corporation. All rights reserved.
 */
   
 "IProov_AccessibilityLabelCloseButton" = "Zatvoriť";
@@ -52,8 +52,6 @@
 "IProov_PromptTooFar" = "Pristúpte bližšie";
 "IProov_PromptYawTooHigh" = "Trochu sa otočte doľava";
 "IProov_PromptYawTooLow" = "Trochu sa otočte doprava";
-"jumio_accessibility_alert_confirm" = "Dobre";
-"jumio_accessibility_alert_hint" = "Nápoveda";
 "jumio_accessibility_button_close" = "Zatvoriť";
 "jumio_accessibility_scan_back" = "Späť";
 "jumio_accessibility_scan_help" = "Pomocník";
@@ -131,13 +129,10 @@
 "jumio_id_confirm_button_confirm" = "Potvrdiť";
 "jumio_id_confirm_paragraph" = "Uistite sa, že všetky detaily sú jasne viditeľné a čitateľné";
 "jumio_id_confirm_title" = "Potvrďte svoju fotografiu";
-"jumio_id_scan_guide_take_photo_back_dl" = "Odfoťte ZADNÚ stranu svojho vodičského preukazu.";
-"jumio_id_scan_guide_take_photo_back_idc" = "Odfoťte ZADNÚ stranu svojho občianskeho preukazu.";
-"jumio_id_scan_guide_take_photo_back_pd" = "Odfoťte ZADNÚ stranu svojho dokladu totožnosti.";
-"jumio_id_scan_guide_take_photo_front_dl" = "Odfoťte PREDNÚ stranu svojho vodičského preukazu.";
-"jumio_id_scan_guide_take_photo_front_idc" = "Odfoťte PREDNÚ stranu svojho občianskeho preukazu.";
-"jumio_id_scan_guide_take_photo_front_pd" = "Odfoťte PREDNÚ stranu svojho dokladu totožnosti.";
-"jumio_id_scan_guide_take_photo_passport" = "Odfoťte svoj pas.";
+"jumio_id_scan_guide_back_side" = "Masnímajte ZADNÚ stranu";
+"jumio_id_scan_guide_back_side_manually" = "Mnauálne nasnímajte ZADNÚ stranu";
+"jumio_id_scan_guide_photo_side" = "Nasnímajte stranu s FOTKOU";
+"jumio_id_scan_guide_photo_side_manually" = "Mnauálne nasnímajte stranu s FOTKOU";
 "jumio_id_scan_hint_performance_fallback" = "Skenovanie je optimalizované pre lepší výkon zariadenia";
 "jumio_id_scan_manual" = "Odfoťte dokument";
 "jumio_id_scan_manual_tips" = "Musíte zachytiť celý dokument";
@@ -150,11 +145,6 @@
 "jumio_id_scan_prompt_hold_straight" = "Držte sa vzpriamene";
 "jumio_id_scan_prompt_move_closer" = "Pristúpte bližšie";
 "jumio_id_scan_prompt_processing" = "Kontroluje sa obrázok...";
-"jumio_id_scan_prompt_redact_deu_id_paper" = "Pred zachytením zmeňte číslo preukazu totožnosti";
-"jumio_id_scan_prompt_redact_deu_id_plastic" = "Pred zachytením upravte preukaz totožnosti a prístupové číslo";
-"jumio_id_scan_prompt_redact_deu_passport" = "Pred zachytením zmeňte číslo pasu";
-"jumio_id_scan_prompt_redact_kor" = "Pred zachytením upravte druhý blok svojho registračného čísla pre obyvateľov";
-"jumio_id_scan_prompt_redact_nld" = "Pred nasnímaním upravte svoje číslo BSN";
 "jumio_id_scan_prompt_too_close" = "Príliš blízko";
 "jumio_id_scan_prompt_zoom_barcode" = "Priblížte si čiarový kód";
 "jumio_id_scan_tips_barcode" = "Posuňte fotoaparát bližšie k čiarovému kódu";
@@ -163,7 +153,6 @@
 "jumio_id_scan_tips_focusing" = "Uistite sa, že je fotografia zaostrená";
 "jumio_id_scan_tips_glare" = "Vyhnite sa odrazom a oslneniu";
 "jumio_id_scan_tips_lighting" = "Nefotografujte v tme";
-"jumio_id_scan_tips_passport" = "Zarovnajte kryciu vrstvu so stranou s fotografiou";
 "jumio_id_scan_tips_placing" = "Umiestnite doklad totožnosti na rovný povrch";
 "jumio_id_scan_tips_title" = "Tipy";
 "jumio_id_scan_tooltip" = "Potrebujete poradiť?";

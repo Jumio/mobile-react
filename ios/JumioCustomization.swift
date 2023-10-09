@@ -3,19 +3,21 @@ import Jumio
 extension JumioMobileSDK {
     func customizeSDKColors(customizations: [String: Any?]) -> Jumio.Theme {
         var customTheme = Jumio.Theme()
+
+        // ScanHelp
+        if let faceAnimationForeground = customizations["faceAnimationForeground"] as? [String: String?], let light = faceAnimationForeground["light"] as? String, let dark = faceAnimationForeground["dark"] as? String {
+            customTheme.scanHelp.faceAnimationForeground = Jumio.Theme.Value(light: UIColor(hexString: light), dark: UIColor(hexString: dark))
+        } else if let faceAnimationForeground = customizations["faceAnimationForeground"] as? String {
+            customTheme.scanHelp.faceAnimationForeground = Jumio.Theme.Value(UIColor(hexString: faceAnimationForeground))
+        }
+        
+        if let faceAnimationBackground = customizations["faceAnimationBackground"] as? [String: String?], let light = faceAnimationBackground["light"] as? String, let dark = faceAnimationBackground["dark"] as? String {
+            customTheme.scanHelp.faceAnimationBackground = Jumio.Theme.Value(light: UIColor(hexString: light), dark: UIColor(hexString: dark))
+        } else if let faceAnimationBackground = customizations["faceAnimationBackground"] as? String {
+            customTheme.scanHelp.faceAnimationBackground = Jumio.Theme.Value(UIColor(hexString: faceAnimationBackground))
+        }
+    
         // IProov
-        if let iProovAnimationForeground = customizations["iProovAnimationForeground"] as? [String: String?], let light = iProovAnimationForeground["light"] as? String, let dark = iProovAnimationForeground["dark"] as? String {
-            customTheme.iProov.animationForeground = Jumio.Theme.Value(light: UIColor(hexString: light), dark: UIColor(hexString: dark))
-        } else if let iProovAnimationForeground = customizations["iProovAnimationForeground"] as? String {
-            customTheme.iProov.animationForeground = Jumio.Theme.Value(UIColor(hexString: iProovAnimationForeground))
-        }
-        
-        if let iProovAnimationBackground = customizations["iProovAnimationBackground"] as? [String: String?], let light = iProovAnimationBackground["light"] as? String, let dark = iProovAnimationBackground["dark"] as? String {
-            customTheme.iProov.animationBackground = Jumio.Theme.Value(light: UIColor(hexString: light), dark: UIColor(hexString: dark))
-        } else if let iProovAnimationBackground = customizations["iProovAnimationBackground"] as? String {
-            customTheme.iProov.animationBackground = Jumio.Theme.Value(UIColor(hexString: iProovAnimationBackground))
-        }
-        
         if let iProovFilterForegroundColor = customizations["iProovFilterForegroundColor"] as? [String: String?], let light = iProovFilterForegroundColor["light"] as? String, let dark = iProovFilterForegroundColor["dark"] as? String {
             customTheme.iProov.filterForegroundColor = Jumio.Theme.Value(light: UIColor(hexString: light), dark: UIColor(hexString: dark))
         } else if let iProovFilterForegroundColor = customizations["iProovFilterForegroundColor"] as? String {
@@ -101,10 +103,22 @@ extension JumioMobileSDK {
             customTheme.primaryButton.backgroundDisabled = Jumio.Theme.Value(UIColor(hexString: primaryButtonBackgroundDisabled))
         }
 
-        if let primaryButtonText = customizations["primaryButtonText"] as? [String: String?], let light = primaryButtonText["light"] as? String, let dark = primaryButtonText["dark"] as? String {
-            customTheme.primaryButton.text = Jumio.Theme.Value(light: UIColor(hexString: light), dark: UIColor(hexString: dark))
-        } else if let primaryButtonText = customizations["primaryButtonText"] as? String {
-            customTheme.primaryButton.text = Jumio.Theme.Value(UIColor(hexString: primaryButtonText))
+        if let primaryButtonForeground = customizations["primaryButtonForeground"] as? [String: String?], let light = primaryButtonForeground["light"] as? String, let dark = primaryButtonForeground["dark"] as? String {
+            customTheme.primaryButton.foreground = Jumio.Theme.Value(light: UIColor(hexString: light), dark: UIColor(hexString: dark))
+        } else if let primaryButtonForeground = customizations["primaryButtonForeground"] as? String {
+            customTheme.primaryButton.foreground = Jumio.Theme.Value(UIColor(hexString: primaryButtonForeground))
+        }
+        
+        if let primaryButtonForegroundPressed = customizations["primaryButtonForegroundPressed"] as? [String: String?], let light = primaryButtonForegroundPressed["light"] as? String, let dark = primaryButtonForegroundPressed["dark"] as? String {
+            customTheme.primaryButton.foregroundPressed = Jumio.Theme.Value(light: UIColor(hexString: light), dark: UIColor(hexString: dark))
+        } else if let primaryButtonForegroundPressed = customizations["primaryButtonForegroundPressed"] as? String {
+            customTheme.primaryButton.foregroundPressed = Jumio.Theme.Value(UIColor(hexString: primaryButtonForegroundPressed))
+        }
+        
+        if let primaryButtonForegroundDisabled = customizations["primaryButtonForegroundDisabled"] as? [String: String?], let light = primaryButtonForegroundDisabled["light"] as? String, let dark = primaryButtonForegroundDisabled["dark"] as? String {
+            customTheme.primaryButton.foregroundDisabled = Jumio.Theme.Value(light: UIColor(hexString: light), dark: UIColor(hexString: dark))
+        } else if let primaryButtonForegroundDisabled = customizations["primaryButtonForegroundDisabled"] as? String {
+            customTheme.primaryButton.foregroundDisabled = Jumio.Theme.Value(UIColor(hexString: primaryButtonForegroundDisabled))
         }
 
         if let secondaryButtonBackground = customizations["secondaryButtonBackground"] as? [String: String?], let light = secondaryButtonBackground["light"] as? String, let dark = secondaryButtonBackground["dark"] as? String {
@@ -125,10 +139,10 @@ extension JumioMobileSDK {
             customTheme.secondaryButton.backgroundDisabled = Jumio.Theme.Value(UIColor(hexString: secondaryButtonBackgroundDisabled))
         }
 
-        if let secondaryButtonText = customizations["secondaryButtonText"] as? [String: String?], let light = secondaryButtonText["light"] as? String, let dark = secondaryButtonText["dark"] as? String {
-            customTheme.secondaryButton.text = Jumio.Theme.Value(light: UIColor(hexString: light), dark: UIColor(hexString: dark))
-        } else if let secondaryButtonText = customizations["secondaryButtonText"] as? String {
-            customTheme.secondaryButton.text = Jumio.Theme.Value(UIColor(hexString: secondaryButtonText))
+        if let secondaryButtonForeground = customizations["secondaryButtonForeground"] as? [String: String?], let light = secondaryButtonForeground["light"] as? String, let dark = secondaryButtonForeground["dark"] as? String {
+            customTheme.secondaryButton.foreground = Jumio.Theme.Value(light: UIColor(hexString: light), dark: UIColor(hexString: dark))
+        } else if let secondaryButtonForeground = customizations["secondaryButtonForeground"] as? String {
+            customTheme.secondaryButton.foreground = Jumio.Theme.Value(UIColor(hexString: secondaryButtonForeground))
         }
 
         // Bubble, Circle and Selection Icon
@@ -280,10 +294,16 @@ extension JumioMobileSDK {
             customTheme.scanView.foreground = Jumio.Theme.Value(UIColor(hexString: scanViewForeground))
         }
 
-        if let scanViewAnimationShutter = customizations["scanViewAnimationShutter"] as? [String: String?], let light = scanViewAnimationShutter["light"] as? String, let dark = scanViewAnimationShutter["dark"] as? String {
-            customTheme.scanView.shutter = Jumio.Theme.Value(light: UIColor(hexString: light), dark: UIColor(hexString: dark))
-        } else if let scanViewAnimationShutter = customizations["scanViewAnimationShutter"] as? String {
-            customTheme.scanView.shutter = Jumio.Theme.Value(UIColor(hexString: scanViewAnimationShutter))
+        if let scanViewDocumentShutter = customizations["scanViewDocumentShutter"] as? [String: String?], let light = scanViewDocumentShutter["light"] as? String, let dark = scanViewDocumentShutter["dark"] as? String {
+            customTheme.scanView.documentShutter = Jumio.Theme.Value(light: UIColor(hexString: light), dark: UIColor(hexString: dark))
+        } else if let scanViewDocumentShutter = customizations["scanViewDocumentShutter"] as? String {
+            customTheme.scanView.documentShutter = Jumio.Theme.Value(UIColor(hexString: scanViewDocumentShutter))
+        }
+        
+        if let scanViewFaceShutter = customizations["scanViewFaceShutter"] as? [String: String?], let light = scanViewFaceShutter["light"] as? String, let dark = scanViewFaceShutter["dark"] as? String {
+            customTheme.scanView.faceShutter = Jumio.Theme.Value(light: UIColor(hexString: light), dark: UIColor(hexString: dark))
+        } else if let scanViewFaceShutter = customizations["scanViewFaceShutter"] as? String {
+            customTheme.scanView.faceShutter = Jumio.Theme.Value(UIColor(hexString: scanViewFaceShutter))
         }
 
         // Search Bubble

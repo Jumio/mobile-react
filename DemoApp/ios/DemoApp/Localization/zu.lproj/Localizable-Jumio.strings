@@ -1,6 +1,6 @@
 /*
   Localizable-Jumio.strings
-  Copyright © 2021 Jumio Corporation. All rights reserved.
+  Copyright © 2023 Jumio Corporation. All rights reserved.
 */
   
 "IProov_AccessibilityLabelCloseButton" = "Vala";
@@ -52,8 +52,6 @@
 "IProov_PromptTooFar" = "Sondela";
 "IProov_PromptYawTooHigh" = "Phendukela kancane kwesobunxele";
 "IProov_PromptYawTooLow" = "Phendukela kancane kwesokudla";
-"jumio_accessibility_alert_confirm" = "Kulungile";
-"jumio_accessibility_alert_hint" = "Ukusikisela";
 "jumio_accessibility_button_close" = "Vala";
 "jumio_accessibility_scan_back" = "Emuva";
 "jumio_accessibility_scan_help" = "Imenu yosizo";
@@ -131,13 +129,10 @@
 "jumio_id_confirm_button_confirm" = "Qinisekisa";
 "jumio_id_confirm_paragraph" = "Qiniseka ukuthi imininingwane ibonakala ngokucacile futhi iyafundeka";
 "jumio_id_confirm_title" = "Qinisekisa isithombe sakho";
-"jumio_id_scan_guide_take_photo_back_dl" = "Thatha isithombe SENGEMUVA lekhadi lakho lokushayela.";
-"jumio_id_scan_guide_take_photo_back_idc" = "Thatha isithombe SENGEMUVA lekhadi lakho likamazisi.";
-"jumio_id_scan_guide_take_photo_back_pd" = "Thatha isithombe SENGEMUVA ledokhumenti yakho.";
-"jumio_id_scan_guide_take_photo_front_dl" = "Thatha isithombe SENGAPHAMBILI lekhadi lakho lokushayela.";
-"jumio_id_scan_guide_take_photo_front_idc" = "Thatha isithombe SENGAPHAMBILI lekhadi lakho likamazisi.";
-"jumio_id_scan_guide_take_photo_front_pd" = "Thatha isithombe SENGAPHAMBILI ledokhumenti lakho.";
-"jumio_id_scan_guide_take_photo_passport" = "Thatha isithombe sepasipoti yakho.";
+"jumio_id_scan_guide_back_side" = "Thwebula uhlangothi OLUNGEMUVA";
+"jumio_id_scan_guide_back_side_manually" = "Thwebula ngokwakho uhlangothi OLUNGEMUVA";
+"jumio_id_scan_guide_photo_side" = "Thwebula uhlangothi LWESITHOMBE";
+"jumio_id_scan_guide_photo_side_manually" = "Thwebula ngokwakho uhlangothi LWESITHOMBE";
 "jumio_id_scan_hint_performance_fallback" = "Ukuskena kuthuthukisiwe ukuze idivayisi isebenze kangcono";
 "jumio_id_scan_manual" = "Thatha isithombe sedokhumenti yakho";
 "jumio_id_scan_manual_tips" = "Qiniseka ukuthi uthwebula isithombe sayo yonke incwadi";
@@ -150,11 +145,6 @@
 "jumio_id_scan_prompt_hold_straight" = "Yibambe iqonde";
 "jumio_id_scan_prompt_move_closer" = "Sondeza eduzane";
 "jumio_id_scan_prompt_processing" = "Ihlola isithombe...";
-"jumio_id_scan_prompt_redact_deu_id_paper" = "Sicela usule inombolo ye-ID ngaphambi kokuthatha isithombe";
-"jumio_id_scan_prompt_redact_deu_id_plastic" = "Sicela usule inombolo ye-ID kanye nenombolo yokungena ngaphambi kokuthatha isithombe";
-"jumio_id_scan_prompt_redact_deu_passport" = "Sicela usule inombolo yepasipoti ngaphambi kokuthatha isithombe";
-"jumio_id_scan_prompt_redact_kor" = "Sula ibholokhi yesibili yeNombolo Yakho Yokubhalisa Indawo Yokuhlala ngaphambi kokuthatha isithombe";
-"jumio_id_scan_prompt_redact_nld" = "Sicela usule i-BSN yakho ngaphambi kokuthatha isithombe";
 "jumio_id_scan_prompt_too_close" = "Useduze kakhulu";
 "jumio_id_scan_prompt_zoom_barcode" = "Sondeza ibhakhodi yakho";
 "jumio_id_scan_tips_barcode" = "Sondeza ikhamera eduze kwebhakhodi";
@@ -163,7 +153,6 @@
 "jumio_id_scan_tips_focusing" = "Qiniseka ukuthi isithombe sihlelwe ukuthi sigxile kokuthile";
 "jumio_id_scan_tips_glare" = "Gwema izithombe izibonisa okungemuva kanye nokukhanya okuxhophayo";
 "jumio_id_scan_tips_lighting" = "Ungasithwebuli isithombe ebumnyameni";
-"jumio_id_scan_tips_passport" = "Qondanisa ibhokisi nekhasi lesithombe";
 "jumio_id_scan_tips_placing" = "Beka umazisi endaweni eqondile";
 "jumio_id_scan_tips_title" = "Amacebiso";
 "jumio_id_scan_tooltip" = "Ingabe udinga  usizo?";

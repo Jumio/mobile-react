@@ -1,6 +1,6 @@
 /*
   Localizable-Jumio.strings
-  Copyright © 2021 Jumio Corporation. All rights reserved.
+  Copyright © 2023 Jumio Corporation. All rights reserved.
 */
   
 "IProov_AccessibilityLabelCloseButton" = "Dekat";
@@ -52,8 +52,6 @@
 "IProov_PromptTooFar" = "Merapat";
 "IProov_PromptYawTooHigh" = "Putar sedikit ke kiri";
 "IProov_PromptYawTooLow" = "Putar sedikit ke kanan";
-"jumio_accessibility_alert_confirm" = "Oke";
-"jumio_accessibility_alert_hint" = "Petunjuk";
 "jumio_accessibility_button_close" = "Dekat";
 "jumio_accessibility_scan_back" = "Kembali";
 "jumio_accessibility_scan_help" = "Menu bantuan";
@@ -131,13 +129,10 @@
 "jumio_id_confirm_button_confirm" = "Konfirmasi";
 "jumio_id_confirm_paragraph" = "Pastikan detail terlihat jelas dan dapat dibaca";
 "jumio_id_confirm_title" = "Konfirmasi foto Anda";
-"jumio_id_scan_guide_take_photo_back_dl" = "Ambil foto sisi BELAKANG SIM Anda.";
-"jumio_id_scan_guide_take_photo_back_idc" = "Ambil foto sisi BELAKANG KTP Anda.";
-"jumio_id_scan_guide_take_photo_back_pd" = "Ambil foto sisi BELAKANG dokumen pribadi Anda.";
-"jumio_id_scan_guide_take_photo_front_dl" = "Ambil foto sisi DEPAN SIM Anda.";
-"jumio_id_scan_guide_take_photo_front_idc" = "Ambil foto sisi DEPAN KTP Anda.";
-"jumio_id_scan_guide_take_photo_front_pd" = "Ambil foto sisi DEPAN dokumen pribadi Anda.";
-"jumio_id_scan_guide_take_photo_passport" = "Ambil foto paspor Anda.";
+"jumio_id_scan_guide_back_side" = "Potret sisi BELAKANG";
+"jumio_id_scan_guide_back_side_manually" = "Potret sisi BELAKANG secara manual";
+"jumio_id_scan_guide_photo_side" = "Potret sisi samping FOTO";
+"jumio_id_scan_guide_photo_side_manually" = "Potret sisi samping FOTO secara manual";
 "jumio_id_scan_hint_performance_fallback" = "Pemindaian dioptimalkan untuk menghasilkan performa perangkat yang lebih baik";
 "jumio_id_scan_manual" = "Ambil foto dokumen Anda";
 "jumio_id_scan_manual_tips" = "Pastikan menangkap seluruh dokumen";
@@ -150,11 +145,6 @@
 "jumio_id_scan_prompt_hold_straight" = "Tegakkan badan";
 "jumio_id_scan_prompt_move_closer" = "Merapat";
 "jumio_id_scan_prompt_processing" = "Memeriksa gambar...";
-"jumio_id_scan_prompt_redact_deu_id_paper" = "Susun nomor ID sebelum mengambil gambar";
-"jumio_id_scan_prompt_redact_deu_id_plastic" = "Susun nomor ID dan nomor akses sebelum mengambil gambar";
-"jumio_id_scan_prompt_redact_deu_passport" = "Susun nomor Paspor sebelum mengambil gambar";
-"jumio_id_scan_prompt_redact_kor" = "Susun blok kedua Nomor Induk Kependudukan sebelum mengambil gambar";
-"jumio_id_scan_prompt_redact_nld" = "Susun nomor layanan warga negara (BSN) Anda sebelum mengambil gambar";
 "jumio_id_scan_prompt_too_close" = "Terlalu dekat";
 "jumio_id_scan_prompt_zoom_barcode" = "Perbesar kode batang Anda";
 "jumio_id_scan_tips_barcode" = "Dekatkan kamera ke kode batang";
@@ -163,7 +153,6 @@
 "jumio_id_scan_tips_focusing" = "Pastikan foto fokus";
 "jumio_id_scan_tips_glare" = "Hindari pantulan dan cahaya silau";
 "jumio_id_scan_tips_lighting" = "Jangan ambil gambar dalam gelap";
-"jumio_id_scan_tips_passport" = "Luruskan penutup dengan halaman foto";
 "jumio_id_scan_tips_placing" = "Letakkan dokumen ID di permukaan datar";
 "jumio_id_scan_tips_title" = "Tips";
 "jumio_id_scan_tooltip" = "Butuh bantuan?";

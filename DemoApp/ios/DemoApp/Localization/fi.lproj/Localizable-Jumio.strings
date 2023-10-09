@@ -1,6 +1,6 @@
 /*
   Localizable-Jumio.strings
-  Copyright © 2021 Jumio Corporation. All rights reserved.
+  Copyright © 2023 Jumio Corporation. All rights reserved.
 */
   
 "IProov_AccessibilityLabelCloseButton" = "Sulje";
@@ -52,8 +52,6 @@
 "IProov_PromptTooFar" = "Siirry lähemmäs";
 "IProov_PromptYawTooHigh" = "Käänny jonkin verran vasemmalle";
 "IProov_PromptYawTooLow" = "Käänny jonkin verran oikealle";
-"jumio_accessibility_alert_confirm" = "Selvä";
-"jumio_accessibility_alert_hint" = "Vihje";
 "jumio_accessibility_button_close" = "Sulje";
 "jumio_accessibility_scan_back" = "Takaisin";
 "jumio_accessibility_scan_help" = "Ohjevalikko";
@@ -131,13 +129,10 @@
 "jumio_id_confirm_button_confirm" = "Vahvista";
 "jumio_id_confirm_paragraph" = "Varmista, että tiedot ovat selkeästi näkyvissä ja luettavissa";
 "jumio_id_confirm_title" = "Vahvista valokuvasi";
-"jumio_id_scan_guide_take_photo_back_dl" = "Ota kuva ajokortin KÄÄNTÖPUOLESTA.";
-"jumio_id_scan_guide_take_photo_back_idc" = "Ota kuva henkilökortin KÄÄNTÖPUOLESTA.";
-"jumio_id_scan_guide_take_photo_back_pd" = "Ota kuva henkilökohtaisen asiakirjan KÄÄNTÖPUOLESTA.";
-"jumio_id_scan_guide_take_photo_front_dl" = "Ota kuva ajokortin ETUPUOLESTA.";
-"jumio_id_scan_guide_take_photo_front_idc" = "Ota kuva henkilökortin ETUPUOLESTA.";
-"jumio_id_scan_guide_take_photo_front_pd" = "Ota kuva henkilökohtaisen asiakirjan ETUPUOLESTA.";
-"jumio_id_scan_guide_take_photo_passport" = "Ota valokuva passistasi.";
+"jumio_id_scan_guide_back_side" = "Kuvaa TAKAPUOLI";
+"jumio_id_scan_guide_back_side_manually" = "Kuvaa TAKAPUOLI manuaalisesti";
+"jumio_id_scan_guide_photo_side" = "Kuvaa VALOKUVAPUOLI";
+"jumio_id_scan_guide_photo_side_manually" = "Kuvaa VALOKUVAPUOLI manuaalisesti";
 "jumio_id_scan_hint_performance_fallback" = "Skannaus optimoitu laitteen parempaa suorituskykyä varten";
 "jumio_id_scan_manual" = "Ota valokuva asiakirjastasi";
 "jumio_id_scan_manual_tips" = "Varmista, että asiakirja näkyy kokonaisuudessaan";
@@ -150,11 +145,6 @@
 "jumio_id_scan_prompt_hold_straight" = "Pitele suorassa";
 "jumio_id_scan_prompt_move_closer" = "Siirrä lähemmäksi";
 "jumio_id_scan_prompt_processing" = "Kuvaa tarkistetaan...";
-"jumio_id_scan_prompt_redact_deu_id_paper" = "Peitä henkilötunnus ennen kuvan tallentamista";
-"jumio_id_scan_prompt_redact_deu_id_plastic" = "Peitä henkilötunnus ja kirjautumisnumero ennen kuvan tallentamista";
-"jumio_id_scan_prompt_redact_deu_passport" = "Peitä passin numero ennen kuvan tallentamista";
-"jumio_id_scan_prompt_redact_kor" = "Peitä asuinrekisterinumeron toinen osa ennen kuvan tallentamista";
-"jumio_id_scan_prompt_redact_nld" = "Peitä BSN ennen kuvan tallentamista";
 "jumio_id_scan_prompt_too_close" = "Liian lähellä";
 "jumio_id_scan_prompt_zoom_barcode" = "Lähennä viivakoodiin";
 "jumio_id_scan_tips_barcode" = "Siirrä kameraa lähemmäksi viivakoodia";
@@ -163,7 +153,6 @@
 "jumio_id_scan_tips_focusing" = "Varmista, että kuva on tarkennettu";
 "jumio_id_scan_tips_glare" = "Vältä heijastuksia ja häikäisyä";
 "jumio_id_scan_tips_lighting" = "Älä ota kuvaa hämärässä";
-"jumio_id_scan_tips_passport" = "Kohdista valokuvallinen sivu kehykseen";
 "jumio_id_scan_tips_placing" = "Aseta henkilöllisyystodistus tasaiselle alustalle";
 "jumio_id_scan_tips_title" = "Vinkkejä";
 "jumio_id_scan_tooltip" = "Travitsetko apua?";

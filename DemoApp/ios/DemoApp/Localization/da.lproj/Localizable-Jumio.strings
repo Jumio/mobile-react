@@ -1,6 +1,6 @@
 /*
   Localizable-Jumio.strings
-  Copyright © 2021 Jumio Corporation. All rights reserved.
+  Copyright © 2023 Jumio Corporation. All rights reserved.
 */
   
 "IProov_AccessibilityLabelCloseButton" = "Luk";
@@ -52,8 +52,6 @@
 "IProov_PromptTooFar" = "Ryk tættere på";
 "IProov_PromptYawTooHigh" = "Drej langsomt til venstre";
 "IProov_PromptYawTooLow" = "Drej langsomt til højre";
-"jumio_accessibility_alert_confirm" = "OK";
-"jumio_accessibility_alert_hint" = "Antydning";
 "jumio_accessibility_button_close" = "Luk";
 "jumio_accessibility_scan_back" = "Tilbage";
 "jumio_accessibility_scan_help" = "Hjælpemenu";
@@ -131,13 +129,10 @@
 "jumio_id_confirm_button_confirm" = "Bekræft";
 "jumio_id_confirm_paragraph" = "Sørg for, at detaljerne er tydelige og letlæselige";
 "jumio_id_confirm_title" = "Kontroller dit billede";
-"jumio_id_scan_guide_take_photo_back_dl" = "Tag et billede af BAGSIDEN af dit kørekort.";
-"jumio_id_scan_guide_take_photo_back_idc" = "Tag et billede af BAGSIDEN af dit id-kort.";
-"jumio_id_scan_guide_take_photo_back_pd" = "Tag et billede af BAGSIDEN af dit personlige dokument.";
-"jumio_id_scan_guide_take_photo_front_dl" = "Tag et billede af FORSIDEN af dit kørekort.";
-"jumio_id_scan_guide_take_photo_front_idc" = "Tag et billede af FORSIDEN af dit id-kort.";
-"jumio_id_scan_guide_take_photo_front_pd" = "Tag et billede af FORSIDEN af dit personlige dokument.";
-"jumio_id_scan_guide_take_photo_passport" = "Tag et billede af dit pas.";
+"jumio_id_scan_guide_back_side" = "Fang BAGsiden";
+"jumio_id_scan_guide_back_side_manually" = "Fang BAGSIDEN manuelt";
+"jumio_id_scan_guide_photo_side" = "Fang BILLEDSIDEN";
+"jumio_id_scan_guide_photo_side_manually" = "Fang BILLEDSIDEN manuelt";
 "jumio_id_scan_hint_performance_fallback" = "Scanning optimeret til bedre enhedsydelse";
 "jumio_id_scan_manual" = "Tag et billede af dit dokument";
 "jumio_id_scan_manual_tips" = "Sørg for, at hele dokumentet er med på billedet";
@@ -150,11 +145,6 @@
 "jumio_id_scan_prompt_hold_straight" = "Hold lige";
 "jumio_id_scan_prompt_move_closer" = "Ryk nærmere";
 "jumio_id_scan_prompt_processing" = "Kontrollerer billedet ...";
-"jumio_id_scan_prompt_redact_deu_id_paper" = "Sørg for, at id-nummeret er skjult inden billedet tages";
-"jumio_id_scan_prompt_redact_deu_id_plastic" = "Sørg for, at id- og adgangsnummeret er skjulte inden billedet tages";
-"jumio_id_scan_prompt_redact_deu_passport" = "Sørg for, at pasnummeret er skjult inden billedet tages";
-"jumio_id_scan_prompt_redact_kor" = "Skjul den anden del af dit cpr-nummer inden billedet tages";
-"jumio_id_scan_prompt_redact_nld" = "Venligst skjul dit cpr-nr. før du tager billedet.";
 "jumio_id_scan_prompt_too_close" = "For tæt på";
 "jumio_id_scan_prompt_zoom_barcode" = "Zoom ind på din stregkode";
 "jumio_id_scan_tips_barcode" = "Flyt kamera tættere på stregkoden";
@@ -163,7 +153,6 @@
 "jumio_id_scan_tips_focusing" = "Sørg for, at billedet er skarpt";
 "jumio_id_scan_tips_glare" = "Undgå refleksioner og blænding";
 "jumio_id_scan_tips_lighting" = "Tag ikke billedet i mørke";
-"jumio_id_scan_tips_passport" = "Sørg for, at fotosiden er inden for billedrammen";
 "jumio_id_scan_tips_placing" = "Placer dit ID på en plan overflade";
 "jumio_id_scan_tips_title" = "Tips";
 "jumio_id_scan_tooltip" = "Har du brug for hjælp?";

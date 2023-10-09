@@ -1,6 +1,6 @@
 /*
   Localizable-Jumio.strings
-  Copyright © 2021 Jumio Corporation. All rights reserved.
+  Copyright © 2023 Jumio Corporation. All rights reserved.
 */
   
 "IProov_AccessibilityLabelCloseButton" = "Bezárás";
@@ -52,8 +52,6 @@
 "IProov_PromptTooFar" = "Mozgassa közelebb";
 "IProov_PromptYawTooHigh" = "Forduljon kissé balra";
 "IProov_PromptYawTooLow" = "Forduljon kissé jobbra";
-"jumio_accessibility_alert_confirm" = "Oké";
-"jumio_accessibility_alert_hint" = "Célzás";
 "jumio_accessibility_button_close" = "Bezárás";
 "jumio_accessibility_scan_back" = "Vissza";
 "jumio_accessibility_scan_help" = "Súgó menü";
@@ -131,13 +129,10 @@
 "jumio_id_confirm_button_confirm" = "Megerősítés";
 "jumio_id_confirm_paragraph" = "Ügyeljen arra, hogy az adatok tisztán láthatók és olvashatók-e.";
 "jumio_id_confirm_title" = "Erősítse meg a fényképet";
-"jumio_id_scan_guide_take_photo_back_dl" = "Fényképezze le járművezetői jogosítványa HÁTULSÓ felét!";
-"jumio_id_scan_guide_take_photo_back_idc" = "Fényképezze le személyi igazolványa HÁTULSÓ felét!";
-"jumio_id_scan_guide_take_photo_back_pd" = "Fényképezze le személyes okmánya HÁTULSÓ felét!";
-"jumio_id_scan_guide_take_photo_front_dl" = "Fényképezze le járművezetői jogosítványa ELÜLSŐ felét!";
-"jumio_id_scan_guide_take_photo_front_idc" = "Fényképezze le személyi igazolványa ELÜLSŐ felét!";
-"jumio_id_scan_guide_take_photo_front_pd" = "Fényképezze le személyes okmánya ELÜLSŐ felét!";
-"jumio_id_scan_guide_take_photo_passport" = "Fényképezze le útlevelét!";
+"jumio_id_scan_guide_back_side" = "Rögzítse a HÁTULSÓ oldalt";
+"jumio_id_scan_guide_back_side_manually" = "Rögzítse manuálisan a HÁTULSÓ oldalt";
+"jumio_id_scan_guide_photo_side" = "Rögzítse a FOTÓS oldalt";
+"jumio_id_scan_guide_photo_side_manually" = "Rögzítse manuálisan a FOTÓS oldalt";
 "jumio_id_scan_hint_performance_fallback" = "A szkennelés optimalizálása az eszköz jobb teljesítménye érdekében";
 "jumio_id_scan_manual" = "Készítsen fényképet a dokumentumról";
 "jumio_id_scan_manual_tips" = "Ügyeljen arra, hogy a teljes dokumentumot rögzítse";
@@ -150,11 +145,6 @@
 "jumio_id_scan_prompt_hold_straight" = "Tartsa egyenesen";
 "jumio_id_scan_prompt_move_closer" = "Mozgassa közelebb";
 "jumio_id_scan_prompt_processing" = "Kép ellenőrzése folyamatban...";
-"jumio_id_scan_prompt_redact_deu_id_paper" = "A rögzítés előtt kérjük, rövidítse le az azonosítószámot";
-"jumio_id_scan_prompt_redact_deu_id_plastic" = "A rögzítés előtt kérjük, rövidítse le az azonosítót és a hozzáférési számot";
-"jumio_id_scan_prompt_redact_deu_passport" = "A rögzítés előtt kérjük, rövidítse le az útlevél számát";
-"jumio_id_scan_prompt_redact_kor" = "A rögzítés előtt rövidítse le a lakossági regisztrációs szám második blokkját";
-"jumio_id_scan_prompt_redact_nld" = "A rögzítés előtt kérjük, rövidítse le a BSN számot";
 "jumio_id_scan_prompt_too_close" = "Túl közel";
 "jumio_id_scan_prompt_zoom_barcode" = "Olvassa be a vonalkódját";
 "jumio_id_scan_tips_barcode" = "Vigye egy kicsit közelebb a kamerát a vonalkódhoz";
@@ -163,7 +153,6 @@
 "jumio_id_scan_tips_focusing" = "Fókuszáljon a fényképre";
 "jumio_id_scan_tips_glare" = "Kerülje a tükröződést és a csillogást";
 "jumio_id_scan_tips_lighting" = "Ne a sötétben készítsen képet";
-"jumio_id_scan_tips_passport" = "Az igazítás átfedésben van a fényképes oldallal";
 "jumio_id_scan_tips_placing" = "Helyezze az igazolványt egy sík felületre";
 "jumio_id_scan_tips_title" = "Tippek";
 "jumio_id_scan_tooltip" = "Segítségre van szüksége?";

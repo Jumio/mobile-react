@@ -1,6 +1,6 @@
 /*
   Localizable-Jumio.strings
-  Copyright © 2021 Jumio Corporation. All rights reserved.
+  Copyright © 2023 Jumio Corporation. All rights reserved.
 */
   
 "IProov_AccessibilityLabelCloseButton" = "Zamknij";
@@ -52,8 +52,6 @@
 "IProov_PromptTooFar" = "Przybliż twarz";
 "IProov_PromptYawTooHigh" = "Skręć lekko w lewo";
 "IProov_PromptYawTooLow" = "Skręć lekko w prawo";
-"jumio_accessibility_alert_confirm" = "OK";
-"jumio_accessibility_alert_hint" = "Porada";
 "jumio_accessibility_button_close" = "Zamknij";
 "jumio_accessibility_scan_back" = "Wstecz";
 "jumio_accessibility_scan_help" = "Menu pomocy";
@@ -131,13 +129,10 @@
 "jumio_id_confirm_button_confirm" = "Potwierdź";
 "jumio_id_confirm_paragraph" = "Upewnij się, że szczegóły są wyraźnie widoczne i czytelne";
 "jumio_id_confirm_title" = "Potwierdź swoje zdjęcie";
-"jumio_id_scan_guide_take_photo_back_dl" = "Zrób zdjęcie TYŁU prawa jazdy.";
-"jumio_id_scan_guide_take_photo_back_idc" = "Zrób zdjęcie TYŁU dowodu osobistego.";
-"jumio_id_scan_guide_take_photo_back_pd" = "Zrób zdjęcie TYŁU swojego dokumentu tożsamości";
-"jumio_id_scan_guide_take_photo_front_dl" = "Zrób zdjęcie PRZODU prawa jazdy.";
-"jumio_id_scan_guide_take_photo_front_idc" = "Zrób zdjęcie PRZODU dowodu osobistego.";
-"jumio_id_scan_guide_take_photo_front_pd" = "Zrób zdjęcie PRZODU swojego dokumentu tożsamości.";
-"jumio_id_scan_guide_take_photo_passport" = "Zrób zdjęcie paszportu.";
+"jumio_id_scan_guide_back_side" = "Uchwyć TYLNĄ stronę";
+"jumio_id_scan_guide_back_side_manually" = "Ręcznie uchwyć TYLNĄ stronę";
+"jumio_id_scan_guide_photo_side" = "Uchwyć stronę ze ZDJĘCIEM";
+"jumio_id_scan_guide_photo_side_manually" = "Ręcznie uchwyć stronę ze ZDJĘCIEM";
 "jumio_id_scan_hint_performance_fallback" = "Skanowanie zoptymalizowane pod kątem lepszej wydajności urządzenia";
 "jumio_id_scan_manual" = "Zrób zdjęcie swojego dokumentu";
 "jumio_id_scan_manual_tips" = "Upewnij się, że uchwycono cały dokument";
@@ -150,11 +145,6 @@
 "jumio_id_scan_prompt_hold_straight" = "Wyrównaj";
 "jumio_id_scan_prompt_move_closer" = "Przybliż";
 "jumio_id_scan_prompt_processing" = "Sprawdzanie obrazu...";
-"jumio_id_scan_prompt_redact_deu_id_paper" = "Przed przechwyceniem zakryj numer identyfikacyjny";
-"jumio_id_scan_prompt_redact_deu_id_plastic" = "Przed przechwyceniem zakryj numer identyfikacyjny i numer dostępu";
-"jumio_id_scan_prompt_redact_deu_passport" = "Przed przechwyceniem zakryj numer paszportu";
-"jumio_id_scan_prompt_redact_kor" = "Przed przechwyceniem zakryj drugi blok numeru rejestracyjnego mieszkańca";
-"jumio_id_scan_prompt_redact_nld" = "Przed przechwyceniem zakryj numer BSN";
 "jumio_id_scan_prompt_too_close" = "Zbyt blisko";
 "jumio_id_scan_prompt_zoom_barcode" = "Zrób zbliżenie na swój kod kreskowy";
 "jumio_id_scan_tips_barcode" = "Przesuń aparat bliżej kodu kreskowego";
@@ -163,7 +153,6 @@
 "jumio_id_scan_tips_focusing" = "Upewnij się, że zdjęcie jest ostre";
 "jumio_id_scan_tips_glare" = "Unikaj prześwietleń i odblasków";
 "jumio_id_scan_tips_lighting" = "Nie rób zdjęcia w ciemności";
-"jumio_id_scan_tips_passport" = "Wyrównaj ramkę ze stroną ze zdjęciem";
 "jumio_id_scan_tips_placing" = "Umieść dokument tożsamości na płaskiej powierzchni";
 "jumio_id_scan_tips_title" = "Wskazówki";
 "jumio_id_scan_tooltip" = "Potrzebujesz pomocy?";

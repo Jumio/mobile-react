@@ -1,6 +1,6 @@
 /*
   Localizable-Jumio.strings
-  Copyright © 2021 Jumio Corporation. All rights reserved.
+  Copyright © 2023 Jumio Corporation. All rights reserved.
 */
   
 "IProov_AccessibilityLabelCloseButton" = "ปิด";
@@ -52,8 +52,6 @@
 "IProov_PromptTooFar" = "เข้ามาใกล้";
 "IProov_PromptYawTooHigh" = "หันซ้ายเล็กน้อย";
 "IProov_PromptYawTooLow" = "หันขวาเล็กน้อย";
-"jumio_accessibility_alert_confirm" = "ตกลง";
-"jumio_accessibility_alert_hint" = "คำใบ้";
 "jumio_accessibility_button_close" = "ปิด";
 "jumio_accessibility_scan_back" = "ย้อนกลับ";
 "jumio_accessibility_scan_help" = "เมนูช่วยเหลือ";
@@ -131,13 +129,10 @@
 "jumio_id_confirm_button_confirm" = "ยืนยัน";
 "jumio_id_confirm_paragraph" = "ตรวจสอบให้แน่ใจว่ารายละเอียดสามารถมองเห็นชัดเจนและอ่านออกได้";
 "jumio_id_confirm_title" = "ยืนยันภาพถ่ายของคุณ";
-"jumio_id_scan_guide_take_photo_back_dl" = "ถ่ายรูปด้านหลังของใบขับขี่ของคุณ";
-"jumio_id_scan_guide_take_photo_back_idc" = "ถ่ายรูปด้านหลังของบัตรประจําตัวประชาชนของคุณ";
-"jumio_id_scan_guide_take_photo_back_pd" = "ถ่ายรูปด้านหลังของเอกสารประจำตัวของคุณ";
-"jumio_id_scan_guide_take_photo_front_dl" = "ถ่ายรูปด้านหน้าของใบขับขี่ของคุณ";
-"jumio_id_scan_guide_take_photo_front_idc" = "ถ่ายรูปด้านหน้าของบัตรประจำตัวประชาชนของคุณ";
-"jumio_id_scan_guide_take_photo_front_pd" = "ถ่ายรูปด้านหน้าของเอกสารประจำตัวของคุณ";
-"jumio_id_scan_guide_take_photo_passport" = "ถ่ายรูปหนังสือเดินทางของคุณ";
+"jumio_id_scan_guide_back_side" = "ถ่ายภาพด้านหลัง";
+"jumio_id_scan_guide_back_side_manually" = "ถ่ายภาพด้านหลังด้วยตัวเอง";
+"jumio_id_scan_guide_photo_side" = "ถ่ายภาพด้านรูปภาพ";
+"jumio_id_scan_guide_photo_side_manually" = "ถ่ายภาพด้านรูปภาพด้วยตัวเอง";
 "jumio_id_scan_hint_performance_fallback" = "การสแกนได้รับการปรับปรุงเพื่อให้อุปกรณ์มีประสิทธิภาพดีขึ้น";
 "jumio_id_scan_manual" = "ถ่ายภาพเอกสารของคุณ";
 "jumio_id_scan_manual_tips" = "ดูให้แน่ใจว่าถ่ายภาพเอกสารทั้งฉบับ";
@@ -150,11 +145,6 @@
 "jumio_id_scan_prompt_hold_straight" = "ถือตรง ๆ";
 "jumio_id_scan_prompt_move_closer" = "เข้ามาใกล้";
 "jumio_id_scan_prompt_processing" = "กำลังตรวจสอบภาพ...";
-"jumio_id_scan_prompt_redact_deu_id_paper" = "โปรดตรวจสอบหมายเลขบัตรประชาชนก่อนจับภาพ";
-"jumio_id_scan_prompt_redact_deu_id_plastic" = "โปรดตรวจสอบเอกสารประจำตัวและหมายเลขเข้าถึงก่อนจับภาพ";
-"jumio_id_scan_prompt_redact_deu_passport" = "โปรดตรวจสอบหมายเลขหนังสือเดินทางก่อนจับภาพ";
-"jumio_id_scan_prompt_redact_kor" = "ตรวจสอบช่องที่สองของหมายเลขทะเบียนผู้พำนักก่อนจับภาพ";
-"jumio_id_scan_prompt_redact_nld" = "โปรดตรวจสอบ BSN ก่อนจับภาพ";
 "jumio_id_scan_prompt_too_close" = "ใกล้เกินไป";
 "jumio_id_scan_prompt_zoom_barcode" = "ซูมไปที่บาร์โค้ดของคุณ";
 "jumio_id_scan_tips_barcode" = "เลื่อนกล้องเข้าไปใกล้บาร์โค้ด";
@@ -163,7 +153,6 @@
 "jumio_id_scan_tips_focusing" = "ตรวจสอบให้แน่ใจว่าภาพอยู่ในโฟกัส";
 "jumio_id_scan_tips_glare" = "หลีกเลี่ยงการสะท้อนและแสงจ้า";
 "jumio_id_scan_tips_lighting" = "อย่าถ่ายภาพในที่มืด";
-"jumio_id_scan_tips_passport" = "จัดวางภาพซ้อนทับกับหน้าที่มีรูปภาพ";
 "jumio_id_scan_tips_placing" = "วางเอกสารประจำตัวบนพื้นผิวเรียบ";
 "jumio_id_scan_tips_title" = "เคล็ดลับ";
 "jumio_id_scan_tooltip" = "ต้องการความช่วยเหลือหรือไม่";

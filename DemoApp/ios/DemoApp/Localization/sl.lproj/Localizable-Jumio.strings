@@ -1,6 +1,6 @@
 /*
   Localizable-Jumio.strings
-  Copyright © 2021 Jumio Corporation. All rights reserved.
+  Copyright © 2023 Jumio Corporation. All rights reserved.
 */
   
 "IProov_AccessibilityLabelCloseButton" = "Zapri";
@@ -52,8 +52,6 @@
 "IProov_PromptTooFar" = "Približajte se";
 "IProov_PromptYawTooHigh" = "Obrnite se malo v levo";
 "IProov_PromptYawTooLow" = "Obrnite se malo v desno";
-"jumio_accessibility_alert_confirm" = "V redu";
-"jumio_accessibility_alert_hint" = "Namig";
 "jumio_accessibility_button_close" = "Zapri";
 "jumio_accessibility_scan_back" = "Nazaj";
 "jumio_accessibility_scan_help" = "Meni s pomočjo";
@@ -131,13 +129,10 @@
 "jumio_id_confirm_button_confirm" = "Potrdi";
 "jumio_id_confirm_paragraph" = "Poskrbite, da so podatki jasno vidni in čitljivi";
 "jumio_id_confirm_title" = "Potrdite fotografijo";
-"jumio_id_scan_guide_take_photo_back_dl" = "Fotografirajte HRBTNO stran svojega vozniškega dovoljenja.";
-"jumio_id_scan_guide_take_photo_back_idc" = "Fotografirajte HRBTNO stran svoje osebne izkaznice.";
-"jumio_id_scan_guide_take_photo_back_pd" = "Fotografirajte HRBTNO stran svojega osebnega dokumenta.";
-"jumio_id_scan_guide_take_photo_front_dl" = "Fotografirajte SPREDNJO stran svojega vozniškega dovoljenja.";
-"jumio_id_scan_guide_take_photo_front_idc" = "Fotografirajte SPREDNJO stran svoje osebne izkaznice.";
-"jumio_id_scan_guide_take_photo_front_pd" = "Fotografirajte SPREDNJO stran svojega osebnega dokumenta.";
-"jumio_id_scan_guide_take_photo_passport" = "Fotografirajte svoj potni list.";
+"jumio_id_scan_guide_back_side" = "Zajemanje ZADNJE strani";
+"jumio_id_scan_guide_back_side_manually" = "Ročno zajemanje ZADNJE strani";
+"jumio_id_scan_guide_photo_side" = "Zajemanje strani s FOTOGRAFIJO";
+"jumio_id_scan_guide_photo_side_manually" = "Ročno zajemanje strani s FOTOGRAFIJO";
 "jumio_id_scan_hint_performance_fallback" = "Skeniranje je optimizirano za boljše delovanje naprave";
 "jumio_id_scan_manual" = "Fotografirajte svoj dokument";
 "jumio_id_scan_manual_tips" = "Poskrbite, da zajamete celoten dokument";
@@ -150,11 +145,6 @@
 "jumio_id_scan_prompt_hold_straight" = "Držite naravnost";
 "jumio_id_scan_prompt_move_closer" = "Pridite bližje";
 "jumio_id_scan_prompt_processing" = "Preverjanje slike ...";
-"jumio_id_scan_prompt_redact_deu_id_paper" = "Pred zajemom popravite številko osebne izkaznice";
-"jumio_id_scan_prompt_redact_deu_id_plastic" = "Pred zajemom popravite številko osebne izkaznice in dostopa";
-"jumio_id_scan_prompt_redact_deu_passport" = "Pred zajemom popravite številko potnega lista";
-"jumio_id_scan_prompt_redact_kor" = "Pred zajemom popravite drugo skupino številke registracije prebivalca";
-"jumio_id_scan_prompt_redact_nld" = "Pred zajemom popravite BSN";
 "jumio_id_scan_prompt_too_close" = "Preblizu";
 "jumio_id_scan_prompt_zoom_barcode" = "Povečajte svojo črtno kodo";
 "jumio_id_scan_tips_barcode" = "Fotoaparat približajte črtni kodi";
@@ -163,7 +153,6 @@
 "jumio_id_scan_tips_focusing" = "Poskrbite, da je fotografija ostra";
 "jumio_id_scan_tips_glare" = "Preprečite odseve in bleščanje";
 "jumio_id_scan_tips_lighting" = "Fotografij ne snemajte v temi";
-"jumio_id_scan_tips_passport" = "Obris poravnajte s stranjo s fotografijo";
 "jumio_id_scan_tips_placing" = "Osebni dokument položite na plosko površino";
 "jumio_id_scan_tips_title" = "Namigi";
 "jumio_id_scan_tooltip" = "Potrebujete pomoč?";

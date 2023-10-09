@@ -1,6 +1,6 @@
 /*
   Localizable-Jumio.strings
-  Copyright © 2021 Jumio Corporation. All rights reserved.
+  Copyright © 2023 Jumio Corporation. All rights reserved.
 */
   
 "IProov_AccessibilityLabelCloseButton" = "Agħlaq";
@@ -52,8 +52,6 @@
 "IProov_PromptTooFar" = "Ersaq aktar viċin";
 "IProov_PromptYawTooHigh" = "Dur ftit lejn ix-xellug";
 "IProov_PromptYawTooLow" = "Dur ftit lejn il-lemin";
-"jumio_accessibility_alert_confirm" = "Okay";
-"jumio_accessibility_alert_hint" = "Ħjiel";
 "jumio_accessibility_button_close" = "Agħlaq";
 "jumio_accessibility_scan_back" = "Lura";
 "jumio_accessibility_scan_help" = "Menù tal-għajnuna";
@@ -131,13 +129,10 @@
 "jumio_id_confirm_button_confirm" = "Ikkonferma";
 "jumio_id_confirm_paragraph" = "Aċċerta li d-dettalji kollha huma viżibbli u li jistgħu jinqraw";
 "jumio_id_confirm_title" = "Ikkonferma r-ritratt tiegħek";
-"jumio_id_scan_guide_take_photo_back_dl" = "Ħu ritratt minn WARA tal-liċenzja tas-sewqan tiegħek.";
-"jumio_id_scan_guide_take_photo_back_idc" = "Ħu ritratt minn WARA tal-karta tal-identità tiegħek.";
-"jumio_id_scan_guide_take_photo_back_pd" = "Ħu ritratt minn WARA tad-dokument personali tiegħek.";
-"jumio_id_scan_guide_take_photo_front_dl" = "Ħu ritratt minn QUDDIEM tal-liċenzja tas-sewqan tiegħek.";
-"jumio_id_scan_guide_take_photo_front_idc" = "Ħu ritratt minn QUDDIEM tal-karta tal-identità tiegħek.";
-"jumio_id_scan_guide_take_photo_front_pd" = "Ħu ritratt minn QUDDIEM tad-dokument personali tiegħek.";
-"jumio_id_scan_guide_take_photo_passport" = "Ħu ritratt tal-passaport tiegħek.";
+"jumio_id_scan_guide_back_side" = "Iġbed ritratt tan-naħa ta' WARA";
+"jumio_id_scan_guide_back_side_manually" = "Iġbed ritratt manwalment tan-naħa ta' WARA";
+"jumio_id_scan_guide_photo_side" = "Iġbed ritratt tan-naħa fejn hemm ir-RITRATT";
+"jumio_id_scan_guide_photo_side_manually" = "Iġbed ritratt manwalment tan-naħa fejn hemm ir-RITRATT";
 "jumio_id_scan_hint_performance_fallback" = "L-iskennjar ġiet ottimizzat għal prestazzjoni aħjar tal-apparat";
 "jumio_id_scan_manual" = "Ħu ritratt tad-dokument tiegħek";
 "jumio_id_scan_manual_tips" = "Aċċerta li tieħu ritratt tad-dokument kollu";
@@ -150,11 +145,6 @@
 "jumio_id_scan_prompt_hold_straight" = "Oqgħod dritt";
 "jumio_id_scan_prompt_move_closer" = "Ersaq aktar viċin";
 "jumio_id_scan_prompt_processing" = "Qed niċċekkjaw l-immaġni...";
-"jumio_id_scan_prompt_redact_deu_id_paper" = "Jekk jogħġbok għatti n-numru tal-ID qabel ma tiġbed ir-ritratt";
-"jumio_id_scan_prompt_redact_deu_id_plastic" = "Jekk jogħġbok għatti n-numru tal-ID u tal-aċċess qabel ma tiġbed ir-ritratt";
-"jumio_id_scan_prompt_redact_deu_passport" = "Jekk jogħġbok għatti n-numru tal-passaport qabel ma tiġbed ir-ritratt";
-"jumio_id_scan_prompt_redact_kor" = "Għatti t-tieni parti tan-Numru tar-Reġistrazzjoni Residenzjali tiegħek qabel ma tiġbed ir-ritratt";
-"jumio_id_scan_prompt_redact_nld" = "Jekk jogħġbok għatti l-BSN tiegħek qabel ma tiġbed ir-ritratt";
 "jumio_id_scan_prompt_too_close" = "Qiegħed wisq qrib";
 "jumio_id_scan_prompt_zoom_barcode" = "Iżżumja fuq il-barcode tiegħek";
 "jumio_id_scan_tips_barcode" = "Qarreb il-kamera lejn il-barcode";
@@ -163,7 +153,6 @@
 "jumio_id_scan_tips_focusing" = "Aċċerta li r-ritratt ikun iffukat";
 "jumio_id_scan_tips_glare" = "Evita r-riflessjonijiet u d-dawl qawwi";
 "jumio_id_scan_tips_lighting" = "Tiħux ir-ritratt fid-dlam";
-"jumio_id_scan_tips_passport" = "Allinja l-kaxxa li titla' mal-paġna fejn hemm ir-ritratt tiegħek";
 "jumio_id_scan_tips_placing" = "Poġġi l-ID fuq wiċċ ċatt";
 "jumio_id_scan_tips_title" = "Suġġerimenti";
 "jumio_id_scan_tooltip" = "Għandek bżonn xi għajnuna?";

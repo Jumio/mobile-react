@@ -10,10 +10,10 @@
 		13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB11A68108700A75B9A /* LaunchScreen.xib */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		28B687507199F3B19904AB54 /* Pods_DemoApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B70C27834F7E2BA5FEF661E /* Pods_DemoApp.framework */; };
 		76A9FCE325AC61AA006D0C6D /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A9FCE225AC61AA006D0C6D /* File.swift */; };
 		85FE5D08283CB6AD00C2BDCB /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 85FE5D07283CB6AD00C2BDCB /* AppDelegate.mm */; };
 		96673C9922662D4200EE3C95 /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96673C6B22662D4200EE3C95 /* JavaScriptCore.framework */; };
+		C05CFBAE4AC34EC8F378AF1E /* Pods_DemoApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6395FBBC3A2CFB26DE7FF6F3 /* Pods_DemoApp.framework */; };
 		D4D13ACA82A7C8890D71020A /* Localizable-Jumio.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4B103B74F174541A5A8D8C65 /* Localizable-Jumio.strings */; };
 /* End PBXBuildFile section */
 
@@ -295,6 +295,7 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = DemoApp/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = DemoApp/main.m; sourceTree = "<group>"; };
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
+		1AA53F313F90121D15A48B02 /* Pods-DemoApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoApp.release.xcconfig"; path = "Target Support Files/Pods-DemoApp/Pods-DemoApp.release.xcconfig"; sourceTree = "<group>"; };
 		1C5BC0FA48E81ABDAAD867C4 /* Localizable-Jumio.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = "Localizable-Jumio.strings"; path = "./DemoApp/Localization/zu.lproj/Localizable-Jumio.strings"; sourceTree = "<group>"; };
 		24191E8735449A18AC6F89B5 /* Localizable-Jumio.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = "Localizable-Jumio.strings"; path = "./DemoApp/Localization/el.lproj/Localizable-Jumio.strings"; sourceTree = "<group>"; };
 		28A02754F2D793D9FF52A2DD /* Localizable-Jumio.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = "Localizable-Jumio.strings"; path = "./DemoApp/Localization/ru.lproj/Localizable-Jumio.strings"; sourceTree = "<group>"; };
@@ -304,12 +305,13 @@
 		3A1F27C5327236E8A9306F3D /* Localizable-Jumio.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = "Localizable-Jumio.strings"; path = "./DemoApp/Localization/fi.lproj/Localizable-Jumio.strings"; sourceTree = "<group>"; };
 		3B752847EA4127E489B085D7 /* Localizable-Jumio.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = "Localizable-Jumio.strings"; path = "./DemoApp/Localization/zh-Hant.lproj/Localizable-Jumio.strings"; sourceTree = "<group>"; };
 		451FF9AAB803BF12E569812A /* Localizable-Jumio.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = "Localizable-Jumio.strings"; path = "./DemoApp/Localization/sl.lproj/Localizable-Jumio.strings"; sourceTree = "<group>"; };
-		471D4204EF58B0B9E47B16FA /* Pods-DemoApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoApp.release.xcconfig"; path = "Target Support Files/Pods-DemoApp/Pods-DemoApp.release.xcconfig"; sourceTree = "<group>"; };
+		527FF73F376819367A533DFF /* Pods-DemoApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoApp.debug.xcconfig"; path = "Target Support Files/Pods-DemoApp/Pods-DemoApp.debug.xcconfig"; sourceTree = "<group>"; };
 		553AA9F175A22F0BE605D4F0 /* Localizable-Jumio.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = "Localizable-Jumio.strings"; path = "./DemoApp/Localization/hr.lproj/Localizable-Jumio.strings"; sourceTree = "<group>"; };
 		57E0399EEAD65DBF031867A1 /* Localizable-Jumio.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = "Localizable-Jumio.strings"; path = "./DemoApp/Localization/lt.lproj/Localizable-Jumio.strings"; sourceTree = "<group>"; };
 		59C0EED1EAECFD8BF1CE6D7B /* Localizable-Jumio.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = "Localizable-Jumio.strings"; path = "./DemoApp/Localization/sv.lproj/Localizable-Jumio.strings"; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
 		62D5A284ECECBAD107EB718D /* Localizable-Jumio.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = "Localizable-Jumio.strings"; path = "./DemoApp/Localization/hu.lproj/Localizable-Jumio.strings"; sourceTree = "<group>"; };
+		6395FBBC3A2CFB26DE7FF6F3 /* Pods_DemoApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DemoApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B22317E9545DBF343ABD87D /* Localizable-Jumio.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = "Localizable-Jumio.strings"; path = "./DemoApp/Localization/da.lproj/Localizable-Jumio.strings"; sourceTree = "<group>"; };
 		701A24D086DE1D7F3C983811 /* Localizable-Jumio.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = "Localizable-Jumio.strings"; path = "./DemoApp/Localization/lv.lproj/Localizable-Jumio.strings"; sourceTree = "<group>"; };
 		76A9FCE125AC61A9006D0C6D /* DemoApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DemoApp-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -322,7 +324,6 @@
 		90D496BCE0A0010A3DF6F563 /* Localizable-Jumio.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = "Localizable-Jumio.strings"; path = "./DemoApp/Localization/tr.lproj/Localizable-Jumio.strings"; sourceTree = "<group>"; };
 		96673C6B22662D4200EE3C95 /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		96C6EE0EAC7B6E9BDB06C3E7 /* Localizable-Jumio.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = "Localizable-Jumio.strings"; path = "./DemoApp/Localization/hi.lproj/Localizable-Jumio.strings"; sourceTree = "<group>"; };
-		9B70C27834F7E2BA5FEF661E /* Pods_DemoApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DemoApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2758AAED8361B4865698851 /* Localizable-Jumio.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = "Localizable-Jumio.strings"; path = "./DemoApp/Localization/en.lproj/Localizable-Jumio.strings"; sourceTree = "<group>"; };
 		ACD6F1A1DFCE22836FFB7C09 /* Localizable-Jumio.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = "Localizable-Jumio.strings"; path = "./DemoApp/Localization/pl.lproj/Localizable-Jumio.strings"; sourceTree = "<group>"; };
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
@@ -331,14 +332,12 @@
 		C690E9BBDB5789C19CA015F3 /* Localizable-Jumio.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = "Localizable-Jumio.strings"; path = "./DemoApp/Localization/af.lproj/Localizable-Jumio.strings"; sourceTree = "<group>"; };
 		C6B2D8ED9B0A9B35D98AA9E1 /* Localizable-Jumio.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = "Localizable-Jumio.strings"; path = "./DemoApp/Localization/vi.lproj/Localizable-Jumio.strings"; sourceTree = "<group>"; };
 		CD2DF2075E90F32D68C8C96E /* Localizable-Jumio.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = "Localizable-Jumio.strings"; path = "./DemoApp/Localization/ro.lproj/Localizable-Jumio.strings"; sourceTree = "<group>"; };
-		CF27FC15DC3CBB648518DAF0 /* Pods-DemoApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoApp.debug.xcconfig"; path = "Target Support Files/Pods-DemoApp/Pods-DemoApp.debug.xcconfig"; sourceTree = "<group>"; };
 		D0ADB9A58079FDC8D48615BC /* Localizable-Jumio.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = "Localizable-Jumio.strings"; path = "./DemoApp/Localization/nb.lproj/Localizable-Jumio.strings"; sourceTree = "<group>"; };
 		D1880F6AD24F59702ECFCC6C /* Localizable-Jumio.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = "Localizable-Jumio.strings"; path = "./DemoApp/Localization/zh-Hans.lproj/Localizable-Jumio.strings"; sourceTree = "<group>"; };
 		D4345D1A9EBB99D3EC55B256 /* Localizable-Jumio.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = "Localizable-Jumio.strings"; path = "./DemoApp/Localization/fr.lproj/Localizable-Jumio.strings"; sourceTree = "<group>"; };
 		D553D1B9246355475526395A /* Localizable-Jumio.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = "Localizable-Jumio.strings"; path = "./DemoApp/Localization/bg.lproj/Localizable-Jumio.strings"; sourceTree = "<group>"; };
 		D68FBAAECB99F2AFDEB471E8 /* Localizable-Jumio.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = "Localizable-Jumio.strings"; path = "./DemoApp/Localization/ko.lproj/Localizable-Jumio.strings"; sourceTree = "<group>"; };
 		D6C712F08B2AD980278A5D7A /* Localizable-Jumio.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = "Localizable-Jumio.strings"; path = "./DemoApp/Localization/nl.lproj/Localizable-Jumio.strings"; sourceTree = "<group>"; };
-		DC0C5A59542E84EF9200DAEB /* Localizable-Jumio.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = "Localizable-Jumio.strings"; path = "./DemoApp/Localization/pt.lproj/Localizable-Jumio.strings"; sourceTree = "<group>"; };
 		E01CADDBCC954FF95DC55188 /* Localizable-Jumio.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = "Localizable-Jumio.strings"; path = "./DemoApp/Localization/km.lproj/Localizable-Jumio.strings"; sourceTree = "<group>"; };
 		E04C5E8000854B6FBC0EA967 /* Localizable-Jumio.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = "Localizable-Jumio.strings"; path = "./DemoApp/Localization/it.lproj/Localizable-Jumio.strings"; sourceTree = "<group>"; };
 		E0EE6E7B4B23C14DA663544D /* Localizable-Jumio.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = "Localizable-Jumio.strings"; path = "./DemoApp/Localization/es.lproj/Localizable-Jumio.strings"; sourceTree = "<group>"; };
@@ -353,7 +352,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				96673C9922662D4200EE3C95 /* JavaScriptCore.framework in Frameworks */,
-				28B687507199F3B19904AB54 /* Pods_DemoApp.framework in Frameworks */,
+				C05CFBAE4AC34EC8F378AF1E /* Pods_DemoApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -406,7 +405,7 @@
 			isa = PBXGroup;
 			children = (
 				96673C6B22662D4200EE3C95 /* JavaScriptCore.framework */,
-				9B70C27834F7E2BA5FEF661E /* Pods_DemoApp.framework */,
+				6395FBBC3A2CFB26DE7FF6F3 /* Pods_DemoApp.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -552,8 +551,8 @@
 		EF966B9335F86099E11C9777 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				CF27FC15DC3CBB648518DAF0 /* Pods-DemoApp.debug.xcconfig */,
-				471D4204EF58B0B9E47B16FA /* Pods-DemoApp.release.xcconfig */,
+				527FF73F376819367A533DFF /* Pods-DemoApp.debug.xcconfig */,
+				1AA53F313F90121D15A48B02 /* Pods-DemoApp.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -565,13 +564,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "DemoApp" */;
 			buildPhases = (
-				CF29F41641CF1717A8E87FB7 /* [CP] Check Pods Manifest.lock */,
+				696581DA378FD576B49828B0 /* [CP] Check Pods Manifest.lock */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				F9622ACBF36BB2A4CC493CE3 /* [CP] Embed Pods Frameworks */,
-				0BA886FE4C634B5C001B3606 /* [CP] Copy Pods Resources */,
+				92D3A6A6C6D16E5DD0252984 /* [CP] Embed Pods Frameworks */,
+				014CC328A6D43A26539DE4E2 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -637,11 +636,12 @@
 				id,
 				nl,
 				th,
-				pt,
 				zu,
 				ro,
 				hr,
 				hi,
+				"pt-BR",
+				"pt-PT",
 			);
 			mainGroup = 83CBB9F61A601CBA00E9B192;
 			productRefGroup = 83CBBA001A601CBA00E9B192 /* Products */;
@@ -993,7 +993,7 @@
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
 		};
-		0BA886FE4C634B5C001B3606 /* [CP] Copy Pods Resources */ = {
+		014CC328A6D43A26539DE4E2 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1011,7 +1011,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DemoApp/Pods-DemoApp-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		CF29F41641CF1717A8E87FB7 /* [CP] Check Pods Manifest.lock */ = {
+		696581DA378FD576B49828B0 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1033,34 +1033,36 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F9622ACBF36BB2A4CC493CE3 /* [CP] Embed Pods Frameworks */ = {
+		92D3A6A6C6D16E5DD0252984 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-DemoApp/Pods-DemoApp-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/DatadogSDK/Datadog.framework",
+				"${BUILT_PRODUCTS_DIR}/DatadogCore/DatadogCore.framework",
+				"${BUILT_PRODUCTS_DIR}/DatadogInternal/DatadogInternal.framework",
+				"${BUILT_PRODUCTS_DIR}/DatadogRUM/DatadogRUM.framework",
 				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
 				"${PODS_XCFRAMEWORKS_BUILD_DIR}/Jumio/Datadog/JumioDatadog.framework/JumioDatadog",
 				"${PODS_XCFRAMEWORKS_BUILD_DIR}/Jumio/DocFinder/JumioDocFinder.framework/JumioDocFinder",
 				"${PODS_XCFRAMEWORKS_BUILD_DIR}/Jumio/IProov/JumioIProov.framework/JumioIProov",
 				"${PODS_XCFRAMEWORKS_BUILD_DIR}/Jumio/Jumio/Jumio.framework/Jumio",
 				"${PODS_XCFRAMEWORKS_BUILD_DIR}/Jumio/Liveness/JumioLiveness.framework/JumioLiveness",
-				"${PODS_XCFRAMEWORKS_BUILD_DIR}/PPpdf417/Pdf417Mobi.framework/Pdf417Mobi",
 				"${PODS_XCFRAMEWORKS_BUILD_DIR}/hermes-engine/Pre-built/hermes.framework/hermes",
 				"${PODS_XCFRAMEWORKS_BUILD_DIR}/iProov/iProov.framework/iProov",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Datadog.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DatadogCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DatadogInternal.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DatadogRUM.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JumioDatadog.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JumioDocFinder.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JumioIProov.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Jumio.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JumioLiveness.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Pdf417Mobi.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/hermes.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/iProov.framework",
 			);
@@ -1130,7 +1132,6 @@
 				E45866E4DC4AB16E2E6EB8F6 /* Localizable-Jumio.strings */,
 				D6C712F08B2AD980278A5D7A /* Localizable-Jumio.strings */,
 				BC9DA7F4B3F1FF4F4AFD6B82 /* Localizable-Jumio.strings */,
-				DC0C5A59542E84EF9200DAEB /* Localizable-Jumio.strings */,
 				1C5BC0FA48E81ABDAAD867C4 /* Localizable-Jumio.strings */,
 				CD2DF2075E90F32D68C8C96E /* Localizable-Jumio.strings */,
 				553AA9F175A22F0BE605D4F0 /* Localizable-Jumio.strings */,
@@ -1144,7 +1145,7 @@
 /* Begin XCBuildConfiguration section */
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CF27FC15DC3CBB648518DAF0 /* Pods-DemoApp.debug.xcconfig */;
+			baseConfigurationReference = 527FF73F376819367A533DFF /* Pods-DemoApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = DemoApp/DemoApp.entitlements;
@@ -1155,7 +1156,7 @@
 				INFOPLIST_FILE = DemoApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 4.6.1;
+				MARKETING_VERSION = 4.7.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -1171,7 +1172,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 471D4204EF58B0B9E47B16FA /* Pods-DemoApp.release.xcconfig */;
+			baseConfigurationReference = 1AA53F313F90121D15A48B02 /* Pods-DemoApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = DemoApp/DemoApp.entitlements;
@@ -1182,7 +1183,7 @@
 				INFOPLIST_FILE = DemoApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 4.6.1;
+				MARKETING_VERSION = 4.7.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -1223,6 +1224,7 @@
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
+					_LIBCPP_ENABLE_CXX17_REMOVED_UNARY_BINARY_FUNCTION,
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -1236,6 +1238,16 @@
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_CPLUSPLUSFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-Wl",
+					"-ld_classic",
+					"-Wl",
+					"-ld_classic",
+					"-Wl",
+					"-ld_classic",
+					"-Wl -ld_classic ",
+				);
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 			};
@@ -1264,6 +1276,10 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = i386;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					_LIBCPP_ENABLE_CXX17_REMOVED_UNARY_BINARY_FUNCTION,
+				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -1274,6 +1290,16 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_CPLUSPLUSFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-Wl",
+					"-ld_classic",
+					"-Wl",
+					"-ld_classic",
+					"-Wl",
+					"-ld_classic",
+					"-Wl -ld_classic ",
+				);
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;

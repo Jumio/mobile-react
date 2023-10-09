@@ -1,7 +1,7 @@
 # Plugin for React Native
 Official Jumio Mobile SDK plugin for React Native
 
-This plugin is compatible with version 4.6.0 of the Jumio Android SDK and 4.6.1 of the Jumio iOS SDK.    
+This plugin is compatible with version 4.7.0 of the Jumio SDK.    
 If you have questions, please reach out to your Account Manager or contact [Jumio Support](#support).
 
 # Table of Contents
@@ -14,17 +14,19 @@ If you have questions, please reach out to your Account Manager or contact [Jumi
 - [Usage](#usage)
   - [Retrieving Information](#retrieving-information)
 - [Customization](#customization)
+- [Configuration](#configuration)
 - [Callbacks](#callbacks)
 - [FAQ](#faq)
    - [iOS Runs on Debug, Crashes on Release Build](#ios-runs-on-debug-crashes-on-release-build)
    - [Using iOS Dynamic Frameworks with React Native Sample App](#using-ios-dynamic-frameworks-with-react-native-sample-app)
+   - [iOS Crashes on Start with Xcode 15](#ios-crashes-on-start-with-xcode-15)
    - [iOS Build Fails for React 0.71.2](#ios-build-fails-for-react-0712)
    - [iOS Localization](#ios-localization)
    - [iProov String Keys](#iproov-string-keys)
 - [Support](#support)
 
 ## Compatibility
-We only ensure compatibility with a minimum React Native version of 0.72.4
+We only ensure compatibility with a minimum React Native version of 0.72.5
 
 ## Setup
 Create React Native project and add the Jumio Mobile SDK module to it.
@@ -32,7 +34,7 @@ Create React Native project and add the Jumio Mobile SDK module to it.
 ```sh
 react-native init MyProject
 cd MyProject
-npm install --save https://github.com/Jumio/mobile-react.git#v4.6.1
+npm install --save https://github.com/Jumio/mobile-react.git#v4.7.0
 cd ios && pod install
 ```
 
@@ -139,6 +141,7 @@ JumioMobileSDK.initialize(<AUTHORIZATION_TOKEN>, <DATACENTER>);
 ```
 
 Datacenter can either be **US**, **EU** or **SG**.
+For more information about how to obtain an `AUTHORIZATION_TOKEN`, please refer to our [API Guide](https://jumio.github.io/kyx/integration-guide.html).
 
 As soon as the SDK is initialized, the SDK is started by the following call.
 
@@ -193,8 +196,8 @@ You can pass the following customization options to the [`setupCustomizations()`
 
 | Customization key                               |
 |:------------------------------------------------|
-| iProovAnimationForeground                       |
-| iProovAnimationBackground                       |
+| faceAnimationForeground                         |
+| faceAnimationBackground                         |
 | iProovFilterForegroundColor                     |
 | iProovFilterBackgroundColor                     |
 | iProovTitleTextColor                            |
@@ -209,11 +212,13 @@ You can pass the following customization options to the [`setupCustomizations()`
 | primaryButtonBackground                         |
 | primaryButtonBackgroundPressed                  |
 | primaryButtonBackgroundDisabled                 |
-| primaryButtonText                               |
+| primaryButtonForeground                         |
+| primaryButtonForegroundPressed                  |
+| primaryButtonForegroundDisabled                 |
 | secondaryButtonBackground                       |
 | secondaryButtonBackgroundPressed                |
 | secondaryButtonBackgroundDisabled               |
-| secondaryButtonText                             |
+| secondaryButtonForeground                       |
 | bubbleBackground                                |
 | bubbleForeground                                |
 | bubbleBackgroundSelected                        |
@@ -238,7 +243,8 @@ You can pass the following customization options to the [`setupCustomizations()`
 | scanViewBubbleForeground                        |
 | scanViewBubbleBackground                        |
 | scanViewForeground                              |
-| scanViewAnimationShutter                        |
+| scanViewDocumentShutter                         |
+| scanViewFaceShutter                             |
 | searchBubbleBackground                          |
 | searchBubbleForeground                          |
 | searchBubbleListItemSelected                    |
@@ -271,8 +277,11 @@ JumioMobileSDK.setupCustomizations({
 });
 ```
 
+## Configuration
+For more information about how to set specific SDK parameters (callbackUrl, userReference, country, ...), please refer to our [API Guide](https://jumio.github.io/kyx/integration-guide.html#request-body).
+
 ## Callbacks
-In oder to get information about result fields, Retrieval API, Delete API, global settings and more, please read our [page with server related information](https://github.com/Jumio/implementation-guides/blob/master/api-guide/api_guide.md#callback).
+In oder to get information about result fields, Retrieval API, Delete API, global settings and more, please read our [page with server related information](https://jumio.github.io/kyx/integration-guide.html#callback).
 
 ## Result Objects
 The JSON object with all the extracted data that is returned for the specific products is described in the following subchapters:
@@ -379,6 +388,20 @@ post_install do |installer|
     installer.pods_project.targets.each do |target|
       target.build_configurations.each do |config|
           config.build_settings['BUILD_LIBRARY_FOR_DISTRIBUTION'] = 'YES'
+      end
+    end
+end
+```
+
+### iOS Crashes on Start with Xcode 15
+
+If you are working with Xcode 15 and above, please make sure the following lines have been added to your `Podfile`:
+
+```
+post_install do |installer|
+    installer.pods_project.targets.each do |target|
+      target.build_configurations.each do |config|
+          config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '12.0'
       end
     end
 end

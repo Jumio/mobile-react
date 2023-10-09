@@ -1,6 +1,6 @@
 /*
   Localizable-Jumio.strings
-  Copyright © 2021 Jumio Corporation. All rights reserved.
+  Copyright © 2023 Jumio Corporation. All rights reserved.
 */
   
 "IProov_AccessibilityLabelCloseButton" = "Sluiten";
@@ -52,8 +52,6 @@
 "IProov_PromptTooFar" = "Kom dichterbij";
 "IProov_PromptYawTooHigh" = "Draai een beetje naar links";
 "IProov_PromptYawTooLow" = "Draai een beetje naar rechts";
-"jumio_accessibility_alert_confirm" = "Oké";
-"jumio_accessibility_alert_hint" = "Tip";
 "jumio_accessibility_button_close" = "Sluiten";
 "jumio_accessibility_scan_back" = "Terug";
 "jumio_accessibility_scan_help" = "Help-menu";
@@ -131,13 +129,10 @@
 "jumio_id_confirm_button_confirm" = "Bevestigen";
 "jumio_id_confirm_paragraph" = "Zorg ervoor dat de details duidelijk zichtbaar en leesbaar zijn";
 "jumio_id_confirm_title" = "Bevestig uw foto";
-"jumio_id_scan_guide_take_photo_back_dl" = "Neem een foto van de ACHTERKANT van je rijbewijs.";
-"jumio_id_scan_guide_take_photo_back_idc" = "Neem een foto van de ACHTERKANT van de identiteitskaart.";
-"jumio_id_scan_guide_take_photo_back_pd" = "Neem een foto van de ACHTERKANT van je persoonlijke document.";
-"jumio_id_scan_guide_take_photo_front_dl" = "Neem een foto van de VOORKANT van je rijbewijs.";
-"jumio_id_scan_guide_take_photo_front_idc" = "Neem een foto van de VOORKANT van de identiteitskaart.";
-"jumio_id_scan_guide_take_photo_front_pd" = "Neem een foto van de VOORKANT van je persoonlijke document.";
-"jumio_id_scan_guide_take_photo_passport" = "Neem een foto van je paspoort.";
+"jumio_id_scan_guide_back_side" = "De ACHTERKANT vastleggen";
+"jumio_id_scan_guide_back_side_manually" = "Handmatig de ACHTERKANT vastleggen";
+"jumio_id_scan_guide_photo_side" = "De FOTOKANT vastleggen";
+"jumio_id_scan_guide_photo_side_manually" = "Handmatig de FOTOKANT vastleggen";
 "jumio_id_scan_hint_performance_fallback" = "Geoptimaliseerd scannen voor betere apparaatprestaties";
 "jumio_id_scan_manual" = "Maak een foto van uw document";
 "jumio_id_scan_manual_tips" = "Zorg ervoor dat u het hele document vastlegt";
@@ -150,11 +145,6 @@
 "jumio_id_scan_prompt_hold_straight" = "Recht houden";
 "jumio_id_scan_prompt_move_closer" = "Kom dichterbij";
 "jumio_id_scan_prompt_processing" = "De afbeelding controleren...";
-"jumio_id_scan_prompt_redact_deu_id_paper" = "Bedek uw ID nummer vóór vastlegging";
-"jumio_id_scan_prompt_redact_deu_id_plastic" = "Bedek alstublieft het ID- en toegangsnummer vóór vastlegging";
-"jumio_id_scan_prompt_redact_deu_passport" = "Bedek alstublieft het paspoortnummer vóór vastlegging";
-"jumio_id_scan_prompt_redact_kor" = "Bedek het tweede onderdeel van uw Burgerservicenummer vóór vastlegging";
-"jumio_id_scan_prompt_redact_nld" = "Bedek alstublieft uw BSN vóór vastlegging";
 "jumio_id_scan_prompt_too_close" = "Te dichtbij";
 "jumio_id_scan_prompt_zoom_barcode" = "Zoom in op je streepjescode";
 "jumio_id_scan_tips_barcode" = "Breng de camera dichter bij de streepjescode";
@@ -163,7 +153,6 @@
 "jumio_id_scan_tips_focusing" = "Zorg ervoor dat de foto scherp is";
 "jumio_id_scan_tips_glare" = "Vermijd reflecties en verblinding";
 "jumio_id_scan_tips_lighting" = "Maak geen foto in het donker";
-"jumio_id_scan_tips_passport" = "Overlay uitlijnen met de fotopagina";
 "jumio_id_scan_tips_placing" = "Leg het identiteitsbewijs op een vlakke ondergrond";
 "jumio_id_scan_tips_title" = "Tips";
 "jumio_id_scan_tooltip" = "Hulp nodig?";

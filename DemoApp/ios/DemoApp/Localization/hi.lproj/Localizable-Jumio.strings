@@ -1,6 +1,6 @@
 /*
   Localizable-Jumio.strings
-  Copyright © 2021 Jumio Corporation. All rights reserved.
+  Copyright © 2023 Jumio Corporation. All rights reserved.
 */
   
 "IProov_AccessibilityLabelCloseButton" = "बंद करे";
@@ -52,8 +52,6 @@
 "IProov_PromptTooFar" = "थोड़ा और पास आएं";
 "IProov_PromptYawTooHigh" = "अपनी बाईं ओर थोड़ा मुड़ें";
 "IProov_PromptYawTooLow" = "अपने दाहिने तरफ थोड़ा मुड़ें";
-"jumio_accessibility_alert_confirm" = "ठीक";
-"jumio_accessibility_alert_hint" = "संकेत";
 "jumio_accessibility_button_close" = "बंद करे";
 "jumio_accessibility_scan_back" = "पीछे";
 "jumio_accessibility_scan_help" = "हेल्प मेनू";
@@ -131,13 +129,10 @@
 "jumio_id_confirm_button_confirm" = "पुष्टि करें";
 "jumio_id_confirm_paragraph" = "सुनिश्चित करें कि विवरण स्पष्ट रूप से दिखाई दे रहे हैं और पढ़ने योग्य हैं";
 "jumio_id_confirm_title" = "अपनी तस्वीर की पुष्टि करें";
-"jumio_id_scan_guide_take_photo_back_dl" = "अपने ड्रायवर्स लाइसेंस के पीछे के हिस्से की एक फोटो लें।";
-"jumio_id_scan_guide_take_photo_back_idc" = "अपने पहचान पत्र के पीछे के हिस्से की एक फोटो लें।";
-"jumio_id_scan_guide_take_photo_back_pd" = "अपने व्यक्तिगत दस्तावेज़ के पीछे के हिस्से की एक फोटो लें।";
-"jumio_id_scan_guide_take_photo_front_dl" = "अपने ड्रायवर्स लाइसेंस के आगे के हिस्से की एक फोटो लें।";
-"jumio_id_scan_guide_take_photo_front_idc" = "अपने पहचान पत्र के आगे के हिस्से की एक फोटो लें।";
-"jumio_id_scan_guide_take_photo_front_pd" = "अपने व्यक्तिगत दस्तावेज़ के आगे के हिस्से की एक फोटो लें।";
-"jumio_id_scan_guide_take_photo_passport" = "अपने पासपोर्ट की एक फोटो लें।";
+"jumio_id_scan_guide_back_side" = "बैक साइड को कैप्चर करें";
+"jumio_id_scan_guide_back_side_manually" = "बैक साइड को मैन्युअल रूप से कैप्चर करें";
+"jumio_id_scan_guide_photo_side" = "फोटो साइड को कैप्चर करें";
+"jumio_id_scan_guide_photo_side_manually" = "फोटो साइड को मैन्युअल रूप से कैप्चर करें";
 "jumio_id_scan_hint_performance_fallback" = "डिवाइस के बेहतर प्रदर्शन के लिए आप्टमाइज़ स्कैनिंग";
 "jumio_id_scan_manual" = "अपने दस्तावेज़ की फ़ोटो लें";
 "jumio_id_scan_manual_tips" = "पूरे दस्तावेज़ को कैप्चर करना सुनिश्चित करें";
@@ -150,11 +145,6 @@
 "jumio_id_scan_prompt_hold_straight" = "सीधे पकड़ें";
 "jumio_id_scan_prompt_move_closer" = "पास ले जाएँ";
 "jumio_id_scan_prompt_processing" = "इमेज की जांच की जा रही है...";
-"jumio_id_scan_prompt_redact_deu_id_paper" = "कृपया कैप्चर करने से पहले आईडी नंबर को संपादित करें";
-"jumio_id_scan_prompt_redact_deu_id_plastic" = "कृपया कैप्चर करने से पहले आईडी और एक्सेस नंबर को संपादित करें";
-"jumio_id_scan_prompt_redact_deu_passport" = "कृपया कैप्चर करने से पहले पासपोर्ट नंबर को संपादित करें";
-"jumio_id_scan_prompt_redact_kor" = "कैप्चर करने से पहले अपने निवासी रजिस्ट्रेशन नंबर का दूसरा ब्लॉक संपादित करें";
-"jumio_id_scan_prompt_redact_nld" = "कृपया कैप्चर करने से पहले अपने बीएसएन को संपादित करें";
 "jumio_id_scan_prompt_too_close" = "बहुत पास";
 "jumio_id_scan_prompt_zoom_barcode" = "अपने बारकोड पर ज़ूम इन करें";
 "jumio_id_scan_tips_barcode" = "कैमरे को बारकोड के करीब ले जाएं";
@@ -163,7 +153,6 @@
 "jumio_id_scan_tips_focusing" = "सुनिश्चित करें कि फ़ोटो फ़ोकस में है";
 "jumio_id_scan_tips_glare" = "प्रतिबिंब और उग्र प्रकाश से बचें";
 "jumio_id_scan_tips_lighting" = "अंधेरे में तस्वीर न लें";
-"jumio_id_scan_tips_passport" = "फोटो पेज के साथ ओवरले संरेखित करें";
 "jumio_id_scan_tips_placing" = "आईडी को समतल सतह पर रखें";
 "jumio_id_scan_tips_title" = "टिप्स";
 "jumio_id_scan_tooltip" = "मदद की ज़रूरत है?";

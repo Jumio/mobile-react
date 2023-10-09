@@ -1,6 +1,6 @@
 /*
   Localizable-Jumio.strings
-  Copyright © 2021 Jumio Corporation. All rights reserved.
+  Copyright © 2023 Jumio Corporation. All rights reserved.
 */
   
 "IProov_AccessibilityLabelCloseButton" = "បិទ";
@@ -52,8 +52,6 @@
 "IProov_PromptTooFar" = "ខិតមកជិតជាងមុន";
 "IProov_PromptYawTooHigh" = "ងាកទៅខាងឆ្វេងតិចៗ";
 "IProov_PromptYawTooLow" = "ងាកទៅខាងស្ដាំតិចៗ";
-"jumio_accessibility_alert_confirm" = "យល់ព្រម";
-"jumio_accessibility_alert_hint" = "គន្លឹះ";
 "jumio_accessibility_button_close" = "បិទ";
 "jumio_accessibility_scan_back" = "ថយក្រោយ";
 "jumio_accessibility_scan_help" = "ម៉ឺនុយជំនួយ";
@@ -131,13 +129,10 @@
 "jumio_id_confirm_button_confirm" = "បញ្ជាក់";
 "jumio_id_confirm_paragraph" = "ត្រូវប្រាកដថាព័ត៌មានលម្អិតអាចមើលឃើញច្បាស់ និងអានបាន";
 "jumio_id_confirm_title" = "បញ្ជាក់រូបថតរបស់អ្នក";
-"jumio_id_scan_guide_take_photo_back_dl" = "ថតរូបផ្នែកខាងក្រោយនៃបណ្ណបើកបររបស់អ្នក។";
-"jumio_id_scan_guide_take_photo_back_idc" = "ថតរូបផ្នែកខាងក្រោយនៃអត្តសញ្ញាណបណ្ណរបស់អ្នក។";
-"jumio_id_scan_guide_take_photo_back_pd" = "ថតរូបផ្នែកខាងក្រោយនៃឯកសារផ្ទាល់ខ្លួនរបស់អ្នក។";
-"jumio_id_scan_guide_take_photo_front_dl" = "ថតរូបផ្នែកខាងមុខនៃបណ្ណបើកបររបស់អ្នក។";
-"jumio_id_scan_guide_take_photo_front_idc" = "ថតរូបផ្នែកខាងមុខនៃអត្តសញ្ញាណបណ្ណរបស់អ្នក។";
-"jumio_id_scan_guide_take_photo_front_pd" = "ថតរូបផ្នែកខាងមុខនៃឯកសារផ្ទាល់ខ្លួនរបស់អ្នក។";
-"jumio_id_scan_guide_take_photo_passport" = "ថតរូបលិខិតឆ្លងដែនរបស់អ្នក។";
+"jumio_id_scan_guide_back_side" = "ថតយកខាងក្រោយ";
+"jumio_id_scan_guide_back_side_manually" = "ថតយកខាងក្រោយដោយដៃ";
+"jumio_id_scan_guide_photo_side" = "ថតយកម្ខាងនៃរូបថត";
+"jumio_id_scan_guide_photo_side_manually" = "ថតយកម្ខាងនៃរូបថតដោយដៃ";
 "jumio_id_scan_hint_performance_fallback" = "ការស្កេនត្រូវបានបង្កើនប្រសិទ្ធភាពដើម្បីឲ្យឧបករណ៍ដំណើរការបានកាន់តែប្រសើរ";
 "jumio_id_scan_manual" = "ថតរូបឯកសាររបស់អ្នក";
 "jumio_id_scan_manual_tips" = "ត្រូវប្រាកដថាថតឯកសារទាំងមូល";
@@ -150,11 +145,6 @@
 "jumio_id_scan_prompt_hold_straight" = "កាន់ឲ្យត្រង់";
 "jumio_id_scan_prompt_move_closer" = "ខិតឲ្យជិតជាងនេះ";
 "jumio_id_scan_prompt_processing" = "កំពុងពិនិត្យរូបភាព...";
-"jumio_id_scan_prompt_redact_deu_id_paper" = "សូមលេខ ID  មុននឹងថត";
-"jumio_id_scan_prompt_redact_deu_id_plastic" = "សូមកែ ID និងលេខចូលប្រើ មុននឹងថត";
-"jumio_id_scan_prompt_redact_deu_passport" = "សូមកែលេខលិខិតឆ្លងដែន មុននឹងថត";
-"jumio_id_scan_prompt_redact_kor" = "កែប្លុកទីពីរនៃលេខចុះបញ្ជីគេហជនរបស់អ្នកមុនពេលថត";
-"jumio_id_scan_prompt_redact_nld" = "សូមកែ BSN របស់អ្នកមុននឹងថត";
 "jumio_id_scan_prompt_too_close" = "ជិតពេក";
 "jumio_id_scan_prompt_zoom_barcode" = "ពង្រីកនៅលើបារកូដរបស់អ្នក";
 "jumio_id_scan_tips_barcode" = "ផ្លាស់ទីកាមេរ៉ាឱ្យជិតបារកូដ";
@@ -163,7 +153,6 @@
 "jumio_id_scan_tips_focusing" = "ត្រូវប្រាកដថាថតចំ";
 "jumio_id_scan_tips_glare" = "ចៀសវាងចំណាំងផ្លាត និងចាំងពន្លឺ";
 "jumio_id_scan_tips_lighting" = "កុំថតរូបក្នុងទីងងឹត";
-"jumio_id_scan_tips_passport" = "តម្រង់ត្រួតលើគ្នាជាមួយទំព័ររូបថត";
 "jumio_id_scan_tips_placing" = "ដាក់អត្តសញ្ញាណប័ណ្ណលើផ្ទៃរាបស្មើ";
 "jumio_id_scan_tips_title" = "គន្លឹះ";
 "jumio_id_scan_tooltip" = "ត្រូវការជំនួយ?";

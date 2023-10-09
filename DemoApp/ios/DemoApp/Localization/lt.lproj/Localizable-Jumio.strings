@@ -1,6 +1,6 @@
 /*
   Localizable-Jumio.strings
-  Copyright © 2021 Jumio Corporation. All rights reserved.
+  Copyright © 2023 Jumio Corporation. All rights reserved.
 */
   
 "IProov_AccessibilityLabelCloseButton" = "Uždaryti";
@@ -52,8 +52,6 @@
 "IProov_PromptTooFar" = "Prieikite arčiau";
 "IProov_PromptYawTooHigh" = "Šiek tiek pasisukite į kairę";
 "IProov_PromptYawTooLow" = "Šiek tiek pasisukite į dešinę";
-"jumio_accessibility_alert_confirm" = "Gerai";
-"jumio_accessibility_alert_hint" = "Užuomina";
 "jumio_accessibility_button_close" = "Uždaryti";
 "jumio_accessibility_scan_back" = "Atgal";
 "jumio_accessibility_scan_help" = "Pagalbos meniu";
@@ -131,13 +129,10 @@
 "jumio_id_confirm_button_confirm" = "Patvirtinti";
 "jumio_id_confirm_paragraph" = "Patikrinkite, ar visi duomenys aiškiai matomi ir įskaitomi";
 "jumio_id_confirm_title" = "Patvirtinkite nuotrauką";
-"jumio_id_scan_guide_take_photo_back_dl" = "Nufotografuokite savo vairuotojo pažymėjimo GALINĘ pusę.";
-"jumio_id_scan_guide_take_photo_back_idc" = "Nufotografuokite savo tapatybės kortelės GALINĘ pusę.";
-"jumio_id_scan_guide_take_photo_back_pd" = "Nufotografuokite savo asmens dokumento GALINĘ pusę.";
-"jumio_id_scan_guide_take_photo_front_dl" = "Nufotografuokite savo vairuotojo pažymėjimo PRIEKINĘ pusę.";
-"jumio_id_scan_guide_take_photo_front_idc" = "Nufotografuokite savo tapatybės kortelės PRIEKINĘ pusę.";
-"jumio_id_scan_guide_take_photo_front_pd" = "Nufotografuokite savo asmens dokumento PRIEKINĘ pusę.";
-"jumio_id_scan_guide_take_photo_passport" = "Nufotografuokite savo pasą.";
+"jumio_id_scan_guide_back_side" = "Nufotografuokite GALINĘ pusę";
+"jumio_id_scan_guide_back_side_manually" = "Nufotografuokite GALINĘ dokumento pusę";
+"jumio_id_scan_guide_photo_side" = "Nufotografuokite pusę su NUOTRAUKA";
+"jumio_id_scan_guide_photo_side_manually" = "Nufotografuokite dokumento pusę su NUOTRAUKA";
 "jumio_id_scan_hint_performance_fallback" = "Nuskaitymas optimizuotas siekiant pagreitinti procedūrą";
 "jumio_id_scan_manual" = "Nufotografuokite savo asmens dokumentą";
 "jumio_id_scan_manual_tips" = "Nufotografuokite visą dokumentą";
@@ -150,11 +145,6 @@
 "jumio_id_scan_prompt_hold_straight" = "Stovėkite tiesiai";
 "jumio_id_scan_prompt_move_closer" = "Prieikite arčiau";
 "jumio_id_scan_prompt_processing" = "Nuotrauka tikrinama...";
-"jumio_id_scan_prompt_redact_deu_id_paper" = "Prieš fotografuodami uždenkite ID numerį";
-"jumio_id_scan_prompt_redact_deu_id_plastic" = "Prieš fotografuodami uždenkite ID ir prieigos numerį";
-"jumio_id_scan_prompt_redact_deu_passport" = "Prieš fotografuodami uždenkite paso numerį";
-"jumio_id_scan_prompt_redact_kor" = "Prieš fotografuodami uždenkite antrąjį savo Gyventojo registracijos numerio laukelį";
-"jumio_id_scan_prompt_redact_nld" = "Prieš fotografuodami uždenkite savo BSN";
 "jumio_id_scan_prompt_too_close" = "Per arti";
 "jumio_id_scan_prompt_zoom_barcode" = "Priartinkite brūkšninį kodą";
 "jumio_id_scan_tips_barcode" = "Priartinkite kamerą prie brūkšninio kodo";
@@ -163,7 +153,6 @@
 "jumio_id_scan_tips_focusing" = "Įsitikinkite, kad nuotrauka sufokusuota";
 "jumio_id_scan_tips_glare" = "Venkite atspindžių ar ryškių šviesos spindulių";
 "jumio_id_scan_tips_lighting" = "Nefotografuokite tamsoje";
-"jumio_id_scan_tips_passport" = "Sutalpinkite puslapį, kuriame yra nuotrauka, į rėmelį";
 "jumio_id_scan_tips_placing" = "Padėkite dokumentą ant lygaus paviršiaus";
 "jumio_id_scan_tips_title" = "Patarimai";
 "jumio_id_scan_tooltip" = "Reikia pagalbos?";

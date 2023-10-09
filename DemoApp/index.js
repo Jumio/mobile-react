@@ -12,7 +12,9 @@ import {
     StyleSheet,
     View,
     NativeModules,
-    NativeEventEmitter, TextInput
+    NativeEventEmitter,
+    TextInput,
+    Text
 } from 'react-native';
 import { LogBox } from 'react-native';
 
@@ -20,7 +22,7 @@ LogBox.ignoreLogs(['new NativeEventEmitter']);
 
 const { JumioMobileSDK } = NativeModules;
 
-const DATACENTER = 'DATACENTER'
+var DATACENTER = 'DATACENTER'
 
 // Jumio SDK
 const startJumio = (authorizationToken) => {
@@ -29,13 +31,15 @@ const startJumio = (authorizationToken) => {
     // Setup iOS customizations
 //    JumioMobileSDK.setupCustomizations(
 //        {
-//            loadingCircleIcon: "#000000",
-//            loadingCirclePlain: "#000000",
-//            loadingCircleGradientStart: "#000000",
-//            loadingCircleGradientEnd: "#000000",
-//            loadingErrorCircleGradientStart: "#000000",
-//            loadingErrorCircleGradientEnd: "#000000",
-//            primaryButtonBackground: {"light": "#FFC0CB", "dark": "#FF1493"}
+//            background: "#AC3D9A",
+//              primaryColor: "#FF5722",
+//              loadingCircleIcon: "#F2F233",
+//              loadingCirclePlain: "#57ffc7",
+//              loadingCircleGradientStart: "#EC407A",
+//              loadingCircleGradientEnd: "#bc2e41",
+//              loadingErrorCircleGradientStart: "#AC3D9A",
+//              loadingErrorCircleGradientEnd: "#C31322",
+//              primaryButtonBackground: {"light": "#D900ff00", "dark": "#9Edd9E"}
 //        }
 //    );
 
@@ -71,6 +75,12 @@ export default class DemoApp extends Component {
 const AuthTokenInput = () => {
     const [authorizationToken, setAuthorizationToken] = useState("");
 
+    const [buttonText, setButtonText] = useState('Click');
+
+    function handleClick() {
+        setButtonText({DATACENTER});
+    }
+
     return (
         <View>
             <TextInput
@@ -85,6 +95,42 @@ const AuthTokenInput = () => {
                 title="Start"
                 onPress={() => startJumio(authorizationToken)}
             />
+            <View style={{marginTop: 10}}>
+                <Button
+                    style={styles.datacenterButton}
+                    title="US"
+                    onPress={() => {
+                        DATACENTER="US";
+                        handleClick({DATACENTER})
+                        }
+                    }
+                />
+            </View>
+            <View style={{marginTop: 10}}>
+                <Button
+                    style={styles.datacenterButton}
+                    title="EU"
+                    onPress={() => {
+                        DATACENTER="EU";
+                        handleClick({DATACENTER})
+                        }
+                    }
+                />
+            </View>
+            <View style={{marginTop:10}}>
+                <Button
+                    style={styles.datacenterButton}
+                    title="SG"
+                    onPress={() => {
+                        DATACENTER="SG";
+                        handleClick({DATACENTER})
+                        }
+                    }
+                />
+            </View>
+            <View style={styles.datacenter}>
+                <Text>{DATACENTER}</Text>
+            </View>
         </View>
     );
 };
@@ -112,6 +158,19 @@ const styles = StyleSheet.create({
         marginBottom: 20,
         borderWidth: 1,
         color: 'black'
+    },
+    datacenterButton: {
+        marginVertical: 5,
+        justifyContent: 'center',
+    },
+    datacenter: {
+        width: 240,
+        height: 40,
+        marginBottom: 20,
+        marginTop: 20,
+        borderWidth: 1,
+        color: '#808080',
+        justifyContent: 'center'
     },
 });
 

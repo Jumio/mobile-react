@@ -1,6 +1,6 @@
 /*
   Localizable-Jumio.strings
-  Copyright © 2021 Jumio Corporation. All rights reserved.
+  Copyright © 2023 Jumio Corporation. All rights reserved.
 */
   
 "IProov_AccessibilityLabelCloseButton" = "Aizvērt";
@@ -52,8 +52,6 @@
 "IProov_PromptTooFar" = "Panāciet tuvāk";
 "IProov_PromptYawTooHigh" = "Nedaudz pagriezieties pa kreisi";
 "IProov_PromptYawTooLow" = "Nedaudz pagriezieties pa labi";
-"jumio_accessibility_alert_confirm" = "Labi";
-"jumio_accessibility_alert_hint" = "Padoms";
 "jumio_accessibility_button_close" = "Aizvērt";
 "jumio_accessibility_scan_back" = "Atpakaļ";
 "jumio_accessibility_scan_help" = "Palīdzība";
@@ -131,13 +129,10 @@
 "jumio_id_confirm_button_confirm" = "Apstiprināt";
 "jumio_id_confirm_paragraph" = "Pārliecinieties, ka informācija ir skaidri redzama un lasāma";
 "jumio_id_confirm_title" = "Apstipriniet savu fotoattēlu";
-"jumio_id_scan_guide_take_photo_back_dl" = "Nofotografējiet vadītāja apliecības AIZMUGURI.";
-"jumio_id_scan_guide_take_photo_back_idc" = "Nofotografējiet ID kartes AIZMUGURI.";
-"jumio_id_scan_guide_take_photo_back_pd" = "Nofotografējiet dokumenta AIZMUGURI.";
-"jumio_id_scan_guide_take_photo_front_dl" = "Nofotografējiet vadītāja apliecības PRIEKŠPUSI.";
-"jumio_id_scan_guide_take_photo_front_idc" = "Nofotografējiet ID kartes PRIEKŠPUSI.";
-"jumio_id_scan_guide_take_photo_front_pd" = "Nofotografējiet dokumenta PRIEKŠPUSI.";
-"jumio_id_scan_guide_take_photo_passport" = "Nofotografējiet pasi.";
+"jumio_id_scan_guide_back_side" = "Nofotogrāfējiet AIZMUGURI";
+"jumio_id_scan_guide_back_side_manually" = "Manuāli nofotogrāfējiet AIZMUGURI";
+"jumio_id_scan_guide_photo_side" = "Nofotogrāfējiet ATTĒLA pusi";
+"jumio_id_scan_guide_photo_side_manually" = "Manuāli nofotogrāfējiet ATTĒLA pusi";
 "jumio_id_scan_hint_performance_fallback" = "Skenēšana optimizēta, lai uzlabotu ierīces veiktspēju";
 "jumio_id_scan_manual" = "Nofotografējiet savu dokumentu";
 "jumio_id_scan_manual_tips" = "Pārliecinieties, ka nofotogrāfēts viss dokuments";
@@ -150,11 +145,6 @@
 "jumio_id_scan_prompt_hold_straight" = "Turiet taisni";
 "jumio_id_scan_prompt_move_closer" = "Pietuviniet";
 "jumio_id_scan_prompt_processing" = "Notiek attēla pārbaude ...";
-"jumio_id_scan_prompt_redact_deu_id_paper" = "Pirms attēla uzņemšanas rediģējiet savu ID numuru.";
-"jumio_id_scan_prompt_redact_deu_id_plastic" = "Pirms attēla uzņemšanas rediģējiet savu ID un piekļuves numuru.";
-"jumio_id_scan_prompt_redact_deu_passport" = "Pirms attēla uzņemšanas rediģējiet savu pases numuru.";
-"jumio_id_scan_prompt_redact_kor" = "Pirms attēla uzņemšanas rediģējiet sava personas otro daļu.";
-"jumio_id_scan_prompt_redact_nld" = "Pirms attēla uzņemšanas rediģējiet savu BSN";
 "jumio_id_scan_prompt_too_close" = "Pārāk tuvu";
 "jumio_id_scan_prompt_zoom_barcode" = "Pietuviniet svītrkodu";
 "jumio_id_scan_tips_barcode" = "Pārvietojiet kameru tuvāk svītrkodam";
@@ -163,7 +153,6 @@
 "jumio_id_scan_tips_focusing" = "Pārliecinieties, ka fotoattēls ir fokusā";
 "jumio_id_scan_tips_glare" = "Izvairieties no atspīdumiem un atspulga";
 "jumio_id_scan_tips_lighting" = "Neuzņemiet attēlu tumsā";
-"jumio_id_scan_tips_passport" = "Iecentrējiet pārklājumu ar fotoattēla lapu";
 "jumio_id_scan_tips_placing" = "Novietojiet personu apliecinošo dokumentu uz līdzenas virsmas";
 "jumio_id_scan_tips_title" = "Ieteikumi";
 "jumio_id_scan_tooltip" = "Nepieciešama palīdzība?";

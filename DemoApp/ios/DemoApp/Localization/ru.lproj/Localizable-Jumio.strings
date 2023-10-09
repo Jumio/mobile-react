@@ -1,6 +1,6 @@
 /*
   Localizable-Jumio.strings
-  Copyright © 2021 Jumio Corporation. All rights reserved.
+  Copyright © 2023 Jumio Corporation. All rights reserved.
 */
   
 "IProov_AccessibilityLabelCloseButton" = "Закрыть";
@@ -52,8 +52,6 @@
 "IProov_PromptTooFar" = "Подойдите ближе";
 "IProov_PromptYawTooHigh" = "Немного поверните налево от себя";
 "IProov_PromptYawTooLow" = "Немного поверните направо от себя";
-"jumio_accessibility_alert_confirm" = "ОК";
-"jumio_accessibility_alert_hint" = "Подсказка";
 "jumio_accessibility_button_close" = "Закрыть";
 "jumio_accessibility_scan_back" = "Назад";
 "jumio_accessibility_scan_help" = "Справочное меню";
@@ -131,13 +129,10 @@
 "jumio_id_confirm_button_confirm" = "Подтвердить";
 "jumio_id_confirm_paragraph" = "Убедитесь, что все данные хорошо видны и читаемы";
 "jumio_id_confirm_title" = "Подтвердите свою фотографию";
-"jumio_id_scan_guide_take_photo_back_dl" = "Сфотографируйте ОБОРОТНУЮ сторону вашего водительского удостоверения.";
-"jumio_id_scan_guide_take_photo_back_idc" = "Сфотографируйте ОБОРОТНУЮ сторону вашего удостоверения личности.";
-"jumio_id_scan_guide_take_photo_back_pd" = "Сфотографируйте ОБОРОТНУЮ сторону вашего личного документа.";
-"jumio_id_scan_guide_take_photo_front_dl" = "Сфотографируйте ЛИЦЕВУЮ сторону вашего водительского удостоверения.";
-"jumio_id_scan_guide_take_photo_front_idc" = "Сфотографируйте ЛИЦЕВУЮ сторону вашего удостоверения личности.";
-"jumio_id_scan_guide_take_photo_front_pd" = "Сфотографируйте ЛИЦЕВУЮ сторону вашего личного документа.";
-"jumio_id_scan_guide_take_photo_passport" = "Сфотографируйте свой паспорт.";
+"jumio_id_scan_guide_back_side" = "Сделать снимок ОБРАТНОЙ стороны";
+"jumio_id_scan_guide_back_side_manually" = "Сделать снимок ОБРАТНОЙ стороны вручную";
+"jumio_id_scan_guide_photo_side" = "Сделать снимок стороны с ФОТО";
+"jumio_id_scan_guide_photo_side_manually" = "Сделать снимок стороны с ФОТО вручную";
 "jumio_id_scan_hint_performance_fallback" = "Сканирование оптимизировано для повышения производительности устройства";
 "jumio_id_scan_manual" = "Сфотографируйте свой документ";
 "jumio_id_scan_manual_tips" = "Убедитесь, что вы сфотографировали весь документ";
@@ -150,11 +145,6 @@
 "jumio_id_scan_prompt_hold_straight" = "Держите прямо";
 "jumio_id_scan_prompt_move_closer" = "Приблизьте";
 "jumio_id_scan_prompt_processing" = "Проверка изображения...";
-"jumio_id_scan_prompt_redact_deu_id_paper" = "Перед съемкой подготовьте идентификационный номер";
-"jumio_id_scan_prompt_redact_deu_id_plastic" = "Перед съемкой подготовьте идентификационный номер и номер доступа";
-"jumio_id_scan_prompt_redact_deu_passport" = "Перед съемкой подготовьте номер паспорта";
-"jumio_id_scan_prompt_redact_kor" = "Перед съемкой подготовьте второй блок своего регистрационного номера резидента";
-"jumio_id_scan_prompt_redact_nld" = "Перед съемкой подготовьте свой BSN";
 "jumio_id_scan_prompt_too_close" = "Слишком близко";
 "jumio_id_scan_prompt_zoom_barcode" = "Увеличение масштаба штрих-кода";
 "jumio_id_scan_tips_barcode" = "Приблизьте камеру к штрих-коду";
@@ -163,7 +153,6 @@
 "jumio_id_scan_tips_focusing" = "Убедитесь, что фотография в фокусе";
 "jumio_id_scan_tips_glare" = "Избегайте отражений и бликов";
 "jumio_id_scan_tips_lighting" = "Не фотографируйте в темноте";
-"jumio_id_scan_tips_passport" = "Выровняйте рамку по странице с фотографией";
 "jumio_id_scan_tips_placing" = "Положите удостоверение на плоскую поверхность";
 "jumio_id_scan_tips_title" = "Советы";
 "jumio_id_scan_tooltip" = "Нужна помощь?";
