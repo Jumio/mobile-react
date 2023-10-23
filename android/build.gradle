@@ -52,7 +52,7 @@ repositories {
 }
 
 ext {
-    SDK_VERSION = "4.6.0"
+    SDK_VERSION = "4.6.1"
 }
 
 dependencies {
