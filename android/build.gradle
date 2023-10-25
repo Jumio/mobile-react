@@ -51,15 +51,13 @@ repositories {
 }
 
 ext {
-    SDK_VERSION = "4.3.0"
+    SDK_VERSION = "4.3.1"
 }
 
 dependencies {
 	// Jumio dependencies
 	implementation "com.jumio.android:core:${SDK_VERSION}"
 	implementation "com.jumio.android:linefinder:${SDK_VERSION}"
-	    // React can't properly handle results after activity restarts caused by Docfinder module
-    //implementation "com.jumio.android:docfinder:${SDK_VERSION}"
 	implementation "com.jumio.android:mrz:${SDK_VERSION}"
 	implementation "com.jumio.android:nfc:${SDK_VERSION}"
 	implementation "com.jumio.android:barcode:${SDK_VERSION}"
