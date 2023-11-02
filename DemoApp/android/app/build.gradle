@@ -152,8 +152,8 @@ android {
 repositories {
     jcenter()
     maven { url 'https://maven.google.com/' }
-    maven { url 'http://mobile-sdk.jumio.com' }
-	// Android JSC is installed from npm
+    maven { url 'https://repo.mobile.jumio.ai' }
+    // Android JSC is installed from npm
     maven {
         // Android JSC is installed from npm
         url("$rootDir/../node_modules/jsc-android/dist")
@@ -162,7 +162,7 @@ repositories {
 
 def jscFlavor = 'org.webkit:android-jsc:+'
 
-def enableHermes = project.ext.react.get("enableHermes", false);
+def enableHermes = project.ext.react.get("enableHermes", false)
 
 
 dependencies {
@@ -172,7 +172,7 @@ dependencies {
 
     if (enableHermes) {
       // for RN 0.61+
-      def hermesPath = "../../node_modules/hermes-engine/android/";
+      def hermesPath = "../../node_modules/hermes-engine/android/"
 
 
       debugImplementation files(hermesPath + "hermes-debug.aar")

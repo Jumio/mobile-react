@@ -1,7 +1,8 @@
 # Plugin for React Native
 Official Jumio Mobile SDK plugin for React Native
 
-This plugin is compatible with version 3.9.2 of the Jumio SDK. If you have questions, please reach out to your Account Manager or contact [Jumio Support](#support).
+This plugin is compatible with version 3.9.8 of the Jumio iOS SDK and 3.9.5 of the Jumio Android SDK.       
+If you have questions, please reach out to your Account Manager or contact [Jumio Support](#support).
 
 # Table of Contents
 - [Compatibility](#compatibility)
@@ -33,7 +34,7 @@ Create React Native project and add the Jumio Mobile SDK module to it.
 ```sh
 react-native init MyProject
 cd MyProject
-npm install --save https://github.com/Jumio/mobile-react.git#v3.9.2
+npm install --save https://github.com/Jumio/mobile-react.git#v3.9.3
 ```
 
 ## Integration
@@ -174,7 +175,7 @@ If you are using eMRTD scanning, following lines are needed in your Manifest fil
 -dontwarn org.bouncycastle.**
 ```
 
-Add the needed dependencies following [this chapter](https://github.com/Jumio/mobile-sdk-android/blob/master/docs/integration_id-verification-fastfill.md#dependencies) of the android integration guide.
+Add the needed dependencies following [this chapter](https://github.com/Jumio/mobile-sdk-android/blob/v3.9.5/docs/integration_id-verification-fastfill.md#dependencies) of the android integration guide.
 
 As soon as the SDK is initialized, the SDK is started by the following call.
 
@@ -376,13 +377,13 @@ emitterBamCheckout.addListener(
 ### Android
 
 #### Netverify
-The Netverify SDK can be customized to the respective needs by following this [customization chapter](https://github.com/Jumio/mobile-sdk-android/blob/v3.9.2/docs/integration_id-verification-fastfill.md#customization).
+The Netverify SDK can be customized to the respective needs by following this [customization chapter](https://github.com/Jumio/mobile-sdk-android/blob/v3.9.5/docs/integration_id-verification-fastfill.md#customization).
 
 #### BAM Checkout
-The BAM Checkout SDK can be customized to the respective needs by following this [customization chapter](https://github.com/Jumio/mobile-sdk-android/blob/v3.9.2/docs/integration_bam-checkout.md#customization).
+The BAM Checkout SDK can be customized to the respective needs by following this [customization chapter](https://github.com/Jumio/mobile-sdk-android/blob/v3.9.5/docs/integration_bam-checkout.md#customization).
 
 #### Document Verification
-The Document Verification SDK can be customized to the respective needs by following this [customization chapter](https://github.com/Jumio/mobile-sdk-android/blob/v3.9.2/docs/integration_document-verification.md#customization).
+The Document Verification SDK can be customized to the respective needs by following this [customization chapter](https://github.com/Jumio/mobile-sdk-android/blob/v3.9.5/docs/integration_document-verification.md#customization).
 
 
 ### iOS
@@ -448,29 +449,29 @@ The JSONObject with all the extracted data that is returned for the specific pro
 
 *NetverifyDocumentData:*
 
-| Parameter | Type | Max. length | Description  |
-|:-------------------|:-----------     |:-------------|:-----------------|
-| selectedCountry | String| 3| [ISO 3166-1 alpha-3](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) country code as provided or selected |
-| selectedDocumentType | String | 16| PASSPORT, DRIVER_LICENSE, IDENTITY_CARD or VISA |
-| idNumber | String | 100 | Identification number of the document |
-| personalNumber | String | 14| Personal number of the document|
-| issuingDate | Date | | Date of issue |
-| expiryDate | Date | | Date of expiry |
-| issuingCountry | String | 3 | Country of issue as ([ISO 3166-1 alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3)) country code |
-| lastName | String | 100 | Last name of the customer|
-| firstName | String | 100 | First name of the customer|
-| dob | Date | | Date of birth |
-| gender | String | 1| m, f or x |
-| originatingCountry | String | 3|Country of origin as ([ISO 3166-1 alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3)) country code |
-| addressLine | String | 64 | Street name    |
-| city | String | 64 | City |
-| subdivision | String | 3 | Last three characters of [ISO 3166-2:US](http://en.wikipedia.org/wiki/ISO_3166-2:US) state code    |
-| postCode | String | 15 | Postal code |
-| mrzData |  MRZ-DATA | | MRZ data, see table below |
-| optionalData1 | String | 50 | Optional field of MRZ line 1 |
-| optionalData2 | String | 50 | Optional field of MRZ line 2 |
-| placeOfBirth | String | 255 | Place of Birth |
-| extractionMethod | String | 12| MRZ, OCR, BARCODE, BARCODE_OCR or NONE |
+| Parameter | Type | Max. length | Description                                                                                                 |
+|:-------------------|:-----------     |:-------------|:------------------------------------------------------------------------------------------------------------|
+| selectedCountry | String| 3| [ISO 3166-1 alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) country code as provided or selected |
+| selectedDocumentType | String | 16| PASSPORT, DRIVER_LICENSE, IDENTITY_CARD or VISA                                                             |
+| idNumber | String | 100 | Identification number of the document                                                                       |
+| personalNumber | String | 14| Personal number of the document                                                                             |
+| issuingDate | Date | | Date of issue                                                                                               |
+| expiryDate | Date | | Date of expiry                                                                                              |
+| issuingCountry | String | 3 | Country of issue as ([ISO 3166-1 alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3)) country code   |
+| lastName | String | 100 | Last name of the customer                                                                                   |
+| firstName | String | 100 | First name of the customer                                                                                  |
+| dob | Date | | Date of birth                                                                                               |
+| gender | String | 1| m, f or x                                                                                                   |
+| originatingCountry | String | 3| Country of origin as ([ISO 3166-1 alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3)) country code  |
+| addressLine | String | 64 | Street name                                                                                                 |
+| city | String | 64 | City                                                                                                        |
+| subdivision | String | 3 | Last three characters of [ISO 3166-2:US](https://en.wikipedia.org/wiki/ISO_3166-2:US) state code            |
+| postCode | String | 15 | Postal code                                                                                                 |
+| mrzData |  MRZ-DATA | | MRZ data, see table below                                                                                   |
+| optionalData1 | String | 50 | Optional field of MRZ line 1                                                                                |
+| optionalData2 | String | 50 | Optional field of MRZ line 2                                                                                |
+| placeOfBirth | String | 255 | Place of Birth                                                                                              |
+| extractionMethod | String | 12| MRZ, OCR, BARCODE, BARCODE_OCR or NONE                                                                      |
 
 *MRZ-Data*
 

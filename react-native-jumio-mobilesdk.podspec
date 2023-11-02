@@ -19,5 +19,5 @@ Pod::Spec.new do |s|
   s.requires_arc = true
 
   s.dependency "React-Core"
-  s.dependency "JumioMobileSDK", "3.9.1"
+  s.dependency "JumioMobileSDK", "3.9.8"
 end

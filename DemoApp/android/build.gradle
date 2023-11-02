@@ -9,8 +9,19 @@ buildscript {
     }
     repositories {
         google()
-        jcenter()
-        maven { url 'http://mobile-sdk.jumio.com' }
+        mavenCentral()
+        gradlePluginPortal()
+        exclusiveContent {
+            forRepository {
+                maven {
+                    url 'https://repo.mobile.jumio.ai'
+                }
+            }
+            filter {
+                includeGroup "com.jumio.android"
+                includeGroup "com.iproov.sdk"
+            }
+        }
     }
     dependencies {
         classpath('com.android.tools.build:gradle:4.0.1')
@@ -23,10 +34,6 @@ buildscript {
 
 allprojects {
     repositories {
-        maven {
-            url 'https://maven.google.com'
-        }
-        mavenLocal()
         maven {
             // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
             url("$rootDir/../node_modules/react-native/android")
