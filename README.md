@@ -366,7 +366,8 @@ Jumio SDK version 3.8.0 and newer use iProov dependencies that need need to be b
 Since React Native supports only static libraries, a pre-install hook has been added to ensure that pods added as `dynamic_frameworks` are actually built as dynamic frameworks, while all other pods are built as static libraries.
 
 ```
-dynamic_frameworks = ['Socket.IO-Client-Swift', 'Starscream', 'iProov']
+dynamic_frameworks = ['Starscream', 'iProov', 'DatadogCore', 'DatadogInternal', 'DatadogRUM']
+
 pre_install do |installer|
   installer.pod_targets.each do |pod|
     if !dynamic_frameworks.include?(pod.name)
