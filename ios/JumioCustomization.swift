@@ -3,18 +3,31 @@ import Jumio
 extension JumioMobileSDK {
     func customizeSDKColors(customizations: [String: Any?]) -> Jumio.Theme {
         var customTheme = Jumio.Theme()
+        
+        // Face
+        if let facePrimary = customizations["facePrimary"] as? [String: String?], let light = facePrimary["light"] as? String, let dark = facePrimary["dark"] as? String {
+            customTheme.face.primary = Jumio.Theme.Value(light: UIColor(hexString: light), dark: UIColor(hexString: dark))
+        } else if let facePrimary = customizations["facePrimary"] as? String {
+            customTheme.face.primary = Jumio.Theme.Value(UIColor(hexString: facePrimary))
+        }
+        
+        if let faceSecondary = customizations["faceSecondary"] as? [String: String?], let light = faceSecondary["light"] as? String, let dark = faceSecondary["dark"] as? String {
+            customTheme.face.secondary = Jumio.Theme.Value(light: UIColor(hexString: light), dark: UIColor(hexString: dark))
+        } else if let faceSecondary = customizations["faceSecondary"] as? String {
+            customTheme.face.secondary = Jumio.Theme.Value(UIColor(hexString: faceSecondary))
+        }
+        
+        if let faceOutline = customizations["faceOutline"] as? [String: String?], let light = faceOutline["light"] as? String, let dark = faceOutline["dark"] as? String {
+            customTheme.face.outline = Jumio.Theme.Value(light: UIColor(hexString: light), dark: UIColor(hexString: dark))
+        } else if let faceOutline = customizations["faceOutline"] as? String {
+            customTheme.face.outline = Jumio.Theme.Value(UIColor(hexString: faceOutline))
+        }
 
         // ScanHelp
         if let faceAnimationForeground = customizations["faceAnimationForeground"] as? [String: String?], let light = faceAnimationForeground["light"] as? String, let dark = faceAnimationForeground["dark"] as? String {
             customTheme.scanHelp.faceAnimationForeground = Jumio.Theme.Value(light: UIColor(hexString: light), dark: UIColor(hexString: dark))
         } else if let faceAnimationForeground = customizations["faceAnimationForeground"] as? String {
             customTheme.scanHelp.faceAnimationForeground = Jumio.Theme.Value(UIColor(hexString: faceAnimationForeground))
-        }
-        
-        if let faceAnimationBackground = customizations["faceAnimationBackground"] as? [String: String?], let light = faceAnimationBackground["light"] as? String, let dark = faceAnimationBackground["dark"] as? String {
-            customTheme.scanHelp.faceAnimationBackground = Jumio.Theme.Value(light: UIColor(hexString: light), dark: UIColor(hexString: dark))
-        } else if let faceAnimationBackground = customizations["faceAnimationBackground"] as? String {
-            customTheme.scanHelp.faceAnimationBackground = Jumio.Theme.Value(UIColor(hexString: faceAnimationBackground))
         }
     
         // IProov
@@ -120,6 +133,12 @@ extension JumioMobileSDK {
         } else if let primaryButtonForegroundDisabled = customizations["primaryButtonForegroundDisabled"] as? String {
             customTheme.primaryButton.foregroundDisabled = Jumio.Theme.Value(UIColor(hexString: primaryButtonForegroundDisabled))
         }
+        
+        if let primaryButtonOutline = customizations["primaryButtonOutline"] as? [String: String?], let light = primaryButtonOutline["light"] as? String, let dark = primaryButtonOutline["dark"] as? String {
+            customTheme.primaryButton.outline = Jumio.Theme.Value(light: UIColor(hexString: light), dark: UIColor(hexString: dark))
+        } else if let primaryButtonOutline = customizations["primaryButtonOutline"] as? String {
+            customTheme.primaryButton.outline = Jumio.Theme.Value(UIColor(hexString: primaryButtonOutline))
+        }
 
         if let secondaryButtonBackground = customizations["secondaryButtonBackground"] as? [String: String?], let light = secondaryButtonBackground["light"] as? String, let dark = secondaryButtonBackground["dark"] as? String {
             customTheme.secondaryButton.background = Jumio.Theme.Value(light: UIColor(hexString: light), dark: UIColor(hexString: dark))
@@ -143,6 +162,24 @@ extension JumioMobileSDK {
             customTheme.secondaryButton.foreground = Jumio.Theme.Value(light: UIColor(hexString: light), dark: UIColor(hexString: dark))
         } else if let secondaryButtonForeground = customizations["secondaryButtonForeground"] as? String {
             customTheme.secondaryButton.foreground = Jumio.Theme.Value(UIColor(hexString: secondaryButtonForeground))
+        }
+        
+        if let secondaryButtonForegroundPressed = customizations["secondaryButtonForegroundPressed"] as? [String: String?], let light = secondaryButtonForegroundPressed["light"] as? String, let dark = secondaryButtonForegroundPressed["dark"] as? String {
+            customTheme.secondaryButton.foregroundPressed = Jumio.Theme.Value(light: UIColor(hexString: light), dark: UIColor(hexString: dark))
+        } else if let secondaryButtonForegroundPressed = customizations["secondaryButtonForegroundPressed"] as? String {
+            customTheme.secondaryButton.foregroundPressed = Jumio.Theme.Value(UIColor(hexString: secondaryButtonForegroundPressed))
+        }
+        
+        if let secondaryButtonForegroundDisabled = customizations["secondaryButtonForegroundDisabled"] as? [String: String?], let light = secondaryButtonForegroundDisabled["light"] as? String, let dark = secondaryButtonForegroundDisabled["dark"] as? String {
+            customTheme.secondaryButton.foregroundDisabled = Jumio.Theme.Value(light: UIColor(hexString: light), dark: UIColor(hexString: dark))
+        } else if let secondaryButtonForegroundDisabled = customizations["secondaryButtonForegroundDisabled"] as? String {
+            customTheme.secondaryButton.foregroundDisabled = Jumio.Theme.Value(UIColor(hexString: secondaryButtonForegroundDisabled))
+        }
+        
+        if let secondaryButtonOutline = customizations["secondaryButtonOutline"] as? [String: String?], let light = secondaryButtonOutline["light"] as? String, let dark = secondaryButtonOutline["dark"] as? String {
+            customTheme.secondaryButton.outline = Jumio.Theme.Value(light: UIColor(hexString: light), dark: UIColor(hexString: dark))
+        } else if let secondaryButtonOutline = customizations["secondaryButtonOutline"] as? String {
+            customTheme.secondaryButton.outline = Jumio.Theme.Value(UIColor(hexString: secondaryButtonOutline))
         }
 
         // Bubble, Circle and Selection Icon
@@ -174,12 +211,6 @@ extension JumioMobileSDK {
             customTheme.bubble.circleItemBackground = Jumio.Theme.Value(light: UIColor(hexString: light), dark: UIColor(hexString: dark))
         } else if let bubbleCircleItemBackground = customizations["bubbleCircleItemBackground"] as? String {
             customTheme.bubble.circleItemBackground = Jumio.Theme.Value(UIColor(hexString: bubbleCircleItemBackground))
-        }
-
-        if let bubbleSelectionIconForeground = customizations["bubbleSelectionIconForeground"] as? [String: String?], let light = bubbleSelectionIconForeground["light"] as? String, let dark = bubbleSelectionIconForeground["dark"] as? String {
-            customTheme.bubble.selectionIconForeground = Jumio.Theme.Value(light: UIColor(hexString: light), dark: UIColor(hexString: dark))
-        } else if let bubbleSelectionIconForeground = customizations["bubbleSelectionIconForeground"] as? String {
-            customTheme.bubble.selectionIconForeground = Jumio.Theme.Value(UIColor(hexString: bubbleSelectionIconForeground))
         }
 
         // Loading, Error
@@ -319,10 +350,16 @@ extension JumioMobileSDK {
             customTheme.searchBubble.foreground = Jumio.Theme.Value(UIColor(hexString: searchBubbleForeground))
         }
 
-        if let searchBubbleListItemSelected = customizations["searchBubbleListItemSelected"] as? [String: String?], let light = searchBubbleListItemSelected["light"] as? String, let dark = searchBubbleListItemSelected["dark"] as? String {
-            customTheme.searchBubble.listItemSelected = Jumio.Theme.Value(light: UIColor(hexString: light), dark: UIColor(hexString: dark))
-        } else if let searchBubbleListItemSelected = customizations["searchBubbleListItemSelected"] as? String {
-            customTheme.searchBubble.listItemSelected = Jumio.Theme.Value(UIColor(hexString: searchBubbleListItemSelected))
+        if let searchBubbleBackgroundSelected = customizations["searchBubbleBackgroundSelected"] as? [String: String?], let light = searchBubbleBackgroundSelected["light"] as? String, let dark = searchBubbleBackgroundSelected["dark"] as? String {
+            customTheme.searchBubble.backgroundSelected = Jumio.Theme.Value(light: UIColor(hexString: light), dark: UIColor(hexString: dark))
+        } else if let searchBubbleBackgroundSelected = customizations["searchBubbleBackgroundSelected"] as? String {
+            customTheme.searchBubble.backgroundSelected = Jumio.Theme.Value(UIColor(hexString: searchBubbleBackgroundSelected))
+        }
+        
+        if let searchBubbleOutline = customizations["searchBubbleOutline"] as? [String: String?], let light = searchBubbleOutline["light"] as? String, let dark = searchBubbleOutline["dark"] as? String {
+            customTheme.searchBubble.outline = Jumio.Theme.Value(light: UIColor(hexString: light), dark: UIColor(hexString: dark))
+        } else if let searchBubbleOutline = customizations["searchBubbleOutline"] as? String {
+            customTheme.searchBubble.outline = Jumio.Theme.Value(UIColor(hexString: searchBubbleOutline))
         }
         
         // Confirmation
@@ -349,6 +386,12 @@ extension JumioMobileSDK {
         } else if let confirmationIndicatorDefault = customizations["confirmationIndicatorDefault"] as? String {
             customTheme.confirmation.indicatorDefault = Jumio.Theme.Value(UIColor(hexString: confirmationIndicatorDefault))
         }
+        
+        if let confirmationImageBorder = customizations["confirmationImageBorder"] as? [String: String?], let light = confirmationImageBorder["light"] as? String, let dark = confirmationImageBorder["dark"] as? String {
+            customTheme.confirmation.imageBorder = Jumio.Theme.Value(light: UIColor(hexString: light), dark: UIColor(hexString: dark))
+        } else if let confirmationImageBorder = customizations["confirmationImageBorder"] as? String {
+            customTheme.confirmation.imageBorder = Jumio.Theme.Value(UIColor(hexString: confirmationImageBorder))
+        }
 
         // Global
         if let background = customizations["background"] as? [String: String?], let light = background["light"] as? String, let dark = background["dark"] as? String {
@@ -373,6 +416,12 @@ extension JumioMobileSDK {
             customTheme.primaryColor = Jumio.Theme.Value(light: UIColor(hexString: light), dark: UIColor(hexString: dark))
         } else if let primaryColor = customizations["primaryColor"] as? String {
             customTheme.primaryColor = Jumio.Theme.Value(UIColor(hexString: primaryColor))
+        }
+        
+        if let selectionIconForeground = customizations["selectionIconForeground"] as? [String: String?], let light = selectionIconForeground["light"] as? String, let dark = selectionIconForeground["dark"] as? String {
+            customTheme.selectionIconForeground = Jumio.Theme.Value(light: UIColor(hexString: light), dark: UIColor(hexString: dark))
+        } else if let selectionIconForeground = customizations["selectionIconForeground"] as? String {
+            customTheme.selectionIconForeground = Jumio.Theme.Value(UIColor(hexString: selectionIconForeground))
         }
 
         return customTheme

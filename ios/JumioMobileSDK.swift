@@ -26,6 +26,7 @@ class JumioMobileSDK: RCTEventEmitter {
         jumio = Jumio.SDK()
         jumio?.defaultUIDelegate = self
         jumio?.token = token
+        jumio?.setResourcesBundle(Bundle.main)
 
         switch dataCenter.lowercased() {
         case "eu":
@@ -76,6 +77,7 @@ class JumioMobileSDK: RCTEventEmitter {
         let result: [String: Any?] = [
             "selectedCountry": idResult.country,
             "selectedDocumentType": idResult.idType,
+            "selectedDocumentSubType":idResult.idSubType,
             "idNumber": idResult.documentNumber,
             "personalNumber": idResult.personalNumber,
             "issuingDate": idResult.issuingDate,

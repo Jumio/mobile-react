@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
   s.homepage     = "https://github.com/Jumio/mobile-react"
   s.license      = package["license"]
   s.authors      = { "Jumio Corporation" => "support@jumio.com" }
-  s.platforms    = { :ios => "11.0" }
+  s.platforms    = { :ios => "12.0" }
   s.source       = { :git => "https://github.com/Jumio/mobile-react.git", :tag => "#{s.version}" }
 
   s.source_files = "ios/**/*.{h,c,m,swift}"
@@ -23,5 +23,5 @@ Pod::Spec.new do |s|
   }
 
   s.dependency "React-Core"
-  s.dependency "Jumio", "4.7.0"
+  s.dependency "Jumio", "~> 4.9.1"
 end

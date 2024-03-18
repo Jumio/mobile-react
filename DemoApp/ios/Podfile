@@ -26,14 +26,9 @@ end
 
 target "DemoApp" do
     config = use_native_modules!
-
-    # Flags change depending on the env values.
-    flags = get_default_flags()
     
     use_react_native!(
       :path => config[:reactNativePath],
-      :hermes_enabled => flags[:hermes_enabled],
-      :fabric_enabled => flags[:fabric_enabled],
       # Enables Flipper.
       #
       # Note that if you have use_frameworks! enabled, Flipper will not work and
@@ -44,7 +39,7 @@ target "DemoApp" do
     )
     use_frameworks!
 
-    dynamic_frameworks = ['Starscream', 'iProov', 'DatadogCore', 'DatadogInternal', 'DatadogRUM']
+    dynamic_frameworks = ['iProov', 'DatadogCore', 'DatadogInternal', 'DatadogRUM']
 
     # make all the other frameworks into static frameworks by overriding the static_framework? function to return true
     pre_install do |installer|
@@ -67,22 +62,17 @@ target "DemoApp" do
           config.build_settings['BUILD_LIBRARY_FOR_DISTRIBUTION'] = 'YES'
         end
       end
-
-       installer.pods_project.targets.each do |target|
-         target.build_configurations.each do |config|
-           config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '12.0'
-         end
-       end
-
-      installer.pods_project.build_configurations.each do |config|
-        config.build_settings["EXCLUDED_ARCHS[sdk=iphonesimulator*]"] = "arm64"
-      end
-
+      
       react_native_post_install(
         installer,
         config[:reactNativePath],
         :mac_catalyst_enabled => false
       )
-      __apply_Xcode_12_5_M1_post_install_workaround(installer)
+
+      installer.pods_project.targets.each do |target|
+        target.build_configurations.each do |config|
+          config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '12.0'
+        end
+      end
     end
 end

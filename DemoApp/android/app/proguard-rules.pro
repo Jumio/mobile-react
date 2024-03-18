@@ -75,17 +75,23 @@
 -dontwarn okio.**
 
 # Jumio
-
 -keep class com.jumio.** { *; }
 -keep class jumio.** { *; }
+# keep constraintlayout.motion classes and members for face help animation
+#-keep class androidx.constraintlayout.motion.widget.** { *; }
+
+#Microblink
 -keep class com.microblink.** { *; }
 -keep class com.microblink.**$* { *; }
+
+#IProov
 -keep public class com.iproov.sdk.IProov {public *; }
 
+#JRMT
 -keep class org.jmrtd.** { *; }
--keep class net.sf.scuba.** {*;}
--keep class org.bouncycastle.** {*;}
--keep class org.ejbca.** {*;}
+-keep class net.sf.scuba.** { *; }
+-keep class org.bouncycastle.** { *; }
+-keep class org.ejbca.** { *; }
 
 -dontwarn java.nio.**
 -dontwarn org.codehaus.**
