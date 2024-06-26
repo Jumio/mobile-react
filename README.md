@@ -1,7 +1,7 @@
 # Plugin for React Native
 Official Jumio Mobile SDK plugin for React Native
 
-This plugin is compatible with version 4.9.0 of the Jumio SDK.    
+This plugin is compatible with version 4.10.0 of the Jumio SDK.    
 If you have questions, please reach out to your Account Manager or contact [Jumio Support](#support).
 
 # Table of Contents
@@ -27,7 +27,7 @@ If you have questions, please reach out to your Account Manager or contact [Jumi
 - [Support](#support)
 
 ## Compatibility
-We only ensure compatibility with a minimum React Native version of 0.73.5
+We only ensure compatibility with a minimum React Native version of 0.74.2
 
 ## Setup
 Create React Native project and add the Jumio Mobile SDK module to it.
@@ -35,7 +35,7 @@ Create React Native project and add the Jumio Mobile SDK module to it.
 ```sh
 react-native init MyProject
 cd MyProject
-npm install --save https://github.com/Jumio/mobile-react.git#v4.9.0
+npm install --save https://github.com/Jumio/mobile-react.git#v4.10.0
 cd ios && pod install
 ```
 
@@ -237,8 +237,7 @@ You can pass the following customization options to the [`setupCustomizations()`
 | bubbleBackground                                |
 | bubbleForeground                                |
 | bubbleBackgroundSelected                        |
-| bubbleCircleItemForeground                      |
-| bubbleCircleItemBackground                      |
+| bubbleOutline                                   |
 | loadingCirclePlain                              |
 | loadingCircleGradientStart                      |
 | loadingCircleGradientEnd                        |
@@ -246,22 +245,19 @@ You can pass the following customization options to the [`setupCustomizations()`
 | loadingErrorCircleGradientEnd                   |
 | loadingCircleIcon                               |
 | scanOverlay                                     |
-| scanOverlayFill                                 |
-| scanOverlayTransparent                          |
 | scanOverlayBackground                           |
 | nfcPassportCover                                |
 | nfcPassportPageDark                             |
 | nfcPassportPageLight                            |
 | nfcPassportForeground                           |
 | nfcPhoneCover                                   |
-| scanViewBubbleForeground                        |
-| scanViewBubbleBackground                        |
+| scanViewTooltipForeground                       |
+| scanViewTooltipBackground                       |
 | scanViewForeground                              |
 | scanViewDocumentShutter                         |
 | scanViewFaceShutter                             |
 | searchBubbleBackground                          |
 | searchBubbleForeground                          |
-| searchBubbleBackgroundSelected                  |
 | searchBubbleOutline                             |
 | confirmationImageBackground                     |
 | confirmationImageBackgroundBorder               |
@@ -448,7 +444,7 @@ After installing Cocoapods, please localize your iOS application using the langu
 ![Localization](images/RN_localization.gif)
 
 Make sure your `Podfile` is up to date and that new pod versions are installed properly so your `Localizable` files include new strings.
-For more information, please refer to our [Changelog](https://github.com/Jumio/mobile-sdk-ios/blob/master/docs/changelog) and [Transition Guide](https://github.com/Jumio/mobile-sdk-ios/blob/master/docs/transition_guide.md).
+For more information, please refer to our [Changelog](https://github.com/Jumio/mobile-sdk-ios/blob/master/docs/changelog.md) and [Transition Guide](https://github.com/Jumio/mobile-sdk-ios/blob/master/docs/transition_guide.md).
 
 # Support
 

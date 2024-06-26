@@ -201,16 +201,10 @@ extension JumioMobileSDK {
             customTheme.bubble.backgroundSelected = Jumio.Theme.Value(UIColor(hexString: bubbleBackgroundSelected))
         }
 
-        if let bubbleCircleItemForeground = customizations["bubbleCircleItemForeground"] as? [String: String?], let light = bubbleCircleItemForeground["light"] as? String, let dark = bubbleCircleItemForeground["dark"] as? String {
-            customTheme.bubble.circleItemForeground = Jumio.Theme.Value(light: UIColor(hexString: light), dark: UIColor(hexString: dark))
-        } else if let bubbleCircleItemForeground = customizations["bubbleCircleItemForeground"] as? String {
-            customTheme.bubble.circleItemForeground = Jumio.Theme.Value(UIColor(hexString: bubbleCircleItemForeground))
-        }
-
-        if let bubbleCircleItemBackground = customizations["bubbleCircleItemBackground"] as? [String: String?], let light = bubbleCircleItemBackground["light"] as? String, let dark = bubbleCircleItemBackground["dark"] as? String {
-            customTheme.bubble.circleItemBackground = Jumio.Theme.Value(light: UIColor(hexString: light), dark: UIColor(hexString: dark))
-        } else if let bubbleCircleItemBackground = customizations["bubbleCircleItemBackground"] as? String {
-            customTheme.bubble.circleItemBackground = Jumio.Theme.Value(UIColor(hexString: bubbleCircleItemBackground))
+        if let bubbleOutline = customizations["bubbleOutline"] as? [String: String?], let light = bubbleOutline["light"] as? String, let dark = bubbleOutline["dark"] as? String {
+            customTheme.bubble.outline = Jumio.Theme.Value(light: UIColor(hexString: light), dark: UIColor(hexString: dark))
+        } else if let bubbleOutline = customizations["bubbleOutline"] as? String {
+            customTheme.bubble.outline = Jumio.Theme.Value(UIColor(hexString: bubbleOutline))
         }
 
         // Loading, Error
@@ -257,18 +251,6 @@ extension JumioMobileSDK {
             customTheme.scanOverlay.scanOverlay = Jumio.Theme.Value(UIColor(hexString: scanOverlay))
         }
 
-        if let scanOverlayFill = customizations["scanOverlayFill"] as? [String: String?], let light = scanOverlayFill["light"] as? String, let dark = scanOverlayFill["dark"] as? String {
-            customTheme.scanOverlay.fill = Jumio.Theme.Value(light: UIColor(hexString: light), dark: UIColor(hexString: dark))
-        } else if let scanOverlayFill = customizations["scanOverlayFill"] as? String {
-            customTheme.scanOverlay.fill = Jumio.Theme.Value(UIColor(hexString: scanOverlayFill))
-        }
-
-        if let scanOverlayTransparent = customizations["scanOverlayTransparent"] as? [String: String?], let light = scanOverlayTransparent["light"] as? String, let dark = scanOverlayTransparent["dark"] as? String {
-            customTheme.scanOverlay.scanOverlayTransparent = Jumio.Theme.Value(light: UIColor(hexString: light), dark: UIColor(hexString: dark))
-        } else if let scanOverlayTransparent = customizations["scanOverlayTransparent"] as? String {
-            customTheme.scanOverlay.scanOverlayTransparent = Jumio.Theme.Value(UIColor(hexString: scanOverlayTransparent))
-        }
-
         if let scanOverlayBackground = customizations["scanOverlayBackground"] as? [String: String?], let light = scanOverlayBackground["light"] as? String, let dark = scanOverlayBackground["dark"] as? String {
             customTheme.scanOverlay.scanBackground = Jumio.Theme.Value(light: UIColor(hexString: light), dark: UIColor(hexString: dark))
         } else if let scanOverlayBackground = customizations["scanOverlayBackground"] as? String {
@@ -307,16 +289,16 @@ extension JumioMobileSDK {
         }
 
         // ScanView
-        if let scanViewBubbleForeground = customizations["scanViewBubbleForeground"] as? [String: String?], let light = scanViewBubbleForeground["light"] as? String, let dark = scanViewBubbleForeground["dark"] as? String {
-            customTheme.scanView.bubbleForeground = Jumio.Theme.Value(light: UIColor(hexString: light), dark: UIColor(hexString: dark))
-        } else if let scanViewBubbleForeground = customizations["scanViewBubbleForeground"] as? String {
-            customTheme.scanView.bubbleForeground = Jumio.Theme.Value(UIColor(hexString: scanViewBubbleForeground))
+        if let scanViewTooltipForeground = customizations["scanViewTooltipForeground"] as? [String: String?], let light = scanViewTooltipForeground["light"] as? String, let dark = scanViewTooltipForeground["dark"] as? String {
+            customTheme.scanView.tooltipForeground = Jumio.Theme.Value(light: UIColor(hexString: light), dark: UIColor(hexString: dark))
+        } else if let scanViewTooltipForeground = customizations["scanViewTooltipForeground"] as? String {
+            customTheme.scanView.tooltipForeground = Jumio.Theme.Value(UIColor(hexString: scanViewTooltipForeground))
         }
 
-        if let scanViewBubbleBackground = customizations["scanViewBubbleBackground"] as? [String: String?], let light = scanViewBubbleBackground["light"] as? String, let dark = scanViewBubbleBackground["dark"] as? String {
-            customTheme.scanView.bubbleBackground = Jumio.Theme.Value(light: UIColor(hexString: light), dark: UIColor(hexString: dark))
-        } else if let scanViewBubbleBackground = customizations["scanViewBubbleBackground"] as? String {
-            customTheme.scanView.bubbleBackground = Jumio.Theme.Value(UIColor(hexString: scanViewBubbleBackground))
+        if let scanViewTooltipBackground = customizations["scanViewTooltipBackground"] as? [String: String?], let light = scanViewTooltipBackground["light"] as? String, let dark = scanViewTooltipBackground["dark"] as? String {
+            customTheme.scanView.tooltipBackground = Jumio.Theme.Value(light: UIColor(hexString: light), dark: UIColor(hexString: dark))
+        } else if let scanViewTooltipBackground = customizations["scanViewTooltipBackground"] as? String {
+            customTheme.scanView.tooltipBackground = Jumio.Theme.Value(UIColor(hexString: scanViewTooltipBackground))
         }
 
         if let scanViewForeground = customizations["scanViewForeground"] as? [String: String?], let light = scanViewForeground["light"] as? String, let dark = scanViewForeground["dark"] as? String {
@@ -348,12 +330,6 @@ extension JumioMobileSDK {
             customTheme.searchBubble.foreground = Jumio.Theme.Value(light: UIColor(hexString: light), dark: UIColor(hexString: dark))
         } else if let searchBubbleForeground = customizations["searchBubbleForeground"] as? String {
             customTheme.searchBubble.foreground = Jumio.Theme.Value(UIColor(hexString: searchBubbleForeground))
-        }
-
-        if let searchBubbleBackgroundSelected = customizations["searchBubbleBackgroundSelected"] as? [String: String?], let light = searchBubbleBackgroundSelected["light"] as? String, let dark = searchBubbleBackgroundSelected["dark"] as? String {
-            customTheme.searchBubble.backgroundSelected = Jumio.Theme.Value(light: UIColor(hexString: light), dark: UIColor(hexString: dark))
-        } else if let searchBubbleBackgroundSelected = customizations["searchBubbleBackgroundSelected"] as? String {
-            customTheme.searchBubble.backgroundSelected = Jumio.Theme.Value(UIColor(hexString: searchBubbleBackgroundSelected))
         }
         
         if let searchBubbleOutline = customizations["searchBubbleOutline"] as? [String: String?], let light = searchBubbleOutline["light"] as? String, let dark = searchBubbleOutline["dark"] as? String {
