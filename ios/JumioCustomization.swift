@@ -257,6 +257,24 @@ extension JumioMobileSDK {
             customTheme.scanOverlay.scanBackground = Jumio.Theme.Value(UIColor(hexString: scanOverlayBackground))
         }
 
+        if let scanOverlayLivenessStroke = customizations["scanOverlayLivenessStroke"] as? [String: String?], let light = scanOverlayLivenessStroke["light"] as? String, let dark = scanOverlayLivenessStroke["dark"] as? String {
+            customTheme.scanOverlay.livenessStroke = Jumio.Theme.Value(light: UIColor(hexString: light), dark: UIColor(hexString: dark))
+        } else if let scanOverlayLivenessStroke = customizations["scanOverlayLivenessStroke"] as? String {
+            customTheme.scanOverlay.livenessStroke = Jumio.Theme.Value(UIColor(hexString: scanOverlayLivenessStroke))
+        }
+
+        if let scanOverlayLivenessStrokeAnimation = customizations["scanOverlayLivenessStrokeAnimation"] as? [String: String?], let light = scanOverlayLivenessStrokeAnimation["light"] as? String, let dark = scanOverlayLivenessStrokeAnimation["dark"] as? String {
+            customTheme.scanOverlay.livenessStrokeAnimation = Jumio.Theme.Value(light: UIColor(hexString: light), dark: UIColor(hexString: dark))
+        } else if let scanOverlayLivenessStrokeAnimation = customizations["scanOverlayLivenessStrokeAnimation"] as? String {
+            customTheme.scanOverlay.livenessStrokeAnimation = Jumio.Theme.Value(UIColor(hexString: scanOverlayLivenessStrokeAnimation))
+        }
+
+        if let scanOverlayLivenessStrokeAnimationCompleted = customizations["scanOverlayLivenessStrokeAnimationCompleted"] as? [String: String?], let light = scanOverlayLivenessStrokeAnimationCompleted["light"] as? String, let dark = scanOverlayLivenessStrokeAnimationCompleted["dark"] as? String {
+            customTheme.scanOverlay.livenessStrokeAnimationCompleted = Jumio.Theme.Value(light: UIColor(hexString: light), dark: UIColor(hexString: dark))
+        } else if let scanOverlayLivenessStrokeAnimationCompleted = customizations["scanOverlayLivenessStrokeAnimationCompleted"] as? String {
+            customTheme.scanOverlay.livenessStrokeAnimationCompleted = Jumio.Theme.Value(UIColor(hexString: scanOverlayLivenessStrokeAnimationCompleted))
+        }
+
         // NFC
         if let nfcPassportCover = customizations["nfcPassportCover"] as? [String: String?], let light = nfcPassportCover["light"] as? String, let dark = nfcPassportCover["dark"] as? String {
             customTheme.nfc.passportCover = Jumio.Theme.Value(light: UIColor(hexString: light), dark: UIColor(hexString: dark))

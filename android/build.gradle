@@ -52,7 +52,7 @@ repositories {
 }
 
 ext {
-    SDK_VERSION = "4.11.0"
+    SDK_VERSION = "4.12.1"
 }
 
 dependencies {
@@ -61,7 +61,7 @@ dependencies {
 	// Kotlin
 	implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.9.24"
 	// only for the sample code
-	implementation "androidx.activity:activity-ktx:1.9.0"
+	implementation "androidx.activity:activity-ktx:1.9.3"
 	implementation "androidx.multidex:multidex:2.0.1"
 
 	// Jumio dependencies

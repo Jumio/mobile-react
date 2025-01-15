@@ -12,5 +12,7 @@
     RCT_EXTERN_METHOD(setupCustomizations:(NSDictionary *)customizations)
     RCT_EXTERN_METHOD(start)
     RCT_EXTERN_METHOD(isRooted:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject)
+    RCT_EXTERN_METHOD(setPreloaderFinishedBlock:(RCTResponseSenderBlock)completion)
+    RCT_EXTERN_METHOD(preloadIfNeeded)
 @end
 

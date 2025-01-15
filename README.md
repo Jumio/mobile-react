@@ -1,7 +1,7 @@
 # Plugin for React Native
 Official Jumio Mobile SDK plugin for React Native
 
-This plugin is compatible with version 4.11.0 of the Jumio SDK.    
+This plugin is compatible with version 4.12.0 of the Jumio iOS SDK and 4.12.1 of the Jumio Android SDK.  
 If you have questions, please reach out to your Account Manager or contact [Jumio Support](#support).
 
 # Table of Contents
@@ -16,6 +16,8 @@ If you have questions, please reach out to your Account Manager or contact [Jumi
 - [Customization](#customization)
 - [Configuration](#configuration)
 - [Callbacks](#callbacks)
+- [Result Objects](#result-objects)
+- [Local Models for ID Verification and Liveness](#local-models-for-id-verification-and-liveness)
 - [FAQ](#faq)
    - [Face help animation breaks on Android](#face-help-animation-breaks-on-android)
    - [iOS Runs on Debug, Crashes on Release Build](#ios-runs-on-debug-crashes-on-release-build)
@@ -23,11 +25,10 @@ If you have questions, please reach out to your Account Manager or contact [Jumi
    - [iOS Crashes on Start with Xcode 15](#ios-crashes-on-start-with-xcode-15)
    - [iOS Build Fails for React 0.71.2](#ios-build-fails-for-react-0712)
    - [iOS Localization](#ios-localization)
-   - [iProov String Keys](#iproov-string-keys)
 - [Support](#support)
 
 ## Compatibility
-We only ensure compatibility with a minimum React Native version of 0.75.2
+We only ensure compatibility with a minimum React Native version of 0.76.6
 
 ## Setup
 Create React Native project and add the Jumio Mobile SDK module to it.
@@ -35,7 +36,7 @@ Create React Native project and add the Jumio Mobile SDK module to it.
 ```sh
 react-native init MyProject
 cd MyProject
-npm install --save https://github.com/Jumio/mobile-react.git#v4.11.0
+npm install --save https://github.com/Jumio/mobile-react.git#v4.12.0
 cd ios && pod install
 ```
 
@@ -90,21 +91,24 @@ android {
 ```
 
 __Upgrade Gradle build tools__    
-The plugin requires at least version 4.0.0 of the Android build tools. This transitively requires and upgrade of the Gradle wrapper to version 7 and an update to Java 11.
+The plugin requires at least version 8.0.0 of the Android build tools. This transitively requires and upgrade of the Gradle wrapper to version 8 and an update to Java 11.
 
-Upgrade build tools version to 7.2.0 in android/build.gradle:
+Upgrade build tools version to 8.2.2 in android/build.gradle:
 
 ```groovy
 buildscript {
   ...
   dependencies {
     ...
-    classpath 'com.android.tools.build:gradle:7.2.0'
+    classpath 'com.android.tools.build:gradle:8.2.2'
   }
 }
 ```
 
-Modify the Gradle Wrapper version in android/gradle.properties.
+If necessary, modify the Gradle Wrapper version in android/gradle.wrapper/gradle-wrapper.properties:
+```
+distributionUrl=https\://services.gradle.org/distributions/gradle-8.6-bin.zip
+```
 
 __Repository__    
 Add the Jumio Mobile SDK repository:
@@ -340,19 +344,25 @@ The JSON object with all the extracted data that is returned for the specific pr
 | compositeValid      | BOOL   |             | True if composite check digit is valid, otherwise false                        |
 
 
-## Local Models for JumioDocfinder
+## Local Models for ID Verification and Liveness
 
-If you are using our JumioDocFinder module, you can download our encrypted models and add them to your bundle from [here](https://cdn.mobile.jumio.ai/model/classifier_on_device_ep_99_float16_quant.enc) and [here](https://cdn.mobile.jumio.ai/model/normalized_ensemble_passports_v2_float16_quant.enc).
+Our SDK requires several machine learning models to work best. We recommend to download the files and add them to your project without changing their names (the same way you add Localization files). This will save two network requests on runtime to download these files. 
 
-We recommend to download the files and add them to your project without changing their names (the same way you add Localization files). This will save two network requests on runtime to download these files.
+### Preloading models
+
+You can preload the ML models before initializing the Jumio SDK. To do so set the completion block with `JumioMobileSDK.setPreloaderFinishedBlock` and start the preloading with `JumioMobileSDK.preloadIfNeeded`.
 
 ### iOS
+
+You can find the models in the [Bundling models in the app](https://github.com/Jumio/mobile-sdk-ios/blob/master/docs/integration_guide.md#bundling-models-in-the-app) section of our integration guide.
 
 You also need to copy those files to the "ios/Assets" folder for React to recognize them.
 
 ### Android
 
-You need to copy those files to the assets folder of your Android project (Path: "app/src/main/assets/")
+You can find the models in the [Bundling models in the app](https://github.com/Jumio/mobile-sdk-android/blob/master/docs/integration_guide.md#bundling-models-in-the-app) section of our integration guide.
+
+You need to copy those files to the assets folder of your Android project (Path: "app/src/main/assets/").
 
 
 ## FAQ
@@ -436,7 +446,7 @@ Please refer to the iOS section of our [DemoApp guide](DemoApp/README.md#iOS) fo
 
 ### iOS Build Fails for React 0.71.2
 `use_frameworks!` needs to be included in the `Podfile` and properly executed in order for Jumio dynamic frameworks to install correctly.
-Make sure [the necessary `pre_install` and `post_install` hooks](#using-dynamic-frameworks-with-react-native-sample-app) have been included.
+Make sure [the necessary `pre_install` and `post_install` hooks](#using-ios-dynamic-frameworks-with-react-native-sample-app) have been included.
 Also make sure that [Flipper](https://fbflipper.com/) is disabled for your project, since Flipper is not compatible with iOS dynamic frameworks at the moment.
 
 Please also refer to the [Podfile](DemoApp/ios/Podfile) of our sample application for further details.

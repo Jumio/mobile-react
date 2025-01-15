@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Build
 import com.facebook.react.bridge.Arguments
 import com.facebook.react.bridge.BaseActivityEventListener
+import com.facebook.react.bridge.Callback
 import com.facebook.react.bridge.Promise
 import com.facebook.react.bridge.ReactApplicationContext
 import com.facebook.react.bridge.ReactMethod
@@ -15,6 +16,8 @@ import com.jumio.sdk.JumioSDK
 import com.jumio.sdk.credentials.JumioCredentialCategory.FACE
 import com.jumio.sdk.credentials.JumioCredentialCategory.ID
 import com.jumio.sdk.enums.JumioDataCenter
+import com.jumio.sdk.preload.JumioPreloadCallback
+import com.jumio.sdk.preload.JumioPreloader
 import com.jumio.sdk.result.JumioIDResult
 import com.jumio.sdk.result.JumioResult
 
@@ -22,10 +25,12 @@ import com.jumio.sdk.result.JumioResult
 * Copyright (c) 2022. Jumio Corporation All rights reserved.
 */
 
-class JumioModule(context: ReactApplicationContext) : JumioBaseModule(context) {
+class JumioModule(context: ReactApplicationContext) : JumioBaseModule(context), JumioPreloadCallback {
     companion object {
         private const val REQUEST_CODE = 101
     }
+
+    private var preloaderFinishedCallback: Callback? = null
 
     private val mActivityEventListener =
         object : BaseActivityEventListener() {
@@ -80,6 +85,26 @@ class JumioModule(context: ReactApplicationContext) : JumioBaseModule(context) {
         } catch (e: Exception) {
             showErrorMessage("Error starting the Jumio SDK: " + e.localizedMessage)
         }
+    }
+
+    @ReactMethod
+    fun setPreloaderFinishedBlock(completion: Callback) {
+        with(JumioPreloader) {
+            init(reactContext)
+            setCallback(this@JumioModule)
+        }
+        preloaderFinishedCallback = completion
+    }
+
+    @ReactMethod
+    fun preloadIfNeeded() {
+        with(JumioPreloader) {
+            preloadIfNeeded()
+        }
+    }
+
+    override fun preloadFinished() {
+        preloaderFinishedCallback?.invoke()
     }
 
     private fun initSdk(dataCenter: String, authorizationToken: String) {

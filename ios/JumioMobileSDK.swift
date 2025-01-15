@@ -13,6 +13,7 @@ class JumioMobileSDK: RCTEventEmitter {
     fileprivate var jumio: Jumio.SDK?
     fileprivate var jumioVC: Jumio.ViewController?
     fileprivate var customizations: [String: Any?]?
+    fileprivate var preloaderFinishedBlock: RCTResponseSenderBlock?
 
     override func supportedEvents() -> [String]! {
         return ["EventError", "EventResult"]
@@ -71,6 +72,15 @@ class JumioMobileSDK: RCTEventEmitter {
 
     @objc func isRooted(_ resolve: RCTPromiseResolveBlock, rejecter reject: RCTPromiseRejectBlock) {
         resolve(Jumio.SDK.isJailbroken)
+    }
+    
+    @objc func setPreloaderFinishedBlock(_ completion: @escaping RCTResponseSenderBlock) {
+        Jumio.Preloader.shared.delegate = self
+        preloaderFinishedBlock = completion
+    }
+
+    @objc func preloadIfNeeded() {
+        Jumio.Preloader.shared.preloadIfNeeded()
     }
 
     private func getIDResult(idResult: Jumio.IDResult) -> [String: Any] {
@@ -172,5 +182,11 @@ extension JumioMobileSDK: Jumio.DefaultUIDelegate {
 
             sendEvent(withName: "EventError", body: body)
         }
+    }
+}
+
+extension JumioMobileSDK: Jumio.Preloader.Delegate {
+    func jumio(finished: Jumio.Preloader) {
+        preloaderFinishedBlock?([NSNull()])
     }
 }

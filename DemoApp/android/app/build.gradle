@@ -78,8 +78,8 @@ android {
     namespace "com.demoapp"
     defaultConfig {
         applicationId "com.demoapp"
-        minSdkVersion 23
-        targetSdkVersion 34
+        minSdkVersion 24
+        targetSdkVersion 35
         versionCode 1
         versionName "1.0"
     }
@@ -88,6 +88,23 @@ android {
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
         }
+    }
+
+    packagingOptions {
+        resources.excludes.add("META-INF/versions/9/OSGI-INF/MANIFEST.MF")
+        resources.excludes.add("META-INF/kotlin-project-structure-metadata.json")
+        resources.excludes.add("META-INF/kotlinx_coroutines_core.version")
+        resources.excludes.add("META-INF/LICENSE.md")
+        resources.excludes.add("META-INF/LICENSE-notice.md")
+        resources.excludes.add("commonMain/default/manifest")
+        resources.excludes.add("commonMain/default/linkdata/module")
+        resources.excludes.add("commonMain/default/linkdata/**/*.knm")
+        resources.excludes.add("nativeMain/default/manifest")
+        resources.excludes.add("nativeMain/default/linkdata/module")
+        resources.excludes.add("nativeMain/default/linkdata/**/*.knm")
+        resources.excludes.add("nonJvmMain/default/manifest")
+        resources.excludes.add("nonJvmMain/default/linkdata/module")
+        resources.excludes.add("nonJvmMain/default/linkdata/**/*.knm")
     }
 }
 

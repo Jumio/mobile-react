@@ -62,6 +62,15 @@ emitterJumio.addListener(
     (EventError) => console.warn("EventError: " + JSON.stringify(EventError))
 );
 
+const initModelPreloading = () => {
+    JumioMobileSDK.setPreloaderFinishedBlock(() => {
+        console.log('All models are preloaded. You may start the SDK now!');
+    });
+    JumioMobileSDK.preloadIfNeeded()
+};
+
+initModelPreloading();
+
 export default class DemoApp extends Component {
     render() {
         return (
