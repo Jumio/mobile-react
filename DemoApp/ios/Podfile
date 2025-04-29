@@ -24,19 +24,15 @@ target "DemoApp" do
     )
     use_frameworks!
 
-    dynamic_frameworks = ['iProov', 'DatadogCore', 'DatadogInternal', 'DatadogRUM']
-
     # make all the other frameworks into static frameworks by overriding the static_framework? function to return true
     pre_install do |installer|
       installer.pod_targets.each do |pod|
-        if !dynamic_frameworks.include?(pod.name)
           puts "Overriding the static_framework? method for #{pod.name}"
           def pod.static_framework?;
             true
           end
           def pod.build_type;
             Pod::BuildType.static_library
-          end
         end
       end
     end
@@ -57,7 +53,7 @@ target "DemoApp" do
 
       installer.pods_project.targets.each do |target|
         target.build_configurations.each do |config|
-          config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '12.0'
+          config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '13.0'
         end
       end
     end

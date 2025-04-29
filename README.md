@@ -1,7 +1,7 @@
 # Plugin for React Native
 Official Jumio Mobile SDK plugin for React Native
 
-This plugin is compatible with version 4.12.0 of the Jumio iOS SDK and 4.12.1 of the Jumio Android SDK.  
+This plugin is compatible with version 4.13.0 of the Jumio SDK.  
 If you have questions, please reach out to your Account Manager or contact [Jumio Support](#support).
 
 # Table of Contents
@@ -28,7 +28,7 @@ If you have questions, please reach out to your Account Manager or contact [Jumi
 - [Support](#support)
 
 ## Compatibility
-We only ensure compatibility with a minimum React Native version of 0.76.6
+We only ensure compatibility with a minimum React Native version of 0.79.1
 
 ## Setup
 Create React Native project and add the Jumio Mobile SDK module to it.
@@ -36,7 +36,7 @@ Create React Native project and add the Jumio Mobile SDK module to it.
 ```sh
 react-native init MyProject
 cd MyProject
-npm install --save https://github.com/Jumio/mobile-react.git#v4.12.0
+npm install --save https://github.com/Jumio/mobile-react.git#v4.13.0
 cd ios && pod install
 ```
 
@@ -44,7 +44,7 @@ cd ios && pod install
 
 ### iOS
 1. Add the "**NSCameraUsageDescription**"-key to your Info.plist file.
-2. Your app's deployment target must be at least iOS 12.0
+2. Your app's deployment target must be at least iOS 13.0
 
 #### NFC
 
@@ -93,21 +93,21 @@ android {
 __Upgrade Gradle build tools__    
 The plugin requires at least version 8.0.0 of the Android build tools. This transitively requires and upgrade of the Gradle wrapper to version 8 and an update to Java 11.
 
-Upgrade build tools version to 8.2.2 in android/build.gradle:
+Upgrade build tools version to 8.7.3 in android/build.gradle:
 
 ```groovy
 buildscript {
   ...
   dependencies {
     ...
-    classpath 'com.android.tools.build:gradle:8.2.2'
+    classpath 'com.android.tools.build:gradle:8.7.3'
   }
 }
 ```
 
 If necessary, modify the Gradle Wrapper version in android/gradle.wrapper/gradle-wrapper.properties:
 ```
-distributionUrl=https\://services.gradle.org/distributions/gradle-8.6-bin.zip
+distributionUrl=https\://services.gradle.org/distributions/gradle-8.9-bin.zip
 ```
 
 __Repository__    
@@ -396,18 +396,14 @@ Jumio SDK version 3.8.0 and newer use iProov dependencies that need need to be b
 Since React Native supports only static libraries, a pre-install hook has been added to ensure that pods added as `dynamic_frameworks` are actually built as dynamic frameworks, while all other pods are built as static libraries.
 
 ```
-dynamic_frameworks = ['iProov', 'DatadogCore', 'DatadogInternal', 'DatadogRUM']
-
 pre_install do |installer|
   installer.pod_targets.each do |pod|
-    if !dynamic_frameworks.include?(pod.name)
-      puts "Overriding the static_framework? method for #{pod.name}"
-      def pod.static_framework?;
-        true
-      end
-      def pod.build_type;
-        Pod::BuildType.static_library
-      end
+    puts "Overriding the static_framework? method for #{pod.name}"
+    def pod.static_framework?;
+      true
+    end
+    def pod.build_type;
+      Pod::BuildType.static_library
     end
   end
 end

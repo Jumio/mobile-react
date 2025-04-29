@@ -90,11 +90,11 @@
 <!--    </style>-->
 
 <!--    <style name="CustomNfc" parent="Nfc.Customization">-->
-<!--        <item name="nfc_passport_cover">#3032b4</item>-->
-<!--        <item name="nfc_passport_page_dark">#0558ff</item>-->
-<!--        <item name="nfc_passport_page_light">#31bce1</item>-->
-<!--        <item name="nfc_passport_foreground">@color/jumio_white</item>-->
-<!--        <item name="nfc_phone_background">#cc00cc</item>-->
+<!--        <item name="jumio_nfc_passport_cover">#3032b4</item>-->
+<!--        <item name="jumio_nfc_passport_page_dark">#0558ff</item>-->
+<!--        <item name="jumio_nfc_passport_page_light">#31bce1</item>-->
+<!--        <item name="jumio_nfc_passport_foreground">@color/jumio_white</item>-->
+<!--        <item name="jumio_nfc_phone_background">#cc00cc</item>-->
 <!--    </style>-->
 
 <!--    <style name="CustomIproov" parent="Iproov.Customization">-->

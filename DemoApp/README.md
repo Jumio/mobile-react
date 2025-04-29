@@ -20,18 +20,14 @@ react-native run-ios or react-native run-ios --device
 
 Jumio SDK dependencies added in version 3.8.0 make it necessary to add the following pre-install hook to the Podfile:
 ```
-dynamic_frameworks = ['Starscream', 'iProov', 'DatadogCore', 'DatadogInternal', 'DatadogRUM']
-
 pre_install do |installer|
   installer.pod_targets.each do |pod|
-    if !dynamic_frameworks.include?(pod.name)
-      puts "Overriding the static_framework? method for #{pod.name}"
-      def pod.static_framework?;
-        true
-      end
-      def pod.build_type;
-        Pod::BuildType.static_library
-      end
+    puts "Overriding the static_framework? method for #{pod.name}"
+    def pod.static_framework?;
+      true
+    end
+    def pod.build_type;
+      Pod::BuildType.static_library
     end
   end
 end
