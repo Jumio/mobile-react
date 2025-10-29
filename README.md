@@ -28,7 +28,7 @@ If you have questions, please reach out to your Account Manager or contact [Jumi
 - [Support](#support)
 
 ## Compatibility
-We only ensure compatibility with a minimum React Native version of 0.79.1
+We only ensure compatibility with a minimum React Native version of 0.82.1
 
 ## Setup
 Create React Native project and add the Jumio Mobile SDK module to it.
