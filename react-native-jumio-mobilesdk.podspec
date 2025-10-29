@@ -23,5 +23,5 @@ Pod::Spec.new do |s|
   }
 
   s.dependency "React-Core"
-  s.dependency "Jumio", "~> 4.13.0"
+  s.dependency "Jumio", "~> 4.15.0"
 end

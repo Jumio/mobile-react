@@ -1,7 +1,7 @@
 # Plugin for React Native
 Official Jumio Mobile SDK plugin for React Native
 
-This plugin is compatible with version 4.13.0 of the Jumio SDK.  
+This plugin is compatible with version 4.15.0 of the Jumio SDK.  
 If you have questions, please reach out to your Account Manager or contact [Jumio Support](#support).
 
 # Table of Contents
@@ -36,7 +36,7 @@ Create React Native project and add the Jumio Mobile SDK module to it.
 ```sh
 react-native init MyProject
 cd MyProject
-npm install --save https://github.com/Jumio/mobile-react.git#v4.13.0
+npm install --save https://github.com/Jumio/mobile-react.git#v4.15.0
 cd ios && pod install
 ```
 
@@ -255,6 +255,11 @@ You can pass the following customization options to the [`setupCustomizations()`
 | nfcPassportPageLight                            |
 | nfcPassportForeground                           |
 | nfcPhoneCover                                   |
+| nfcPhoneScreen                                  |
+| nfcChipPrimary                                  |
+| nfcChipSecondary                                |
+| nfcChipGlow                                     |
+| nfcPulse                                        |
 | scanViewTooltipForeground                       |
 | scanViewTooltipBackground                       |
 | scanViewForeground                              |

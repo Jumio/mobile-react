@@ -6,7 +6,7 @@ buildscript {
 		gradlePluginPortal()
 	}
 	dependencies {
-		classpath 'com.android.tools.build:gradle:8.7.3'
+		classpath 'com.android.tools.build:gradle:8.9.3'
 		classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
 		classpath("de.undercouch:gradle-download-task:5.0.1")
 	}
@@ -20,7 +20,7 @@ android {
 
     defaultConfig {
         minSdkVersion 23
-        targetSdkVersion 35
+        targetSdkVersion 36
         versionCode 1
         versionName "1.0"
         ndk {
@@ -51,16 +51,16 @@ repositories {
 }
 
 ext {
-    SDK_VERSION = "4.13.0"
+    SDK_VERSION = "4.15.0"
 }
 
 dependencies {
 	implementation fileTree(dir: 'libs', include: '*.jar')
 
 	// Kotlin
-	implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:2.1.0"
+	implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:2.1.20"
 	// only for the sample code
-	implementation "androidx.activity:activity-ktx:1.9.3"
+	implementation "androidx.activity:activity-ktx:1.10.1"
 	implementation "androidx.multidex:multidex:2.0.1"
 
 	// Jumio dependencies

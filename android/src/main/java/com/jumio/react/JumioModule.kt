@@ -34,7 +34,7 @@ class JumioModule(context: ReactApplicationContext) : JumioBaseModule(context), 
 
     private val mActivityEventListener =
         object : BaseActivityEventListener() {
-            override fun onActivityResult(activity: Activity?, requestCode: Int, resultCode: Int, data: Intent?) {
+            override fun onActivityResult(activity: Activity, requestCode: Int, resultCode: Int, data: Intent?) {
                 if (requestCode == REQUEST_CODE) {
                     data?.let {
                         val jumioResult = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
@@ -108,14 +108,14 @@ class JumioModule(context: ReactApplicationContext) : JumioBaseModule(context), 
     }
 
     private fun initSdk(dataCenter: String, authorizationToken: String) {
-        val intent = Intent(currentActivity, JumioActivity::class.java).apply {
+        val intent = Intent(reactApplicationContext.currentActivity, JumioActivity::class.java).apply {
             putExtra(JumioActivity.EXTRA_TOKEN, authorizationToken)
             putExtra(JumioActivity.EXTRA_DATACENTER, dataCenter)
 
             //The following intent extra can be used to customize the Theme of Default UI
             putExtra(JumioActivity.EXTRA_CUSTOM_THEME, R.style.AppThemeCustomJumio)
         }
-        currentActivity?.startActivityForResult(intent, REQUEST_CODE)
+        reactApplicationContext.currentActivity?.startActivityForResult(intent, REQUEST_CODE)
     }
 
     private fun sendScanResult(jumioResult: JumioResult?) {
