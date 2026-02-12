@@ -1,7 +1,7 @@
 # Plugin for React Native
 Official Jumio Mobile SDK plugin for React Native
 
-This plugin is compatible with version 4.15.0 of the Jumio SDK.  
+This plugin is compatible with version 4.16.0 of the Jumio SDK.  
 If you have questions, please reach out to your Account Manager or contact [Jumio Support](#support).
 
 # Table of Contents
@@ -28,7 +28,7 @@ If you have questions, please reach out to your Account Manager or contact [Jumi
 - [Support](#support)
 
 ## Compatibility
-We only ensure compatibility with a minimum React Native version of 0.82.1
+We only ensure compatibility with a minimum React Native version of 0.83.0
 
 ## Setup
 Create React Native project and add the Jumio Mobile SDK module to it.
@@ -36,7 +36,7 @@ Create React Native project and add the Jumio Mobile SDK module to it.
 ```sh
 react-native init MyProject
 cd MyProject
-npm install --save https://github.com/Jumio/mobile-react.git#v4.15.0
+npm install --save https://github.com/Jumio/mobile-react.git#v4.16.0
 cd ios && pod install
 ```
 
@@ -122,7 +122,6 @@ exclusiveContent {
   }
   filter {
     includeGroup "com.jumio.android"
-    includeGroup "com.iproov.sdk"
   }
 }
 ```
@@ -213,13 +212,6 @@ You can pass the following customization options to the [`setupCustomizations()`
 | faceSecondary                                   |
 | faceOutline                                     |
 | faceAnimationForeground                         |
-| iProovFilterForegroundColor                     |
-| iProovFilterBackgroundColor                     |
-| iProovTitleTextColor                            |
-| iProovCloseButtonTintColor                      |
-| iProovSurroundColor                             |
-| iProovPromptTextColor                           |
-| iProovPromptBackgroundColor                     |
 | genuinePresenceAssuranceReadyOvalStrokeColor    |
 | genuinePresenceAssuranceNotReadyOvalStrokeColor |
 | livenessAssuranceOvalStrokeColor                |
@@ -397,7 +389,6 @@ Alternatively, it is also possible to set the key `manageAppVersionAndBuildNumbe
 ```
 
 ### Using iOS Dynamic Frameworks with React Native Sample App
-Jumio SDK version 3.8.0 and newer use iProov dependencies that need need to be built as dynamic frameworks.
 Since React Native supports only static libraries, a pre-install hook has been added to ensure that pods added as `dynamic_frameworks` are actually built as dynamic frameworks, while all other pods are built as static libraries.
 
 ```
@@ -418,7 +409,7 @@ Additionally, a post install hook needs to be added to the Podfile to ensure dep
 ```
 post_install do |installer|
     installer.pods_project.targets.each do |target|
-      if ['iProov', 'DatadogRUM', 'DatadogCore', 'DatadogInternal'].include? target.name
+      if ['DatadogRUM', 'DatadogCore', 'DatadogInternal'].include? target.name
         target.build_configurations.each do |config|
           config.build_settings['BUILD_LIBRARY_FOR_DISTRIBUTION'] = 'YES'
         end
@@ -434,7 +425,7 @@ If you are working with Xcode 15 and above, please make sure the following lines
 ```
 post_install do |installer|
     installer.pods_project.targets.each do |target|
-      if ['iProov', 'DatadogRUM', 'DatadogCore', 'DatadogInternal'].include? target.name
+      if ['DatadogRUM', 'DatadogCore', 'DatadogInternal'].include? target.name
         target.build_configurations.each do |config|
           config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '12.0'
         end

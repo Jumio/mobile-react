@@ -45,13 +45,12 @@ repositories {
 		}
 		filter {
 			includeGroup "com.jumio.android"
-			includeGroup "com.iproov.sdk"
 		}
 	}
 }
 
 ext {
-    SDK_VERSION = "4.15.0"
+    SDK_VERSION = "4.16.0"
 }
 
 dependencies {
@@ -69,7 +68,6 @@ dependencies {
 	implementation "com.jumio.android:docfinder"
 	implementation "com.jumio.android:nfc"
 	implementation "com.jumio.android:barcode-mlkit"
-	implementation "com.jumio.android:iproov"
 	implementation "com.jumio.android:defaultui"
 	implementation "com.jumio.android:digital-identity"
 	implementation "com.jumio.android:liveness"

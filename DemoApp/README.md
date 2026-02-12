@@ -32,7 +32,7 @@ pre_install do |installer|
   end
 end
 ```
-This was added because iProov dependencies __SocketIO__ and __Starscream__ need to be build as dynamic frameworks while React Native are supported only as static libraries. This pre-install hook ensures that the pods added as `dynamic_frameworks` are built as dynamic frameworks, while the other pods are built as static libraries.
+This pre-install hook ensures that the pods added as `dynamic_frameworks` are built as dynamic frameworks, while the other pods are built as static libraries.
 
 One additional post-install hook needs to be added to the Podfile so that the dependencies are build for distribution:
 ```

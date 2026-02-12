@@ -120,7 +120,6 @@ repositories {
         }
         filter {
             includeGroup "com.jumio.android"
-            includeGroup "com.iproov.sdk"
         }
     }
 }

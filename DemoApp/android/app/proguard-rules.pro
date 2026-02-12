@@ -84,9 +84,6 @@
 -keep class com.microblink.** { *; }
 -keep class com.microblink.**$* { *; }
 
-#IProov
--keep public class com.iproov.sdk.IProov {public *; }
-
 #JRMT
 -keep class org.jmrtd.** { *; }
 -keep class net.sf.scuba.** { *; }

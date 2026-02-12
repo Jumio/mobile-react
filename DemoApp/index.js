@@ -4,7 +4,7 @@
  * @flow
  */
 
-import React, {Component, useState} from 'react';
+import React, {Component, useState, useEffect} from 'react';
 import {
     AppRegistry,
     Button,
@@ -14,7 +14,9 @@ import {
     NativeModules,
     NativeEventEmitter,
     TextInput,
-    Text
+    TouchableOpacity,
+    Text,
+    ScrollView
 } from 'react-native';
 import { LogBox } from 'react-native';
 
@@ -51,17 +53,6 @@ const isDeviceRooted = async () => {
     console.warn("Device is rooted: " + isRooted)
 }
 
-// Callbacks - (Data is displayed as a warning for demo purposes)
-const emitterJumio = new NativeEventEmitter(JumioMobileSDK);
-emitterJumio.addListener(
-    'EventResult',
-    (EventResult) => console.warn("EventResult: " + JSON.stringify(EventResult))
-);
-emitterJumio.addListener(
-    'EventError',
-    (EventError) => console.warn("EventError: " + JSON.stringify(EventError))
-);
-
 const initModelPreloading = () => {
     JumioMobileSDK.setPreloaderFinishedBlock(() => {
         console.log('All models are preloaded. You may start the SDK now!');
@@ -81,106 +72,175 @@ export default class DemoApp extends Component {
     }
 }
 
+const AppButton = ({ onPress, title, style, textStyle}) => (
+  <TouchableOpacity onPress={onPress} style={[styles.appButton, style]}>
+    <Text style={[styles.appButtonText, textStyle]}>{title}</Text>
+  </TouchableOpacity>
+);
+
 const AuthTokenInput = () => {
     const [authorizationToken, setAuthorizationToken] = useState("");
+    const [ignored, forceUpdate] = useState(0);
 
-    const [buttonText, setButtonText] = useState('Click');
-
-    function handleClick() {
-        setButtonText({DATACENTER});
+    const handleDatacenterChange = (newValue) => {
+        DATACENTER = newValue;
+        forceUpdate(n => n + 1);
     }
 
+    useEffect(() => {
+        const emitterJumio = new NativeEventEmitter(JumioMobileSDK);
+
+        const resultSubscription = emitterJumio.addListener(
+            'EventResult',
+            (EventResult) => console.warn("EventResult: " + JSON.stringify(EventResult))
+        );
+
+        const errorSubscription = emitterJumio.addListener(
+            'EventError',
+            (EventError) => console.warn("EventError: " + JSON.stringify(EventError))
+        );
+
+        return () => {
+            resultSubscription.remove();
+            errorSubscription.remove();
+        };
+    }, []);
+
     return (
-        <View>
-            <TextInput
-                style={styles.input}
-                placeholder="Authorization token"
-                placeholderTextColor="#000"
-                returnKeyType="done"
-                onChangeText={text => setAuthorizationToken(text)}
-                value={authorizationToken}
-            />
-            <Button
+        <ScrollView
+            style={styles.container}
+            contentContainerStyle={styles.scrollContent}
+            keyboardShouldPersistTaps="handled"
+        >
+            <View style={styles.inputContainer}>
+                <TextInput
+                  style={styles.input}
+                  placeholder="Authorization token"
+                  placeholderTextColor="#666"
+                  returnKeyType="done"
+                  onChangeText={setAuthorizationToken}
+                  value={authorizationToken}
+                />
+
+                {authorizationToken.length > 0 && (
+                  <TouchableOpacity
+                    onPress={() => setAuthorizationToken('')}
+                    style={styles.clearButtonCircle}
+                    hitSlop={{top: 10, bottom: 10, left: 10, right: 10}}
+                  >
+                    <Text style={styles.clearTextWhite}>✕</Text>
+                  </TouchableOpacity>
+                )}
+            </View>
+            <AppButton
                 title="Start"
                 onPress={() => startJumio(authorizationToken)}
+                style={styles.startButton}
+                textStyle={styles.startButtonText}
             />
-            <View style={{marginTop: 10}}>
-                <Button
-                    style={styles.datacenterButton}
-                    title="US"
-                    onPress={() => {
-                        DATACENTER="US";
-                        handleClick({DATACENTER})
-                        }
-                    }
-                />
-            </View>
-            <View style={{marginTop: 10}}>
-                <Button
-                    style={styles.datacenterButton}
-                    title="EU"
-                    onPress={() => {
-                        DATACENTER="EU";
-                        handleClick({DATACENTER})
-                        }
-                    }
-                />
-            </View>
-            <View style={{marginTop:10}}>
-                <Button
-                    style={styles.datacenterButton}
-                    title="SG"
-                    onPress={() => {
-                        DATACENTER="SG";
-                        handleClick({DATACENTER})
-                        }
-                    }
-                />
-            </View>
+            <AppButton
+                title="US"
+                onPress={() => handleDatacenterChange("US")}
+            />
+            <AppButton
+                title="EU"
+                onPress={() => handleDatacenterChange("EU")}
+            />
+            <AppButton
+                title="SG"
+                onPress={() => handleDatacenterChange("SG")}
+            />
             <View style={styles.datacenter}>
-                <Text>{DATACENTER}</Text>
+                <Text style={styles.datacenterText}>{DATACENTER}</Text>
             </View>
-        </View>
+        </ScrollView>
     );
 };
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center',
+        backgroundColor: '#F5F5F5',
+    },
+    scrollContent: {
+        flexGrow: 1,
         alignItems: 'center',
-        backgroundColor: '#F5FCFF',
+        justifyContent: 'center',
+        paddingVertical: 30,
     },
-    welcome: {
-        fontSize: 20,
-        textAlign: 'center',
-        margin: 10,
-    },
-    instructions: {
-        textAlign: 'center',
-        color: '#333333',
-        marginBottom: 5,
+    inputContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        width: '90%',
+        height: 50,
+        marginBottom: 20,
+        borderWidth: 1,
+        borderColor: '#CCC',
+        borderRadius: 8,
+        backgroundColor: '#FFF',
+        paddingHorizontal: 10,
     },
     input: {
-        width: 240,
-        height: 40,
-        marginBottom: 20,
-        borderWidth: 1,
-        color: 'black'
+        flex: 1,
+        height: '100%',
+        color: 'black',
+        fontSize: 16,
     },
-    datacenterButton: {
-        marginVertical: 5,
+    appButton: {
+        width: '60%',
+        height: 50,
+        backgroundColor: '#007AFF',
+        borderRadius: 8,
         justifyContent: 'center',
+        alignItems: 'center',
+        marginBottom: 10,
+        elevation: 3,
+    },
+    appButtonText: {
+        fontSize: 16,
+        color: '#FFF',
+        fontWeight: 'bold',
+    },
+    startButton: {
+        backgroundColor: '#FFF',
+        borderRadius: 8,
+        borderColor: '#CCC',
+        marginBottom: 20
+    },
+    startButtonText: {
+        color: '#000',
     },
     datacenter: {
-        width: 240,
-        height: 40,
-        marginBottom: 20,
-        marginTop: 20,
+        width: '60%',
+        height: 50,
         borderWidth: 1,
-        color: '#808080',
-        justifyContent: 'center'
+        borderColor: '#CCC',
+        borderRadius: 8,
+        backgroundColor: '#FFF',
+        paddingHorizontal: 10,
+        marginTop: 20,
+        justifyContent: 'center',
+        alignItems: 'center',
     },
+    datacenterText: {
+        fontSize: 16,
+        color: 'black',
+    },
+    clearButtonCircle: {
+        backgroundColor: '#E0E0E0',
+        width: 20,
+        height: 20,
+        borderRadius: 10,
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginLeft: 8,
+    },
+    clearTextWhite: {
+        color: 'white',
+        fontSize: 12,
+        fontWeight: 'bold',
+        marginTop: -1,
+    }
 });
 
 AppRegistry.registerComponent('DemoApp', () => DemoApp);
