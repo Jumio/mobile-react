@@ -288,16 +288,10 @@ extension JumioMobileSDK {
             customTheme.scanView.foreground = Jumio.Theme.Value(UIColor(hexString: scanViewForeground))
         }
 
-        if let scanViewDocumentShutter = customizations["scanViewDocumentShutter"] as? [String: String?], let light = scanViewDocumentShutter["light"] as? String, let dark = scanViewDocumentShutter["dark"] as? String {
-            customTheme.scanView.documentShutter = Jumio.Theme.Value(light: UIColor(hexString: light), dark: UIColor(hexString: dark))
-        } else if let scanViewDocumentShutter = customizations["scanViewDocumentShutter"] as? String {
-            customTheme.scanView.documentShutter = Jumio.Theme.Value(UIColor(hexString: scanViewDocumentShutter))
-        }
-        
-        if let scanViewFaceShutter = customizations["scanViewFaceShutter"] as? [String: String?], let light = scanViewFaceShutter["light"] as? String, let dark = scanViewFaceShutter["dark"] as? String {
-            customTheme.scanView.faceShutter = Jumio.Theme.Value(light: UIColor(hexString: light), dark: UIColor(hexString: dark))
-        } else if let scanViewFaceShutter = customizations["scanViewFaceShutter"] as? String {
-            customTheme.scanView.faceShutter = Jumio.Theme.Value(UIColor(hexString: scanViewFaceShutter))
+        if let scanViewShutter = customizations["scanViewShutter"] as? [String: String?], let light = scanViewShutter["light"] as? String, let dark = scanViewShutter["dark"] as? String {
+            customTheme.scanView.shutter = Jumio.Theme.Value(light: UIColor(hexString: light), dark: UIColor(hexString: dark))
+        } else if let scanViewShutter = customizations["scanViewShutter"] as? String {
+            customTheme.scanView.shutter = Jumio.Theme.Value(UIColor(hexString: scanViewShutter))
         }
 
         // Search Bubble
@@ -381,6 +375,12 @@ extension JumioMobileSDK {
             customTheme.selectionIconForeground = Jumio.Theme.Value(UIColor(hexString: selectionIconForeground))
         }
 
+        // TermOfUse
+        if let termsOfUseForeground = customizations["termsOfUseForeground"] as? [String: String?], let light = termsOfUseForeground["light"] as? String, let dark = termsOfUseForeground["dark"] as? String {
+            customTheme.termsOfUseForeground = Jumio.Theme.Value(light: UIColor(hexString: light), dark: UIColor(hexString: dark))
+        } else if let termsOfUseForeground = customizations["termsOfUseForeground"] as? String {
+            customTheme.termsOfUseForeground = Jumio.Theme.Value(UIColor(hexString: termsOfUseForeground))
+        }
         return customTheme
     }
 }

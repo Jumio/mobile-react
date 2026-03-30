@@ -23,20 +23,26 @@ class JumioMobileSDK: RCTEventEmitter {
         return true
     }
 
-    @objc func initialize(_ token: String, dataCenter: String) {
+    @objc func initialize(_ token: String, dataCenter: String, resolver resolve: @escaping RCTPromiseResolveBlock, rejecter reject: @escaping RCTPromiseRejectBlock) {
+        let validDataCenter = getJumioDataCenter(dataCenter)
+
+        if validDataCenter == nil {
+            reject("ERROR", "Invalid Datacenter value.", nil)
+            return
+        }
+
+        if token.isEmpty {
+            reject("ERROR", "Missing required parameters one-time session authorization token.", nil)
+            return
+        }
+
         jumio = Jumio.SDK()
         jumio?.defaultUIDelegate = self
         jumio?.token = token
+        jumio?.dataCenter = validDataCenter
         jumio?.setResourcesBundle(Bundle.main)
 
-        switch dataCenter.lowercased() {
-        case "eu":
-            jumio?.dataCenter = .EU
-        case "sg":
-            jumio?.dataCenter = .SG
-        default:
-            jumio?.dataCenter = .US
-        }
+        resolve("Initialized")
     }
 
     @objc func setupCustomizations(_ customizations: NSDictionary?) {
@@ -81,6 +87,22 @@ class JumioMobileSDK: RCTEventEmitter {
 
     @objc func preloadIfNeeded() {
         Jumio.Preloader.shared.preloadIfNeeded()
+    }
+
+    @objc func checkCachedResult() {
+    }
+
+    private func getJumioDataCenter(_ dataCenter: String) -> Jumio.DataCenter? {
+        switch dataCenter.lowercased() {
+        case "eu":
+            return .EU
+        case "sg":
+            return .SG
+        case "us":
+            return .US
+        default:
+            return nil
+        }
     }
 
     private func getIDResult(idResult: Jumio.IDResult) -> [String: Any] {

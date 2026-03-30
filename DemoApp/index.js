@@ -6,9 +6,8 @@
 
 import React, {Component, useState, useEffect} from 'react';
 import {
+    Alert,
     AppRegistry,
-    Button,
-    Platform,
     StyleSheet,
     View,
     NativeModules,
@@ -27,25 +26,29 @@ const { JumioMobileSDK } = NativeModules;
 var DATACENTER = 'DATACENTER'
 
 // Jumio SDK
-const startJumio = (authorizationToken) => {
-    JumioMobileSDK.initialize(authorizationToken, DATACENTER);
+const startJumio = async (authorizationToken) => {
+    try {
+        await JumioMobileSDK.initialize(authorizationToken, DATACENTER);
 
-    // Setup iOS customizations
-//    JumioMobileSDK.setupCustomizations(
-//        {
-//            background: "#AC3D9A",
-//              primaryColor: "#FF5722",
-//              loadingCircleIcon: "#F2F233",
-//              loadingCirclePlain: "#57ffc7",
-//              loadingCircleGradientStart: "#EC407A",
-//              loadingCircleGradientEnd: "#bc2e41",
-//              loadingErrorCircleGradientStart: "#AC3D9A",
-//              loadingErrorCircleGradientEnd: "#C31322",
-//              primaryButtonBackground: {"light": "#D900ff00", "dark": "#9Edd9E"}
-//        }
-//    );
+        // Setup iOS customizations
+    //    JumioMobileSDK.setupCustomizations(
+    //        {
+    //            background: "#AC3D9A",
+    //              primaryColor: "#FF5722",
+    //              loadingCircleIcon: "#F2F233",
+    //              loadingCirclePlain: "#57ffc7",
+    //              loadingCircleGradientStart: "#EC407A",
+    //              loadingCircleGradientEnd: "#bc2e41",
+    //              loadingErrorCircleGradientStart: "#AC3D9A",
+    //              loadingErrorCircleGradientEnd: "#C31322",
+    //              primaryButtonBackground: {"light": "#D900ff00", "dark": "#9Edd9E"}
+    //        }
+    //    );
 
-    JumioMobileSDK.start();
+        JumioMobileSDK.start();
+    } catch (error) {
+        Alert.alert("Initialization Error", error.message || String(error));
+    }
 };
 
 const isDeviceRooted = async () => {
@@ -92,13 +95,27 @@ const AuthTokenInput = () => {
 
         const resultSubscription = emitterJumio.addListener(
             'EventResult',
-            (EventResult) => console.warn("EventResult: " + JSON.stringify(EventResult))
+            (EventResult) => {
+                Alert.alert(
+                    "EventResult",
+                    JSON.stringify(EventResult),
+                    [{ text: "OK", style: "default" }]
+                );
+            }
         );
 
         const errorSubscription = emitterJumio.addListener(
             'EventError',
-            (EventError) => console.warn("EventError: " + JSON.stringify(EventError))
+            (EventError) => {
+                Alert.alert(
+                    "EventError",
+                    JSON.stringify(EventError),
+                    [{text: "OK", style: "cancel"}]
+                );
+            }
         );
+
+        JumioMobileSDK.checkCachedResult();
 
         return () => {
             resultSubscription.remove();

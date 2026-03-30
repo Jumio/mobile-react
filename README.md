@@ -1,7 +1,7 @@
 # Plugin for React Native
 Official Jumio Mobile SDK plugin for React Native
 
-This plugin is compatible with version 4.16.0 of the Jumio SDK.  
+This plugin is compatible with version 4.17.0 of the Jumio SDK.  
 If you have questions, please reach out to your Account Manager or contact [Jumio Support](#support).
 
 # Table of Contents
@@ -28,7 +28,7 @@ If you have questions, please reach out to your Account Manager or contact [Jumi
 - [Support](#support)
 
 ## Compatibility
-We only ensure compatibility with a minimum React Native version of 0.83.0
+We only ensure compatibility with a minimum React Native version of 0.84.1
 
 ## Setup
 Create React Native project and add the Jumio Mobile SDK module to it.
@@ -36,7 +36,7 @@ Create React Native project and add the Jumio Mobile SDK module to it.
 ```sh
 react-native init MyProject
 cd MyProject
-npm install --save https://github.com/Jumio/mobile-react.git#v4.16.0
+npm install --save https://github.com/Jumio/mobile-react.git#v4.17.0
 cd ios && pod install
 ```
 
@@ -189,11 +189,11 @@ The example below shows how to retrieve the information of each emitter as a Str
 const emitterJumio = new NativeEventEmitter(JumioMobileSDK);
 emitterJumio.addListener(
     'EventResult',
-    (EventResult) => console.warn("EventResult: " + JSON.stringify(EventResult))
+    (EventResult) => Alert.alert("EventResult", JSON.stringify(EventResult), [{ text: "OK", style: "default" }])
 );
 emitterJumio.addListener(
     'EventError',
-    (EventError) => console.warn("EventError: " + JSON.stringify(EventError))
+    (EventError) =>  Alert.alert("EventError", JSON.stringify(EventError), [{ text: "OK", style: "cancel" }])
 );
 ```
 
@@ -255,8 +255,7 @@ You can pass the following customization options to the [`setupCustomizations()`
 | scanViewTooltipForeground                       |
 | scanViewTooltipBackground                       |
 | scanViewForeground                              |
-| scanViewDocumentShutter                         |
-| scanViewFaceShutter                             |
+| scanViewShutter                                 |
 | searchBubbleBackground                          |
 | searchBubbleForeground                          |
 | searchBubbleOutline                             |
@@ -270,6 +269,7 @@ You can pass the following customization options to the [`setupCustomizations()`
 | textForegroundColor                             |
 | primaryColor                                    |
 | selectionIconForeground                         |
+| termsOfUseForeground                            |
 
 All colors are provided with a HEX string in the following formats: `#ff00ff` or `#66ff00ff` if you want to set the alpha level.
 

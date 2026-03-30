@@ -1,21 +1,25 @@
 package com.jumio.react
 
 import android.util.Log
-import androidx.core.app.ActivityCompat
 import com.facebook.react.bridge.Arguments
 import com.facebook.react.bridge.ReactApplicationContext
 import com.facebook.react.bridge.ReactContextBaseJavaModule
 import com.facebook.react.bridge.WritableMap
 import com.facebook.react.modules.core.DeviceEventManagerModule.RCTDeviceEventEmitter
-import com.jumio.sdk.JumioSDK
+import com.jumio.sdk.result.JumioResult
 
 /*
 * Copyright (c) 2022. Jumio Corporation All rights reserved.
 */
 abstract class JumioBaseModule(context: ReactApplicationContext) : ReactContextBaseJavaModule(context) {
     companion object {
-        private const val PERMISSION_REQUEST_CODE = 303
-        private const val ERROR_KEY = "EventError"
+        const val PERMISSION_REQUEST_CODE = 303
+        const val ERROR_KEY = "EventError"
+        const val RESULT_KEY = "EventResult"
+
+        var pendingResult: JumioResult? = null
+        var pendingErrorCode: String? = null
+        var pendingErrorMsg: String? = null
     }
 
     val reactContext = context
@@ -23,18 +27,6 @@ abstract class JumioBaseModule(context: ReactApplicationContext) : ReactContextB
     override fun getName() = "JumioMobileSDK"
 
     override fun canOverrideExistingModule() = true
-
-    // Permissions
-    fun checkPermissions() =
-        if (!JumioSDK.hasAllRequiredPermissions(reactContext)) {
-            //Acquire missing permissions.
-            val mp = JumioSDK.getMissingPermissions(reactContext)
-            ActivityCompat.requestPermissions(reactContext.currentActivity!!, mp, PERMISSION_REQUEST_CODE)
-            //The result is received in MainActivity::onRequestPermissionsResult.
-            false
-        } else {
-            true
-        }
 
     fun sendErrorObject(errorCode: String?, errorMsg: String?) {
         val errorResult = Arguments.createMap().apply {
