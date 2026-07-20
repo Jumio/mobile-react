@@ -6,7 +6,7 @@ buildscript {
 		gradlePluginPortal()
 	}
 	dependencies {
-		classpath 'com.android.tools.build:gradle:8.9.3'
+		classpath 'com.android.tools.build:gradle:8.10.1'
 		classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
 		classpath("de.undercouch:gradle-download-task:5.0.1")
 	}
@@ -16,10 +16,10 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
 android {
-    compileSdk 35
+    compileSdk 36
 
     defaultConfig {
-        minSdkVersion 23
+        minSdkVersion 24
         targetSdkVersion 36
         versionCode 1
         versionName "1.0"
@@ -50,7 +50,7 @@ repositories {
 }
 
 ext {
-    SDK_VERSION = "4.17.0"
+    SDK_VERSION = "4.18.0"
 }
 
 dependencies {
