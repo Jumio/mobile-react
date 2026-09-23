@@ -375,12 +375,80 @@ extension JumioMobileSDK {
             customTheme.selectionIconForeground = Jumio.Theme.Value(UIColor(hexString: selectionIconForeground))
         }
 
-        // TermOfUse
+        // Faster Verification
+        if let fasterVerificationBackCardBackground = customizations["fasterVerificationBackCardBackground"] as? [String: String?], let light = fasterVerificationBackCardBackground["light"] as? String, let dark = fasterVerificationBackCardBackground["dark"] as? String {
+            customTheme.fasterVerification.backCardBackground = Jumio.Theme.Value(light: UIColor(hexString: light), dark: UIColor(hexString: dark))
+        } else if let fasterVerificationBackCardBackground = customizations["fasterVerificationBackCardBackground"] as? String {
+            customTheme.fasterVerification.backCardBackground = Jumio.Theme.Value(UIColor(hexString: fasterVerificationBackCardBackground))
+        }
+
+        if let fasterVerificationBackCardOutline = customizations["fasterVerificationBackCardOutline"] as? [String: String?], let light = fasterVerificationBackCardOutline["light"] as? String, let dark = fasterVerificationBackCardOutline["dark"] as? String {
+            customTheme.fasterVerification.backCardOutline = Jumio.Theme.Value(light: UIColor(hexString: light), dark: UIColor(hexString: dark))
+        } else if let fasterVerificationBackCardOutline = customizations["fasterVerificationBackCardOutline"] as? String {
+            customTheme.fasterVerification.backCardOutline = Jumio.Theme.Value(UIColor(hexString: fasterVerificationBackCardOutline))
+        }
+
+        if let fasterVerificationBackCardAvatar = customizations["fasterVerificationBackCardAvatar"] as? [String: String?], let light = fasterVerificationBackCardAvatar["light"] as? String, let dark = fasterVerificationBackCardAvatar["dark"] as? String {
+            customTheme.fasterVerification.backCardAvatar = Jumio.Theme.Value(light: UIColor(hexString: light), dark: UIColor(hexString: dark))
+        } else if let fasterVerificationBackCardAvatar = customizations["fasterVerificationBackCardAvatar"] as? String {
+            customTheme.fasterVerification.backCardAvatar = Jumio.Theme.Value(UIColor(hexString: fasterVerificationBackCardAvatar))
+        }
+
+        if let fasterVerificationBackCardDetailLine = customizations["fasterVerificationBackCardDetailLine"] as? [String: String?], let light = fasterVerificationBackCardDetailLine["light"] as? String, let dark = fasterVerificationBackCardDetailLine["dark"] as? String {
+            customTheme.fasterVerification.backCardDetailLine = Jumio.Theme.Value(light: UIColor(hexString: light), dark: UIColor(hexString: dark))
+        } else if let fasterVerificationBackCardDetailLine = customizations["fasterVerificationBackCardDetailLine"] as? String {
+            customTheme.fasterVerification.backCardDetailLine = Jumio.Theme.Value(UIColor(hexString: fasterVerificationBackCardDetailLine))
+        }
+
+        if let fasterVerificationFrontCardBackground = customizations["fasterVerificationFrontCardBackground"] as? [String: String?], let light = fasterVerificationFrontCardBackground["light"] as? String, let dark = fasterVerificationFrontCardBackground["dark"] as? String {
+            customTheme.fasterVerification.frontCardBackground = Jumio.Theme.Value(light: UIColor(hexString: light), dark: UIColor(hexString: dark))
+        } else if let fasterVerificationFrontCardBackground = customizations["fasterVerificationFrontCardBackground"] as? String {
+            customTheme.fasterVerification.frontCardBackground = Jumio.Theme.Value(UIColor(hexString: fasterVerificationFrontCardBackground))
+        }
+
+        if let fasterVerificationFrontCardOutline = customizations["fasterVerificationFrontCardOutline"] as? [String: String?], let light = fasterVerificationFrontCardOutline["light"] as? String, let dark = fasterVerificationFrontCardOutline["dark"] as? String {
+            customTheme.fasterVerification.frontCardOutline = Jumio.Theme.Value(light: UIColor(hexString: light), dark: UIColor(hexString: dark))
+        } else if let fasterVerificationFrontCardOutline = customizations["fasterVerificationFrontCardOutline"] as? String {
+            customTheme.fasterVerification.frontCardOutline = Jumio.Theme.Value(UIColor(hexString: fasterVerificationFrontCardOutline))
+        }
+
+        if let fasterVerificationFrontCardPhotoBackground = customizations["fasterVerificationFrontCardPhotoBackground"] as? [String: String?], let light = fasterVerificationFrontCardPhotoBackground["light"] as? String, let dark = fasterVerificationFrontCardPhotoBackground["dark"] as? String {
+            customTheme.fasterVerification.frontCardPhotoBackground = Jumio.Theme.Value(light: UIColor(hexString: light), dark: UIColor(hexString: dark))
+        } else if let fasterVerificationFrontCardPhotoBackground = customizations["fasterVerificationFrontCardPhotoBackground"] as? String {
+            customTheme.fasterVerification.frontCardPhotoBackground = Jumio.Theme.Value(UIColor(hexString: fasterVerificationFrontCardPhotoBackground))
+        }
+
+        if let fasterVerificationFrontCardPhotoAvatar = customizations["fasterVerificationFrontCardPhotoAvatar"] as? [String: String?], let light = fasterVerificationFrontCardPhotoAvatar["light"] as? String, let dark = fasterVerificationFrontCardPhotoAvatar["dark"] as? String {
+            customTheme.fasterVerification.frontCardPhotoAvatar = Jumio.Theme.Value(light: UIColor(hexString: light), dark: UIColor(hexString: dark))
+        } else if let fasterVerificationFrontCardPhotoAvatar = customizations["fasterVerificationFrontCardPhotoAvatar"] as? String {
+            customTheme.fasterVerification.frontCardPhotoAvatar = Jumio.Theme.Value(UIColor(hexString: fasterVerificationFrontCardPhotoAvatar))
+        }
+
+        if let fasterVerificationFrontCardDetailLine = customizations["fasterVerificationFrontCardDetailLine"] as? [String: String?], let light = fasterVerificationFrontCardDetailLine["light"] as? String, let dark = fasterVerificationFrontCardDetailLine["dark"] as? String {
+            customTheme.fasterVerification.frontCardDetailLine = Jumio.Theme.Value(light: UIColor(hexString: light), dark: UIColor(hexString: dark))
+        } else if let fasterVerificationFrontCardDetailLine = customizations["fasterVerificationFrontCardDetailLine"] as? String {
+            customTheme.fasterVerification.frontCardDetailLine = Jumio.Theme.Value(UIColor(hexString: fasterVerificationFrontCardDetailLine))
+        }
+
+        if let fasterVerificationVerifiedAccent = customizations["fasterVerificationVerifiedAccent"] as? [String: String?], let light = fasterVerificationVerifiedAccent["light"] as? String, let dark = fasterVerificationVerifiedAccent["dark"] as? String {
+            customTheme.fasterVerification.verifiedAccent = Jumio.Theme.Value(light: UIColor(hexString: light), dark: UIColor(hexString: dark))
+        } else if let fasterVerificationVerifiedAccent = customizations["fasterVerificationVerifiedAccent"] as? String {
+            customTheme.fasterVerification.verifiedAccent = Jumio.Theme.Value(UIColor(hexString: fasterVerificationVerifiedAccent))
+        }
+
+        if let fasterVerificationVerifiedBadgeBackground = customizations["fasterVerificationVerifiedBadgeBackground"] as? [String: String?], let light = fasterVerificationVerifiedBadgeBackground["light"] as? String, let dark = fasterVerificationVerifiedBadgeBackground["dark"] as? String {
+            customTheme.fasterVerification.verifiedBadgeBackground = Jumio.Theme.Value(light: UIColor(hexString: light), dark: UIColor(hexString: dark))
+        } else if let fasterVerificationVerifiedBadgeBackground = customizations["fasterVerificationVerifiedBadgeBackground"] as? String {
+            customTheme.fasterVerification.verifiedBadgeBackground = Jumio.Theme.Value(UIColor(hexString: fasterVerificationVerifiedBadgeBackground))
+        }
+
+        // Term Of Use
         if let termsOfUseForeground = customizations["termsOfUseForeground"] as? [String: String?], let light = termsOfUseForeground["light"] as? String, let dark = termsOfUseForeground["dark"] as? String {
             customTheme.termsOfUseForeground = Jumio.Theme.Value(light: UIColor(hexString: light), dark: UIColor(hexString: dark))
         } else if let termsOfUseForeground = customizations["termsOfUseForeground"] as? String {
             customTheme.termsOfUseForeground = Jumio.Theme.Value(UIColor(hexString: termsOfUseForeground))
         }
+
         return customTheme
     }
 }

@@ -1,7 +1,7 @@
 # Plugin for React Native
 Official Jumio Mobile SDK plugin for React Native
 
-This plugin is compatible with version 4.18.0 of the Jumio SDK.  
+This plugin is compatible with version 4.19.0 of the Jumio SDK.  
 If you have questions, please reach out to your Account Manager or contact [Jumio Support](#support).
 
 # Table of Contents
@@ -28,7 +28,7 @@ If you have questions, please reach out to your Account Manager or contact [Jumi
 - [Support](#support)
 
 ## Compatibility
-We only ensure compatibility with a minimum React Native version of 0.86.0
+We only ensure compatibility with a minimum React Native version of 0.87.1
 
 ## Setup
 Create React Native project and add the Jumio Mobile SDK module to it.
@@ -36,7 +36,7 @@ Create React Native project and add the Jumio Mobile SDK module to it.
 ```sh
 react-native init MyProject
 cd MyProject
-npm install --save https://github.com/Jumio/mobile-react.git#v4.18.0
+npm install --save https://github.com/Jumio/mobile-react.git#v4.19.0
 cd ios && pod install
 ```
 
@@ -71,8 +71,8 @@ Make sure your compileSdkVersion and buildToolsVersion are high enough.
 
 ```groovy
 android {
-  compileSdkVersion 33
-  buildToolsVersion "33.0.0"
+  compileSdkVersion 37
+  buildToolsVersion "37.0.0"
   ...
 }
 ```
@@ -91,7 +91,7 @@ android {
 ```
 
 __Upgrade Gradle build tools__    
-The plugin requires at least version 8.10.1 of the Android build tools. This transitively requires and upgrade of the Gradle wrapper to version 8.11.1 and an update to Java 11.
+The plugin requires at least version 8.10.1 of the Android build tools. This transitively requires and upgrade of the Gradle wrapper to version 8.11.1 and an update to Java 17.
 
 Upgrade build tools version to 8.10.1 in android/build.gradle:
 
@@ -128,6 +128,13 @@ exclusiveContent {
 
 #### Proguard 
 For information on Android Proguard Rules concerning the Jumio SDK, please refer to our [Android guides](https://github.com/Jumio/mobile-sdk-android#proguard).
+
+#### Jetifier and BouncyCastle (NFC)
+If Jetifier is enabled (`android.enableJetifier=true` in your `gradle.properties`), builds using the NFC module will fail because BouncyCastle `bcprov-jdk18on:1.83` ships Java 25 bytecode that Jetifier cannot scan. Add BouncyCastle to the Jetifier ignorelist in your `gradle.properties`:
+
+```
+android.jetifier.ignorelist=bcprov-jdk18on
+```
 
 ## Usage
 
@@ -269,6 +276,17 @@ You can pass the following customization options to the [`setupCustomizations()`
 | textForegroundColor                             |
 | primaryColor                                    |
 | selectionIconForeground                         |
+| fasterVerificationBackCardBackground            |
+| fasterVerificationBackCardOutline               |
+| fasterVerificationBackCardAvatar                |
+| fasterVerificationBackCardDetailLine            |
+| fasterVerificationFrontCardBackground           |
+| fasterVerificationFrontCardOutline              |
+| fasterVerificationFrontCardPhotoBackground      |
+| fasterVerificationFrontCardPhotoAvatar          |
+| fasterVerificationFrontCardDetailLine           |
+| fasterVerificationVerifiedAccent                |
+| fasterVerificationVerifiedBadgeBackground       |
 | termsOfUseForeground                            |
 
 All colors are provided with a HEX string in the following formats: `#ff00ff` or `#66ff00ff` if you want to set the alpha level.
