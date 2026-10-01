@@ -1,7 +1,7 @@
 # Plugin for React Native
 Official Jumio Mobile SDK plugin for React Native
 
-This plugin is compatible with version 4.19.0 of the Jumio SDK.  
+This plugin is compatible with version 4.19.1 of the Jumio Android SDK and 4.19.0 of the Jumio iOS SDK.  
 If you have questions, please reach out to your Account Manager or contact [Jumio Support](#support).
 
 # Table of Contents
@@ -36,7 +36,7 @@ Create React Native project and add the Jumio Mobile SDK module to it.
 ```sh
 react-native init MyProject
 cd MyProject
-npm install --save https://github.com/Jumio/mobile-react.git#v4.19.0
+npm install --save https://github.com/Jumio/mobile-react.git#v4.19.1
 cd ios && pod install
 ```
 
